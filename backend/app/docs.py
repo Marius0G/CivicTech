@@ -6,15 +6,17 @@ POST /docs/upload  (multipart, field name "file"): a photo of an ID ->
 POST /docs/profile (JSON): the user-confirmed (possibly edited) profile -> stored as active.
 GET  /docs/profile: the currently active profile (saved if any, else demo).
 
-No auth: a single demo user. The saved profile feeds get_profile / fill_form so the
-autopilot fills the form with the user's REAL country + date of birth.
+The saved profile is per-user (keyed by the signed-in Supabase user; the demo user when auth
+is off) and feeds get_profile / fill_form so the autopilot fills the form with the user's REAL
+country + date of birth.
 """
 
 import logging
 
-from fastapi import APIRouter, File, HTTPException, UploadFile
+from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from pydantic import BaseModel
 
+from .auth import User, get_current_user
 from .config import get_settings
 from .profile import get_active_profile, normalize_profile, set_active_profile
 from .vision import extract_profile_from_image
@@ -32,7 +34,10 @@ class ProfileIn(BaseModel):
 
 
 @router.post("/upload")
-async def upload_document(file: UploadFile = File(...)) -> dict:
+async def upload_document(
+    file: UploadFile = File(...),
+    user: User = Depends(get_current_user),
+) -> dict:
     """Read an ID photo and extract the holder's details for the user to review. No commit."""
     settings = get_settings()
     image_bytes = await file.read()
@@ -55,16 +60,20 @@ async def upload_document(file: UploadFile = File(...)) -> dict:
 
 
 @router.post("/profile")
-def save_profile(body: ProfileIn) -> dict:
+def save_profile(body: ProfileIn, user: User = Depends(get_current_user)) -> dict:
     """Store the user-confirmed profile (after they review/edit the scan). Country normalised."""
     profile = set_active_profile(
-        name=body.name, country=body.country, birthdate=body.birthdate, nationality=body.nationality
+        user.id,
+        name=body.name,
+        country=body.country,
+        birthdate=body.birthdate,
+        nationality=body.nationality,
     )
-    log.info("profile saved: %s", profile["name"] or "(no name)")
+    log.info("profile saved for %s: %s", user.id, profile["name"] or "(no name)")
     return {"ok": True, "profile": profile}
 
 
 @router.get("/profile")
-def current_profile() -> dict:
+def current_profile(user: User = Depends(get_current_user)) -> dict:
     """The profile the autopilot will fill (saved one if present, else the demo user)."""
-    return {"profile": get_active_profile()}
+    return {"profile": get_active_profile(user.id)}

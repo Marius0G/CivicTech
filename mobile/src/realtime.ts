@@ -21,6 +21,7 @@ import InCallManager from 'react-native-incall-manager';
 import { BACKEND_URL, OPENAI_CALLS_URL } from './config';
 import { interpretEvent, FunctionCall } from './realtimeEvents';
 import { attachAudioLevelProbe } from './audioLevel';
+import { authHeaders } from './supabase';
 
 export type { FunctionCall };
 
@@ -83,7 +84,7 @@ export async function connectRealtime(opts: ConnectOpts = {}): Promise<RealtimeH
   status('Getting session token…');
   const tokenRes = await fetch(`${BACKEND_URL}/realtime/token`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', ...(await authHeaders()) },
     body: JSON.stringify({ language: opts.language ?? 'en' }),
   });
   if (!tokenRes.ok) throw new Error(`token endpoint ${tokenRes.status}: ${await tokenRes.text()}`);

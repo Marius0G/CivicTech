@@ -11,6 +11,7 @@
 import { BACKEND_URL, OPENAI_CALLS_URL } from './config';
 import { interpretEvent, FunctionCall } from './realtimeEvents';
 import { attachAudioLevelProbe } from './audioLevel';
+import { authHeaders } from './supabase';
 
 export type { FunctionCall };
 
@@ -38,7 +39,10 @@ export async function connectRealtime(opts: ConnectOpts = {}): Promise<RealtimeH
 
   // 1) Mint an ephemeral token from our backend.
   status('Getting session token…');
-  const tokenRes = await fetch(`${BACKEND_URL}/realtime/token`, { method: 'POST' });
+  const tokenRes = await fetch(`${BACKEND_URL}/realtime/token`, {
+    method: 'POST',
+    headers: { ...(await authHeaders()) },
+  });
   if (!tokenRes.ok) throw new Error(`token endpoint ${tokenRes.status}: ${await tokenRes.text()}`);
   const token = await tokenRes.json();
   const ephemeralKey: string = token.value;

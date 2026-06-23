@@ -6,6 +6,7 @@
 // re-read into a Blob at upload time, so the public shape matches the native module exactly.
 
 import { BACKEND_URL } from './config';
+import { authHeaders } from './supabase';
 
 export interface ExtractedProfile {
   name: string;
@@ -66,7 +67,11 @@ export async function uploadIdImage(asset: PickedImage): Promise<UploadResult> {
   const blob = await (await fetch(asset.uri)).blob();
   const form = new FormData();
   form.append('file', blob, asset.fileName || 'id.jpg');
-  const res = await fetch(`${BACKEND_URL}/docs/upload`, { method: 'POST', body: form });
+  const res = await fetch(`${BACKEND_URL}/docs/upload`, {
+    method: 'POST',
+    body: form,
+    headers: { ...(await authHeaders()) },
+  });
   if (!res.ok) throw new Error(`upload ${res.status}: ${await res.text()}`);
   return (await res.json()) as UploadResult;
 }
@@ -75,7 +80,7 @@ export async function uploadIdImage(asset: PickedImage): Promise<UploadResult> {
 export async function saveProfile(fields: ExtractedProfile): Promise<ExtractedProfile> {
   const res = await fetch(`${BACKEND_URL}/docs/profile`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', ...(await authHeaders()) },
     body: JSON.stringify(fields),
   });
   if (!res.ok) throw new Error(`save ${res.status}: ${await res.text()}`);

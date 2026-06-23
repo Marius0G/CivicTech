@@ -16,6 +16,22 @@ export const BACKEND_URL = 'https://civictech-backend.jollyground-eead5389.swede
 // OpenAI Realtime WebRTC SDP endpoint (model is set server-side at token mint).
 export const OPENAI_CALLS_URL = 'https://api.openai.com/v1/realtime/calls';
 
+// SUPABASE — real per-user accounts (sign-in / sign-up). Both values are PUBLIC client keys
+// (the anon key is meant to ship in the app), so it's fine to keep them here like BACKEND_URL.
+// Create a free project at https://supabase.com, then Project Settings → API for these two.
+// The SAME project must be configured on the backend (SUPABASE_URL + SUPABASE_ANON_KEY +
+// SUPABASE_SERVICE_ROLE_KEY) so it can validate tokens and store profiles. See
+// deploy/supabase-setup.sql for the one-time table/RLS setup. Leaving the placeholders means
+// the app falls back to local guest mode and the backend stays in single demo-user mode.
+export const SUPABASE_URL = 'https://yennzufzradjhhlogwlq.supabase.co';
+export const SUPABASE_ANON_KEY =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inllbm56dWZ6cmFkamhobG9nd2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMDY2MTgsImV4cCI6MjA5Nzc4MjYxOH0.GRcaJ0CTfqFAzuyHSs5wUdhSj62GtzxWDvC6_QXFHeY';
+
+// True once real Supabase values are filled in (used to decide whether to enforce sign-in).
+export const SUPABASE_CONFIGURED =
+  SUPABASE_URL.startsWith('https://') && !SUPABASE_URL.includes('YOUR-PROJECT') &&
+  !!SUPABASE_ANON_KEY && !SUPABASE_ANON_KEY.startsWith('YOUR-');
+
 // DEMO-DAY SAFETY: force the autopilot to fill the *bundled* copy of the ESC eligibility form
 // (mobile/assets/eligibility.html) instead of loading youth.europa.eu live. Flip to `true` if
 // conference Wi-Fi / the live site is unreliable — the form fills identically (injection targets

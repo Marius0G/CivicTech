@@ -11,9 +11,10 @@ Run (dev):
 import logging
 from typing import Any
 
-from fastapi import Body, FastAPI, HTTPException
+from fastapi import Body, Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
+from .auth import User, get_current_user
 from .chat import router as chat_router
 from .config import get_settings
 from .docs import router as docs_router
@@ -52,8 +53,11 @@ def health() -> dict:
 
 
 @app.post("/realtime/token")
-async def realtime_token(body: dict[str, Any] = Body(default={})) -> dict:
-    """Mint a short-lived Realtime client secret (ek_...) for the mobile app.
+async def realtime_token(
+    body: dict[str, Any] = Body(default={}),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """Mint a short-lived Realtime client secret (ek_...) for the signed-in user's app.
 
     The app reads `.value` from the response and uses it as the WebRTC bearer token.
     The real OpenAI api key never leaves this server. An optional `{"language": "fr"}` body

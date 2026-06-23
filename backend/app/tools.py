@@ -10,8 +10,9 @@ the curated EU corpus; `web_search` hits Tavily constrained to europa.eu (Phase 
 import logging
 from typing import Any
 
-from fastapi import APIRouter, Body
+from fastapi import APIRouter, Body, Depends
 
+from .auth import User, get_current_user
 from .config import get_settings
 from .profile import get_active_profile
 from .rag import search as rag_search
@@ -23,17 +24,20 @@ router = APIRouter(prefix="/tools", tags=["tools"])
 
 
 @router.post("/get_profile")
-def get_profile() -> dict[str, Any]:
-    """Return the user's saved details for filling forms.
+def get_profile(user: User = Depends(get_current_user)) -> dict[str, Any]:
+    """Return the signed-in user's saved details for filling forms.
 
     This is the profile extracted from an uploaded ID (Phase 3) if one exists, else the
     demo user. `fill_form` uses these when the model doesn't supply country/birthdate.
     """
-    return {"profile": get_active_profile()}
+    return {"profile": get_active_profile(user.id)}
 
 
 @router.post("/search_eu_info")
-async def search_eu_info(args: dict[str, Any] = Body(default={})) -> dict[str, Any]:
+async def search_eu_info(
+    args: dict[str, Any] = Body(default={}),
+    user: User = Depends(get_current_user),
+) -> dict[str, Any]:
     """RAG over the EU knowledge base (seed corpus + crawled portals): chunks + source URLs."""
     query = args.get("query", "")
     k = int(args.get("k", 5))
@@ -46,7 +50,10 @@ async def search_eu_info(args: dict[str, Any] = Body(default={})) -> dict[str, A
 
 
 @router.post("/web_search")
-async def web_search(args: dict[str, Any] = Body(default={})) -> dict[str, Any]:
+async def web_search(
+    args: dict[str, Any] = Body(default={}),
+    user: User = Depends(get_current_user),
+) -> dict[str, Any]:
     """Live web search constrained to europa.eu via Tavily."""
     query = args.get("query", "")
     return await tavily_search(get_settings(), query)

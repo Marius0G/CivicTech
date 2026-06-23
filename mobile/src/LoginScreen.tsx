@@ -1,14 +1,20 @@
-// Mocked "EU ID" sign-in — design-system screens 1 (Welcome) + 2 (EU ID login).
+// "EU ID" sign-in — design-system screens 1 (Welcome) + 2 (login).
 //
-// This is a HACKATHON MOCK of eIDAS / EU Login single sign-on: no real national eID
-// provider is contacted. It introduces Pip, then shows a credible eID form whose
-// "Log in" briefly fakes the national-provider redirect before handing off to the app.
+// When Supabase is configured (SUPABASE_CONFIGURED) this performs REAL authentication: the
+// email/password form signs in (or signs up) against Supabase, and "Explore as guest" opens an
+// anonymous Supabase session. The styled "EU ID / secure SSO" chrome is kept from the design —
+// it's the same email+password account, presented in the EU-ID look. When Supabase is NOT yet
+// configured (placeholder keys) it falls back to the original HACKATHON MOCK (a short fake
+// redirect) so the app still runs end-to-end without a project.
+//
+// Navigation after a real sign-in is driven by App's onAuthStateChange listener (which flips the
+// auth gate the moment a session exists); in mock mode we call onDone directly.
 // Source of truth: design 665b0df4 — design_handoff/04_SCREENS.md (LoginScreen step 0/1).
 
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-  ActivityIndicator, Pressable, StatusBar, StyleSheet, Text,
+  ActivityIndicator, Alert, Pressable, StatusBar, StyleSheet, Text,
   TextInput, View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -17,17 +23,33 @@ import GradientBackground from './ui/GradientBackground';
 import Button from './ui/Button';
 import Icon, { IconName } from './ui/Icon';
 import { colors, fonts, radius, space } from './theme';
+import { SUPABASE_CONFIGURED } from './config';
+import { signInAsGuest, signInWithEmail, signUpWithEmail } from './supabase';
 
 interface Props {
-  /** Called once the mocked eID sign-in completes (or the user continues as guest). */
+  /** Mock-mode only: called when the fake sign-in / guest completes. With real Supabase auth,
+   *  App's session listener drives navigation instead and this isn't used. */
   onDone: (mode: 'eid' | 'guest') => void;
 }
 
 export default function LoginScreen({ onDone }: Props) {
   const [step, setStep] = useState<0 | 1>(0);
 
+  // Guest = an anonymous Supabase session when configured (App's listener then navigates), else
+  // the original mock guest hand-off.
+  async function handleGuest() {
+    if (!SUPABASE_CONFIGURED) return onDone('guest');
+    const { error } = await signInAsGuest();
+    if (error) {
+      Alert.alert(
+        'Guest mode unavailable',
+        `${error.message}\n\nEnable "Anonymous sign-ins" in Supabase → Authentication → Providers, or sign in with an email instead.`,
+      );
+    }
+  }
+
   return step === 0 ? (
-    <Welcome onContinue={() => setStep(1)} onGuest={() => onDone('guest')} />
+    <Welcome onContinue={() => setStep(1)} onGuest={handleGuest} />
   ) : (
     <EidForm onBack={() => setStep(0)} onLoggedIn={() => onDone('eid')} />
   );
@@ -66,22 +88,62 @@ function Welcome({ onContinue, onGuest }: { onContinue: () => void; onGuest: () 
   );
 }
 
-/* ---------------- Step 1 · EU ID login (mocked SSO) ---------------- */
+/* ---------------- Step 1 · EU ID login ---------------- */
 function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () => void }) {
   const { t } = useTranslation();
-  const [email, setEmail] = useState('lea.muller@eu.id');
-  const [password, setPassword] = useState('passport2026');
+  // Prefill the demo credentials only in mock mode; real auth starts blank.
+  const [email, setEmail] = useState(SUPABASE_CONFIGURED ? '' : 'lea.muller@eu.id');
+  const [password, setPassword] = useState(SUPABASE_CONFIGURED ? '' : 'passport2026');
+  const [mode, setMode] = useState<'signin' | 'signup'>('signin');
   const [showPw, setShowPw] = useState(false);
   const [keepSignedIn, setKeepSignedIn] = useState(true);
   const [authing, setAuthing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const insets = useSafeAreaInsets();
 
-  // Mocked national-eID redirect: a short delay then straight into the app.
-  function logIn() {
+  // Real Supabase sign-in / sign-up. On success, App's onAuthStateChange listener flips the gate
+  // and this screen unmounts (we keep the spinner up until then). In mock mode (no Supabase) we
+  // fake a brief national-eID redirect and hand off via onLoggedIn.
+  async function submit() {
     if (authing) return;
+    setError(null);
+    setNotice(null);
+
+    if (!SUPABASE_CONFIGURED) {
+      setAuthing(true);
+      timer.current = setTimeout(onLoggedIn, 1100);
+      return;
+    }
+    if (!email.trim() || !password) {
+      setError('Enter your email and password.');
+      return;
+    }
+
     setAuthing(true);
-    timer.current = setTimeout(onLoggedIn, 1100);
+    try {
+      const { data, error: authErr } =
+        mode === 'signin'
+          ? await signInWithEmail(email, password)
+          : await signUpWithEmail(email, password);
+      if (authErr) {
+        setError(authErr.message);
+        setAuthing(false);
+        return;
+      }
+      // Sign-up with email confirmation returns no session — tell the user to confirm, then sign in.
+      if (mode === 'signup' && !data.session) {
+        setNotice('Account created — check your email to confirm, then log in.');
+        setMode('signin');
+        setAuthing(false);
+        return;
+      }
+      // Otherwise a session now exists; the auth listener navigates. Leave the spinner running.
+    } catch (e: any) {
+      setError(String(e?.message ?? e));
+      setAuthing(false);
+    }
   }
 
   return (
@@ -130,36 +192,51 @@ function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () =>
               </View>
               <Text style={styles.switchLabel}>{t('login.keepSignedIn')}</Text>
             </Pressable>
-            <Text style={styles.link}>{t('login.forgot')}</Text>
+            {/* Sign-in / Sign-up toggle (real auth only). */}
+            {SUPABASE_CONFIGURED ? (
+              <Pressable onPress={() => { setMode((m) => (m === 'signin' ? 'signup' : 'signin')); setError(null); setNotice(null); }}>
+                <Text style={styles.link}>{mode === 'signin' ? 'Create account' : 'Have an account?'}</Text>
+              </Pressable>
+            ) : (
+              <Text style={styles.link}>{t('login.forgot')}</Text>
+            )}
           </View>
 
-          {/* Divider */}
-          <View style={styles.dividerRow}>
-            <View style={styles.dividerLine} />
-            <Text style={styles.dividerLabel}>{t('login.orContinueWith')}</Text>
-            <View style={styles.dividerLine} />
-          </View>
+          {/* Inline auth feedback. */}
+          {error ? <Text style={styles.errorText}>{error}</Text> : null}
+          {notice ? <Text style={styles.noticeText}>{notice}</Text> : null}
 
-          <View style={styles.altRow}>
-            <View style={styles.altItem}>
-              <Button
-                label={t('login.biometric')}
-                variant="ghost"
-                block
-                onPress={logIn}
-                left={<Icon name="fingerprint" size={20} />}
-              />
-            </View>
-            <View style={styles.altItem}>
-              <Button
-                label={t('login.scanQr')}
-                variant="ghost"
-                block
-                onPress={logIn}
-                left={<Icon name="qr-code" size={20} />}
-              />
-            </View>
-          </View>
+          {/* Mock-only alternative sign-in methods (biometric / QR are not wired to real auth). */}
+          {!SUPABASE_CONFIGURED && (
+            <>
+              <View style={styles.dividerRow}>
+                <View style={styles.dividerLine} />
+                <Text style={styles.dividerLabel}>{t('login.orContinueWith')}</Text>
+                <View style={styles.dividerLine} />
+              </View>
+
+              <View style={styles.altRow}>
+                <View style={styles.altItem}>
+                  <Button
+                    label={t('login.biometric')}
+                    variant="ghost"
+                    block
+                    onPress={submit}
+                    left={<Icon name="fingerprint" size={20} />}
+                  />
+                </View>
+                <View style={styles.altItem}>
+                  <Button
+                    label={t('login.scanQr')}
+                    variant="ghost"
+                    block
+                    onPress={submit}
+                    left={<Icon name="qr-code" size={20} />}
+                  />
+                </View>
+              </View>
+            </>
+          )}
         </View>
 
         {/* Footer login */}
@@ -170,7 +247,14 @@ function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () =>
               <Text style={styles.authingText}>{t('login.signingIn')}</Text>
             </View>
           ) : (
-            <Button label={t('login.logIn')} variant="primary" size="lg" block glow onPress={logIn} />
+            <Button
+              label={SUPABASE_CONFIGURED && mode === 'signup' ? 'Create account' : t('login.logIn')}
+              variant="primary"
+              size="lg"
+              block
+              glow
+              onPress={submit}
+            />
           )}
         </View>
       </View>
@@ -299,4 +383,6 @@ const styles = StyleSheet.create({
     borderWidth: 1, borderColor: colors.borderSubtle,
   },
   authingText: { color: colors.textSecondary, fontFamily: fonts.sansMedium, fontSize: 14 },
+  errorText: { color: '#ff6b6b', fontFamily: fonts.sansMedium, fontSize: 13, marginTop: -space.s2 },
+  noticeText: { color: colors.textSecondary, fontFamily: fonts.sansMedium, fontSize: 13, marginTop: -space.s2 },
 });
