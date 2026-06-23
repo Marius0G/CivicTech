@@ -15,17 +15,9 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-<<<<<<< HEAD
-        "NSMicrophoneUsageDescription": "Hoppy needs your microphone so you can talk with it.",
-        "NSLocationWhenInUseUsageDescription": "Pip uses your location to show EU opportunities and forms near you."
-      },
-      "bitcode": false,
-      "bundleIdentifier": "eu.youthbuddy.app"
-=======
         "NSMicrophoneUsageDescription": "Hop needs your microphone so you can talk with it.",
         "NSLocationWhenInUseUsageDescription": "Hop uses your location to show EU opportunities and forms near you."
       }
->>>>>>> origin/main
     },
     "android": {
       "package": "eu.youthbuddy.app",

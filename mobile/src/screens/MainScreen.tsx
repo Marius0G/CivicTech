@@ -1,13 +1,7 @@
 // Screen 3 · Main · Hop hub — the immersive voice home.
-<<<<<<< HEAD
-// Big glowing Pip + a time-based greeting, a BIG mic button (idle → connecting spinner →
-// listening), and the quick-chips + "Ask Pip anything…" bar. When the channel is live the
-// greeting hides, Pip grows (speaking), the chips give way to live tool-call cards.
-=======
 // Big glowing Hop + a time-based greeting, a BIG mic button (idle → connecting spinner →
 // listening), and the quick-chips + "Ask Hop anything…" bar. When the channel is live the
 // greeting hides, Hop grows (speaking), the chips give way to live tool-call cards.
->>>>>>> origin/main
 
 import React, { useEffect, useRef } from 'react';
 import {
