@@ -8,11 +8,25 @@ import * as FileSystem from 'expo-file-system/legacy';
 import { BACKEND_URL } from './config';
 import { authHeaders } from './supabase';
 
+// Visible fields of a Romanian identity card (carte de identitate), plus `country` for the ESC
+// form. The four original fields stay required for back-compat; the rest are optional so a
+// partial scan still type-checks.
 export interface ExtractedProfile {
   name: string;
   country: string; // normalised Drupal option code, e.g. "RO"
-  birthdate: string; // yyyy-mm-dd
-  nationality: string;
+  birthdate: string; // yyyy-mm-dd (Data nașterii)
+  nationality: string; // Cetățenie
+  first_name?: string; // Prenume
+  last_name?: string; // Nume
+  cnp?: string; // Cod Numeric Personal
+  sex?: string; // M / F
+  place_of_birth?: string; // Loc naștere
+  address?: string; // Domiciliu
+  series?: string; // Seria
+  doc_number?: string; // Număr
+  issued_by?: string; // Emisă de
+  issue_date?: string; // Data eliberării
+  expiry_date?: string; // Valabilitate
 }
 
 export interface UploadResult {

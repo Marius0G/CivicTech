@@ -1,25 +1,37 @@
-// Screen 7 · Documents vault (documentsscreen.png) — stored IDs/certs with verify states.
+// Screen 7 · Documents vault — the user's REAL documents. Empty until they scan an ID; once a
+// profile is saved, the identity card shows here and opens a read-only detail view on tap.
 
 import React from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import TopBar, { circleBtnStyle } from '../ui/TopBar';
 import Card from '../ui/Card';
-import Icon, { IconName } from '../ui/Icon';
+import Icon from '../ui/Icon';
 import { colors, fonts, radius, space } from '../theme';
+import { ExtractedProfile } from '../profileUpload';
 
-type TFunc = (key: string) => string;
-
-const buildDocs = (t: TFunc): { icon: IconName; title: string; sub: string; verified?: boolean }[] => [
-  { icon: 'seal-check', title: t('docs.idCardTitle'), sub: t('docs.idCardSub'), verified: true },
-  { icon: 'graduation-cap', title: t('docs.enrolmentTitle'), sub: t('docs.enrolmentSub') },
-  { icon: 'file-text', title: t('docs.transcriptTitle'), sub: t('docs.transcriptSub') },
-  { icon: 'house', title: t('docs.rentalTitle'), sub: t('docs.rentalSub') },
+// Fields that mean "an ID has actually been scanned & saved" (so we show the card, not empty).
+const ID_PRESENCE_FIELDS: (keyof ExtractedProfile)[] = [
+  'name', 'last_name', 'first_name', 'cnp', 'birthdate', 'doc_number',
 ];
 
-export default function DocsScreen({ onBack, onUpload }: { onBack: () => void; onUpload: () => void }) {
+export function hasIdOnFile(profile: ExtractedProfile | null | undefined): boolean {
+  return !!profile && ID_PRESENCE_FIELDS.some((k) => String(profile[k] ?? '').trim() !== '');
+}
+
+export default function DocsScreen({
+  onBack, onUpload, profile, onOpenDoc,
+}: {
+  onBack: () => void;
+  onUpload: () => void;
+  profile: ExtractedProfile | null;
+  onOpenDoc: () => void;
+}) {
   const { t } = useTranslation();
-  const DOCS = buildDocs(t);
+  const hasId = hasIdOnFile(profile);
+  const holder = profile?.name
+    || [profile?.first_name, profile?.last_name].filter(Boolean).join(' ');
+
   return (
     <View style={styles.safe}>
       <TopBar
@@ -41,25 +53,24 @@ export default function DocsScreen({ onBack, onUpload }: { onBack: () => void; o
 
         <Text style={styles.eyebrow}>{t('docs.vaultEyebrow')}</Text>
 
-        <Card style={styles.vault}>
-          {DOCS.map((d, i) => (
-            <View key={d.title} style={[styles.item, i < DOCS.length - 1 && styles.itemDivider]}>
-              <View style={styles.iconTile}><Icon name={d.icon} size={21} color={colors.golden500} /></View>
+        {hasId ? (
+          <Card style={styles.vault}>
+            <Pressable style={styles.item} onPress={onOpenDoc}>
+              <View style={styles.iconTile}><Icon name="seal-check" size={21} color={colors.golden500} /></View>
               <View style={styles.flex}>
-                <Text style={styles.itemTitle} numberOfLines={1}>{d.title}</Text>
-                <Text style={styles.itemSub} numberOfLines={1}>{d.sub}</Text>
+                <Text style={styles.itemTitle} numberOfLines={1}>{t('docs.idCardTitle')}</Text>
+                <Text style={styles.itemSub} numberOfLines={1}>{holder || t('docs.idCardOnFileSub')}</Text>
               </View>
-              {d.verified
-                ? (
-                  <View style={styles.badge}>
-                    <Text style={styles.badgeDot}>●</Text>
-                    <Text style={styles.badgeText}>{t('docs.verifiedBadge')}</Text>
-                  </View>
-                )
-                : <Icon name="kebab" size={18} color={colors.textTertiary} />}
-            </View>
-          ))}
-        </Card>
+              <Icon name="chevron-right" size={18} color={colors.textTertiary} />
+            </Pressable>
+          </Card>
+        ) : (
+          <View style={styles.empty}>
+            <View style={styles.emptyIcon}><Icon name="folder" size={28} color={colors.textTertiary} /></View>
+            <Text style={styles.emptyTitle}>{t('docs.emptyTitle')}</Text>
+            <Text style={styles.emptyBody}>{t('docs.emptyBody')}</Text>
+          </View>
+        )}
       </ScrollView>
     </View>
   );
@@ -76,7 +87,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primarySoft, borderWidth: 1, borderColor: colors.borderSubtle,
     borderRadius: radius.xl, padding: space.s4,
   },
-  cloud: { fontSize: 26 },
   promptText: { flex: 1, color: colors.textSecondary, fontFamily: fonts.sans, fontSize: 14, lineHeight: 19 },
   promptBold: { color: colors.textPrimary, fontFamily: fonts.sansBold },
   uploadBtn: { backgroundColor: colors.primary, borderRadius: radius.md, paddingHorizontal: space.s4, paddingVertical: space.s2 },
@@ -88,18 +98,20 @@ const styles = StyleSheet.create({
   },
   vault: { paddingHorizontal: space.s4 },
   item: { flexDirection: 'row', alignItems: 'center', gap: space.s3, paddingVertical: space.s3 },
-  itemDivider: { borderBottomWidth: 1, borderBottomColor: colors.borderSubtle },
   iconTile: {
     width: 44, height: 44, borderRadius: 12, backgroundColor: colors.surfaceRaised,
     alignItems: 'center', justifyContent: 'center',
   },
   itemTitle: { color: colors.textPrimary, fontFamily: fonts.sansBold, fontSize: 16 },
   itemSub: { color: colors.textTertiary, fontFamily: fonts.sans, fontSize: 13, marginTop: 1 },
-  badge: {
-    flexDirection: 'row', alignItems: 'center', gap: 4,
-    backgroundColor: colors.successSoft, borderRadius: radius.pill, paddingHorizontal: space.s3, paddingVertical: 5,
+
+  empty: {
+    alignItems: 'center', gap: space.s2, paddingVertical: space.s8, paddingHorizontal: space.s6,
   },
-  badgeDot: { color: colors.success, fontSize: 8 },
-  badgeText: { color: colors.success, fontFamily: fonts.sansBold, fontSize: 12 },
-  kebab: { color: colors.textTertiary, fontSize: 20, paddingHorizontal: space.s2 },
+  emptyIcon: {
+    width: 56, height: 56, borderRadius: 28, backgroundColor: colors.surfaceRaised,
+    alignItems: 'center', justifyContent: 'center', marginBottom: space.s1,
+  },
+  emptyTitle: { color: colors.textPrimary, fontFamily: fonts.sansBold, fontSize: 16 },
+  emptyBody: { color: colors.textTertiary, fontFamily: fonts.sans, fontSize: 14, textAlign: 'center', lineHeight: 20 },
 });

@@ -1,9 +1,9 @@
-// Mascot3D — Pip rendered from pip.glb with react-three-fiber + expo-gl. Plays the baked clips
+// Mascot3D — Hop rendered from pip.glb with react-three-fiber + expo-gl. Plays the baked clips
 // (Idle/Talk/Listen/Doze + one-shot gestures), drives the `mouthOpen` morph from live voice loudness
-// (lip-sync), and runs its OWN idle scheduler so Pip waves / looks around / fidgets / dozes wherever
+// (lip-sync), and runs its OWN idle scheduler so Hop waves / looks around / fidgets / dozes wherever
 // it's shown (incl. the login screen) without the app micromanaging it.
 //
-// Loaded LAZILY by Mascot.tsx only when glbConfig.PIP_GLB_SOURCE is set, so the native 3D stack is
+// Loaded LAZILY by Mascot.tsx only when glbConfig.HOP_GLB_SOURCE is set, so the native 3D stack is
 // never evaluated until an asset is configured + the app rebuilt (expo-gl is a native module).
 //
 // Single-action model: exactly one AnimationAction plays at a time. Base loops crossfade; one-shots
@@ -17,14 +17,14 @@ import * as THREE from 'three';
 import { MascotProps } from './mascotProps';
 import { loadGlb, LoadedGlb } from './glbLoader';
 import {
-  PIP_BASE_BY_ACTIVITY, PIP_IDLE_GESTURES, PIP_DOZE_AFTER_MS, PIP_MOUTH_MORPH,
+  HOP_BASE_BY_ACTIVITY, HOP_IDLE_GESTURES, HOP_DOZE_AFTER_MS, HOP_MOUTH_MORPH,
 } from './glbConfig';
 
 type Props = MascotProps & { source: number };
 
 // The GL canvas renders LARGER than its layout slot (overflows it) so the frog stays at full size
 // while the camera keeps enough margin that crown/hands/feet are never clipped at the frustum edges.
-// Bigger OVERSCAN = bigger canvas (more room for limbs); smaller CAM_Z = bigger Pip.
+// Bigger OVERSCAN = bigger canvas (more room for limbs); smaller CAM_Z = bigger Hop.
 const OVERSCAN = 1.6;
 const CAM_Z = 3.8; // frames the ~2-unit model with ~13% margin at fov 32 (uncut, still big)
 
@@ -47,14 +47,14 @@ export default function Mascot3D({ source, size = 128, speaking, celebrate, leve
         <ambientLight intensity={1.15} />
         <directionalLight position={[2.5, 4, 5]} intensity={1.7} />
         {data && (
-          <Pip data={data} speaking={!!speaking} celebrate={!!celebrate} levelValue={levelValue} activity={activity} gesture={gesture} />
+          <Hop data={data} speaking={!!speaking} celebrate={!!celebrate} levelValue={levelValue} activity={activity} gesture={gesture} />
         )}
       </Canvas>
     </View>
   );
 }
 
-function Pip({ data, speaking, celebrate, levelValue, activity, gesture }: {
+function Hop({ data, speaking, celebrate, levelValue, activity, gesture }: {
   data: LoadedGlb; speaking: boolean; celebrate: boolean;
   levelValue?: MascotProps['levelValue']; activity?: MascotProps['activity']; gesture?: MascotProps['gesture'];
 }) {
@@ -95,8 +95,8 @@ function Pip({ data, speaking, celebrate, levelValue, activity, gesture }: {
 
     scene.traverse((o: THREE.Object3D) => {
       const m = o as THREE.Mesh;
-      if (m.isMesh && m.morphTargetDictionary && PIP_MOUTH_MORPH in m.morphTargetDictionary) {
-        morph.current = { mesh: m, idx: m.morphTargetDictionary[PIP_MOUTH_MORPH] };
+      if (m.isMesh && m.morphTargetDictionary && HOP_MOUTH_MORPH in m.morphTargetDictionary) {
+        morph.current = { mesh: m, idx: m.morphTargetDictionary[HOP_MOUTH_MORPH] };
       }
     });
 
@@ -113,7 +113,7 @@ function Pip({ data, speaking, celebrate, levelValue, activity, gesture }: {
   // activity (or speaking) → base loop
   useEffect(() => {
     const act = activity ?? (speaking ? 'talking' : 'idle');
-    baseClip.current = PIP_BASE_BY_ACTIVITY[act] || 'Idle';
+    baseClip.current = HOP_BASE_BY_ACTIVITY[act] || 'Idle';
     lastActive.current = Date.now();
     if (!inOneShot.current) playBase(baseClip.current);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -143,11 +143,11 @@ function Pip({ data, speaking, celebrate, levelValue, activity, gesture }: {
         if (!alive) return;
         const idle = baseClip.current === 'Idle';
         if (idle && !inOneShot.current) {
-          if (Date.now() - lastActive.current > PIP_DOZE_AFTER_MS) {
+          if (Date.now() - lastActive.current > HOP_DOZE_AFTER_MS) {
             baseClip.current = 'Doze';
             playBase('Doze');
           } else {
-            const g = PIP_IDLE_GESTURES[Math.floor(Math.random() * PIP_IDLE_GESTURES.length)];
+            const g = HOP_IDLE_GESTURES[Math.floor(Math.random() * HOP_IDLE_GESTURES.length)];
             playOnce(g);
           }
         }

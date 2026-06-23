@@ -128,7 +128,7 @@ inject JavaScript freely.
 
 ## 5. The mascot
 
-A friendly **frog** character (e.g. "Hoppy"). Warm, encouraging, plain-language, a little
+A friendly **frog** character (e.g. "Hop"). Warm, encouraging, plain-language, a little
 playful — **never cringe, never pretends to be human**. Rendered in **Rive** with at least
 three states: `idle`, `talking` (mouth driven by Realtime audio amplitude), `celebrate`
 (used on the success beat).

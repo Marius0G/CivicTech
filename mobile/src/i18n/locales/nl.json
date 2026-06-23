@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetToby": "Maak kennis met Toby",
+    "meetPip": "Maak kennis met Hop",
     "welcomeSub": "Je maatje voor het leven in de EU — beurzen, Erasmus, huisvesting en elk formulier daartussenin.",
     "continueWithEuId": "Doorgaan met EU ID",
     "exploreAsGuest": "Verkennen als gast",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Start",
     "docsLabel": "Documenten",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Ik"
   },
   "location": {
@@ -39,7 +39,7 @@
     "errorCapture": "Kon de foto niet maken",
     "errorGallery": "Kon de galerij niet openen",
     "permTitle": "Toegang tot camera nodig",
-    "permBody": "Hoppy gebruikt de camera om een duidelijke foto van je ID te maken en je EU-formulieren voor je in te vullen.",
+    "permBody": "Hop gebruikt de camera om een duidelijke foto van je ID te maken en je EU-formulieren voor je in te vullen.",
     "permAllow": "Camera toestaan",
     "permGallery": "Kies in plaats daarvan uit de galerij",
     "permCancel": "Annuleren",
@@ -83,22 +83,22 @@
     "greetingEvening": "Goedenavond",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Verbinden…",
-    "tapToTalk": "Tik om met Pip te praten",
-    "askPipPlaceholder": "Vraag Pip wat je wilt…"
+    "tapToTalk": "Tik om met Hop te praten",
+    "askPipPlaceholder": "Vraag Hop wat je wilt…"
   },
   "chat": {
-    "seedGreeting": "Hé! 🐸 Ik ben Pip. Vraag me alles over EU-kansen — Erasmus, beurzen, het Solidariteitskorps, huisvesting, je rechten…",
+    "seedGreeting": "Hé! 🐸 Ik ben Hop. Vraag me alles over EU-kansen — Erasmus, beurzen, het Solidariteitskorps, huisvesting, je rechten…",
     "quickErasmusDeadlines": "Erasmus-deadlines",
     "quickFindGrant": "Een beurs vinden",
     "quickEuYouthRights": "Rechten van EU-jongeren",
     "reachError": "Ik kon mijn brein zojuist niet bereiken ({{error}}).",
     "presenceOnline": "online · web + EU-index",
-    "typing": "Pip is aan het typen…",
-    "inputPlaceholder": "Bericht aan Pip…"
+    "typing": "Hop is aan het typen…",
+    "inputPlaceholder": "Bericht aan Hop…"
   },
   "docs": {
-    "screenTitle": "Documenten",
-    "promptPrefix": "Zet een bestand neer en Pip gaat het ",
+    "screenTitle": "Mijn documenten",
+    "promptPrefix": "Zet een bestand neer en Hop gaat het ",
     "promptHighlight": "lezen, sorteren en onthouden",
     "promptSuffix": ".",
     "uploadButton": "Uploaden",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Cijferlijst",
     "transcriptSub": "Wacht op verificatie",
     "rentalTitle": "Huurovereenkomst",
-    "rentalSub": "Concept · gedeeld met Pip"
+    "rentalSub": "Concept · gedeeld met Hop"
   },
   "upload": {
     "screenTitle": "Document toevoegen",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Scannen met camera",
     "uploadingEyebrow": "UPLOADEN",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip leest het — ik haal automatisch je ",
+    "readingPrefix": "Hop leest het — ik haal automatisch je ",
     "readingHighlight": "universiteit & datums",
     "readingSuffix": " eruit.",
     "readingButton": "Lezen…"
   },
   "erasmus": {
     "title": "Erasmus+ helper",
-    "watchingScreen": "Pip kijkt mee op je scherm",
+    "watchingScreen": "Hop kijkt mee op je scherm",
     "guiding": "Begeleidt je door het formulier",
     "recBadge": "REC"
   },
@@ -137,9 +137,9 @@
     "euIdVerified": "EU ID geverifieerd",
     "student": "Student",
     "language": "Taal",
-    "voice": "Hoppy's stem",
+    "voice": "Hop's stem",
     "pushNotifications": "Pushmeldingen",
-    "letPipSeeScreen": "Laat Pip mijn scherm zien",
+    "letPipSeeScreen": "Laat Hop mijn scherm zien",
     "shareAnonymousData": "Anonieme gegevens delen",
     "privacyData": "Privacy & gegevens",
     "helpSupport": "Hulp & EU-ondersteuning",
@@ -151,18 +151,18 @@
     "eyebrow": "ALLE TALEN"
   },
   "voice": {
-    "title": "Hoppy's stem",
-    "subtitle": "Kies de stem waarmee Hoppy spreekt. Wordt toegepast de volgende keer dat je op de microfoon tikt.",
+    "title": "Hop's stem",
+    "subtitle": "Kies de stem waarmee Hop spreekt. Wordt toegepast de volgende keer dat je op de microfoon tikt.",
     "eyebrow": "ALLE STEMMEN"
   },
   "app": {
-    "tapMicPrompt": "Tik op de microfoon en vraag Hoppy dan om je aan te melden.",
+    "tapMicPrompt": "Tik op de microfoon en vraag Hop dan om je aan te melden.",
     "tapToTalkAgain": "Tik op de microfoon om weer te praten.",
     "micDenied": "Toestemming voor microfoon geweigerd.",
     "readingId": "Je ID wordt gelezen…",
     "scanFailed": "Scannen mislukt: {{error}}",
     "pickFailed": "Kiezen mislukt: {{error}}",
-    "gotItNamed": "Begrepen, {{name}}! Vraag Hoppy om je aan te melden.",
+    "gotItNamed": "Begrepen, {{name}}! Vraag Hop om je aan te melden.",
     "friend": "vriend",
     "couldNotSave": "Kon niet opslaan: {{error}}",
     "coachingDefault": "Tik op het gemarkeerde veld en typ je thuisuniversiteit. Ik controleer of die in aanmerking komt.",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Meldingen",
-    "body": "Ontvang herinneringen over deadlines, subsidies en antwoorden van Pip.",
+    "body": "Ontvang herinneringen over deadlines, subsidies en antwoorden van Hop.",
     "receive": "Meldingen ontvangen",
     "onHint": "Je ontvangt herinneringen, zelfs als de app gesloten is.",
     "offHint": "Zet dit aan om herinneringen over deadlines en antwoorden te krijgen."

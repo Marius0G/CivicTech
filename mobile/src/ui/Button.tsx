@@ -1,5 +1,5 @@
 // Button — RN port of the design system's Button (core/Button.jsx).
-// Variants map to the DS: primary (golden), brand (Pip green), ghost, lime, danger.
+// Variants map to the DS: primary (golden), brand (Hop green), ghost, lime, danger.
 // Tactile press: scale-down to 0.98 (DS press state). Sentence case copy.
 
 import React, { useRef } from 'react';

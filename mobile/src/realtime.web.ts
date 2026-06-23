@@ -3,7 +3,7 @@
 // Same flow as the native file (mint token → peer connection + mic + data channel → POST SDP to
 // OpenAI → audio both ways → surface function calls), but:
 //   • RTCPeerConnection / getUserMedia are browser globals — no react-native-webrtc.
-//   • Hoppy's voice plays through a hidden <audio> element — browsers don't auto-play remote
+//   • Hop's voice plays through a hidden <audio> element — browsers don't auto-play remote
 //     tracks, and there's no loudspeaker routing to do (no InCallManager).
 // The data-channel parsing, tool-call surfacing and getStats() lip-sync probe are shared logic
 // (audioLevel.ts works as-is because browser getStats() returns a Map-like RTCStatsReport).
@@ -26,15 +26,15 @@ interface ConnectOpts {
   onStatus?: (s: string) => void;
   onEvent?: (event: any) => void;
   onFunctionCall?: (call: FunctionCall) => void;
-  /** Hoppy started/stopped speaking — drives the mascot's talking animation. */
+  /** Hop started/stopped speaking — drives the mascot's talking animation. */
   onSpeakingChange?: (speaking: boolean) => void;
   /** A spoken chunk arrived — pulse the mascot's mouth (rough lip-sync). */
   onAudioPulse?: () => void;
   /** Real 0..1 voice loudness sampled from getStats() — drives true lip-sync. */
   onLevel?: (level: number) => void;
-  /** i18n code (e.g. "fr") so Hoppy greets/answers in the user's chosen language. */
+  /** i18n code (e.g. "fr") so Hop greets/answers in the user's chosen language. */
   language?: string;
-  /** OpenAI Realtime voice id (e.g. "cedar") so Hoppy uses the user's chosen voice. */
+  /** OpenAI Realtime voice id (e.g. "cedar") so Hop uses the user's chosen voice. */
   voice?: string;
 }
 
@@ -56,7 +56,7 @@ export async function connectRealtime(opts: ConnectOpts = {}): Promise<RealtimeH
   status('Setting up audio…');
   const pc = new RTCPeerConnection({ iceServers: [] });
 
-  // Hidden <audio> element actually plays Hoppy's voice (the browser won't auto-play the remote
+  // Hidden <audio> element actually plays Hop's voice (the browser won't auto-play the remote
   // track on its own). autoplay + playsInline is the iOS-Safari-friendly combo.
   const audioEl = document.createElement('audio');
   audioEl.autoplay = true;
@@ -71,7 +71,7 @@ export async function connectRealtime(opts: ConnectOpts = {}): Promise<RealtimeH
       // play() can reject if the gesture window lapsed; the mic-permission grant usually counts as
       // activation, so this normally succeeds. Ignore the rejection either way.
       audioEl.play().catch(() => {});
-      status('🐸 Hoppy is connected — say hi!');
+      status('🐸 Hop is connected — say hi!');
       if (opts.onLevel && !stopLevelProbe) {
         stopLevelProbe = attachAudioLevelProbe(pc as any, opts.onLevel);
       }
@@ -108,7 +108,7 @@ export async function connectRealtime(opts: ConnectOpts = {}): Promise<RealtimeH
   dc.addEventListener('open', () => status('Channel open. Listening…'));
 
   // 3) Offer -> OpenAI -> answer.
-  status('Connecting to Hoppy…');
+  status('Connecting to Hop…');
   const offer = await pc.createOffer();
   await pc.setLocalDescription(offer);
 

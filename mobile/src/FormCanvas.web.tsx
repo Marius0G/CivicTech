@@ -1,7 +1,7 @@
 // WEB twin of FormCanvas. A browser cannot script a cross-origin government form — the same-origin
 // policy blocks reading/writing an <iframe>'s document, and there's no injectJavaScript equivalent.
 // So the autopilot can't auto-fill on web: App's openForm() opens the real form in a NEW TAB, and
-// Hoppy dictates what to type. injectAndWait resolves with a clear "not available on web" result so
+// Hop dictates what to type. injectAndWait resolves with a clear "not available on web" result so
 // the model tells the user the values instead of trying (and silently failing) to fill them.
 
 import React, { forwardRef, useImperativeHandle } from 'react';
@@ -38,8 +38,8 @@ export default forwardRef<FormCanvasHandle, Props>(function FormCanvas({ formUrl
       <Text style={styles.emoji}>🪟↗</Text>
       <Text style={styles.title}>The official form opened in a new tab</Text>
       <Text style={styles.body}>
-        For your security, browsers don’t let Hoppy type directly into government sites. Switch to
-        the new tab — Hoppy will tell you exactly what to enter in each field.
+        For your security, browsers don’t let Hop type directly into government sites. Switch to
+        the new tab — Hop will tell you exactly what to enter in each field.
       </Text>
       <Text style={styles.link} onPress={() => Linking.openURL(formUrl)}>
         Re-open the form ↗

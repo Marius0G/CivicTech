@@ -20,13 +20,13 @@ both *before* polishing the mascot or RAG. A pretty frog is worthless if the aut
 
 - ✅ **Phase 0** — autopilot fill proven against the real ESC eligibility form (jsdom proof passes).
 - ✅ **Phase 1** — backend `/realtime/token` built & verified (incl. happy-path via mock); client
-  WebRTC voice module + "Talk to Hoppy" wired in `mobile/`. *On-device voice check pending your
+  WebRTC voice module + "Talk to Hop" wired in `mobile/`. *On-device voice check pending your
   Android toolchain + OpenAI key.*
 - ✅ **Phase 2** — function-call bridge: 6 tools defined, routed (client→WebView, server→FastAPI),
   results returned to the model. Backend `/tools/*` live-tested; client router proven by
   `mobile/verify-tools.mjs` (15/15, injected JS runs against the real form).
 - ✅ **ON-DEVICE (Phases 0–2 verified live on an Android phone):** voice in/out (OpenAI Realtime
-  over WebRTC), Hoppy on **loudspeaker** + faster speech (`speed` 1.3), tool calls firing, and the
+  over WebRTC), Hop on **loudspeaker** + faster speech (`speed` 1.3), tool calls firing, and the
   **autopilot fills the real ESC form** — with both the saved profile and dynamically-spoken data
   (country names resolved to Drupal codes). Build = Expo SDK 56 dev client.
   - Gotcha fixed: **Hermes strips `Function.toString()` source** → injected scripts must be literal
@@ -91,7 +91,7 @@ If this fails, stop and rethink the autopilot before doing anything else.
 - [ ] CORS / local network access so the phone can reach the laptop.
 - [ ] In the app: `react-native-webrtc`, connect to OpenAI Realtime using the ephemeral token,
       establish audio in/out + the data channel.
-- [ ] Hardcode a system prompt: "You are Hoppy, a friendly frog who helps EU youth…".
+- [ ] Hardcode a system prompt: "You are Hop, a friendly frog who helps EU youth…".
 
 **✅ Checkpoint:** you can talk to the frog and hear it reply (no tools yet, no mascot yet).
 
@@ -145,7 +145,7 @@ WebView and fills the two fields. **This is the demo's spine. Everything else is
 
 - [x] Frog with `idle` / `talking` / `celebrate` states — pure-RN `Animated` (`Mascot.tsx`).
       (Rive deferred: scaffolded as a drop-in upgrade with matching props once a `.riv` is sourced.)
-- [x] Drive the `talking` state from Realtime speech events (mouth moves when Hoppy speaks).
+- [x] Drive the `talking` state from Realtime speech events (mouth moves when Hop speaks).
       True PCM amplitude isn't exposed over WebRTC, so we approximate from transcript-delta +
       output-audio-buffer events (`realtimeEvents.ts`).
 - [x] Trigger `celebrate` on the success beat after the form is filled (`fill_form` ok → jump + ✨).

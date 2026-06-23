@@ -1,4 +1,4 @@
-// MascotSvg — Pip drawn with react-native-svg (already a dependency). Illustrated vector frog
+// MascotSvg — Hop drawn with react-native-svg (already a dependency). Illustrated vector frog
 // modelled on character.png: round blue/green body with a gold crown, a ring of EU stars on a
 // cream belly, big friendly eyes, a raised waving hand and webbed feet. Real gradients + line-art
 // instead of stacked geometric Views, so it reads as "designed", not placeholder.

@@ -24,15 +24,16 @@ TOOL_DEFS = [
         "type": "function",
         "name": "fill_form",
         "description": (
-            "Fill the currently open eligibility form with the user's country and date of birth. "
-            "If you don't have them, call get_profile first (or just call fill_form with no "
-            "arguments and it will use the saved profile)."
+            "Fill the currently open form from the user's saved details. Just call it with no "
+            "arguments — the app reads the saved values on-device and inserts them; you do NOT "
+            "see or need the values. Only pass an argument to override a field the user just told "
+            "you out loud."
         ),
         "parameters": {
             "type": "object",
             "properties": {
-                "country": {"type": "string", "description": 'Country option value, e.g. "RO".'},
-                "birthdate": {"type": "string", "description": "Date of birth as yyyy-mm-dd."},
+                "country": {"type": "string", "description": 'Optional override, e.g. "RO".'},
+                "birthdate": {"type": "string", "description": "Optional override, yyyy-mm-dd."},
             },
             "required": [],
         },
@@ -46,8 +47,28 @@ TOOL_DEFS = [
     {
         "type": "function",
         "name": "get_profile",
-        "description": "Get the user's saved details (name, country, date of birth, nationality).",
+        "description": (
+            "Check WHICH of the user's details are on file (e.g. is a date of birth saved?). "
+            "Returns field names only — never the values, which stay private in the EU. To fill "
+            "a form, call fill_form; it uses the saved values directly without showing them to you."
+        ),
         "parameters": {"type": "object", "properties": {}},
+    },
+    {
+        "type": "function",
+        "name": "save_preference",
+        "description": (
+            "Remember a light, NON-sensitive preference the user mentions (e.g. key='climate', "
+            "value='warm'). Never store sensitive personal data (ID, address) this way."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "key": {"type": "string", "description": "Short preference name, e.g. 'climate'."},
+                "value": {"type": "string", "description": "Short value, e.g. 'warm'."},
+            },
+            "required": ["key", "value"],
+        },
     },
     {
         "type": "function",

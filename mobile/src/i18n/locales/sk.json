@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetToby": "Zoznám sa s Toby",
+    "meetPip": "Zoznám sa s Hop",
     "welcomeSub": "Tvoj parťák pre život v EU — granty, Erasmus, bývanie a každý formulár medzi tým.",
     "continueWithEuId": "Pokračovať cez EU ID",
     "exploreAsGuest": "Preskúmať ako hosť",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Domov",
     "docsLabel": "Dokumenty",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Ja"
   },
   "location": {
@@ -39,7 +39,7 @@
     "errorCapture": "Fotku sa nepodarilo urobiť",
     "errorGallery": "Galériu sa nepodarilo otvoriť",
     "permTitle": "Potrebný prístup ku kamere",
-    "permBody": "Hoppy používa kameru, aby urobil jasnú fotku tvojho preukazu a vyplnil za teba tvoje EU formuláre.",
+    "permBody": "Hop používa kameru, aby urobil jasnú fotku tvojho preukazu a vyplnil za teba tvoje EU formuláre.",
     "permAllow": "Povoliť kameru",
     "permGallery": "Radšej vybrať z galérie",
     "permCancel": "Zrušiť",
@@ -83,22 +83,22 @@
     "greetingEvening": "Dobrý večer",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Pripájam sa…",
-    "tapToTalk": "Klepni a porozprávaj sa s Pip",
-    "askPipPlaceholder": "Spýtaj sa Pip na čokoľvek…"
+    "tapToTalk": "Klepni a porozprávaj sa s Hop",
+    "askPipPlaceholder": "Spýtaj sa Hop na čokoľvek…"
   },
   "chat": {
-    "seedGreeting": "Ahoj! 🐸 Som Pip. Spýtaj sa ma na čokoľvek o príležitostiach v EU — Erasmus, granty, Zbor solidarity, bývanie, tvoje práva…",
+    "seedGreeting": "Ahoj! 🐸 Som Hop. Spýtaj sa ma na čokoľvek o príležitostiach v EU — Erasmus, granty, Zbor solidarity, bývanie, tvoje práva…",
     "quickErasmusDeadlines": "Termíny Erasmus",
     "quickFindGrant": "Nájsť grant",
     "quickEuYouthRights": "Práva mladých v EU",
     "reachError": "Práve teraz som sa nedokázal spojiť so svojím mozgom ({{error}}).",
     "presenceOnline": "online · web + index EU",
-    "typing": "Pip píše…",
-    "inputPlaceholder": "Napíš Pip…"
+    "typing": "Hop píše…",
+    "inputPlaceholder": "Napíš Hop…"
   },
   "docs": {
-    "screenTitle": "Dokumenty",
-    "promptPrefix": "Pošli súbor a Pip ho ",
+    "screenTitle": "Moje dokumenty",
+    "promptPrefix": "Pošli súbor a Hop ho ",
     "promptHighlight": "prečíta, roztriedi a zapamätá",
     "promptSuffix": ".",
     "uploadButton": "Nahrať",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Výpis známok",
     "transcriptSub": "Čaká na overenie",
     "rentalTitle": "Nájomná zmluva",
-    "rentalSub": "Koncept · zdieľané s Pip"
+    "rentalSub": "Koncept · zdieľané s Hop"
   },
   "upload": {
     "screenTitle": "Pridať dokument",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Naskenovať kamerou",
     "uploadingEyebrow": "NAHRÁVAM",
     "fileMeta": "{{size}} · {{percent}} %",
-    "readingPrefix": "Pip to číta — automaticky vytiahnem tvoju ",
+    "readingPrefix": "Hop to číta — automaticky vytiahnem tvoju ",
     "readingHighlight": "univerzitu a dátumy",
     "readingSuffix": ".",
     "readingButton": "Čítam…"
   },
   "erasmus": {
     "title": "Pomocník Erasmus+",
-    "watchingScreen": "Pip sleduje tvoju obrazovku",
+    "watchingScreen": "Hop sleduje tvoju obrazovku",
     "guiding": "Prevediem ťa formulárom",
     "recBadge": "REC"
   },
@@ -137,9 +137,9 @@
     "euIdVerified": "EU ID overené",
     "student": "Študent",
     "language": "Jazyk",
-    "voice": "Hlas Hoppyho",
+    "voice": "Hlas Hopho",
     "pushNotifications": "Push notifikácie",
-    "letPipSeeScreen": "Nechať Pip vidieť moju obrazovku",
+    "letPipSeeScreen": "Nechať Hop vidieť moju obrazovku",
     "shareAnonymousData": "Zdieľať anonymné údaje",
     "privacyData": "Súkromie a údaje",
     "helpSupport": "Pomoc a podpora EU",
@@ -151,18 +151,18 @@
     "eyebrow": "VŠETKY JAZYKY"
   },
   "voice": {
-    "title": "Hlas Hoppyho",
-    "subtitle": "Vyber hlas, ktorým Hoppy hovorí. Použije sa pri ďalšom klepnutí na mikrofón.",
+    "title": "Hlas Hopho",
+    "subtitle": "Vyber hlas, ktorým Hop hovorí. Použije sa pri ďalšom klepnutí na mikrofón.",
     "eyebrow": "VŠETKY HLASY"
   },
   "app": {
-    "tapMicPrompt": "Klepni na mikrofón a potom popros Hoppyho, aby ťa zaregistroval.",
+    "tapMicPrompt": "Klepni na mikrofón a potom popros Hopho, aby ťa zaregistroval.",
     "tapToTalkAgain": "Klepni na mikrofón a hovor znova.",
     "micDenied": "Povolenie pre mikrofón zamietnuté.",
     "readingId": "Čítam tvoj preukaz…",
     "scanFailed": "Skenovanie zlyhalo: {{error}}",
     "pickFailed": "Výber zlyhal: {{error}}",
-    "gotItNamed": "Mám to, {{name}}! Popros Hoppyho, aby ťa zaregistroval.",
+    "gotItNamed": "Mám to, {{name}}! Popros Hopho, aby ťa zaregistroval.",
     "friend": "kamarát",
     "couldNotSave": "Nepodarilo sa uložiť: {{error}}",
     "coachingDefault": "Klepni na zvýraznené pole a napíš svoju domovskú univerzitu. Skontrolujem, či máš nárok.",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Oznámenia",
-    "body": "Dostávaj pripomienky termínov, grantov a odpovedí od Pip.",
+    "body": "Dostávaj pripomienky termínov, grantov a odpovedí od Hop.",
     "receive": "Dostávať oznámenia",
     "onHint": "Budeš dostávať pripomienky, aj keď je aplikácia zatvorená.",
     "offHint": "Zapni to, aby si dostával pripomienky termínov a odpovedí."

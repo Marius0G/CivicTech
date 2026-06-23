@@ -1,19 +1,20 @@
 <#
   EU Youth Buddy - one-command demo backend (Phase 7 hardening).
 
-  Boots the FastAPI backend bound to the LAN, sets up the USB-tethered phone, locks the demo
-  user's profile, and PRE-WARMS the RAG vector DB with the rehearsed questions so the first live
-  query on stage isn't a cold start. Run this from a terminal before the demo:
+  Boots the FastAPI backend bound to the LAN, sets up the USB-tethered phone, and PRE-WARMS the
+  RAG vector DB with the rehearsed questions so the first live query on stage isn't a cold start.
+  Profiles start BLANK and fill from a scanned ID — pass -SeedProfile only if you want to inject
+  a fake test profile instead of scanning. Run this from a terminal before the demo:
 
-      backend\run_demo.ps1                # boot + pre-warm + lock the demo profile
-      backend\run_demo.ps1 -NoProfile     # boot + pre-warm, but DON'T overwrite the saved profile
+      backend\run_demo.ps1                # boot + pre-warm (profile stays blank / from scan)
+      backend\run_demo.ps1 -SeedProfile   # also inject a fake test profile (no real scan needed)
       backend\run_demo.ps1 -NoAdb         # skip `adb reverse` (use the LAN IP path instead)
 
   Stop the server with Ctrl+C, or: Stop-Process -Id <pid printed below>.
 #>
 param(
-  [switch]$NoAdb,       # skip adb reverse (untethered / LAN-IP demo)
-  [switch]$NoProfile    # don't lock the demo profile (keep whatever is saved)
+  [switch]$NoAdb,        # skip adb reverse (untethered / LAN-IP demo)
+  [switch]$SeedProfile   # inject a fake test profile instead of scanning a real ID
 )
 
 $ErrorActionPreference = 'Stop'
@@ -72,10 +73,18 @@ if (-not $healthy) {
   exit 1
 }
 
-# --- lock the demo profile (Maria) -------------------------------------------
-if (-not $NoProfile) {
+# --- optional: inject a fake test profile (opt-in via -SeedProfile) ----------
+# By default profiles are blank and fill from a scanned ID; only seed on explicit request.
+if ($SeedProfile) {
   try {
-    $maria = @{ name = 'Maria Popescu'; country = 'Romania'; birthdate = '2006-05-14'; nationality = 'Romanian' } | ConvertTo-Json
+    $maria = @{
+      name = 'Maria Popescu'; first_name = 'Maria'; last_name = 'Popescu'
+      cnp = '6060514400011'; sex = 'F'; birthdate = '2006-05-14'
+      place_of_birth = 'Mun. Bucuresti'; nationality = 'Romanian'; country = 'Romania'
+      address = 'Mun. Bucuresti, Sector 3, Str. Exemplu nr. 12'
+      series = 'RX'; doc_number = '123456'; issued_by = 'SPCLEP Sector 3'
+      issue_date = '2018-06-01'; expiry_date = '2028-05-14'
+    } | ConvertTo-Json
     $p = Invoke-RestMethod -Method Post -Uri 'http://localhost:8000/docs/profile' -Body $maria -ContentType 'application/json'
     Write-Host ("Demo profile locked: {0} / {1} / {2}" -f $p.profile.name, $p.profile.country, $p.profile.birthdate) -ForegroundColor Green
   } catch {

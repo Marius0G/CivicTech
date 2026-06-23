@@ -25,11 +25,23 @@ interface Props {
 }
 
 const buildFields = (t: TFunction): { key: keyof ExtractedProfile; label: string; placeholder: string; hint?: string }[] => [
-  { key: 'name', label: t('idReview.nameLabel'), placeholder: t('idReview.namePlaceholder') },
+  { key: 'last_name', label: t('idReview.lastNameLabel'), placeholder: t('idReview.lastNamePlaceholder') },
+  { key: 'first_name', label: t('idReview.firstNameLabel'), placeholder: t('idReview.firstNamePlaceholder') },
+  { key: 'cnp', label: t('idReview.cnpLabel'), placeholder: t('idReview.cnpPlaceholder') },
+  { key: 'sex', label: t('idReview.sexLabel'), placeholder: t('idReview.sexPlaceholder') },
   { key: 'birthdate', label: t('idReview.birthdateLabel'), placeholder: t('idReview.birthdatePlaceholder'), hint: t('idReview.birthdateHint') },
-  { key: 'country', label: t('idReview.countryLabel'), placeholder: t('idReview.countryPlaceholder') },
+  { key: 'place_of_birth', label: t('idReview.placeOfBirthLabel'), placeholder: t('idReview.placeOfBirthPlaceholder') },
   { key: 'nationality', label: t('idReview.nationalityLabel'), placeholder: t('idReview.nationalityPlaceholder') },
+  { key: 'country', label: t('idReview.countryLabel'), placeholder: t('idReview.countryPlaceholder') },
+  { key: 'address', label: t('idReview.addressLabel'), placeholder: t('idReview.addressPlaceholder') },
+  { key: 'series', label: t('idReview.seriesLabel'), placeholder: t('idReview.seriesPlaceholder') },
+  { key: 'doc_number', label: t('idReview.docNumberLabel'), placeholder: t('idReview.docNumberPlaceholder') },
+  { key: 'issued_by', label: t('idReview.issuedByLabel'), placeholder: t('idReview.issuedByPlaceholder') },
+  { key: 'issue_date', label: t('idReview.issueDateLabel'), placeholder: t('idReview.issueDatePlaceholder'), hint: t('idReview.birthdateHint') },
+  { key: 'expiry_date', label: t('idReview.expiryDateLabel'), placeholder: t('idReview.expiryDatePlaceholder'), hint: t('idReview.birthdateHint') },
 ];
+
+const DATE_KEYS: (keyof ExtractedProfile)[] = ['birthdate', 'issue_date', 'expiry_date'];
 
 export default function IdReviewScreen({ initial, saving, error, onSave, onCancel }: Props) {
   const [draft, setDraft] = useState<ExtractedProfile>({
@@ -37,6 +49,17 @@ export default function IdReviewScreen({ initial, saving, error, onSave, onCance
     birthdate: initial.birthdate ?? '',
     country: initial.country ?? '',
     nationality: initial.nationality ?? '',
+    first_name: initial.first_name ?? '',
+    last_name: initial.last_name ?? '',
+    cnp: initial.cnp ?? '',
+    sex: initial.sex ?? '',
+    place_of_birth: initial.place_of_birth ?? '',
+    address: initial.address ?? '',
+    series: initial.series ?? '',
+    doc_number: initial.doc_number ?? '',
+    issued_by: initial.issued_by ?? '',
+    issue_date: initial.issue_date ?? '',
+    expiry_date: initial.expiry_date ?? '',
   });
   const [editing, setEditing] = useState<keyof ExtractedProfile | null>(null);
   const insets = useSafeAreaInsets();
@@ -83,8 +106,8 @@ export default function IdReviewScreen({ initial, saving, error, onSave, onCance
                     placeholder={f.placeholder}
                     placeholderTextColor="#5B6480"
                     autoFocus
-                    autoCapitalize={f.key === 'birthdate' ? 'none' : 'words'}
-                    keyboardType={f.key === 'birthdate' ? 'numbers-and-punctuation' : 'default'}
+                    autoCapitalize={DATE_KEYS.includes(f.key) ? 'none' : 'words'}
+                    keyboardType={DATE_KEYS.includes(f.key) || f.key === 'cnp' ? 'numbers-and-punctuation' : 'default'}
                     onBlur={() => setEditing(null)}
                     onSubmitEditing={() => setEditing(null)}
                     returnKeyType="done"

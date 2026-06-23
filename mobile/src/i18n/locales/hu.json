@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetToby": "Ismerd meg Tobyt",
+    "meetPip": "Ismerd meg Hop-et",
     "welcomeSub": "A társad az EU-ban való élethez — ösztöndíjak, Erasmus, lakhatás és minden űrlap a kettő között.",
     "continueWithEuId": "Folytatás EU ID-val",
     "exploreAsGuest": "Felfedezés vendégként",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Kezdőlap",
     "docsLabel": "Dokumentumok",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Én"
   },
   "location": {
@@ -39,7 +39,7 @@
     "errorCapture": "Nem sikerült elkészíteni a fényképet",
     "errorGallery": "Nem sikerült megnyitni a galériát",
     "permTitle": "Kamerához való hozzáférés szükséges",
-    "permBody": "Hoppy a kamerát használja, hogy tiszta fényképet készítsen a személyidről, és kitöltse helyetted az EU-s űrlapjaidat.",
+    "permBody": "Hop a kamerát használja, hogy tiszta fényképet készítsen a személyidről, és kitöltse helyetted az EU-s űrlapjaidat.",
     "permAllow": "Kamera engedélyezése",
     "permGallery": "Inkább a galériából választok",
     "permCancel": "Mégse",
@@ -83,22 +83,22 @@
     "greetingEvening": "Jó estét",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Kapcsolódás…",
-    "tapToTalk": "Koppints, hogy beszélj Pip-pel",
-    "askPipPlaceholder": "Kérdezz Pip-től bármit…"
+    "tapToTalk": "Koppints, hogy beszélj Hop-pel",
+    "askPipPlaceholder": "Kérdezz Hop-től bármit…"
   },
   "chat": {
-    "seedGreeting": "Szia! 🐸 Pip vagyok. Kérdezz tőlem bármit az EU-s lehetőségekről — Erasmus, ösztöndíjak, Szolidaritási Testület, lakhatás, a jogaid…",
+    "seedGreeting": "Szia! 🐸 Hop vagyok. Kérdezz tőlem bármit az EU-s lehetőségekről — Erasmus, ösztöndíjak, Szolidaritási Testület, lakhatás, a jogaid…",
     "quickErasmusDeadlines": "Erasmus határidők",
     "quickFindGrant": "Ösztöndíj keresése",
     "quickEuYouthRights": "EU-s ifjúsági jogok",
     "reachError": "Most nem sikerült elérnem az agyamat ({{error}}).",
     "presenceOnline": "online · web + EU index",
-    "typing": "Pip éppen ír…",
-    "inputPlaceholder": "Üzenet Pip-nek…"
+    "typing": "Hop éppen ír…",
+    "inputPlaceholder": "Üzenet Hop-nek…"
   },
   "docs": {
-    "screenTitle": "Dokumentumok",
-    "promptPrefix": "Tölts fel egy fájlt, és Pip ",
+    "screenTitle": "Dokumentumaim",
+    "promptPrefix": "Tölts fel egy fájlt, és Hop ",
     "promptHighlight": "elolvassa, rendszerezi és megjegyzi",
     "promptSuffix": ".",
     "uploadButton": "Feltöltés",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Tanulmányi átirat",
     "transcriptSub": "Ellenőrzésre vár",
     "rentalTitle": "Bérleti szerződés",
-    "rentalSub": "Piszkozat · megosztva Pip-pel"
+    "rentalSub": "Piszkozat · megosztva Hop-pel"
   },
   "upload": {
     "screenTitle": "Dokumentum hozzáadása",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Szkennelés kamerával",
     "uploadingEyebrow": "FELTÖLTÉS",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip éppen olvassa — automatikusan kiemelem a ",
+    "readingPrefix": "Hop éppen olvassa — automatikusan kiemelem a ",
     "readingHighlight": "egyetemed és a dátumok",
     "readingSuffix": " adatait.",
     "readingButton": "Olvasás…"
   },
   "erasmus": {
     "title": "Erasmus+ segéd",
-    "watchingScreen": "Pip figyeli a képernyődet",
+    "watchingScreen": "Hop figyeli a képernyődet",
     "guiding": "Végigvezet az űrlapon",
     "recBadge": "FELV"
   },
@@ -137,9 +137,9 @@
     "euIdVerified": "EU ID ellenőrizve",
     "student": "Diák",
     "language": "Nyelv",
-    "voice": "Hoppy hangja",
+    "voice": "Hop hangja",
     "pushNotifications": "Push értesítések",
-    "letPipSeeScreen": "Pip láthatja a képernyőmet",
+    "letPipSeeScreen": "Hop láthatja a képernyőmet",
     "shareAnonymousData": "Anonim adatok megosztása",
     "privacyData": "Adatvédelem és adatok",
     "helpSupport": "Súgó és EU-s támogatás",
@@ -151,18 +151,18 @@
     "eyebrow": "ÖSSZES NYELV"
   },
   "voice": {
-    "title": "Hoppy hangja",
-    "subtitle": "Válaszd ki a hangot, amellyel Hoppy beszél. Legközelebb érvényesül, amikor megnyomod a mikrofont.",
+    "title": "Hop hangja",
+    "subtitle": "Válaszd ki a hangot, amellyel Hop beszél. Legközelebb érvényesül, amikor megnyomod a mikrofont.",
     "eyebrow": "ÖSSZES HANG"
   },
   "app": {
-    "tapMicPrompt": "Koppints a mikrofonra, majd kérd meg Hoppyt, hogy regisztráljon be.",
+    "tapMicPrompt": "Koppints a mikrofonra, majd kérd meg Hopt, hogy regisztráljon be.",
     "tapToTalkAgain": "Koppints a mikrofonra, hogy újra beszélj.",
     "micDenied": "Mikrofon-engedély megtagadva.",
     "readingId": "A személyid olvasása…",
     "scanFailed": "A szkennelés sikertelen: {{error}}",
     "pickFailed": "A kiválasztás sikertelen: {{error}}",
-    "gotItNamed": "Megvan, {{name}}! Kérd meg Hoppyt, hogy regisztráljon be.",
+    "gotItNamed": "Megvan, {{name}}! Kérd meg Hopt, hogy regisztráljon be.",
     "friend": "barátom",
     "couldNotSave": "Nem sikerült menteni: {{error}}",
     "coachingDefault": "Koppints a kiemelt mezőre, és írd be a hazai egyetemedet. Ellenőrzöm, hogy jogosult-e.",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Értesítések",
-    "body": "Kapj emlékeztetőket a határidőkről, támogatásokról és Pip válaszairól.",
+    "body": "Kapj emlékeztetőket a határidőkről, támogatásokról és Hop válaszairól.",
     "receive": "Értesítések fogadása",
     "onHint": "Akkor is kapsz emlékeztetőket, ha az alkalmazás be van zárva.",
     "offHint": "Kapcsold be, hogy emlékeztetőket kapj a határidőkről és válaszokról."

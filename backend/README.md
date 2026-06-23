@@ -1,7 +1,7 @@
 # 🐸 EU Youth Buddy — backend (Phase 1)
 
 FastAPI server that mints **OpenAI Realtime ephemeral tokens** so the mobile app can open a
-voice session with Hoppy without ever seeing the real API key.
+voice session with Hop without ever seeing the real API key.
 
 ## Endpoints
 
@@ -10,7 +10,7 @@ voice session with Hoppy without ever seeing the real API key.
 | `GET` | `/health` | Liveness + whether the OpenAI key is configured |
 | `POST` | `/realtime/token` | Mints `{ value: "ek_…", … }` for the app (key stays server-side) |
 
-The Hoppy persona, model (`gpt-realtime-2`), and voice (`marin`) are baked in **server-side**
+The Hop persona, model (`gpt-realtime-2`), and voice (`marin`) are baked in **server-side**
 at mint time (see `app/persona.py`, `app/realtime.py`) so the client can't tamper with them.
 
 ## Setup
@@ -51,7 +51,7 @@ curl -X POST http://localhost:8000/realtime/token   # should return an ek_... on
 
 - Server boots; `/health` reports key status, model, voice.
 - `/realtime/token` returns a **clean 502 with a clear message** when no key is set.
-- With a key, it sends the correct session body (model + Hoppy persona + voice) to OpenAI and
+- With a key, it sends the correct session body (model + Hop persona + voice) to OpenAI and
   passes the `value` token back to the app. *(Proven against a local mock; the only difference
   with the real key is the upstream URL.)*
 
@@ -66,7 +66,7 @@ offline (echoes back the session it received).
 
 ## Knowledge base (RAG) — filling the vector DB
 
-Hoppy answers EU questions from a **Chroma** vector DB (embedded, on-disk at `backend/.chroma/`,
+Hop answers EU questions from a **Chroma** vector DB (embedded, on-disk at `backend/.chroma/`,
 no Docker). The `search_eu_info` tool embeds the question and returns the closest chunks **with
 source URLs** so the frog can cite. Three ways content gets in:
 

@@ -27,10 +27,23 @@ router = APIRouter(prefix="/docs", tags=["docs"])
 
 
 class ProfileIn(BaseModel):
+    # Visible fields of a Romanian identity card, plus `country` for the ESC form. All optional
+    # so a partial/edited scan still saves. `country` may be an English name OR a Drupal code.
     name: str = ""
-    country: str = ""  # an English country name OR a Drupal code; normalised either way
+    first_name: str = ""
+    last_name: str = ""
+    cnp: str = ""
+    sex: str = ""
     birthdate: str = ""
+    place_of_birth: str = ""
     nationality: str = ""
+    country: str = ""
+    address: str = ""
+    series: str = ""
+    doc_number: str = ""
+    issued_by: str = ""
+    issue_date: str = ""
+    expiry_date: str = ""
 
 
 @router.post("/upload")
@@ -62,13 +75,7 @@ async def upload_document(
 @router.post("/profile")
 def save_profile(body: ProfileIn, user: User = Depends(get_current_user)) -> dict:
     """Store the user-confirmed profile (after they review/edit the scan). Country normalised."""
-    profile = set_active_profile(
-        user.id,
-        name=body.name,
-        country=body.country,
-        birthdate=body.birthdate,
-        nationality=body.nationality,
-    )
+    profile = set_active_profile(user.id, **body.model_dump())
     log.info("profile saved for %s: %s", user.id, profile["name"] or "(no name)")
     return {"ok": True, "profile": profile}
 

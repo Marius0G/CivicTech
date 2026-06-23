@@ -1,14 +1,15 @@
 {
   "login": {
-    "meetToby": "Fă cunoștință cu Toby",
+    "meetPip": "Fă cunoștință cu Hop",
     "welcomeSub": "Prietenul tău pentru viața în UE — burse, Erasmus, locuințe și fiecare formular dintre ele.",
-    "continueWithEuId": "Continuă cu EU ID",
+    "continueWithEuId": "Continuă cu contul",
     "exploreAsGuest": "Explorează ca invitat",
     "terms": "Continuând, ești de acord cu termenii EU Youth.",
     "euIdLogin": "Autentificare EU ID",
     "secureSso": "Autentificare unică securizată",
     "secureSsoBody": "Vei fi redirecționat către furnizorul tău național de eID.",
     "euIdEmail": "Email EU ID",
+    "email": "Email",
     "password": "Parolă",
     "keepSignedIn": "Ține-mă autentificat",
     "forgot": "Ai uitat?",
@@ -16,12 +17,24 @@
     "biometric": "Biometric",
     "scanQr": "Scanează QR",
     "signingIn": "Te autentificăm cu eID-ul tău național…",
-    "logIn": "Autentificare"
+    "logIn": "Autentificare",
+    "createAccount": "Creează cont",
+    "createAccountTitle": "Creează-ți contul",
+    "signupAlertTitle": "Cont nou",
+    "signupAlertBody": "Folosește un email și o parolă ca să-ți salvezi documentele în siguranță.",
+    "confirmPassword": "Confirmă parola",
+    "haveAccountToggle": "Ai deja cont? Autentifică-te",
+    "noAccountToggle": "Ești nou? Creează cont",
+    "creatingAccount": "Îți creăm contul…",
+    "enterEmailPassword": "Introdu emailul și parola.",
+    "passwordTooShort": "Folosește cel puțin 6 caractere.",
+    "passwordsNoMatch": "Parolele nu coincid.",
+    "accountCreatedConfirm": "Cont creat — verifică-ți emailul pentru confirmare, apoi autentifică-te."
   },
   "tabbar": {
     "homeLabel": "Acasă",
     "docsLabel": "Documente",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Eu"
   },
   "location": {
@@ -39,7 +52,7 @@
     "errorCapture": "Poza nu a putut fi făcută",
     "errorGallery": "Galeria nu a putut fi deschisă",
     "permTitle": "E nevoie de acces la cameră",
-    "permBody": "Hoppy folosește camera ca să facă o poză clară a actului tău și să-ți completeze formularele UE.",
+    "permBody": "Hop folosește camera ca să facă o poză clară a actului tău și să-ți completeze formularele UE.",
     "permAllow": "Permite camera",
     "permGallery": "Alege din galerie în schimb",
     "permCancel": "Anulează",
@@ -54,15 +67,37 @@
   "idReview": {
     "nameLabel": "Nume complet",
     "namePlaceholder": "ex. Maria Ionescu",
+    "lastNameLabel": "Nume",
+    "lastNamePlaceholder": "ex. Ionescu",
+    "firstNameLabel": "Prenume",
+    "firstNamePlaceholder": "ex. Maria",
+    "cnpLabel": "CNP",
+    "cnpPlaceholder": "13 cifre",
+    "sexLabel": "Sex",
+    "sexPlaceholder": "F sau M",
     "birthdateLabel": "Data nașterii",
     "birthdatePlaceholder": "YYYY-MM-DD",
     "birthdateHint": "Format: YYYY-MM-DD",
+    "placeOfBirthLabel": "Loc naștere",
+    "placeOfBirthPlaceholder": "ex. București",
     "countryLabel": "Țară",
     "countryPlaceholder": "ex. România",
-    "nationalityLabel": "Naționalitate",
+    "nationalityLabel": "Cetățenie",
     "nationalityPlaceholder": "ex. română",
+    "addressLabel": "Domiciliu",
+    "addressPlaceholder": "Stradă, număr, oraș",
+    "seriesLabel": "Serie",
+    "seriesPlaceholder": "ex. RX",
+    "docNumberLabel": "Număr",
+    "docNumberPlaceholder": "ex. 123456",
+    "issuedByLabel": "Emisă de",
+    "issuedByPlaceholder": "ex. SPCLEP Sector 3",
+    "issueDateLabel": "Data eliberării",
+    "issueDatePlaceholder": "YYYY-MM-DD",
+    "expiryDateLabel": "Valabilitate",
+    "expiryDatePlaceholder": "YYYY-MM-DD",
     "title": "Verifică-ți datele",
-    "subtitle": "Le-am citit de pe actul tău. Atinge orice câmp ca să-l corectezi, apoi salvează.",
+    "subtitle": "Le-am citit de pe cartea ta de identitate. Rămân private pe dispozitivul tău și în UE — Hop completează formularele fără să le vadă vreodată. Atinge orice câmp ca să-l corectezi, apoi salvează.",
     "editAction": "Editează",
     "cancel": "Anulează",
     "save": "Salvează"
@@ -83,22 +118,22 @@
     "greetingEvening": "Bună seara",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Se conectează…",
-    "tapToTalk": "Atinge ca să vorbești cu Pip",
-    "askPipPlaceholder": "Întreabă-l pe Pip orice…"
+    "tapToTalk": "Atinge ca să vorbești cu Hop",
+    "askPipPlaceholder": "Întreabă-l pe Hop orice…"
   },
   "chat": {
-    "seedGreeting": "Salut! 🐸 Sunt Pip. Întreabă-mă orice despre oportunitățile din UE — Erasmus, burse, Corpul european de solidaritate, locuințe, drepturile tale…",
+    "seedGreeting": "Salut! 🐸 Sunt Hop. Întreabă-mă orice despre oportunitățile din UE — Erasmus, burse, Corpul european de solidaritate, locuințe, drepturile tale…",
     "quickErasmusDeadlines": "Termene Erasmus",
     "quickFindGrant": "Găsește o bursă",
     "quickEuYouthRights": "Drepturile tinerilor în UE",
     "reachError": "Nu am reușit să-mi ajung la creier chiar acum ({{error}}).",
     "presenceOnline": "online · web + index UE",
-    "typing": "Pip scrie…",
-    "inputPlaceholder": "Scrie-i lui Pip…"
+    "typing": "Hop scrie…",
+    "inputPlaceholder": "Scrie-i lui Hop…"
   },
   "docs": {
-    "screenTitle": "Documente",
-    "promptPrefix": "Aruncă un fișier și Pip îl va ",
+    "screenTitle": "Documentele mele",
+    "promptPrefix": "Aruncă un fișier și Hop îl va ",
     "promptHighlight": "citi, sorta și ține minte",
     "promptSuffix": ".",
     "uploadButton": "Încarcă",
@@ -111,7 +146,11 @@
     "transcriptTitle": "Foaie matricolă",
     "transcriptSub": "În așteptarea verificării",
     "rentalTitle": "Contract de închiriere",
-    "rentalSub": "Schiță · partajat cu Pip"
+    "rentalSub": "Schiță · partajat cu Hop",
+    "idCardOnFileSub": "Salvat din scanare",
+    "emptyTitle": "Niciun document încă",
+    "emptyBody": "Scanează-ți actul și va apărea aici.",
+    "detailEyebrow": "DETALIILE DOCUMENTULUI"
   },
   "upload": {
     "screenTitle": "Adaugă document",
@@ -121,14 +160,14 @@
     "scanCameraButton": "Scanează cu camera",
     "uploadingEyebrow": "SE ÎNCARCĂ",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip îl citește — voi extrage automat ",
+    "readingPrefix": "Hop îl citește — voi extrage automat ",
     "readingHighlight": "universitatea și datele tale",
     "readingSuffix": ".",
     "readingButton": "Se citește…"
   },
   "erasmus": {
     "title": "Asistent Erasmus+",
-    "watchingScreen": "Pip îți urmărește ecranul",
+    "watchingScreen": "Hop îți urmărește ecranul",
     "recBadge": "REC",
     "guiding": "Te ghidez prin formular"
   },
@@ -138,12 +177,12 @@
     "student": "Student",
     "language": "Limbă",
     "pushNotifications": "Notificări push",
-    "letPipSeeScreen": "Lasă-l pe Pip să-mi vadă ecranul",
+    "letPipSeeScreen": "Lasă-l pe Hop să-mi vadă ecranul",
     "shareAnonymousData": "Partajează date anonime",
     "privacyData": "Confidențialitate și date",
     "helpSupport": "Ajutor și suport UE",
     "logOut": "Deconectare",
-    "voice": "Vocea lui Hoppy"
+    "voice": "Vocea lui Hop"
   },
   "language": {
     "title": "Limbă",
@@ -151,13 +190,13 @@
     "eyebrow": "TOATE LIMBILE"
   },
   "app": {
-    "tapMicPrompt": "Atinge microfonul, apoi roagă-l pe Hoppy să te înscrie.",
+    "tapMicPrompt": "Atinge microfonul, apoi roagă-l pe Hop să te înscrie.",
     "tapToTalkAgain": "Atinge microfonul ca să vorbești din nou.",
     "micDenied": "Permisiunea pentru microfon a fost refuzată.",
     "readingId": "Îți citim actul…",
     "scanFailed": "Scanarea a eșuat: {{error}}",
     "pickFailed": "Selecția a eșuat: {{error}}",
-    "gotItNamed": "Am înțeles, {{name}}! Roagă-l pe Hoppy să te înscrie.",
+    "gotItNamed": "Am înțeles, {{name}}! Roagă-l pe Hop să te înscrie.",
     "couldNotSave": "Nu am putut salva: {{error}}",
     "coachingDefault": "Atinge câmpul evidențiat și scrie universitatea ta de origine. Voi verifica dacă e eligibilă.",
     "locating": "Se localizează…",
@@ -166,13 +205,13 @@
     "webCoaching": "Comută la fila formularului — îți spun exact ce să scrii în fiecare câmp."
   },
   "voice": {
-    "title": "Vocea lui Hoppy",
-    "subtitle": "Alege vocea cu care vorbește Hoppy. Se aplică data viitoare când atingi microfonul.",
+    "title": "Vocea lui Hop",
+    "subtitle": "Alege vocea cu care vorbește Hop. Se aplică data viitoare când atingi microfonul.",
     "eyebrow": "TOATE VOCILE"
   },
   "notifications": {
     "title": "Notificări",
-    "body": "Primește mementouri despre termene, granturi și răspunsuri de la Pip.",
+    "body": "Primește mementouri despre termene, granturi și răspunsuri de la Hop.",
     "receive": "Primește notificări",
     "onHint": "Vei primi mementouri chiar și când aplicația este închisă.",
     "offHint": "Activează această opțiune pentru a primi mementouri despre termene și răspunsuri."

@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetToby": "Träffa Toby",
+    "meetPip": "Träffa Hop",
     "welcomeSub": "Din kompis för livet i EU — bidrag, Erasmus, boende och varje formulär däremellan.",
     "continueWithEuId": "Fortsätt med EU ID",
     "exploreAsGuest": "Utforska som gäst",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Hem",
     "docsLabel": "Dokument",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Jag"
   },
   "location": {
@@ -39,7 +39,7 @@
     "errorCapture": "Kunde inte ta fotot",
     "errorGallery": "Kunde inte öppna galleriet",
     "permTitle": "Kameraåtkomst behövs",
-    "permBody": "Hoppy använder kameran för att ta ett tydligt foto av ditt ID och fylla i dina EU-formulär åt dig.",
+    "permBody": "Hop använder kameran för att ta ett tydligt foto av ditt ID och fylla i dina EU-formulär åt dig.",
     "permAllow": "Tillåt kamera",
     "permGallery": "Välj från galleriet istället",
     "permCancel": "Avbryt",
@@ -83,22 +83,22 @@
     "greetingEvening": "God kväll",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Ansluter…",
-    "tapToTalk": "Tryck för att prata med Pip",
-    "askPipPlaceholder": "Fråga Pip vad som helst…"
+    "tapToTalk": "Tryck för att prata med Hop",
+    "askPipPlaceholder": "Fråga Hop vad som helst…"
   },
   "chat": {
-    "seedGreeting": "Hej! 🐸 Jag är Pip. Fråga mig vad som helst om EU-möjligheter — Erasmus, bidrag, Solidaritetskåren, boende, dina rättigheter…",
+    "seedGreeting": "Hej! 🐸 Jag är Hop. Fråga mig vad som helst om EU-möjligheter — Erasmus, bidrag, Solidaritetskåren, boende, dina rättigheter…",
     "quickErasmusDeadlines": "Erasmus-deadlines",
     "quickFindGrant": "Hitta ett bidrag",
     "quickEuYouthRights": "EU:s ungdomsrättigheter",
     "reachError": "Jag kunde inte nå min hjärna just nu ({{error}}).",
     "presenceOnline": "online · webb + EU-index",
-    "typing": "Pip skriver…",
-    "inputPlaceholder": "Meddela Pip…"
+    "typing": "Hop skriver…",
+    "inputPlaceholder": "Meddela Hop…"
   },
   "docs": {
-    "screenTitle": "Dokument",
-    "promptPrefix": "Släpp en fil så kommer Pip att ",
+    "screenTitle": "Mina dokument",
+    "promptPrefix": "Släpp en fil så kommer Hop att ",
     "promptHighlight": "läsa, sortera och komma ihåg",
     "promptSuffix": " den.",
     "uploadButton": "Ladda upp",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Betygsutdrag",
     "transcriptSub": "Inväntar verifiering",
     "rentalTitle": "Hyresavtal",
-    "rentalSub": "Utkast · delat med Pip"
+    "rentalSub": "Utkast · delat med Hop"
   },
   "upload": {
     "screenTitle": "Lägg till dokument",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Skanna med kamera",
     "uploadingEyebrow": "LADDAR UPP",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip läser den — jag tar fram din ",
+    "readingPrefix": "Hop läser den — jag tar fram din ",
     "readingHighlight": "universitet och datum",
     "readingSuffix": " automatiskt.",
     "readingButton": "Läser…"
   },
   "erasmus": {
     "title": "Erasmus+ hjälpare",
-    "watchingScreen": "Pip tittar på din skärm",
+    "watchingScreen": "Hop tittar på din skärm",
     "guiding": "Vägleder dig genom formuläret",
     "recBadge": "REC"
   },
@@ -137,9 +137,9 @@
     "euIdVerified": "EU ID verifierat",
     "student": "Student",
     "language": "Språk",
-    "voice": "Hoppys röst",
+    "voice": "Hops röst",
     "pushNotifications": "Pushnotiser",
-    "letPipSeeScreen": "Låt Pip se min skärm",
+    "letPipSeeScreen": "Låt Hop se min skärm",
     "shareAnonymousData": "Dela anonym data",
     "privacyData": "Integritet och data",
     "helpSupport": "Hjälp och EU-stöd",
@@ -151,18 +151,18 @@
     "eyebrow": "ALLA SPRÅK"
   },
   "voice": {
-    "title": "Hoppys röst",
-    "subtitle": "Välj rösten som Hoppy talar med. Tillämpas nästa gång du trycker på mikrofonen.",
+    "title": "Hops röst",
+    "subtitle": "Välj rösten som Hop talar med. Tillämpas nästa gång du trycker på mikrofonen.",
     "eyebrow": "ALLA RÖSTER"
   },
   "app": {
-    "tapMicPrompt": "Tryck på mikrofonen och be sedan Hoppy att registrera dig.",
+    "tapMicPrompt": "Tryck på mikrofonen och be sedan Hop att registrera dig.",
     "tapToTalkAgain": "Tryck på mikrofonen för att prata igen.",
     "micDenied": "Mikrofonbehörighet nekad.",
     "readingId": "Läser ditt ID…",
     "scanFailed": "Skanning misslyckades: {{error}}",
     "pickFailed": "Val misslyckades: {{error}}",
-    "gotItNamed": "Uppfattat, {{name}}! Be Hoppy att registrera dig.",
+    "gotItNamed": "Uppfattat, {{name}}! Be Hop att registrera dig.",
     "friend": "vän",
     "couldNotSave": "Kunde inte spara: {{error}}",
     "coachingDefault": "Tryck på det markerade fältet och skriv ditt hemuniversitet. Jag kollar att det är behörigt.",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Aviseringar",
-    "body": "Få påminnelser om deadlines, bidrag och svar från Pip.",
+    "body": "Få påminnelser om deadlines, bidrag och svar från Hop.",
     "receive": "Ta emot aviseringar",
     "onHint": "Du får påminnelser även när appen är stängd.",
     "offHint": "Slå på det här för att få påminnelser om deadlines och svar."

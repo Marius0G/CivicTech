@@ -1,5 +1,5 @@
-// Screen 6 · Pip chat (chatscreen.png) — conversational buddy.
-// Visual match + working text composer (appends a bubble, shows typing, then a Pip reply).
+// Screen 6 · Hop chat (chatscreen.png) — conversational buddy.
+// Visual match + working text composer (appends a bubble, shows typing, then a Hop reply).
 // The mic hands off to the realtime voice engine via onMic.
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -12,14 +12,14 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Mascot from '../Mascot';
 import Icon from '../ui/Icon';
 import { sendChat, ChatMessage } from '../chat';
-import { colors, fonts, radius, space } from '../theme';
+import { colors, fonts, langSwitchReserve, radius, space } from '../theme';
 
 type TFn = (key: string, opts?: Record<string, unknown>) => string;
 
-type Msg = { from: 'pip' | 'me'; text: string };
+type Msg = { from: 'hop' | 'me'; text: string };
 
 const buildSeed = (t: TFn): Msg[] => [
-  { from: 'pip', text: t('chat.seedGreeting') },
+  { from: 'hop', text: t('chat.seedGreeting') },
 ];
 
 const buildQuick = (t: TFn) => [
@@ -55,9 +55,9 @@ export default function ChatScreen({ onBack, onMic }: { onBack: () => void; onMi
         content: m.text,
       }));
       const res = await sendChat(history);
-      setMsgs((m) => [...m, { from: 'pip', text: res.reply || '…' }]);
+      setMsgs((m) => [...m, { from: 'hop', text: res.reply || '…' }]);
     } catch (e: any) {
-      setMsgs((m) => [...m, { from: 'pip', text: t('chat.reachError', { error: e.message ?? e }) }]);
+      setMsgs((m) => [...m, { from: 'hop', text: t('chat.reachError', { error: e.message ?? e }) }]);
     } finally {
       setTyping(false);
     }
@@ -70,7 +70,7 @@ export default function ChatScreen({ onBack, onMic }: { onBack: () => void; onMi
         <Pressable onPress={onBack} hitSlop={10} style={styles.iconBtn}><Icon name="arrow-left" size={22} /></Pressable>
         <Mascot speaking={false} celebrate={false} size={40} />
         <View style={styles.flex}>
-          <Text style={styles.name}>Pip</Text>
+          <Text style={styles.name}>Hop</Text>
           <Text style={styles.presence}><Text style={{ color: colors.primary }}>● </Text>{t('chat.presenceOnline')}</Text>
         </View>
         <Pressable hitSlop={10} style={styles.iconBtn}><Icon name="phone" size={20} color={colors.textSecondary} /></Pressable>
@@ -80,12 +80,12 @@ export default function ChatScreen({ onBack, onMic }: { onBack: () => void; onMi
         {/* Messages */}
         <ScrollView ref={scroller} style={styles.flex} contentContainerStyle={styles.msgs}>
           {msgs.map((m, i) => (
-            <View key={i} style={[styles.bubble, m.from === 'me' ? styles.me : styles.pip]}>
+            <View key={i} style={[styles.bubble, m.from === 'me' ? styles.me : styles.hop]}>
               <Text style={[styles.msgText, m.from === 'me' && styles.meText]}>{m.text}</Text>
             </View>
           ))}
           {typing && (
-            <View style={[styles.bubble, styles.pip, styles.typing]}>
+            <View style={[styles.bubble, styles.hop, styles.typing]}>
               <Text style={styles.msgText}>{t('chat.typing')}</Text>
             </View>
           )}
@@ -129,7 +129,8 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   header: {
     flexDirection: 'row', alignItems: 'center', gap: space.s3,
-    paddingHorizontal: space.s4, paddingBottom: space.s2,
+    // Keep the right edge clear for the global language switcher (floats above every screen).
+    paddingLeft: space.s4, paddingRight: langSwitchReserve, paddingBottom: space.s2,
     backgroundColor: colors.surfaceCard, borderBottomWidth: 1, borderBottomColor: colors.borderSubtle,
   },
   iconBtn: { width: 36, height: 36, alignItems: 'center', justifyContent: 'center' },
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
 
   msgs: { padding: space.s4, gap: space.s3 },
   bubble: { maxWidth: '82%', borderRadius: radius.lg, paddingHorizontal: space.s4, paddingVertical: space.s3 },
-  pip: { alignSelf: 'flex-start', backgroundColor: colors.surfaceCard, borderTopLeftRadius: 4 },
+  hop: { alignSelf: 'flex-start', backgroundColor: colors.surfaceCard, borderTopLeftRadius: 4 },
   me: { alignSelf: 'flex-end', backgroundColor: colors.primary, borderTopRightRadius: 4 },
   typing: { opacity: 0.7 },
   msgText: { color: colors.textPrimary, fontFamily: fonts.sans, fontSize: 15, lineHeight: 21 },

@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetToby": "Buail le Toby",
+    "meetPip": "Buail le Hop",
     "welcomeSub": "Do chara don saol san AE — deontais, Erasmus, tithíocht, agus gach foirm eatarthu.",
     "continueWithEuId": "Lean ar aghaidh le EU ID",
     "exploreAsGuest": "Déan iniúchadh mar aoi",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Baile",
     "docsLabel": "Cáipéisí",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Mise"
   },
   "location": {
@@ -39,7 +39,7 @@
     "errorCapture": "Níorbh fhéidir an grianghraf a thógáil",
     "errorGallery": "Níorbh fhéidir an gailearaí a oscailt",
     "permTitle": "Tá rochtain ar an gceamara ag teastáil",
-    "permBody": "Úsáideann Hoppy an ceamara chun grianghraf soiléir de d'aitheantas a thógáil agus do chuid foirmeacha AE a líonadh duit.",
+    "permBody": "Úsáideann Hop an ceamara chun grianghraf soiléir de d'aitheantas a thógáil agus do chuid foirmeacha AE a líonadh duit.",
     "permAllow": "Ceadaigh an ceamara",
     "permGallery": "Roghnaigh ón ngailearaí ina ionad sin",
     "permCancel": "Cealaigh",
@@ -83,22 +83,22 @@
     "greetingEvening": "Tráthnóna maith",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Ag nascadh…",
-    "tapToTalk": "Tapáil chun labhairt le Pip",
-    "askPipPlaceholder": "Fiafraigh aon rud de Pip…"
+    "tapToTalk": "Tapáil chun labhairt le Hop",
+    "askPipPlaceholder": "Fiafraigh aon rud de Hop…"
   },
   "chat": {
-    "seedGreeting": "Heileo! 🐸 Is mise Pip. Fiafraigh aon rud díom faoi dheiseanna AE — Erasmus, deontais, an Cór Dlúthpháirtíochta, tithíocht, do chearta…",
+    "seedGreeting": "Heileo! 🐸 Is mise Hop. Fiafraigh aon rud díom faoi dheiseanna AE — Erasmus, deontais, an Cór Dlúthpháirtíochta, tithíocht, do chearta…",
     "quickErasmusDeadlines": "Spriocdhátaí Erasmus",
     "quickFindGrant": "Aimsigh deontas",
     "quickEuYouthRights": "Cearta óige AE",
     "reachError": "Níorbh fhéidir liom teagmháil a dhéanamh le m'inchinn anois díreach ({{error}}).",
     "presenceOnline": "ar líne · gréasán + innéacs AE",
-    "typing": "Tá Pip ag clóscríobh…",
-    "inputPlaceholder": "Teachtaireacht chuig Pip…"
+    "typing": "Tá Hop ag clóscríobh…",
+    "inputPlaceholder": "Teachtaireacht chuig Hop…"
   },
   "docs": {
-    "screenTitle": "Cáipéisí",
-    "promptPrefix": "Scaoil comhad agus déanfaidh Pip é a ",
+    "screenTitle": "Mo Cháipéisí",
+    "promptPrefix": "Scaoil comhad agus déanfaidh Hop é a ",
     "promptHighlight": "léamh, shórtáil & mheabhrú",
     "promptSuffix": ".",
     "uploadButton": "Uaslódáil",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Tras-scríbhinn taifead",
     "transcriptSub": "Ag fanacht le fíorú",
     "rentalTitle": "Comhaontú cíosa",
-    "rentalSub": "Dréacht · roinnte le Pip"
+    "rentalSub": "Dréacht · roinnte le Hop"
   },
   "upload": {
     "screenTitle": "Cuir cáipéis leis",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Scan leis an gceamara",
     "uploadingEyebrow": "AG UASLÓDÁIL",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Tá Pip á léamh — tarraingeoidh mé amach do ",
+    "readingPrefix": "Tá Hop á léamh — tarraingeoidh mé amach do ",
     "readingHighlight": "ollscoil & dátaí",
     "readingSuffix": " go huathoibríoch.",
     "readingButton": "Ag léamh…"
   },
   "erasmus": {
     "title": "Cúntóir Erasmus+",
-    "watchingScreen": "Tá Pip ag faire ar do scáileán",
+    "watchingScreen": "Tá Hop ag faire ar do scáileán",
     "guiding": "Do threorú tríd an bhfoirm",
     "recBadge": "TAIF"
   },
@@ -137,9 +137,9 @@
     "euIdVerified": "EU ID fíoraithe",
     "student": "Mac léinn",
     "language": "Teanga",
-    "voice": "Guth Hoppy",
+    "voice": "Guth Hop",
     "pushNotifications": "Fógraí brú",
-    "letPipSeeScreen": "Lig do Pip mo scáileán a fheiceáil",
+    "letPipSeeScreen": "Lig do Hop mo scáileán a fheiceáil",
     "shareAnonymousData": "Roinn sonraí gan ainm",
     "privacyData": "Príobháideacht & sonraí",
     "helpSupport": "Cabhair & tacaíocht AE",
@@ -151,18 +151,18 @@
     "eyebrow": "GACH TEANGA"
   },
   "voice": {
-    "title": "Guth Hoppy",
-    "subtitle": "Roghnaigh an guth a labhraíonn Hoppy leis. Cuirfear i bhfeidhm é an chéad uair eile a thapálann tú an micreafón.",
+    "title": "Guth Hop",
+    "subtitle": "Roghnaigh an guth a labhraíonn Hop leis. Cuirfear i bhfeidhm é an chéad uair eile a thapálann tú an micreafón.",
     "eyebrow": "GACH GUTH"
   },
   "app": {
-    "tapMicPrompt": "Tapáil an micreafón, ansin iarr ar Hoppy tú a chlárú.",
+    "tapMicPrompt": "Tapáil an micreafón, ansin iarr ar Hop tú a chlárú.",
     "tapToTalkAgain": "Tapáil an micreafón chun labhairt arís.",
     "micDenied": "Diúltaíodh cead don mhicreafón.",
     "readingId": "Ag léamh d'aitheantais…",
     "scanFailed": "Theip ar an scan: {{error}}",
     "pickFailed": "Theip ar an roghnú: {{error}}",
-    "gotItNamed": "Tuigthe, {{name}}! Iarr ar Hoppy tú a chlárú.",
+    "gotItNamed": "Tuigthe, {{name}}! Iarr ar Hop tú a chlárú.",
     "friend": "cara",
     "couldNotSave": "Níorbh fhéidir sábháil: {{error}}",
     "coachingDefault": "Tapáil an réimse aibhsithe agus clóscríobh d'ollscoil bhaile. Seiceálfaidh mé go bhfuil sé incháilithe.",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Fógraí",
-    "body": "Faigh meabhrúcháin faoi spriocdhátaí, deontais agus freagraí ó Pip.",
+    "body": "Faigh meabhrúcháin faoi spriocdhátaí, deontais agus freagraí ó Hop.",
     "receive": "Faigh fógraí",
     "onHint": "Gheobhaidh tú meabhrúcháin fiú nuair a bhíonn an aip dúnta.",
     "offHint": "Cas air é seo chun meabhrúcháin faoi spriocdhátaí agus freagraí a fháil."

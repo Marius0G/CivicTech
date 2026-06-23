@@ -1,6 +1,6 @@
 // EU Youth Buddy — "Golden Hour" themed app (design system 665b0df4).
 //
-// Navigator shell: a mocked EU ID login, then a tab-based app (Home Pip-hub, Docs, Pip chat,
+// Navigator shell: a mocked EU ID login, then a tab-based app (Home Hop-hub, Docs, Hop chat,
 // Profile) matching the design screenshots. The voice/autopilot/RAG engine is unchanged — the
 // big mic on Home starts the conversation, and the official form "browser" (Erasmus helper)
 // only pops up when the voice agent opens a form.
@@ -46,11 +46,12 @@ import ChatScreen from './src/screens/ChatScreen';
 import DiscoverScreen from './src/screens/DiscoverScreen';
 import CommunityScreen from './src/screens/CommunityScreen';
 import DocsScreen from './src/screens/DocsScreen';
+import DocumentDetailScreen from './src/screens/DocumentDetailScreen';
 import UploadScreen from './src/screens/UploadScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import ErasmusHelperScreen from './src/screens/ErasmusHelperScreen';
 
-type Screen = 'home' | 'discover' | 'community' | 'docs' | 'upload' | 'chat' | 'profile';
+type Screen = 'home' | 'discover' | 'community' | 'docs' | 'docDetail' | 'upload' | 'chat' | 'profile';
 
 // Full window height — the agent canvas slides in from below this.
 const WINDOW_H = Dimensions.get('window').height;
@@ -59,7 +60,7 @@ async function ensureMicPermission(): Promise<boolean> {
   if (Platform.OS !== 'android') return true; // iOS prompts via getUserMedia
   const res = await PermissionsAndroid.request(
     PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-    { title: 'Microphone', message: 'Hoppy needs your mic to talk with you.', buttonPositive: 'OK' }
+    { title: 'Microphone', message: 'Hop needs your mic to talk with you.', buttonPositive: 'OK' }
   );
   return res === PermissionsAndroid.RESULTS.GRANTED;
 }
@@ -189,7 +190,7 @@ function AppInner() {
     detectLocation();
   }, [authed]);
 
-  // Hoppy's "talking" state: any speech signal keeps it alive; a quiet gap turns it off.
+  // Hop's "talking" state: any speech signal keeps it alive; a quiet gap turns it off.
   function pingSpeaking() {
     setSpeaking(true);
     if (speakOffTimer.current) clearTimeout(speakOffTimer.current);
@@ -209,14 +210,14 @@ function AppInner() {
   }
 
   // --- Agent canvas slide-up + persistent-Mascot descent ---
-  // Pip "takes control": the canvas springs up from the bottom while the ONE Mascot glides from
+  // Hop "takes control": the canvas springs up from the bottom while the ONE Mascot glides from
   // the Home hero down into the canvas dock (no hard screen swap). Reverses on close.
   function openCanvas(url: string) {
     setFormUrl(url);
     setScreen('home');
     setCanvasMounted(true);
     setCanvasOpen(true);
-    fireGesture('Point'); // Pip points at the form it's about to coach you through
+    fireGesture('Point'); // Hop points at the form it's about to coach you through
   }
   function closeCanvas() {
     setCanvasOpen(false);
@@ -299,7 +300,7 @@ function AppInner() {
   }
 
   // A friendly, natural-language line for the coaching dock — NEVER raw tool JSON. Describes what
-  // Hoppy is doing right now in words the user can act on.
+  // Hop is doing right now in words the user can act on.
   function coachingLine(name: string, args: any): string {
     switch (name) {
       case 'open_form': return 'Opening the official form — I’ll tell you exactly what to type in each field.';
@@ -325,7 +326,7 @@ function AppInner() {
     try {
       const output = await executeTool(call.name, args, toolCtx);
       // Keep the dock human: a short "done" cue, never the raw tool JSON.
-      setLastTool('Done — listen to Hoppy for the next step.');
+      setLastTool('Done — listen to Hop for the next step.');
       setToolEvents((prev) => prev.map((e) => (e.id === evId ? { ...e, status: 'done' as const } : e)));
       // Celebrate the moment the form is successfully filled; otherwise a quick acknowledging nod.
       if (call.name === 'fill_form') {
@@ -388,6 +389,8 @@ function AppInner() {
       setScanStep('idle');
       setDraft(null);
       setVoiceStatus(t('app.gotItNamed', { name: saved.name || t('app.friend') }));
+      // Land the user in the vault so they immediately see the saved document.
+      setScreen('docs');
     } catch (e: any) {
       setReviewError(t('app.couldNotSave', { error: e.message ?? e }));
     } finally {
@@ -425,7 +428,7 @@ function AppInner() {
         onSpeakingChange: (sp) => (sp ? pingSpeaking() : stopSpeaking()),
         onAudioPulse: pingSpeaking,
         onLevel: (l) => levelValue.setValue(l),
-        language: i18n.language, // Hoppy speaks the UI language the user chose
+        language: i18n.language, // Hop speaks the UI language the user chose
         voice: getVoice(),       // …in the voice the user picked in Profile
       });
       setConnected(true);
@@ -455,7 +458,7 @@ function AppInner() {
   }
 
   const formHost = (() => { try { return new URL(formUrl).host; } catch { return 'europa.eu'; } })();
-  // `lastTool` now holds a natural-language line (see coachingLine). On web Hoppy can't fill the
+  // `lastTool` now holds a natural-language line (see coachingLine). On web Hop can't fill the
   // cross-origin gov form, so the resting hint points the user at the form tab instead.
   const coaching = lastTool
     || (Platform.OS === 'web' ? t('app.webCoaching') : t('app.coachingDefault'));
@@ -601,7 +604,15 @@ function AppInner() {
           <ChatScreen onBack={() => setScreen('home')} onMic={toggleVoice} />
         )}
         {screen === 'docs' && (
-          <DocsScreen onBack={() => setScreen('home')} onUpload={() => setScreen('upload')} />
+          <DocsScreen
+            onBack={() => setScreen('home')}
+            onUpload={() => setScreen('upload')}
+            profile={profile}
+            onOpenDoc={() => setScreen('docDetail')}
+          />
+        )}
+        {screen === 'docDetail' && profile && (
+          <DocumentDetailScreen profile={profile} onBack={() => setScreen('docs')} />
         )}
         {screen === 'upload' && (
           <UploadScreen

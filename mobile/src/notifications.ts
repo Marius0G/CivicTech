@@ -63,7 +63,7 @@ export async function enableNotifications(): Promise<boolean> {
     try {
       const res = await PermissionsAndroid.request(POST_NOTIFICATIONS, {
         title: 'Notifications',
-        message: 'Allow Pip to send you reminders about deadlines, grants and replies.',
+        message: 'Allow Hop to send you reminders about deadlines, grants and replies.',
         buttonPositive: 'Allow',
         buttonNegative: 'Not now',
       });

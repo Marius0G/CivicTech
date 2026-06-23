@@ -1,6 +1,6 @@
 // LanguageSheet — frosted bottom-sheet language picker (same pattern as LocationSheet).
 // Lists the app's supported languages by endonym + flag; tapping one switches the whole app
-// (and Hoppy's voice on the next connection) via the i18n setLanguage helper.
+// (and Hop's voice on the next connection) via the i18n setLanguage helper.
 
 import React, { useMemo, useState } from 'react';
 import {

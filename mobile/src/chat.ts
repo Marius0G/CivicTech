@@ -13,7 +13,7 @@ export interface ChatReply {
   sources: { title: string; url: string }[];
 }
 
-/** Send the conversation so far; get back Pip's grounded reply (+ source list). */
+/** Send the conversation so far; get back Hop's grounded reply (+ source list). */
 export async function sendChat(messages: ChatMessage[]): Promise<ChatReply> {
   const res = await fetch(`${BACKEND_URL}/chat`, {
     method: 'POST',

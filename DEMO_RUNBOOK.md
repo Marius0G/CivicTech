@@ -46,9 +46,9 @@ The autopilot can fill either the **live** ESC form or a **bundled offline snaps
    - "Do I need a visa to work in another EU country?"
    - "What is the EHIC and what does it cover?"
    - "How do I get my diploma recognised in another EU country?"
-4. **The wow:** "Open the Solidarity Corps form and sign me up." → Pip opens the form, the frog
+4. **The wow:** "Open the Solidarity Corps form and sign me up." → Hop opens the form, the frog
    docks, and the **autopilot fills country + date of birth** from Maria's profile → **celebrate**.
-5. Note the **citations**: Hoppy answers from official EU sources, not hallucinations.
+5. Note the **citations**: Hop answers from official EU sources, not hallucinations.
 
 ## 4. Locked demo profile (Maria)
 `run_demo.ps1` sets this so step 4 always has data even if you skip the live ID scan:

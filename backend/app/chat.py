@@ -1,4 +1,4 @@
-"""Typed (text) chat endpoint — the in-app Pip chat, with the same RAG/web tools as the voice.
+"""Typed (text) chat endpoint — the in-app Hop chat, with the same RAG/web tools as the voice.
 
 POST /chat  { "messages": [{ "role": "user"|"assistant", "content": "..." }] }
   -> runs an OpenAI chat-completions tool loop (search_eu_info / web_search / get_profile)
@@ -10,6 +10,7 @@ base (and live europa.eu search), not canned text.
 
 import json
 import logging
+from datetime import datetime, timezone
 from typing import Any
 
 import httpx
@@ -17,8 +18,9 @@ from fastapi import APIRouter, Body, Depends
 
 from .auth import User, get_current_user
 from .config import get_settings
-from .persona import HOPPY_INSTRUCTIONS
-from .profile import get_active_profile
+from .persona import instructions_for
+from .preferences import get_preferences, save_preference
+from .profile import get_active_profile, profile_manifest
 from .rag import search as rag_search
 from .websearch import web_search as tavily_search
 
@@ -29,14 +31,21 @@ router = APIRouter(prefix="/chat", tags=["chat"])
 _COMPLETIONS_URL = "https://api.openai.com/v1/chat/completions"
 
 # Text-chat addendum to the shared persona (the voice rules about "never read URLs" don't apply).
-CHAT_SYSTEM = (
-    HOPPY_INSTRUCTIONS
-    + "\n\nYou are now in a TYPED chat (not voice). You may use short bullet lists and you may "
+# The date + preferences context comes from instructions_for(); we build the system message per
+# request so the date is always current and the user's saved preferences are up to date.
+CHAT_ADDENDUM = (
+    "\n\nYou are now in a TYPED chat (not voice). You may use short bullet lists and you may "
     "name and link sources. Keep replies concise and warm. For any EU fact, call search_eu_info "
     "first and answer from it; use web_search only for very recent/specific things. You cannot "
     "open or fill the web form from here — if the user wants that, tell them to tap the mic and "
-    "ask Hoppy by voice."
+    "ask Hop by voice."
 )
+
+
+def _chat_system(user_id: str) -> str:
+    """The system prompt for this turn: persona + live date + this user's saved preferences."""
+    today = datetime.now(timezone.utc).date().isoformat()
+    return instructions_for(None, today, get_preferences(user_id)) + CHAT_ADDENDUM
 
 CHAT_TOOLS = [
     {
@@ -67,8 +76,30 @@ CHAT_TOOLS = [
         "type": "function",
         "function": {
             "name": "get_profile",
-            "description": "Get the user's saved details (name, country, date of birth, nationality).",
+            "description": (
+                "Check WHICH of the user's details are on file (returns field names only, never "
+                "the values — they stay private in the EU)."
+            ),
             "parameters": {"type": "object", "properties": {}},
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "save_preference",
+            "description": (
+                "Remember a light, NON-sensitive preference the user volunteers (e.g. "
+                "key='climate', value='warm'; key='interests', value='environment'). Never store "
+                "sensitive personal data (ID, address) this way."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "key": {"type": "string", "description": "Short preference name, e.g. 'climate'."},
+                    "value": {"type": "string", "description": "Short value, e.g. 'warm'."},
+                },
+                "required": ["key", "value"],
+            },
         },
     },
 ]
@@ -84,7 +115,11 @@ async def _run_tool(settings, name: str, args: dict[str, Any], user_id: str) -> 
     if name == "web_search":
         return await tavily_search(settings, args.get("query", ""))
     if name == "get_profile":
-        return {"profile": get_active_profile(user_id)}
+        # Field names only — never the values (EU data residency); see app/tools.py.
+        return profile_manifest(get_active_profile(user_id))
+    if name == "save_preference":
+        prefs = save_preference(user_id, args.get("key", ""), args.get("value", ""))
+        return {"ok": True, "preferences": prefs}
     return {"error": f"unknown tool {name}"}
 
 
@@ -99,7 +134,7 @@ async def chat(
         return {"reply": "The backend has no OPENAI_API_KEY set, so chat is offline.", "sources": []}
 
     incoming = body.get("messages", []) or []
-    messages: list[dict[str, Any]] = [{"role": "system", "content": CHAT_SYSTEM}]
+    messages: list[dict[str, Any]] = [{"role": "system", "content": _chat_system(user.id)}]
     for m in incoming[-12:]:  # keep the last few turns
         role = m.get("role", "user")
         content = m.get("content", "")

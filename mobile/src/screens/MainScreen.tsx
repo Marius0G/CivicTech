@@ -1,7 +1,13 @@
 // Screen 3 · Main · Hop hub — the immersive voice home.
+<<<<<<< HEAD
 // Big glowing Pip + a time-based greeting, a BIG mic button (idle → connecting spinner →
 // listening), and the quick-chips + "Ask Pip anything…" bar. When the channel is live the
 // greeting hides, Pip grows (speaking), the chips give way to live tool-call cards.
+=======
+// Big glowing Hop + a time-based greeting, a BIG mic button (idle → connecting spinner →
+// listening), and the quick-chips + "Ask Hop anything…" bar. When the channel is live the
+// greeting hides, Hop grows (speaking), the chips give way to live tool-call cards.
+>>>>>>> origin/main
 
 import React, { useEffect, useRef } from 'react';
 import {
@@ -64,7 +70,7 @@ interface Props {
   notifEnabled?: boolean;
   /** Report the hero slot's window rect so App can fly the persistent Mascot into it. */
   onHeroAnchor: (r: Rect) => void;
-  /** Tap on Pip (the overlay is pointerEvents:none, so the touch lands on this slot) → poke. */
+  /** Tap on Hop (the overlay is pointerEvents:none, so the touch lands on this slot) → poke. */
   onPokeMascot?: () => void;
 }
 
@@ -135,7 +141,7 @@ export default function MainScreen({
       {/* Center hero */}
       <View style={styles.center}>
         {/* Hero slot — the real Mascot is a persistent overlay in App that flies into this rect.
-            Wrapped in a Pressable so a tap where Pip sits pokes it (overlay is pointerEvents:none). */}
+            Wrapped in a Pressable so a tap where Hop sits pokes it (overlay is pointerEvents:none). */}
         <Pressable onPress={onPokeMascot} hitSlop={8}>
           <Anchor size={MASCOT_HERO_SIZE} onMeasure={onHeroAnchor} />
         </Pressable>
@@ -188,7 +194,7 @@ export default function MainScreen({
         )}
       </View>
 
-      {/* Bottom dock — chips (hidden while connected) + Ask Pip bar */}
+      {/* Bottom dock — chips (hidden while connected) + Ask Hop bar */}
       <View style={styles.dock}>
         {!connected && (
           <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
