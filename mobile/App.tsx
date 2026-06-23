@@ -19,7 +19,7 @@ import { BricolageGrotesque_700Bold, BricolageGrotesque_800ExtraBold } from '@ex
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { connectRealtime, RealtimeHandle, FunctionCall } from './src/realtime';
 import { ESC_ELIGIBILITY_URL, executeTool, ToolContext } from './src/tools';
-import { BACKEND_URL } from './src/config';
+import { BACKEND_URL, USE_CACHED_FORM, LIVE_FORM_TIMEOUT_MS } from './src/config';
 import { uploadIdImage, saveProfile, pickIdImage, PickedImage, ExtractedProfile } from './src/profileUpload';
 import { detectCity } from './src/location';
 import IdCameraScreen from './src/IdCameraScreen';
@@ -43,6 +43,11 @@ type Screen = 'home' | 'docs' | 'upload' | 'chat' | 'profile';
 
 // Full window height — the agent canvas slides in from below this.
 const WINDOW_H = Dimensions.get('window').height;
+
+// Bundled offline snapshot of the ESC eligibility form (metro.config.js bundles .html). The
+// autopilot fills it identically — injection targets the same element IDs as the live page.
+// Typed loosely because WebView's `source` accepts a required-asset module id at runtime.
+const CACHED_FORM: any = require('./assets/eligibility.html');
 
 async function ensureMicPermission(): Promise<boolean> {
   if (Platform.OS !== 'android') return true; // iOS prompts via getUserMedia
@@ -78,6 +83,11 @@ function AppInner() {
   const reqCounter = useRef(0);
 
   const [formUrl, setFormUrl] = useState(ESC_ELIGIBILITY_URL);
+  // Demo-day safety: when true the WebView loads the bundled cached form instead of the live site.
+  // Starts from the config kill-switch; also flips on automatically if the live load errors/times out.
+  const [useCachedForm, setUseCachedForm] = useState(USE_CACHED_FORM);
+  // Watchdog: if the live form hasn't finished loading in time, fall back to the cached copy.
+  const liveFormTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   // Agent canvas (the Erasmus-helper "browser"): `mounted` keeps it in the tree during the
   // slide-out so the close animation can finish; `open` drives the direction of both animations.
   const [canvasMounted, setCanvasMounted] = useState(false);
@@ -190,6 +200,16 @@ function AppInner() {
     anim.start();
     return () => anim.stop();
   }, [canvasOpen, dockAnchor, controlProgress]);
+
+  // Live-form watchdog: when the canvas opens against the live site, give it LIVE_FORM_TIMEOUT_MS
+  // to finish loading; if it doesn't (slow/flaky Wi-Fi), swap to the bundled cached form so the
+  // autopilot can still run. onLoadEnd clears the timer; onError/onHttpError flip immediately.
+  useEffect(() => {
+    if (canvasMounted && !useCachedForm) {
+      liveFormTimer.current = setTimeout(() => setUseCachedForm(true), LIVE_FORM_TIMEOUT_MS);
+      return () => { if (liveFormTimer.current) { clearTimeout(liveFormTimer.current); liveFormTimer.current = null; } };
+    }
+  }, [canvasMounted, useCachedForm]);
 
   // --- WebView injection with async result correlation ---
   function injectAndWait(js: string, requestId: string): Promise<any> {
@@ -505,8 +525,13 @@ function AppInner() {
           >
             <WebView
               ref={webRef}
-              source={{ uri: formUrl }}
+              source={useCachedForm ? CACHED_FORM : { uri: formUrl }}
               onMessage={onMessage}
+              // The live form finished loading — cancel the fallback watchdog.
+              onLoadEnd={() => { if (liveFormTimer.current) { clearTimeout(liveFormTimer.current); liveFormTimer.current = null; } }}
+              // Hard load failure (DNS, TLS, HTTP error) → use the bundled cached form instead.
+              onError={() => setUseCachedForm(true)}
+              onHttpError={() => setUseCachedForm(true)}
               javaScriptEnabled
               domStorageEnabled
               style={{ flex: 1, backgroundColor: '#fff' }}
