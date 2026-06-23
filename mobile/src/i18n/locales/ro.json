@@ -20,8 +20,10 @@
   },
   "tabbar": {
     "homeLabel": "Acasă",
-    "docsLabel": "Documente",
+    "discoverLabel": "Descoperă",
+    "docsLabel": "Documentele mele",
     "pipLabel": "Pip",
+    "communityLabel": "Comunitate",
     "meLabel": "Eu"
   },
   "location": {

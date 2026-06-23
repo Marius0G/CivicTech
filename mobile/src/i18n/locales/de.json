@@ -20,8 +20,10 @@
   },
   "tabbar": {
     "homeLabel": "Start",
-    "docsLabel": "Docs",
+    "discoverLabel": "Entdecken",
+    "docsLabel": "Meine Docs",
     "pipLabel": "Pip",
+    "communityLabel": "Community",
     "meLabel": "Ich"
   },
   "location": {

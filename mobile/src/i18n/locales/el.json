@@ -20,8 +20,10 @@
   },
   "tabbar": {
     "homeLabel": "Αρχική",
-    "docsLabel": "Έγγραφα",
+    "discoverLabel": "Ανακαλύψτε",
+    "docsLabel": "Τα έγγραφά μου",
     "pipLabel": "Pip",
+    "communityLabel": "Κοινότητα",
     "meLabel": "Εγώ"
   },
   "location": {

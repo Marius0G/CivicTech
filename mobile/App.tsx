@@ -37,12 +37,14 @@ import TabBar, { TabKey } from './src/ui/TabBar';
 import LocationSheet from './src/ui/LocationSheet';
 import MainScreen, { ToolEvent } from './src/screens/MainScreen';
 import ChatScreen from './src/screens/ChatScreen';
+import DiscoverScreen from './src/screens/DiscoverScreen';
+import CommunityScreen from './src/screens/CommunityScreen';
 import DocsScreen from './src/screens/DocsScreen';
 import UploadScreen from './src/screens/UploadScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import ErasmusHelperScreen from './src/screens/ErasmusHelperScreen';
 
-type Screen = 'home' | 'docs' | 'upload' | 'chat' | 'profile';
+type Screen = 'home' | 'discover' | 'community' | 'docs' | 'upload' | 'chat' | 'profile';
 
 // Full window height — the agent canvas slides in from below this.
 const WINDOW_H = Dimensions.get('window').height;
@@ -429,7 +431,7 @@ function AppInner() {
   }
 
   function handleTab(k: TabKey) {
-    setScreen(k === 'chat' ? 'chat' : (k as Screen));
+    setScreen(k === 'chat' ? 'chat' : k);
   }
 
   const formHost = (() => { try { return new URL(formUrl).host; } catch { return 'europa.eu'; } })();
@@ -437,7 +439,7 @@ function AppInner() {
     ? `Hoppy · ${lastTool}`
     : t('app.coachingDefault');
   const firstName = profile?.name ? profile.name.split(/\s+/)[0] : undefined;
-  const showTabBar = (screen === 'home' || screen === 'docs' || screen === 'profile') && !canvasOpen;
+  const showTabBar = (screen === 'home' || screen === 'discover' || screen === 'community' || screen === 'docs' || screen === 'profile') && !canvasOpen;
   const tabActive: TabKey = screen === 'upload' ? 'docs' : (screen as TabKey);
 
   // Persistent-Mascot overlay geometry: the single frog lives in window space and interpolates
@@ -523,6 +525,8 @@ function AppInner() {
             onPokeMascot={() => fireGesture('Poke')}
           />
         )}
+        {screen === 'discover' && <DiscoverScreen />}
+        {screen === 'community' && <CommunityScreen />}
         {screen === 'chat' && (
           <ChatScreen onBack={() => setScreen('home')} onMic={toggleVoice} />
         )}
