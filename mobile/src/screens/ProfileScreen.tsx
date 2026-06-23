@@ -1,6 +1,6 @@
 // Screen 11 · Profile / settings (profilescreen.png) — identity, preferences, logout.
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import TopBar, { circleBtnStyle } from '../ui/TopBar';
 import Avatar from '../ui/Avatar';
@@ -8,6 +8,7 @@ import Card from '../ui/Card';
 import Button from '../ui/Button';
 import Icon, { IconName } from '../ui/Icon';
 import { colors, fonts, radius, space } from '../theme';
+import { getNotificationsEnabled, setNotificationsEnabled } from '../notifications';
 
 function Toggle({ value, onToggle, color }: { value: boolean; onToggle: () => void; color: string }) {
   return (
@@ -21,6 +22,21 @@ export default function ProfileScreen({ onBack, onLogout }: { onBack: () => void
   const [push, setPush] = useState(true);
   const [screen, setScreen] = useState(true);
   const [share, setShare] = useState(false);
+
+  // Load notification preference from storage on mount
+  useEffect(() => {
+    (async () => {
+      const enabled = await getNotificationsEnabled();
+      setPush(enabled);
+    })();
+  }, []);
+
+  // Handle notification toggle with permission request
+  const handleNotificationToggle = async () => {
+    const newValue = !push;
+    setPush(newValue);
+    await setNotificationsEnabled(newValue);
+  };
 
   return (
     <View style={styles.safe}>
@@ -48,7 +64,7 @@ export default function ProfileScreen({ onBack, onLogout }: { onBack: () => void
         {/* Settings */}
         <Card style={styles.card}>
           <Row icon="globe" title="Language" right={<Text style={styles.valueText}>English ›</Text>} divider />
-          <Row icon="bell" title="Push notifications" right={<Toggle value={push} onToggle={() => setPush((v) => !v)} color={colors.primary} />} divider />
+          <Row icon="bell" title="Push notifications" right={<Toggle value={push} onToggle={handleNotificationToggle} color={colors.primary} />} divider />
           <Row icon="robot" title="Let Pip see my screen" right={<Toggle value={screen} onToggle={() => setScreen((v) => !v)} color={colors.euBlue} />} divider />
           <Row icon="database" title="Share anonymous data" right={<Toggle value={share} onToggle={() => setShare((v) => !v)} color={colors.twilight500} />} />
         </Card>

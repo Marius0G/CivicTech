@@ -22,6 +22,7 @@ import { ESC_ELIGIBILITY_URL, executeTool, ToolContext } from './src/tools';
 import { BACKEND_URL } from './src/config';
 import { uploadIdImage, saveProfile, pickIdImage, PickedImage, ExtractedProfile } from './src/profileUpload';
 import { detectCity } from './src/location';
+import { setupNotificationListeners, getPushToken } from './src/notifications';
 import IdCameraScreen from './src/IdCameraScreen';
 import IdProcessingScreen from './src/IdProcessingScreen';
 import IdReviewScreen from './src/IdReviewScreen';
@@ -135,6 +136,31 @@ function AppInner() {
       } catch { /* offline — greet without a name */ }
     })();
     detectLocation();
+  }, []);
+
+  // Set up notification listeners on mount
+  useEffect(() => {
+    const cleanup = setupNotificationListeners(
+      (notification) => {
+        // Handle notification received while app is in foreground
+        console.log('Notification received:', notification);
+      },
+      (notification) => {
+        // Handle notification tapped by user
+        console.log('Notification tapped:', notification);
+      }
+    );
+
+    // Get and log the push token for server-side notifications
+    (async () => {
+      const token = await getPushToken();
+      if (token) {
+        console.log('Push token:', token);
+        // Store or send this token to your backend for push notifications
+      }
+    })();
+
+    return cleanup;
   }, []);
 
   // Hoppy's "talking" state: any speech signal keeps it alive; a quiet gap turns it off.
