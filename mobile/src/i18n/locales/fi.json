@@ -1,0 +1,180 @@
+{
+  "login": {
+    "meetPip": "Tutustu Pipiin",
+    "welcomeSub": "Kaverisi elämään EU:ssa — apurahat, Erasmus, asuminen ja kaikki lomakkeet siltä väliltä.",
+    "continueWithEuId": "Jatka EU ID:llä",
+    "exploreAsGuest": "Tutustu vieraana",
+    "terms": "Jatkamalla hyväksyt EU Youth -ehdot.",
+    "euIdLogin": "EU ID -kirjautuminen",
+    "secureSso": "Turvallinen kertakirjautuminen",
+    "secureSsoBody": "Sinut ohjataan kansalliselle eID-palveluntarjoajallesi.",
+    "euIdEmail": "EU ID -sähköposti",
+    "password": "Salasana",
+    "keepSignedIn": "Pidä minut kirjautuneena",
+    "forgot": "Unohditko?",
+    "orContinueWith": "TAI JATKA KÄYTTÄEN",
+    "biometric": "Biometriikka",
+    "scanQr": "Skannaa QR",
+    "signingIn": "Kirjaudutaan sisään kansallisella eID:llä…",
+    "logIn": "Kirjaudu sisään"
+  },
+  "tabbar": {
+    "homeLabel": "Etusivu",
+    "docsLabel": "Asiakirjat",
+    "pipLabel": "Pip",
+    "meLabel": "Minä"
+  },
+  "location": {
+    "title": "Sijainti",
+    "searchPlaceholder": "Hae kaupunkia",
+    "useCurrentLocation": "Käytä nykyistä sijaintiani",
+    "locationsEyebrow": "SIJAINNIT"
+  },
+  "idCamera": {
+    "idTitle": "Ota kuva henkilökortistasi",
+    "idHint": "Sovita koko kortti kehyksen sisään. Pidä se suorassa, hyvässä valossa ja varmista, että jokainen rivi on terävä ja luettava — ei heijastuksia tai varjoja.",
+    "a4Title": "Ota kuva asiakirjastasi",
+    "a4Hint": "Sovita koko A4-sivu kehyksen sisään. Pidä se suorassa, hyvässä valossa ja varmista, että jokainen rivi on terävä ja luettava — ei heijastuksia tai varjoja.",
+    "errorNoPhoto": "Kuvaa ei otettu",
+    "errorCapture": "Kuvaa ei voitu ottaa",
+    "errorGallery": "Galleriaa ei voitu avata",
+    "permTitle": "Kameran käyttöoikeus tarvitaan",
+    "permBody": "Hoppy käyttää kameraa ottaakseen selkeän kuvan henkilökortistasi ja täyttääkseen EU-lomakkeesi puolestasi.",
+    "permAllow": "Salli kamera",
+    "permGallery": "Valitse galleriasta sen sijaan",
+    "permCancel": "Peruuta",
+    "tabIdCard": "Henkilökortti",
+    "tabA4Document": "A4-asiakirja",
+    "galleryLabel": "Galleria"
+  },
+  "idProcessing": {
+    "title": "Käsitellään…",
+    "subtitle": "Luetaan henkilökorttiasi"
+  },
+  "idReview": {
+    "nameLabel": "Koko nimi",
+    "namePlaceholder": "esim. Maria Ionescu",
+    "birthdateLabel": "Syntymäaika",
+    "birthdatePlaceholder": "VVVV-KK-PP",
+    "birthdateHint": "Muoto: VVVV-KK-PP",
+    "countryLabel": "Maa",
+    "countryPlaceholder": "esim. Romania",
+    "nationalityLabel": "Kansalaisuus",
+    "nationalityPlaceholder": "esim. romanialainen",
+    "title": "Tarkista tietosi",
+    "subtitle": "Luimme nämä henkilökortistasi. Napauta mitä tahansa kenttää korjataksesi sitä ja tallenna sitten.",
+    "editAction": "Muokkaa",
+    "cancel": "Peruuta",
+    "save": "Tallenna"
+  },
+  "home": {
+    "chipErasmusDeadlines": "Erasmus-määräajat",
+    "chipFindHousing": "Etsi asuntoa",
+    "chipTranslateLetter": "Käännä kirje",
+    "chipGrantEligibility": "Apurahakelpoisuus",
+    "toolOpenForm": "Avataan lomaketta",
+    "toolFillForm": "Täytetään lomaketta",
+    "toolReadPage": "Luetaan sivua",
+    "toolGetProfile": "Luetaan profiiliasi",
+    "toolSearchEuInfo": "Haetaan EU-tietoa",
+    "toolWebSearch": "Haetaan verkosta",
+    "greetingMorning": "Hyvää huomenta",
+    "greetingAfternoon": "Hyvää iltapäivää",
+    "greetingEvening": "Hyvää iltaa",
+    "greetingNamed": "{{greeting}}, {{name}}",
+    "connecting": "Yhdistetään…",
+    "tapToTalk": "Napauta puhuaksesi Pipin kanssa",
+    "askPipPlaceholder": "Kysy Pipiltä mitä tahansa…"
+  },
+  "chat": {
+    "seedGreeting": "Hei! 🐸 Olen Pip. Kysy minulta mitä tahansa EU:n mahdollisuuksista — Erasmus, apurahat, solidaarisuusjoukot, asuminen, oikeutesi…",
+    "quickErasmusDeadlines": "Erasmus-määräajat",
+    "quickFindGrant": "Etsi apuraha",
+    "quickEuYouthRights": "EU:n nuorten oikeudet",
+    "reachError": "En saanut juuri nyt yhteyttä aivoihini ({{error}}).",
+    "presenceOnline": "verkossa · web + EU-indeksi",
+    "typing": "Pip kirjoittaa…",
+    "inputPlaceholder": "Viesti Pipille…"
+  },
+  "docs": {
+    "screenTitle": "Asiakirjat",
+    "promptPrefix": "Pudota tiedosto, niin Pip ",
+    "promptHighlight": "lukee, lajittelee ja muistaa",
+    "promptSuffix": " sen.",
+    "uploadButton": "Lataa",
+    "vaultEyebrow": "HOLVISI",
+    "verifiedBadge": "Vahvistettu",
+    "idCardTitle": "Kansallinen henkilökortti",
+    "idCardSub": "Vahvistettu · PDF",
+    "enrolmentTitle": "Ilmoittautumistodistus",
+    "enrolmentSub": "NOVA Lisbon · 1,2 Mt",
+    "transcriptTitle": "Opintosuoritusote",
+    "transcriptSub": "Odottaa vahvistusta",
+    "rentalTitle": "Vuokrasopimus",
+    "rentalSub": "Luonnos · jaettu Pipin kanssa"
+  },
+  "upload": {
+    "screenTitle": "Lisää asiakirja",
+    "dropTitle": "Pudota tiedosto tähän",
+    "dropSub": "PDF, kuva tai skannaus · enintään 20 Mt",
+    "browseButton": "Selaa tiedostoja",
+    "scanCameraButton": "Skannaa kameralla",
+    "uploadingEyebrow": "LADATAAN",
+    "fileMeta": "{{size}} · {{percent}} %",
+    "readingPrefix": "Pip lukee sitä — poimin automaattisesti ",
+    "readingHighlight": "yliopistosi ja päivämääräsi",
+    "readingSuffix": ".",
+    "readingButton": "Luetaan…"
+  },
+  "erasmus": {
+    "title": "Erasmus+-avustaja",
+    "watchingScreen": "Pip katsoo näyttöäsi",
+    "guiding": "Opastaa sinua lomakkeen läpi",
+    "recBadge": "REC"
+  },
+  "profile": {
+    "title": "Profiili",
+    "euIdVerified": "EU ID vahvistettu",
+    "student": "Opiskelija",
+    "language": "Kieli",
+    "voice": "Hoppyn ääni",
+    "pushNotifications": "Push-ilmoitukset",
+    "letPipSeeScreen": "Anna Pipin nähdä näyttöni",
+    "shareAnonymousData": "Jaa anonyymejä tietoja",
+    "privacyData": "Yksityisyys ja tiedot",
+    "helpSupport": "Ohje ja EU-tuki",
+    "logOut": "Kirjaudu ulos"
+  },
+  "language": {
+    "title": "Kieli",
+    "searchPlaceholder": "Hae kieltä",
+    "eyebrow": "KAIKKI KIELET"
+  },
+  "voice": {
+    "title": "Hoppyn ääni",
+    "subtitle": "Valitse ääni, jolla Hoppy puhuu. Tulee voimaan, kun napautat seuraavan kerran mikrofonia.",
+    "eyebrow": "KAIKKI ÄÄNET"
+  },
+  "app": {
+    "tapMicPrompt": "Napauta mikrofonia ja pyydä sitten Hoppya rekisteröimään sinut.",
+    "tapToTalkAgain": "Napauta mikrofonia puhuaksesi uudelleen.",
+    "micDenied": "Mikrofonin käyttöoikeus evätty.",
+    "readingId": "Luetaan henkilökorttiasi…",
+    "scanFailed": "Skannaus epäonnistui: {{error}}",
+    "pickFailed": "Valinta epäonnistui: {{error}}",
+    "gotItNamed": "Selvä, {{name}}! Pyydä Hoppya rekisteröimään sinut.",
+    "friend": "kaveri",
+    "couldNotSave": "Tallennus epäonnistui: {{error}}",
+    "coachingDefault": "Napauta korostettua kenttää ja kirjoita kotiyliopistosi. Tarkistan, onko se kelpoinen.",
+    "webCoaching": "Vaihda lomakevälilehdelle — kerron sinulle tarkalleen, mitä jokaiseen kenttään pitää kirjoittaa.",
+    "locating": "Paikannetaan…",
+    "setLocation": "Aseta sijainti"
+  },
+  "notifications": {
+    "title": "Ilmoitukset",
+    "body": "Saat muistutuksia määräajoista, avustuksista ja Pipin vastauksista.",
+    "receive": "Vastaanota ilmoituksia",
+    "onHint": "Saat muistutuksia, vaikka sovellus olisi suljettu.",
+    "offHint": "Ota tämä käyttöön saadaksesi muistutuksia määräajoista ja vastauksista."
+  }
+}

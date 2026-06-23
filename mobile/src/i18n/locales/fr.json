@@ -129,7 +129,8 @@
   "erasmus": {
     "title": "Assistant Erasmus+",
     "watchingScreen": "Pip regarde ton écran",
-    "recBadge": "REC"
+    "recBadge": "REC",
+    "guiding": "Je te guide dans le formulaire"
   },
   "profile": {
     "title": "Profil",
@@ -141,7 +142,8 @@
     "shareAnonymousData": "Partager des données anonymes",
     "privacyData": "Confidentialité et données",
     "helpSupport": "Aide et soutien UE",
-    "logOut": "Se déconnecter"
+    "logOut": "Se déconnecter",
+    "voice": "La voix de Hoppy"
   },
   "language": {
     "title": "Langue",
@@ -160,6 +162,19 @@
     "coachingDefault": "Touche le champ surligné et tape le nom de ton université d’origine. Je vérifie qu’elle est éligible.",
     "locating": "Localisation…",
     "setLocation": "Définir la localisation",
-    "friend": "l’ami"
+    "friend": "l’ami",
+    "webCoaching": "Passe à l’onglet du formulaire — je te dirai exactement quoi saisir dans chaque champ."
+  },
+  "voice": {
+    "title": "La voix de Hoppy",
+    "subtitle": "Choisis la voix avec laquelle Hoppy parle. Appliquée au prochain appui sur le micro.",
+    "eyebrow": "TOUTES LES VOIX"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "body": "Reçois des rappels sur les échéances, les bourses et les réponses de Pip.",
+    "receive": "Recevoir les notifications",
+    "onHint": "Tu recevras des rappels même lorsque l’app est fermée.",
+    "offHint": "Active ceci pour recevoir des rappels sur les échéances et les réponses."
   }
 }

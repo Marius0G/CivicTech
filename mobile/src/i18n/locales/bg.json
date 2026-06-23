@@ -1,0 +1,180 @@
+{
+  "login": {
+    "meetPip": "Запознай се с Pip",
+    "welcomeSub": "Твоят приятел за живота в ЕС — стипендии, Erasmus, жилище и всеки формуляр между тях.",
+    "continueWithEuId": "Продължи с EU ID",
+    "exploreAsGuest": "Разгледай като гост",
+    "terms": "С продължаването приемаш условията на EU Youth.",
+    "euIdLogin": "Вход с EU ID",
+    "secureSso": "Сигурен единен вход",
+    "secureSsoBody": "Ще бъдеш пренасочен(а) към националния си доставчик на eID.",
+    "euIdEmail": "Имейл за EU ID",
+    "password": "Парола",
+    "keepSignedIn": "Запомни ме",
+    "forgot": "Забравена?",
+    "orContinueWith": "ИЛИ ПРОДЪЛЖИ С",
+    "biometric": "Биометрия",
+    "scanQr": "Сканирай QR",
+    "signingIn": "Влизане с националния ти eID…",
+    "logIn": "Влез"
+  },
+  "tabbar": {
+    "homeLabel": "Начало",
+    "docsLabel": "Документи",
+    "pipLabel": "Pip",
+    "meLabel": "Аз"
+  },
+  "location": {
+    "title": "Местоположение",
+    "searchPlaceholder": "Търси град",
+    "useCurrentLocation": "Използвай текущото ми местоположение",
+    "locationsEyebrow": "МЕСТОПОЛОЖЕНИЯ"
+  },
+  "idCamera": {
+    "idTitle": "Направи снимка на личната си карта",
+    "idHint": "Помести цялата карта в рамката. Дръж я изправена, на добра светлина, и се увери, че всеки ред е ясен и четлив — без отблясъци или сенки.",
+    "a4Title": "Направи снимка на документа си",
+    "a4Hint": "Помести цялата A4 страница в рамката. Дръж я изправена, на добра светлина, и се увери, че всеки ред е ясен и четлив — без отблясъци или сенки.",
+    "errorNoPhoto": "Няма направена снимка",
+    "errorCapture": "Снимката не можа да бъде направена",
+    "errorGallery": "Галерията не можа да бъде отворена",
+    "permTitle": "Нужен е достъп до камерата",
+    "permBody": "Hoppy използва камерата, за да направи ясна снимка на личната ти карта и да попълни формулярите ти за ЕС вместо теб.",
+    "permAllow": "Разреши камерата",
+    "permGallery": "Вместо това избери от галерията",
+    "permCancel": "Отказ",
+    "tabIdCard": "Лична карта",
+    "tabA4Document": "A4 документ",
+    "galleryLabel": "Галерия"
+  },
+  "idProcessing": {
+    "title": "Обработка…",
+    "subtitle": "Разчитане на личната ти карта"
+  },
+  "idReview": {
+    "nameLabel": "Пълно име",
+    "namePlaceholder": "напр. Мария Йонеску",
+    "birthdateLabel": "Дата на раждане",
+    "birthdatePlaceholder": "ГГГГ-ММ-ДД",
+    "birthdateHint": "Формат: ГГГГ-ММ-ДД",
+    "countryLabel": "Държава",
+    "countryPlaceholder": "напр. Румъния",
+    "nationalityLabel": "Националност",
+    "nationalityPlaceholder": "напр. румънска",
+    "title": "Провери данните си",
+    "subtitle": "Разчетохме ги от личната ти карта. Докосни което и да е поле, за да го коригираш, после запази.",
+    "editAction": "Редактирай",
+    "cancel": "Отказ",
+    "save": "Запази"
+  },
+  "home": {
+    "chipErasmusDeadlines": "Срокове за Erasmus",
+    "chipFindHousing": "Намери жилище",
+    "chipTranslateLetter": "Преведи писмо",
+    "chipGrantEligibility": "Допустимост за стипендия",
+    "toolOpenForm": "Отваряне на формуляра",
+    "toolFillForm": "Попълване на формуляра",
+    "toolReadPage": "Разчитане на страницата",
+    "toolGetProfile": "Разчитане на профила ти",
+    "toolSearchEuInfo": "Търсене на информация за ЕС",
+    "toolWebSearch": "Търсене в мрежата",
+    "greetingMorning": "Добро утро",
+    "greetingAfternoon": "Добър ден",
+    "greetingEvening": "Добър вечер",
+    "greetingNamed": "{{greeting}}, {{name}}",
+    "connecting": "Свързване…",
+    "tapToTalk": "Докосни, за да говориш с Pip",
+    "askPipPlaceholder": "Попитай Pip каквото и да е…"
+  },
+  "chat": {
+    "seedGreeting": "Здравей! 🐸 Аз съм Pip. Питай ме каквото и да е за възможностите в ЕС — Erasmus, стипендии, Корпуса за солидарност, жилище, правата ти…",
+    "quickErasmusDeadlines": "Срокове за Erasmus",
+    "quickFindGrant": "Намери стипендия",
+    "quickEuYouthRights": "Права на младежите в ЕС",
+    "reachError": "Точно сега не успях да се свържа с мозъка си ({{error}}).",
+    "presenceOnline": "онлайн · мрежа + индекс на ЕС",
+    "typing": "Pip пише…",
+    "inputPlaceholder": "Съобщение до Pip…"
+  },
+  "docs": {
+    "screenTitle": "Документи",
+    "promptPrefix": "Пусни файл и Pip ще го ",
+    "promptHighlight": "прочете, подреди и запомни",
+    "promptSuffix": ".",
+    "uploadButton": "Качи",
+    "vaultEyebrow": "ТВОЯТ СЕЙФ",
+    "verifiedBadge": "Потвърден",
+    "idCardTitle": "Национална лична карта",
+    "idCardSub": "Потвърден · PDF",
+    "enrolmentTitle": "Удостоверение за записване",
+    "enrolmentSub": "NOVA Lisbon · 1.2 MB",
+    "transcriptTitle": "Академична справка",
+    "transcriptSub": "Очаква потвърждение",
+    "rentalTitle": "Договор за наем",
+    "rentalSub": "Чернова · споделена с Pip"
+  },
+  "upload": {
+    "screenTitle": "Добави документ",
+    "dropTitle": "Пусни файл тук",
+    "dropSub": "PDF, изображение или сканиране · до 20 MB",
+    "browseButton": "Прегледай файлове",
+    "scanCameraButton": "Сканирай с камера",
+    "uploadingEyebrow": "КАЧВАНЕ",
+    "fileMeta": "{{size}} · {{percent}}%",
+    "readingPrefix": "Pip го чете — автоматично ще извадя ",
+    "readingHighlight": "университета и датите ти",
+    "readingSuffix": ".",
+    "readingButton": "Разчитане…"
+  },
+  "erasmus": {
+    "title": "Помощник за Erasmus+",
+    "watchingScreen": "Pip наблюдава екрана ти",
+    "guiding": "Води те през формуляра",
+    "recBadge": "ЗАП"
+  },
+  "profile": {
+    "title": "Профил",
+    "euIdVerified": "EU ID е потвърдено",
+    "student": "Студент",
+    "language": "Език",
+    "voice": "Гласът на Hoppy",
+    "pushNotifications": "Push известия",
+    "letPipSeeScreen": "Позволи на Pip да вижда екрана ми",
+    "shareAnonymousData": "Сподели анонимни данни",
+    "privacyData": "Поверителност и данни",
+    "helpSupport": "Помощ и поддръжка от ЕС",
+    "logOut": "Изход"
+  },
+  "language": {
+    "title": "Език",
+    "searchPlaceholder": "Търси език",
+    "eyebrow": "ВСИЧКИ ЕЗИЦИ"
+  },
+  "voice": {
+    "title": "Гласът на Hoppy",
+    "subtitle": "Избери гласа, с който говори Hoppy. Прилага се следващия път, когато докоснеш микрофона.",
+    "eyebrow": "ВСИЧКИ ГЛАСОВЕ"
+  },
+  "app": {
+    "tapMicPrompt": "Докосни микрофона, после помоли Hoppy да те запише.",
+    "tapToTalkAgain": "Докосни микрофона, за да говориш отново.",
+    "micDenied": "Достъпът до микрофона е отказан.",
+    "readingId": "Разчитане на личната ти карта…",
+    "scanFailed": "Сканирането се провали: {{error}}",
+    "pickFailed": "Изборът се провали: {{error}}",
+    "gotItNamed": "Разбрах, {{name}}! Помоли Hoppy да те запише.",
+    "friend": "приятел",
+    "couldNotSave": "Запазването не бе успешно: {{error}}",
+    "coachingDefault": "Докосни осветеното поле и въведи родния си университет. Ще проверя дали отговаря на условията.",
+    "webCoaching": "Премини към раздела с формуляра — ще ти кажа точно какво да въведеш във всяко поле.",
+    "locating": "Локализиране…",
+    "setLocation": "Задай местоположение"
+  },
+  "notifications": {
+    "title": "Известия",
+    "body": "Получавай напомняния за крайни срокове, грантове и отговори от Pip.",
+    "receive": "Получавай известия",
+    "onHint": "Ще получаваш напомняния дори когато приложението е затворено.",
+    "offHint": "Включи това, за да получаваш напомняния за крайни срокове и отговори."
+  }
+}

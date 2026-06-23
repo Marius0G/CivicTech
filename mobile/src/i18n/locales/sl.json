@@ -1,0 +1,180 @@
+{
+  "login": {
+    "meetPip": "Spoznaj Pipa",
+    "welcomeSub": "Tvoj prijatelj za življenje v EU — štipendije, Erasmus, stanovanja in vsak obrazec vmes.",
+    "continueWithEuId": "Nadaljuj z EU ID",
+    "exploreAsGuest": "Razišči kot gost",
+    "terms": "Z nadaljevanjem se strinjaš s pogoji EU Youth.",
+    "euIdLogin": "Prijava z EU ID",
+    "secureSso": "Varna enotna prijava",
+    "secureSsoBody": "Preusmerjen boš k svojemu nacionalnemu ponudniku eID.",
+    "euIdEmail": "EU ID e-pošta",
+    "password": "Geslo",
+    "keepSignedIn": "Ostani prijavljen",
+    "forgot": "Pozabljeno?",
+    "orContinueWith": "ALI NADALJUJ Z",
+    "biometric": "Biometrija",
+    "scanQr": "Skeniraj QR",
+    "signingIn": "Prijavljanje z nacionalnim eID…",
+    "logIn": "Prijava"
+  },
+  "tabbar": {
+    "homeLabel": "Domov",
+    "docsLabel": "Dokumenti",
+    "pipLabel": "Pip",
+    "meLabel": "Jaz"
+  },
+  "location": {
+    "title": "Lokacija",
+    "searchPlaceholder": "Poišči mesto",
+    "useCurrentLocation": "Uporabi mojo trenutno lokacijo",
+    "locationsEyebrow": "LOKACIJE"
+  },
+  "idCamera": {
+    "idTitle": "Fotografiraj svojo osebno izkaznico",
+    "idHint": "Postavi celotno izkaznico v okvir. Naj bo ravna, pri dobri svetlobi in poskrbi, da je vsaka vrstica ostra in čitljiva — brez odsevov ali senc.",
+    "a4Title": "Fotografiraj svoj dokument",
+    "a4Hint": "Postavi celotno A4 stran v okvir. Naj bo ravna, pri dobri svetlobi in poskrbi, da je vsaka vrstica ostra in čitljiva — brez odsevov ali senc.",
+    "errorNoPhoto": "Nobena fotografija ni bila zajeta",
+    "errorCapture": "Fotografije ni bilo mogoče posneti",
+    "errorGallery": "Galerije ni bilo mogoče odpreti",
+    "permTitle": "Potreben je dostop do kamere",
+    "permBody": "Hoppy uporablja kamero, da posname jasno fotografijo tvoje izkaznice in zate izpolni EU obrazce.",
+    "permAllow": "Dovoli kamero",
+    "permGallery": "Raje izberi iz galerije",
+    "permCancel": "Prekliči",
+    "tabIdCard": "Osebna izkaznica",
+    "tabA4Document": "A4 dokument",
+    "galleryLabel": "Galerija"
+  },
+  "idProcessing": {
+    "title": "Obdelovanje…",
+    "subtitle": "Branje tvoje izkaznice"
+  },
+  "idReview": {
+    "nameLabel": "Polno ime",
+    "namePlaceholder": "npr. Maria Ionescu",
+    "birthdateLabel": "Datum rojstva",
+    "birthdatePlaceholder": "LLLL-MM-DD",
+    "birthdateHint": "Oblika: LLLL-MM-DD",
+    "countryLabel": "Država",
+    "countryPlaceholder": "npr. Romunija",
+    "nationalityLabel": "Državljanstvo",
+    "nationalityPlaceholder": "npr. romunsko",
+    "title": "Preveri svoje podatke",
+    "subtitle": "Te podatke smo prebrali s tvoje izkaznice. Tapni katero koli polje, da ga popraviš, nato shrani.",
+    "editAction": "Uredi",
+    "cancel": "Prekliči",
+    "save": "Shrani"
+  },
+  "home": {
+    "chipErasmusDeadlines": "Roki za Erasmus",
+    "chipFindHousing": "Poišči stanovanje",
+    "chipTranslateLetter": "Prevedi pismo",
+    "chipGrantEligibility": "Upravičenost do štipendije",
+    "toolOpenForm": "Odpiranje obrazca",
+    "toolFillForm": "Izpolnjevanje obrazca",
+    "toolReadPage": "Branje strani",
+    "toolGetProfile": "Branje tvojega profila",
+    "toolSearchEuInfo": "Iskanje informacij o EU",
+    "toolWebSearch": "Iskanje po spletu",
+    "greetingMorning": "Dobro jutro",
+    "greetingAfternoon": "Dober dan",
+    "greetingEvening": "Dober večer",
+    "greetingNamed": "{{greeting}}, {{name}}",
+    "connecting": "Povezovanje…",
+    "tapToTalk": "Tapni za pogovor s Pipom",
+    "askPipPlaceholder": "Vprašaj Pipa karkoli…"
+  },
+  "chat": {
+    "seedGreeting": "Živjo! 🐸 Jaz sem Pip. Vprašaj me karkoli o priložnostih v EU — Erasmus, štipendije, Solidarnostne enote, stanovanja, tvoje pravice…",
+    "quickErasmusDeadlines": "Roki za Erasmus",
+    "quickFindGrant": "Poišči štipendijo",
+    "quickEuYouthRights": "Pravice mladih v EU",
+    "reachError": "Ravnokar nisem mogel doseči svojih možganov ({{error}}).",
+    "presenceOnline": "na spletu · splet + indeks EU",
+    "typing": "Pip tipka…",
+    "inputPlaceholder": "Sporočilo Pipu…"
+  },
+  "docs": {
+    "screenTitle": "Dokumenti",
+    "promptPrefix": "Spusti datoteko in Pip jo bo ",
+    "promptHighlight": "prebral, razvrstil in si zapomnil",
+    "promptSuffix": ".",
+    "uploadButton": "Naloži",
+    "vaultEyebrow": "TVOJ TREZOR",
+    "verifiedBadge": "Preverjeno",
+    "idCardTitle": "Nacionalna osebna izkaznica",
+    "idCardSub": "Preverjeno · PDF",
+    "enrolmentTitle": "Potrdilo o vpisu",
+    "enrolmentSub": "NOVA Lisbon · 1,2 MB",
+    "transcriptTitle": "Izpis ocen",
+    "transcriptSub": "Čaka na preverjanje",
+    "rentalTitle": "Najemna pogodba",
+    "rentalSub": "Osnutek · deljeno s Pipom"
+  },
+  "upload": {
+    "screenTitle": "Dodaj dokument",
+    "dropTitle": "Spusti datoteko sem",
+    "dropSub": "PDF, slika ali skeniran dokument · do 20 MB",
+    "browseButton": "Prebrskaj datoteke",
+    "scanCameraButton": "Skeniraj s kamero",
+    "uploadingEyebrow": "NALAGANJE",
+    "fileMeta": "{{size}} · {{percent}} %",
+    "readingPrefix": "Pip ga bere — samodejno bom izluščil tvojo ",
+    "readingHighlight": "univerzo in datume",
+    "readingSuffix": ".",
+    "readingButton": "Branje…"
+  },
+  "erasmus": {
+    "title": "Erasmus+ pomočnik",
+    "watchingScreen": "Pip opazuje tvoj zaslon",
+    "guiding": "Vodi te skozi obrazec",
+    "recBadge": "SNEM"
+  },
+  "profile": {
+    "title": "Profil",
+    "euIdVerified": "EU ID preverjen",
+    "student": "Študent",
+    "language": "Jezik",
+    "voice": "Hoppyjev glas",
+    "pushNotifications": "Potisna obvestila",
+    "letPipSeeScreen": "Dovoli Pipu, da vidi moj zaslon",
+    "shareAnonymousData": "Deli anonimne podatke",
+    "privacyData": "Zasebnost in podatki",
+    "helpSupport": "Pomoč in EU podpora",
+    "logOut": "Odjava"
+  },
+  "language": {
+    "title": "Jezik",
+    "searchPlaceholder": "Poišči jezik",
+    "eyebrow": "VSI JEZIKI"
+  },
+  "voice": {
+    "title": "Hoppyjev glas",
+    "subtitle": "Izberi glas, s katerim govori Hoppy. Velja, ko naslednjič tapneš mikrofon.",
+    "eyebrow": "VSI GLASOVI"
+  },
+  "app": {
+    "tapMicPrompt": "Tapni mikrofon, nato prosi Hoppyja, da te prijavi.",
+    "tapToTalkAgain": "Tapni mikrofon za ponoven pogovor.",
+    "micDenied": "Dovoljenje za mikrofon zavrnjeno.",
+    "readingId": "Branje tvoje izkaznice…",
+    "scanFailed": "Skeniranje ni uspelo: {{error}}",
+    "pickFailed": "Izbira ni uspela: {{error}}",
+    "gotItNamed": "Razumem, {{name}}! Prosi Hoppyja, da te prijavi.",
+    "friend": "prijatelj",
+    "couldNotSave": "Shranjevanje ni uspelo: {{error}}",
+    "coachingDefault": "Tapni označeno polje in vpiši svojo domačo univerzo. Preveril bom, ali je upravičena.",
+    "webCoaching": "Preklopi na zavihek z obrazcem — povedal ti bom natanko, kaj vpisati v vsako polje.",
+    "locating": "Določanje lokacije…",
+    "setLocation": "Nastavi lokacijo"
+  },
+  "notifications": {
+    "title": "Obvestila",
+    "body": "Prejemaj opomnike o rokih, donacijah in odgovorih od Pipa.",
+    "receive": "Prejemaj obvestila",
+    "onHint": "Opomnike boš prejemal tudi, ko je aplikacija zaprta.",
+    "offHint": "Vklopi to, da prejemaš opomnike o rokih in odgovorih."
+  }
+}

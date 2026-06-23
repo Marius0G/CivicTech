@@ -10,14 +10,31 @@ import { initReactI18next } from 'react-i18next';
 // SDK 56 moved the function-based file API to the /legacy entry; it's stable and enough here.
 import * as FileSystem from 'expo-file-system/legacy';
 
-import en from './locales/en.json';
-import fr from './locales/fr.json';
+// All 24 official EU languages.
+import bg from './locales/bg.json';
+import cs from './locales/cs.json';
+import da from './locales/da.json';
 import de from './locales/de.json';
-import es from './locales/es.json';
-import it from './locales/it.json';
-import pl from './locales/pl.json';
-import ro from './locales/ro.json';
 import el from './locales/el.json';
+import en from './locales/en.json';
+import es from './locales/es.json';
+import et from './locales/et.json';
+import fi from './locales/fi.json';
+import fr from './locales/fr.json';
+import ga from './locales/ga.json';
+import hr from './locales/hr.json';
+import hu from './locales/hu.json';
+import it from './locales/it.json';
+import lt from './locales/lt.json';
+import lv from './locales/lv.json';
+import mt from './locales/mt.json';
+import nl from './locales/nl.json';
+import pl from './locales/pl.json';
+import pt from './locales/pt.json';
+import ro from './locales/ro.json';
+import sk from './locales/sk.json';
+import sl from './locales/sl.json';
+import sv from './locales/sv.json';
 
 export interface Language {
   code: string;
@@ -30,28 +47,63 @@ export interface Language {
 
 // The 8 demo languages. Endonyms + flags are what the menu shows; codes match the JSON files
 // and the i18n codes the backend maps to a spoken language for Hoppy.
+// All 24 official languages of the European Union. English first (default), then the rest
+// alphabetical by English name. Endonyms + flags are what the menu shows; codes match the JSON
+// files and the i18n codes the backend maps to a spoken language for Hoppy.
 export const LANGUAGES: Language[] = [
-  { code: 'en', label: 'English', native: 'English', flag: '🇬🇧' },
+  { code: 'en', label: 'English', native: 'English', flag: '🇪🇺' },
+  { code: 'bg', label: 'Bulgarian', native: 'Български', flag: '🇧🇬' },
+  { code: 'hr', label: 'Croatian', native: 'Hrvatski', flag: '🇭🇷' },
+  { code: 'cs', label: 'Czech', native: 'Čeština', flag: '🇨🇿' },
+  { code: 'da', label: 'Danish', native: 'Dansk', flag: '🇩🇰' },
+  { code: 'nl', label: 'Dutch', native: 'Nederlands', flag: '🇳🇱' },
+  { code: 'et', label: 'Estonian', native: 'Eesti', flag: '🇪🇪' },
+  { code: 'fi', label: 'Finnish', native: 'Suomi', flag: '🇫🇮' },
   { code: 'fr', label: 'French', native: 'Français', flag: '🇫🇷' },
   { code: 'de', label: 'German', native: 'Deutsch', flag: '🇩🇪' },
-  { code: 'es', label: 'Spanish', native: 'Español', flag: '🇪🇸' },
-  { code: 'it', label: 'Italian', native: 'Italiano', flag: '🇮🇹' },
-  { code: 'pl', label: 'Polish', native: 'Polski', flag: '🇵🇱' },
-  { code: 'ro', label: 'Romanian', native: 'Română', flag: '🇷🇴' },
   { code: 'el', label: 'Greek', native: 'Ελληνικά', flag: '🇬🇷' },
+  { code: 'hu', label: 'Hungarian', native: 'Magyar', flag: '🇭🇺' },
+  { code: 'ga', label: 'Irish', native: 'Gaeilge', flag: '🇮🇪' },
+  { code: 'it', label: 'Italian', native: 'Italiano', flag: '🇮🇹' },
+  { code: 'lv', label: 'Latvian', native: 'Latviešu', flag: '🇱🇻' },
+  { code: 'lt', label: 'Lithuanian', native: 'Lietuvių', flag: '🇱🇹' },
+  { code: 'mt', label: 'Maltese', native: 'Malti', flag: '🇲🇹' },
+  { code: 'pl', label: 'Polish', native: 'Polski', flag: '🇵🇱' },
+  { code: 'pt', label: 'Portuguese', native: 'Português', flag: '🇵🇹' },
+  { code: 'ro', label: 'Romanian', native: 'Română', flag: '🇷🇴' },
+  { code: 'sk', label: 'Slovak', native: 'Slovenčina', flag: '🇸🇰' },
+  { code: 'sl', label: 'Slovenian', native: 'Slovenščina', flag: '🇸🇮' },
+  { code: 'es', label: 'Spanish', native: 'Español', flag: '🇪🇸' },
+  { code: 'sv', label: 'Swedish', native: 'Svenska', flag: '🇸🇪' },
 ];
 
 const SUPPORTED = LANGUAGES.map((l) => l.code);
 
 const resources = {
-  en: { translation: en },
-  fr: { translation: fr },
+  bg: { translation: bg },
+  cs: { translation: cs },
+  da: { translation: da },
   de: { translation: de },
-  es: { translation: es },
-  it: { translation: it },
-  pl: { translation: pl },
-  ro: { translation: ro },
   el: { translation: el },
+  en: { translation: en },
+  es: { translation: es },
+  et: { translation: et },
+  fi: { translation: fi },
+  fr: { translation: fr },
+  ga: { translation: ga },
+  hr: { translation: hr },
+  hu: { translation: hu },
+  it: { translation: it },
+  lt: { translation: lt },
+  lv: { translation: lv },
+  mt: { translation: mt },
+  nl: { translation: nl },
+  pl: { translation: pl },
+  pt: { translation: pt },
+  ro: { translation: ro },
+  sk: { translation: sk },
+  sl: { translation: sl },
+  sv: { translation: sv },
 };
 
 // Best-effort device language via Intl (Hermes ships Intl). Falls back to English.

@@ -1,0 +1,180 @@
+{
+  "login": {
+    "meetPip": "Iepazīsties ar Pip",
+    "welcomeSub": "Tavs draugs dzīvei ES — stipendijas, Erasmus+, mājoklis un visas veidlapas pa vidu.",
+    "continueWithEuId": "Turpināt ar EU ID",
+    "exploreAsGuest": "Izpētīt kā viesim",
+    "terms": "Turpinot tu piekrīti ES Jaunatnes noteikumiem.",
+    "euIdLogin": "EU ID pieteikšanās",
+    "secureSso": "Droša vienotā pieteikšanās",
+    "secureSsoBody": "Tu tiksi pāradresēts uz savas valsts eID pakalpojumu sniedzēju.",
+    "euIdEmail": "EU ID e-pasts",
+    "password": "Parole",
+    "keepSignedIn": "Saglabāt mani pieteiktu",
+    "forgot": "Aizmirsi?",
+    "orContinueWith": "VAI TURPINĀT AR",
+    "biometric": "Biometriju",
+    "scanQr": "Skenēt QR",
+    "signingIn": "Notiek pieteikšanās ar tavas valsts eID…",
+    "logIn": "Pieteikties"
+  },
+  "tabbar": {
+    "homeLabel": "Sākums",
+    "docsLabel": "Dokumenti",
+    "pipLabel": "Pip",
+    "meLabel": "Es"
+  },
+  "location": {
+    "title": "Atrašanās vieta",
+    "searchPlaceholder": "Meklēt pilsētu",
+    "useCurrentLocation": "Izmantot manu pašreizējo atrašanās vietu",
+    "locationsEyebrow": "ATRAŠANĀS VIETAS"
+  },
+  "idCamera": {
+    "idTitle": "Uzņem savas ID kartes fotoattēlu",
+    "idHint": "Ievieto visu karti rāmī. Turi to līdzeni, labā apgaismojumā un pārliecinies, ka katra rindiņa ir asa un salasāma — bez atspīduma vai ēnām.",
+    "a4Title": "Uzņem sava dokumenta fotoattēlu",
+    "a4Hint": "Ievieto visu A4 lapu rāmī. Turi to līdzeni, labā apgaismojumā un pārliecinies, ka katra rindiņa ir asa un salasāma — bez atspīduma vai ēnām.",
+    "errorNoPhoto": "Neviens fotoattēls nav uzņemts",
+    "errorCapture": "Neizdevās uzņemt fotoattēlu",
+    "errorGallery": "Neizdevās atvērt galeriju",
+    "permTitle": "Nepieciešama piekļuve kamerai",
+    "permBody": "Hoppy izmanto kameru, lai uzņemtu skaidru tavas ID fotoattēlu un aizpildītu tavas ES veidlapas tavā vietā.",
+    "permAllow": "Atļaut kameru",
+    "permGallery": "Tā vietā izvēlēties no galerijas",
+    "permCancel": "Atcelt",
+    "tabIdCard": "ID karte",
+    "tabA4Document": "A4 dokuments",
+    "galleryLabel": "Galerija"
+  },
+  "idProcessing": {
+    "title": "Notiek apstrāde…",
+    "subtitle": "Lasu tavu ID"
+  },
+  "idReview": {
+    "nameLabel": "Pilns vārds",
+    "namePlaceholder": "piem. Maria Ionescu",
+    "birthdateLabel": "Dzimšanas datums",
+    "birthdatePlaceholder": "GGGG-MM-DD",
+    "birthdateHint": "Formāts: GGGG-MM-DD",
+    "countryLabel": "Valsts",
+    "countryPlaceholder": "piem. Rumānija",
+    "nationalityLabel": "Pilsonība",
+    "nationalityPlaceholder": "piem. rumāņu",
+    "title": "Pārbaudi savus datus",
+    "subtitle": "Mēs nolasījām šos no tavas ID. Pieskaries jebkuram laukam, lai to labotu, tad saglabā.",
+    "editAction": "Rediģēt",
+    "cancel": "Atcelt",
+    "save": "Saglabāt"
+  },
+  "home": {
+    "chipErasmusDeadlines": "Erasmus+ termiņi",
+    "chipFindHousing": "Atrast mājokli",
+    "chipTranslateLetter": "Tulkot vēstuli",
+    "chipGrantEligibility": "Stipendijas atbilstība",
+    "toolOpenForm": "Atveru veidlapu",
+    "toolFillForm": "Aizpildu veidlapu",
+    "toolReadPage": "Lasu lapu",
+    "toolGetProfile": "Lasu tavu profilu",
+    "toolSearchEuInfo": "Meklēju ES informāciju",
+    "toolWebSearch": "Meklēju tīmeklī",
+    "greetingMorning": "Labrīt",
+    "greetingAfternoon": "Labdien",
+    "greetingEvening": "Labvakar",
+    "greetingNamed": "{{greeting}}, {{name}}",
+    "connecting": "Savienojos…",
+    "tapToTalk": "Pieskaries, lai runātu ar Pip",
+    "askPipPlaceholder": "Jautā Pip jebko…"
+  },
+  "chat": {
+    "seedGreeting": "Čau! 🐸 Es esmu Pip. Jautā man jebko par ES iespējām — Erasmus+, stipendijām, Solidaritātes korpusu, mājokli, tavām tiesībām…",
+    "quickErasmusDeadlines": "Erasmus+ termiņi",
+    "quickFindGrant": "Atrast stipendiju",
+    "quickEuYouthRights": "ES jauniešu tiesības",
+    "reachError": "Es nupat nevarēju sazināties ar savām smadzenēm ({{error}}).",
+    "presenceOnline": "tiešsaistē · tīmeklis + ES indekss",
+    "typing": "Pip raksta…",
+    "inputPlaceholder": "Ziņa Pip…"
+  },
+  "docs": {
+    "screenTitle": "Dokumenti",
+    "promptPrefix": "Pievieno failu, un Pip to ",
+    "promptHighlight": "izlasīs, sakārtos un atcerēsies",
+    "promptSuffix": ".",
+    "uploadButton": "Augšupielādēt",
+    "vaultEyebrow": "TAVA GLABĀTUVE",
+    "verifiedBadge": "Apstiprināts",
+    "idCardTitle": "Personas apliecība",
+    "idCardSub": "Apstiprināts · PDF",
+    "enrolmentTitle": "Imatrikulācijas izziņa",
+    "enrolmentSub": "NOVA Lisbon · 1.2 MB",
+    "transcriptTitle": "Sekmju izraksts",
+    "transcriptSub": "Gaida apstiprinājumu",
+    "rentalTitle": "Īres līgums",
+    "rentalSub": "Melnraksts · kopīgots ar Pip"
+  },
+  "upload": {
+    "screenTitle": "Pievienot dokumentu",
+    "dropTitle": "Nomet failu šeit",
+    "dropSub": "PDF, attēls vai skenējums · līdz 20 MB",
+    "browseButton": "Pārlūkot failus",
+    "scanCameraButton": "Skenēt ar kameru",
+    "uploadingEyebrow": "AUGŠUPIELĀDE",
+    "fileMeta": "{{size}} · {{percent}}%",
+    "readingPrefix": "Pip to lasa — es automātiski izvilkšu tavu ",
+    "readingHighlight": "universitāti un datumus",
+    "readingSuffix": ".",
+    "readingButton": "Lasu…"
+  },
+  "erasmus": {
+    "title": "Erasmus+ palīgs",
+    "watchingScreen": "Pip vēro tavu ekrānu",
+    "guiding": "Vadu tevi cauri veidlapai",
+    "recBadge": "REC"
+  },
+  "profile": {
+    "title": "Profils",
+    "euIdVerified": "EU ID apstiprināts",
+    "student": "Students",
+    "language": "Valoda",
+    "voice": "Hoppy balss",
+    "pushNotifications": "Push paziņojumi",
+    "letPipSeeScreen": "Ļaut Pip redzēt manu ekrānu",
+    "shareAnonymousData": "Kopīgot anonīmus datus",
+    "privacyData": "Privātums un dati",
+    "helpSupport": "Palīdzība un ES atbalsts",
+    "logOut": "Izrakstīties"
+  },
+  "language": {
+    "title": "Valoda",
+    "searchPlaceholder": "Meklēt valodu",
+    "eyebrow": "VISAS VALODAS"
+  },
+  "voice": {
+    "title": "Hoppy balss",
+    "subtitle": "Izvēlies balsi, ar kuru Hoppy runā. Tiek lietota nākamreiz, kad pieskaries mikrofonam.",
+    "eyebrow": "VISAS BALSIS"
+  },
+  "app": {
+    "tapMicPrompt": "Pieskaries mikrofonam un palūdz Hoppy tevi pieteikt.",
+    "tapToTalkAgain": "Pieskaries mikrofonam, lai runātu vēlreiz.",
+    "micDenied": "Mikrofona atļauja noraidīta.",
+    "readingId": "Lasu tavu ID…",
+    "scanFailed": "Skenēšana neizdevās: {{error}}",
+    "pickFailed": "Izvēle neizdevās: {{error}}",
+    "gotItNamed": "Sapratu, {{name}}! Palūdz Hoppy tevi pieteikt.",
+    "friend": "draugs",
+    "couldNotSave": "Neizdevās saglabāt: {{error}}",
+    "coachingDefault": "Pieskaries izceltajam laukam un ieraksti savu mājas universitāti. Es pārbaudīšu, vai tā ir atbilstoša.",
+    "webCoaching": "Pārslēdzies uz veidlapas cilni — es tev precīzi pateikšu, ko ierakstīt katrā laukā.",
+    "locating": "Nosaku atrašanās vietu…",
+    "setLocation": "Iestatīt atrašanās vietu"
+  },
+  "notifications": {
+    "title": "Paziņojumi",
+    "body": "Saņem atgādinājumus par termiņiem, grantiem un Pip atbildēm.",
+    "receive": "Saņemt paziņojumus",
+    "onHint": "Saņemsi atgādinājumus pat tad, kad lietotne ir aizvērta.",
+    "offHint": "Ieslēdz to, lai saņemtu atgādinājumus par termiņiem un atbildēm."
+  }
+}

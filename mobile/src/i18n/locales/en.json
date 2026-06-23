@@ -129,6 +129,7 @@
   "erasmus": {
     "title": "Erasmus+ helper",
     "watchingScreen": "Pip is watching your screen",
+    "guiding": "Guiding you through the form",
     "recBadge": "REC"
   },
   "profile": {
@@ -136,6 +137,7 @@
     "euIdVerified": "EU ID verified",
     "student": "Student",
     "language": "Language",
+    "voice": "Hoppy's voice",
     "pushNotifications": "Push notifications",
     "letPipSeeScreen": "Let Pip see my screen",
     "shareAnonymousData": "Share anonymous data",
@@ -148,6 +150,18 @@
     "searchPlaceholder": "Search a language",
     "eyebrow": "ALL LANGUAGES"
   },
+  "voice": {
+    "title": "Hoppy's voice",
+    "subtitle": "Pick the voice Hoppy speaks with. Applies the next time you tap the mic.",
+    "eyebrow": "ALL VOICES"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "body": "Get reminders about deadlines, grants and replies from Pip.",
+    "receive": "Receive notifications",
+    "onHint": "You’ll get reminders even when the app is closed.",
+    "offHint": "Turn this on to get reminders about deadlines and replies."
+  },
   "app": {
     "tapMicPrompt": "Tap the mic, then ask Hoppy to sign you up.",
     "tapToTalkAgain": "Tap the mic to talk again.",
@@ -159,6 +173,7 @@
     "friend": "friend",
     "couldNotSave": "Could not save: {{error}}",
     "coachingDefault": "Tap the highlighted field and type your home university. I’ll check it’s eligible.",
+    "webCoaching": "Switch to the form tab — I’ll tell you exactly what to type in each field.",
     "locating": "Locating…",
     "setLocation": "Set location"
   }

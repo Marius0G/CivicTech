@@ -31,6 +31,10 @@ interface ConnectOpts {
   onAudioPulse?: () => void;
   /** Real 0..1 voice loudness sampled from getStats() — drives true lip-sync. */
   onLevel?: (level: number) => void;
+  /** i18n code (e.g. "fr") so Hoppy greets/answers in the user's chosen language. */
+  language?: string;
+  /** OpenAI Realtime voice id (e.g. "cedar") so Hoppy uses the user's chosen voice. */
+  voice?: string;
 }
 
 export async function connectRealtime(opts: ConnectOpts = {}): Promise<RealtimeHandle> {

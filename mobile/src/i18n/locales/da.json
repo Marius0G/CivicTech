@@ -1,0 +1,180 @@
+{
+  "login": {
+    "meetPip": "Mød Pip",
+    "welcomeSub": "Din makker til livet i EU — tilskud, Erasmus, bolig og hver eneste formular ind imellem.",
+    "continueWithEuId": "Fortsæt med EU ID",
+    "exploreAsGuest": "Udforsk som gæst",
+    "terms": "Ved at fortsætte accepterer du EU Youth-vilkårene.",
+    "euIdLogin": "EU ID-login",
+    "secureSso": "Sikker enkeltlogon",
+    "secureSsoBody": "Du bliver sendt videre til din nationale eID-udbyder.",
+    "euIdEmail": "EU ID-e-mail",
+    "password": "Adgangskode",
+    "keepSignedIn": "Hold mig logget ind",
+    "forgot": "Glemt?",
+    "orContinueWith": "ELLER FORTSÆT MED",
+    "biometric": "Biometri",
+    "scanQr": "Scan QR",
+    "signingIn": "Logger ind med dit nationale eID…",
+    "logIn": "Log ind"
+  },
+  "tabbar": {
+    "homeLabel": "Hjem",
+    "docsLabel": "Dokumenter",
+    "pipLabel": "Pip",
+    "meLabel": "Mig"
+  },
+  "location": {
+    "title": "Placering",
+    "searchPlaceholder": "Søg efter en by",
+    "useCurrentLocation": "Brug min nuværende placering",
+    "locationsEyebrow": "PLACERINGER"
+  },
+  "idCamera": {
+    "idTitle": "Tag et billede af dit ID-kort",
+    "idHint": "Få hele kortet ind i rammen. Hold det fladt, i godt lys, og sørg for at hver linje er skarp og læsbar — ingen genskin eller skygger.",
+    "a4Title": "Tag et billede af dit dokument",
+    "a4Hint": "Få hele A4-siden ind i rammen. Hold den flad, i godt lys, og sørg for at hver linje er skarp og læsbar — ingen genskin eller skygger.",
+    "errorNoPhoto": "Intet billede taget",
+    "errorCapture": "Kunne ikke tage billedet",
+    "errorGallery": "Kunne ikke åbne galleriet",
+    "permTitle": "Adgang til kamera kræves",
+    "permBody": "Hoppy bruger kameraet til at tage et tydeligt billede af dit ID og udfylde dine EU-formularer for dig.",
+    "permAllow": "Tillad kamera",
+    "permGallery": "Vælg fra galleriet i stedet",
+    "permCancel": "Annuller",
+    "tabIdCard": "ID-kort",
+    "tabA4Document": "A4-dokument",
+    "galleryLabel": "Galleri"
+  },
+  "idProcessing": {
+    "title": "Behandler…",
+    "subtitle": "Læser dit ID"
+  },
+  "idReview": {
+    "nameLabel": "Fulde navn",
+    "namePlaceholder": "f.eks. Maria Ionescu",
+    "birthdateLabel": "Fødselsdato",
+    "birthdatePlaceholder": "ÅÅÅÅ-MM-DD",
+    "birthdateHint": "Format: ÅÅÅÅ-MM-DD",
+    "countryLabel": "Land",
+    "countryPlaceholder": "f.eks. Rumænien",
+    "nationalityLabel": "Nationalitet",
+    "nationalityPlaceholder": "f.eks. rumænsk",
+    "title": "Tjek dine oplysninger",
+    "subtitle": "Vi læste disse fra dit ID. Tryk på et felt for at rette det, og gem så.",
+    "editAction": "Rediger",
+    "cancel": "Annuller",
+    "save": "Gem"
+  },
+  "home": {
+    "chipErasmusDeadlines": "Erasmus-frister",
+    "chipFindHousing": "Find bolig",
+    "chipTranslateLetter": "Oversæt et brev",
+    "chipGrantEligibility": "Berettigelse til tilskud",
+    "toolOpenForm": "Åbner formularen",
+    "toolFillForm": "Udfylder formularen",
+    "toolReadPage": "Læser siden",
+    "toolGetProfile": "Læser din profil",
+    "toolSearchEuInfo": "Søger EU-information",
+    "toolWebSearch": "Søger på nettet",
+    "greetingMorning": "Godmorgen",
+    "greetingAfternoon": "God eftermiddag",
+    "greetingEvening": "Godaften",
+    "greetingNamed": "{{greeting}}, {{name}}",
+    "connecting": "Opretter forbindelse…",
+    "tapToTalk": "Tryk for at tale med Pip",
+    "askPipPlaceholder": "Spørg Pip om hvad som helst…"
+  },
+  "chat": {
+    "seedGreeting": "Hej! 🐸 Jeg er Pip. Spørg mig om hvad som helst om EU-muligheder — Erasmus, tilskud, Solidaritetskorpset, bolig, dine rettigheder…",
+    "quickErasmusDeadlines": "Erasmus-frister",
+    "quickFindGrant": "Find et tilskud",
+    "quickEuYouthRights": "EU-ungdomsrettigheder",
+    "reachError": "Jeg kunne ikke nå min hjerne lige nu ({{error}}).",
+    "presenceOnline": "online · web + EU-indeks",
+    "typing": "Pip skriver…",
+    "inputPlaceholder": "Skriv til Pip…"
+  },
+  "docs": {
+    "screenTitle": "Dokumenter",
+    "promptPrefix": "Læg en fil ind, så vil Pip ",
+    "promptHighlight": "læse, sortere og huske",
+    "promptSuffix": " den.",
+    "uploadButton": "Upload",
+    "vaultEyebrow": "DIN BOKS",
+    "verifiedBadge": "Verificeret",
+    "idCardTitle": "Nationalt ID-kort",
+    "idCardSub": "Verificeret · PDF",
+    "enrolmentTitle": "Indskrivningsbevis",
+    "enrolmentSub": "NOVA Lisbon · 1,2 MB",
+    "transcriptTitle": "Karakterudskrift",
+    "transcriptSub": "Afventer verificering",
+    "rentalTitle": "Lejekontrakt",
+    "rentalSub": "Udkast · delt med Pip"
+  },
+  "upload": {
+    "screenTitle": "Tilføj dokument",
+    "dropTitle": "Læg en fil her",
+    "dropSub": "PDF, billede eller scan · op til 20 MB",
+    "browseButton": "Gennemse filer",
+    "scanCameraButton": "Scan med kamera",
+    "uploadingEyebrow": "UPLOADER",
+    "fileMeta": "{{size}} · {{percent}}%",
+    "readingPrefix": "Pip læser den — jeg finder dit ",
+    "readingHighlight": "universitet og datoer",
+    "readingSuffix": " automatisk.",
+    "readingButton": "Læser…"
+  },
+  "erasmus": {
+    "title": "Erasmus+-hjælper",
+    "watchingScreen": "Pip kigger på din skærm",
+    "guiding": "Guider dig gennem formularen",
+    "recBadge": "OPT"
+  },
+  "profile": {
+    "title": "Profil",
+    "euIdVerified": "EU ID verificeret",
+    "student": "Studerende",
+    "language": "Sprog",
+    "voice": "Hoppys stemme",
+    "pushNotifications": "Push-notifikationer",
+    "letPipSeeScreen": "Lad Pip se min skærm",
+    "shareAnonymousData": "Del anonyme data",
+    "privacyData": "Privatliv og data",
+    "helpSupport": "Hjælp og EU-support",
+    "logOut": "Log ud"
+  },
+  "language": {
+    "title": "Sprog",
+    "searchPlaceholder": "Søg efter et sprog",
+    "eyebrow": "ALLE SPROG"
+  },
+  "voice": {
+    "title": "Hoppys stemme",
+    "subtitle": "Vælg den stemme, Hoppy taler med. Træder i kraft næste gang du trykker på mikrofonen.",
+    "eyebrow": "ALLE STEMMER"
+  },
+  "app": {
+    "tapMicPrompt": "Tryk på mikrofonen, og bed så Hoppy om at tilmelde dig.",
+    "tapToTalkAgain": "Tryk på mikrofonen for at tale igen.",
+    "micDenied": "Mikrofontilladelse afvist.",
+    "readingId": "Læser dit ID…",
+    "scanFailed": "Scanning mislykkedes: {{error}}",
+    "pickFailed": "Valg mislykkedes: {{error}}",
+    "gotItNamed": "Forstået, {{name}}! Bed Hoppy om at tilmelde dig.",
+    "friend": "ven",
+    "couldNotSave": "Kunne ikke gemme: {{error}}",
+    "coachingDefault": "Tryk på det fremhævede felt og skriv dit hjemmeuniversitet. Jeg tjekker, om det er berettiget.",
+    "webCoaching": "Skift til formular-fanen — jeg fortæller dig præcis, hvad du skal skrive i hvert felt.",
+    "locating": "Finder placering…",
+    "setLocation": "Angiv placering"
+  },
+  "notifications": {
+    "title": "Notifikationer",
+    "body": "Få påmindelser om frister, tilskud og svar fra Pip.",
+    "receive": "Modtag notifikationer",
+    "onHint": "Du får påmindelser, selv når appen er lukket.",
+    "offHint": "Slå dette til for at få påmindelser om frister og svar."
+  }
+}

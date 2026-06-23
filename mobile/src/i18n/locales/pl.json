@@ -129,7 +129,8 @@
   "erasmus": {
     "title": "Pomocnik Erasmus+",
     "watchingScreen": "Pip patrzy na Twój ekran",
-    "recBadge": "REC"
+    "recBadge": "REC",
+    "guiding": "Poprowadzę Cię przez formularz"
   },
   "profile": {
     "title": "Profil",
@@ -141,7 +142,8 @@
     "shareAnonymousData": "Udostępniaj anonimowe dane",
     "privacyData": "Prywatność i dane",
     "helpSupport": "Pomoc i wsparcie UE",
-    "logOut": "Wyloguj się"
+    "logOut": "Wyloguj się",
+    "voice": "Głos Hoppy’ego"
   },
   "language": {
     "title": "Język",
@@ -160,6 +162,19 @@
     "coachingDefault": "Dotknij podświetlonego pola i wpisz swoją macierzystą uczelnię. Sprawdzę, czy się kwalifikuje.",
     "locating": "Lokalizowanie…",
     "setLocation": "Ustaw lokalizację",
-    "friend": "przyjacielu"
+    "friend": "przyjacielu",
+    "webCoaching": "Przełącz się na kartę formularza — powiem Ci dokładnie, co wpisać w każdym polu."
+  },
+  "voice": {
+    "title": "Głos Hoppy’ego",
+    "subtitle": "Wybierz głos, którym mówi Hoppy. Zadziała przy następnym dotknięciu mikrofonu.",
+    "eyebrow": "WSZYSTKIE GŁOSY"
+  },
+  "notifications": {
+    "title": "Powiadomienia",
+    "body": "Otrzymuj przypomnienia o terminach, grantach i odpowiedziach od Pip.",
+    "receive": "Otrzymuj powiadomienia",
+    "onHint": "Będziesz otrzymywać przypomnienia, nawet gdy aplikacja jest zamknięta.",
+    "offHint": "Włącz to, aby otrzymywać przypomnienia o terminach i odpowiedziach."
   }
 }

@@ -1,0 +1,180 @@
+{
+  "login": {
+    "meetPip": "Ismerd meg Pip-et",
+    "welcomeSub": "A társad az EU-ban való élethez — ösztöndíjak, Erasmus, lakhatás és minden űrlap a kettő között.",
+    "continueWithEuId": "Folytatás EU ID-val",
+    "exploreAsGuest": "Felfedezés vendégként",
+    "terms": "A folytatással elfogadod az EU Youth feltételeit.",
+    "euIdLogin": "EU ID bejelentkezés",
+    "secureSso": "Biztonságos egyszeri bejelentkezés",
+    "secureSsoBody": "Átirányítunk a nemzeti eID-szolgáltatódhoz.",
+    "euIdEmail": "EU ID e-mail",
+    "password": "Jelszó",
+    "keepSignedIn": "Maradjak bejelentkezve",
+    "forgot": "Elfelejtetted?",
+    "orContinueWith": "VAGY FOLYTASD EZZEL",
+    "biometric": "Biometria",
+    "scanQr": "QR beolvasása",
+    "signingIn": "Bejelentkezés a nemzeti eID-ddal…",
+    "logIn": "Bejelentkezés"
+  },
+  "tabbar": {
+    "homeLabel": "Kezdőlap",
+    "docsLabel": "Dokumentumok",
+    "pipLabel": "Pip",
+    "meLabel": "Én"
+  },
+  "location": {
+    "title": "Helyszín",
+    "searchPlaceholder": "Város keresése",
+    "useCurrentLocation": "Jelenlegi helyzetem használata",
+    "locationsEyebrow": "HELYSZÍNEK"
+  },
+  "idCamera": {
+    "idTitle": "Készíts fényképet a személyi igazolványodról",
+    "idHint": "Az egész kártya férjen bele a keretbe. Tartsd laposan, jó fényben, és ügyelj rá, hogy minden sor éles és olvasható legyen — tükröződés és árnyékok nélkül.",
+    "a4Title": "Készíts fényképet a dokumentumodról",
+    "a4Hint": "Az egész A4-es oldal férjen bele a keretbe. Tartsd laposan, jó fényben, és ügyelj rá, hogy minden sor éles és olvasható legyen — tükröződés és árnyékok nélkül.",
+    "errorNoPhoto": "Nem készült fénykép",
+    "errorCapture": "Nem sikerült elkészíteni a fényképet",
+    "errorGallery": "Nem sikerült megnyitni a galériát",
+    "permTitle": "Kamerához való hozzáférés szükséges",
+    "permBody": "Hoppy a kamerát használja, hogy tiszta fényképet készítsen a személyidről, és kitöltse helyetted az EU-s űrlapjaidat.",
+    "permAllow": "Kamera engedélyezése",
+    "permGallery": "Inkább a galériából választok",
+    "permCancel": "Mégse",
+    "tabIdCard": "Személyi igazolvány",
+    "tabA4Document": "A4 dokumentum",
+    "galleryLabel": "Galéria"
+  },
+  "idProcessing": {
+    "title": "Feldolgozás…",
+    "subtitle": "A személyid olvasása"
+  },
+  "idReview": {
+    "nameLabel": "Teljes név",
+    "namePlaceholder": "pl. Maria Ionescu",
+    "birthdateLabel": "Születési dátum",
+    "birthdatePlaceholder": "ÉÉÉÉ-HH-NN",
+    "birthdateHint": "Formátum: ÉÉÉÉ-HH-NN",
+    "countryLabel": "Ország",
+    "countryPlaceholder": "pl. Románia",
+    "nationalityLabel": "Állampolgárság",
+    "nationalityPlaceholder": "pl. román",
+    "title": "Ellenőrizd az adataidat",
+    "subtitle": "Ezeket a személyidről olvastuk le. Koppints bármelyik mezőre a javításhoz, majd mentsd el.",
+    "editAction": "Szerkesztés",
+    "cancel": "Mégse",
+    "save": "Mentés"
+  },
+  "home": {
+    "chipErasmusDeadlines": "Erasmus határidők",
+    "chipFindHousing": "Lakhatás keresése",
+    "chipTranslateLetter": "Levél lefordítása",
+    "chipGrantEligibility": "Ösztöndíj-jogosultság",
+    "toolOpenForm": "Az űrlap megnyitása",
+    "toolFillForm": "Az űrlap kitöltése",
+    "toolReadPage": "Az oldal olvasása",
+    "toolGetProfile": "A profilod olvasása",
+    "toolSearchEuInfo": "EU-s információ keresése",
+    "toolWebSearch": "Keresés a weben",
+    "greetingMorning": "Jó reggelt",
+    "greetingAfternoon": "Jó napot",
+    "greetingEvening": "Jó estét",
+    "greetingNamed": "{{greeting}}, {{name}}",
+    "connecting": "Kapcsolódás…",
+    "tapToTalk": "Koppints, hogy beszélj Pip-pel",
+    "askPipPlaceholder": "Kérdezz Pip-től bármit…"
+  },
+  "chat": {
+    "seedGreeting": "Szia! 🐸 Pip vagyok. Kérdezz tőlem bármit az EU-s lehetőségekről — Erasmus, ösztöndíjak, Szolidaritási Testület, lakhatás, a jogaid…",
+    "quickErasmusDeadlines": "Erasmus határidők",
+    "quickFindGrant": "Ösztöndíj keresése",
+    "quickEuYouthRights": "EU-s ifjúsági jogok",
+    "reachError": "Most nem sikerült elérnem az agyamat ({{error}}).",
+    "presenceOnline": "online · web + EU index",
+    "typing": "Pip éppen ír…",
+    "inputPlaceholder": "Üzenet Pip-nek…"
+  },
+  "docs": {
+    "screenTitle": "Dokumentumok",
+    "promptPrefix": "Tölts fel egy fájlt, és Pip ",
+    "promptHighlight": "elolvassa, rendszerezi és megjegyzi",
+    "promptSuffix": ".",
+    "uploadButton": "Feltöltés",
+    "vaultEyebrow": "A TÁRHELYED",
+    "verifiedBadge": "Ellenőrizve",
+    "idCardTitle": "Személyi igazolvány",
+    "idCardSub": "Ellenőrizve · PDF",
+    "enrolmentTitle": "Beiratkozási igazolás",
+    "enrolmentSub": "NOVA Lisbon · 1,2 MB",
+    "transcriptTitle": "Tanulmányi átirat",
+    "transcriptSub": "Ellenőrzésre vár",
+    "rentalTitle": "Bérleti szerződés",
+    "rentalSub": "Piszkozat · megosztva Pip-pel"
+  },
+  "upload": {
+    "screenTitle": "Dokumentum hozzáadása",
+    "dropTitle": "Húzz ide egy fájlt",
+    "dropSub": "PDF, kép vagy szkennelés · legfeljebb 20 MB",
+    "browseButton": "Fájlok tallózása",
+    "scanCameraButton": "Szkennelés kamerával",
+    "uploadingEyebrow": "FELTÖLTÉS",
+    "fileMeta": "{{size}} · {{percent}}%",
+    "readingPrefix": "Pip éppen olvassa — automatikusan kiemelem a ",
+    "readingHighlight": "egyetemed és a dátumok",
+    "readingSuffix": " adatait.",
+    "readingButton": "Olvasás…"
+  },
+  "erasmus": {
+    "title": "Erasmus+ segéd",
+    "watchingScreen": "Pip figyeli a képernyődet",
+    "guiding": "Végigvezet az űrlapon",
+    "recBadge": "FELV"
+  },
+  "profile": {
+    "title": "Profil",
+    "euIdVerified": "EU ID ellenőrizve",
+    "student": "Diák",
+    "language": "Nyelv",
+    "voice": "Hoppy hangja",
+    "pushNotifications": "Push értesítések",
+    "letPipSeeScreen": "Pip láthatja a képernyőmet",
+    "shareAnonymousData": "Anonim adatok megosztása",
+    "privacyData": "Adatvédelem és adatok",
+    "helpSupport": "Súgó és EU-s támogatás",
+    "logOut": "Kijelentkezés"
+  },
+  "language": {
+    "title": "Nyelv",
+    "searchPlaceholder": "Nyelv keresése",
+    "eyebrow": "ÖSSZES NYELV"
+  },
+  "voice": {
+    "title": "Hoppy hangja",
+    "subtitle": "Válaszd ki a hangot, amellyel Hoppy beszél. Legközelebb érvényesül, amikor megnyomod a mikrofont.",
+    "eyebrow": "ÖSSZES HANG"
+  },
+  "app": {
+    "tapMicPrompt": "Koppints a mikrofonra, majd kérd meg Hoppyt, hogy regisztráljon be.",
+    "tapToTalkAgain": "Koppints a mikrofonra, hogy újra beszélj.",
+    "micDenied": "Mikrofon-engedély megtagadva.",
+    "readingId": "A személyid olvasása…",
+    "scanFailed": "A szkennelés sikertelen: {{error}}",
+    "pickFailed": "A kiválasztás sikertelen: {{error}}",
+    "gotItNamed": "Megvan, {{name}}! Kérd meg Hoppyt, hogy regisztráljon be.",
+    "friend": "barátom",
+    "couldNotSave": "Nem sikerült menteni: {{error}}",
+    "coachingDefault": "Koppints a kiemelt mezőre, és írd be a hazai egyetemedet. Ellenőrzöm, hogy jogosult-e.",
+    "webCoaching": "Válts az űrlap fülre — pontosan megmondom, mit írj minden mezőbe.",
+    "locating": "Helymeghatározás…",
+    "setLocation": "Helyszín beállítása"
+  },
+  "notifications": {
+    "title": "Értesítések",
+    "body": "Kapj emlékeztetőket a határidőkről, támogatásokról és Pip válaszairól.",
+    "receive": "Értesítések fogadása",
+    "onHint": "Akkor is kapsz emlékeztetőket, ha az alkalmazás be van zárva.",
+    "offHint": "Kapcsold be, hogy emlékeztetőket kapj a határidőkről és válaszokról."
+  }
+}

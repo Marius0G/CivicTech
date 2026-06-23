@@ -1,0 +1,180 @@
+{
+  "login": {
+    "meetPip": "Iltaqa' ma' Pip",
+    "welcomeSub": "Is-sieħeb tiegħek għall-ħajja fl-UE — għotjiet, Erasmus, akkomodazzjoni, u kull formola li hemm bejniethom.",
+    "continueWithEuId": "Kompli b'EU ID",
+    "exploreAsGuest": "Esplora bħala mistieden",
+    "terms": "Billi tkompli, taqbel mat-termini ta' EU Youth.",
+    "euIdLogin": "Idħol b'EU ID",
+    "secureSso": "Idħol darba b'mod sigur",
+    "secureSsoBody": "Int se tiġi ridirett għall-fornitur nazzjonali tal-eID tiegħek.",
+    "euIdEmail": "Email tal-EU ID",
+    "password": "Password",
+    "keepSignedIn": "Żommni mdaħħal",
+    "forgot": "Insejt?",
+    "orContinueWith": "JEW KOMPLI BI",
+    "biometric": "Bijometriku",
+    "scanQr": "Skennja QR",
+    "signingIn": "Qed nidħlu bl-eID nazzjonali tiegħek…",
+    "logIn": "Idħol"
+  },
+  "tabbar": {
+    "homeLabel": "Home",
+    "docsLabel": "Dokumenti",
+    "pipLabel": "Pip",
+    "meLabel": "Jien"
+  },
+  "location": {
+    "title": "Post",
+    "searchPlaceholder": "Fittex belt",
+    "useCurrentLocation": "Uża l-post attwali tiegħi",
+    "locationsEyebrow": "POSTIJIET"
+  },
+  "idCamera": {
+    "idTitle": "Ħu ritratt tal-karta tal-identità tiegħek",
+    "idHint": "Daħħal il-karta kollha ġewwa l-qafas. Żommha ċatta, f'dawl tajjeb, u kun żgur li kull linja hija ċara u tinqara — bla dwal jgħammxu jew dellijiet.",
+    "a4Title": "Ħu ritratt tad-dokument tiegħek",
+    "a4Hint": "Daħħal il-paġna A4 kollha ġewwa l-qafas. Żommha ċatta, f'dawl tajjeb, u kun żgur li kull linja hija ċara u tinqara — bla dwal jgħammxu jew dellijiet.",
+    "errorNoPhoto": "Ebda ritratt ma ttieħed",
+    "errorCapture": "Ma stajniex nieħdu r-ritratt",
+    "errorGallery": "Ma stajniex niftħu l-gallerija",
+    "permTitle": "Hemm bżonn aċċess għall-kamera",
+    "permBody": "Hoppy juża l-kamera biex jieħu ritratt ċar tal-ID tiegħek u jimla l-formoli tal-UE għalik.",
+    "permAllow": "Ippermetti l-kamera",
+    "permGallery": "Agħżel mill-gallerija minflok",
+    "permCancel": "Ikkanċella",
+    "tabIdCard": "Karta tal-identità",
+    "tabA4Document": "Dokument A4",
+    "galleryLabel": "Gallerija"
+  },
+  "idProcessing": {
+    "title": "Qed nipproċessaw…",
+    "subtitle": "Qed naqraw l-ID tiegħek"
+  },
+  "idReview": {
+    "nameLabel": "Isem sħiħ",
+    "namePlaceholder": "eż. Maria Ionescu",
+    "birthdateLabel": "Data tat-twelid",
+    "birthdatePlaceholder": "SSSS-XX-JJ",
+    "birthdateHint": "Format: SSSS-XX-JJ",
+    "countryLabel": "Pajjiż",
+    "countryPlaceholder": "eż. Rumanija",
+    "nationalityLabel": "Nazzjonalità",
+    "nationalityPlaceholder": "eż. Rumen",
+    "title": "Iċċekkja d-dettalji tiegħek",
+    "subtitle": "Aħna qrajna dawn mill-ID tiegħek. Agħfas fuq kull qasam biex tirranġah, imbagħad issejvja.",
+    "editAction": "Editja",
+    "cancel": "Ikkanċella",
+    "save": "Issejvja"
+  },
+  "home": {
+    "chipErasmusDeadlines": "Skadenzi ta' Erasmus",
+    "chipFindHousing": "Sib akkomodazzjoni",
+    "chipTranslateLetter": "Ittraduċi ittra",
+    "chipGrantEligibility": "Eliġibbiltà għal għotja",
+    "toolOpenForm": "Qed niftħu l-formola",
+    "toolFillForm": "Qed nimlew il-formola",
+    "toolReadPage": "Qed naqraw il-paġna",
+    "toolGetProfile": "Qed naqraw il-profil tiegħek",
+    "toolSearchEuInfo": "Qed infittxu informazzjoni dwar l-UE",
+    "toolWebSearch": "Qed infittxu fil-web",
+    "greetingMorning": "Bonġu",
+    "greetingAfternoon": "Wara nofsinhar it-tajjeb",
+    "greetingEvening": "Bonswà",
+    "greetingNamed": "{{greeting}}, {{name}}",
+    "connecting": "Qed nikkonnettjaw…",
+    "tapToTalk": "Agħfas biex titkellem ma' Pip",
+    "askPipPlaceholder": "Staqsi lil Pip kull ma trid…"
+  },
+  "chat": {
+    "seedGreeting": "Ej! 🐸 Jien Pip. Staqsini kull ma trid dwar l-opportunitajiet tal-UE — Erasmus, għotjiet, il-Korp ta' Solidarjetà, akkomodazzjoni, id-drittijiet tiegħek…",
+    "quickErasmusDeadlines": "Skadenzi ta' Erasmus",
+    "quickFindGrant": "Sib għotja",
+    "quickEuYouthRights": "Drittijiet taż-żgħażagħ tal-UE",
+    "reachError": "Ma stajtx nilħaq lil moħħi bħalissa ({{error}}).",
+    "presenceOnline": "online · web + indiċi tal-UE",
+    "typing": "Pip qed jikteb…",
+    "inputPlaceholder": "Messaġġ lil Pip…"
+  },
+  "docs": {
+    "screenTitle": "Dokumenti",
+    "promptPrefix": "Itfa' fajl u Pip se ",
+    "promptHighlight": "jaqra, jirranġa u jiftakar",
+    "promptSuffix": "u.",
+    "uploadButton": "Tella'",
+    "vaultEyebrow": "IL-KAXXA-FORTI TIEGĦEK",
+    "verifiedBadge": "Verifikat",
+    "idCardTitle": "Karta tal-identità nazzjonali",
+    "idCardSub": "Verifikat · PDF",
+    "enrolmentTitle": "Ċertifikat ta' reġistrazzjoni",
+    "enrolmentSub": "NOVA Lisbon · 1.2 MB",
+    "transcriptTitle": "Traskrizzjoni tar-rekords",
+    "transcriptSub": "Qed jistenna verifika",
+    "rentalTitle": "Ftehim tal-kiri",
+    "rentalSub": "Abbozz · maqsum ma' Pip"
+  },
+  "upload": {
+    "screenTitle": "Żid dokument",
+    "dropTitle": "Itfa' fajl hawn",
+    "dropSub": "PDF, immaġni jew scan · sa 20 MB",
+    "browseButton": "Fittex fajls",
+    "scanCameraButton": "Skennja bil-kamera",
+    "uploadingEyebrow": "QED JITTELLA'",
+    "fileMeta": "{{size}} · {{percent}}%",
+    "readingPrefix": "Pip qed jaqrah — se noħorġu l-",
+    "readingHighlight": "università u d-dati tiegħek",
+    "readingSuffix": " awtomatikament.",
+    "readingButton": "Qed naqraw…"
+  },
+  "erasmus": {
+    "title": "Għajnuna ta' Erasmus+",
+    "watchingScreen": "Pip qed jara l-iskrin tiegħek",
+    "guiding": "Qed jiggwidak mal-formola",
+    "recBadge": "REC"
+  },
+  "profile": {
+    "title": "Profil",
+    "euIdVerified": "EU ID verifikat",
+    "student": "Student",
+    "language": "Lingwa",
+    "voice": "Il-vuċi ta' Hoppy",
+    "pushNotifications": "Notifiki push",
+    "letPipSeeScreen": "Ħalli lil Pip jara l-iskrin tiegħi",
+    "shareAnonymousData": "Aqsam dejta anonima",
+    "privacyData": "Privatezza u dejta",
+    "helpSupport": "Għajnuna u appoġġ tal-UE",
+    "logOut": "Oħroġ"
+  },
+  "language": {
+    "title": "Lingwa",
+    "searchPlaceholder": "Fittex lingwa",
+    "eyebrow": "IL-LINGWI KOLLHA"
+  },
+  "voice": {
+    "title": "Il-vuċi ta' Hoppy",
+    "subtitle": "Agħżel il-vuċi li biha jitkellem Hoppy. Tapplika d-darba li jmiss li tagħfas il-mikrofonu.",
+    "eyebrow": "IL-VUĊIJIET KOLLHA"
+  },
+  "app": {
+    "tapMicPrompt": "Agħfas il-mikrofonu, imbagħad itlob lil Hoppy biex jirreġistrak.",
+    "tapToTalkAgain": "Agħfas il-mikrofonu biex titkellem mill-ġdid.",
+    "micDenied": "Il-permess għall-mikrofonu ġie miċħud.",
+    "readingId": "Qed naqraw l-ID tiegħek…",
+    "scanFailed": "L-iskennjar falla: {{error}}",
+    "pickFailed": "L-għażla falliet: {{error}}",
+    "gotItNamed": "Irċevejt, {{name}}! Itlob lil Hoppy biex jirreġistrak.",
+    "friend": "ħabib",
+    "couldNotSave": "Ma stajniex nissejvjaw: {{error}}",
+    "coachingDefault": "Agħfas il-qasam enfasizzat u ikteb l-università ta' pajjiżek. Jien niċċekkja li hija eliġibbli.",
+    "webCoaching": "Aqleb għat-tab tal-formola — jien ngħidlek eżatt x'għandek tikteb f'kull qasam.",
+    "locating": "Qed insibu l-post…",
+    "setLocation": "Issettja l-post"
+  },
+  "notifications": {
+    "title": "Notifiki",
+    "body": "Irċievi tfakkiriet dwar skadenzi, għotjiet u tweġibiet mingħand Pip.",
+    "receive": "Irċievi notifiki",
+    "onHint": "Tirċievi tfakkiriet anke meta l-app tkun magħluqa.",
+    "offHint": "Ixgħel dan biex tirċievi tfakkiriet dwar skadenzi u tweġibiet."
+  }
+}

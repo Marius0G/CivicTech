@@ -9,7 +9,9 @@ import Card from '../ui/Card';
 import Button from '../ui/Button';
 import Icon, { IconName } from '../ui/Icon';
 import LanguageSheet from '../ui/LanguageSheet';
+import VoiceSheet from '../ui/VoiceSheet';
 import { LANGUAGES, setLanguage } from '../i18n';
+import { VOICES, getVoice, setVoice } from '../voice';
 import { colors, fonts, radius, space } from '../theme';
 
 function Toggle({ value, onToggle, color }: { value: boolean; onToggle: () => void; color: string }) {
@@ -26,8 +28,11 @@ export default function ProfileScreen({ onBack, onLogout }: { onBack: () => void
   const [screen, setScreen] = useState(true);
   const [share, setShare] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [voiceOpen, setVoiceOpen] = useState(false);
+  const [voiceId, setVoiceId] = useState(getVoice());
 
   const currentLang = LANGUAGES.find((l) => l.code === i18n.language) ?? LANGUAGES[0];
+  const currentVoice = VOICES.find((v) => v.id === voiceId) ?? VOICES[0];
 
   return (
     <View style={styles.safe}>
@@ -61,6 +66,13 @@ export default function ProfileScreen({ onBack, onLogout }: { onBack: () => void
             right={<Text style={styles.valueText}>{`${currentLang.flag}  ${currentLang.native} ›`}</Text>}
             divider
           />
+          <Row
+            icon="robot"
+            title={t('profile.voice')}
+            onPress={() => setVoiceOpen(true)}
+            right={<Text style={styles.valueText}>{`${currentVoice.label} ›`}</Text>}
+            divider
+          />
           <Row icon="bell" title={t('profile.pushNotifications')} right={<Toggle value={push} onToggle={() => setPush((v) => !v)} color={colors.primary} />} divider />
           <Row icon="robot" title={t('profile.letPipSeeScreen')} right={<Toggle value={screen} onToggle={() => setScreen((v) => !v)} color={colors.euBlue} />} divider />
           <Row icon="database" title={t('profile.shareAnonymousData')} right={<Toggle value={share} onToggle={() => setShare((v) => !v)} color={colors.twilight500} />} />
@@ -86,6 +98,13 @@ export default function ProfileScreen({ onBack, onLogout }: { onBack: () => void
         current={i18n.language}
         onSelect={(code) => setLanguage(code)}
         onClose={() => setLangOpen(false)}
+      />
+
+      <VoiceSheet
+        visible={voiceOpen}
+        current={voiceId}
+        onSelect={(id) => { setVoiceId(id); setVoice(id); }}
+        onClose={() => setVoiceOpen(false)}
       />
     </View>
   );

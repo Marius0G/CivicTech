@@ -1,0 +1,180 @@
+{
+  "login": {
+    "meetPip": "Susipažink su Pip",
+    "welcomeSub": "Tavo bičiulis gyvenimui ES — stipendijos, Erasmus, būstas ir visos formos tarp jų.",
+    "continueWithEuId": "Tęsti su EU ID",
+    "exploreAsGuest": "Naršyti kaip svečias",
+    "terms": "Tęsdamas sutinki su ES jaunimo sąlygomis.",
+    "euIdLogin": "Prisijungimas su EU ID",
+    "secureSso": "Saugus vieno paspaudimo prisijungimas",
+    "secureSsoBody": "Būsi nukreiptas į savo nacionalinę eID tarnybą.",
+    "euIdEmail": "EU ID el. paštas",
+    "password": "Slaptažodis",
+    "keepSignedIn": "Likti prisijungus",
+    "forgot": "Pamiršai?",
+    "orContinueWith": "ARBA TĘSK SU",
+    "biometric": "Biometrija",
+    "scanQr": "Skenuoti QR",
+    "signingIn": "Prisijungiama su tavo nacionaliniu eID…",
+    "logIn": "Prisijungti"
+  },
+  "tabbar": {
+    "homeLabel": "Pradžia",
+    "docsLabel": "Dokumentai",
+    "pipLabel": "Pip",
+    "meLabel": "Aš"
+  },
+  "location": {
+    "title": "Vieta",
+    "searchPlaceholder": "Ieškoti miesto",
+    "useCurrentLocation": "Naudoti mano dabartinę vietą",
+    "locationsEyebrow": "VIETOS"
+  },
+  "idCamera": {
+    "idTitle": "Nufotografuok savo asmens tapatybės kortelę",
+    "idHint": "Sutalpink visą kortelę į rėmelį. Laikyk ją lygiai, geroje šviesoje, ir įsitikink, kad kiekviena eilutė ryški ir įskaitoma — be atspindžių ar šešėlių.",
+    "a4Title": "Nufotografuok savo dokumentą",
+    "a4Hint": "Sutalpink visą A4 lapą į rėmelį. Laikyk jį lygiai, geroje šviesoje, ir įsitikink, kad kiekviena eilutė ryški ir įskaitoma — be atspindžių ar šešėlių.",
+    "errorNoPhoto": "Nuotrauka neužfiksuota",
+    "errorCapture": "Nepavyko nufotografuoti",
+    "errorGallery": "Nepavyko atidaryti galerijos",
+    "permTitle": "Reikia prieigos prie kameros",
+    "permBody": "Hoppy naudoja kamerą, kad nufotografuotų aiškią tavo asmens dokumento nuotrauką ir už tave užpildytų ES formas.",
+    "permAllow": "Leisti kamerą",
+    "permGallery": "Vietoj to pasirinkti iš galerijos",
+    "permCancel": "Atšaukti",
+    "tabIdCard": "Asmens kortelė",
+    "tabA4Document": "A4 dokumentas",
+    "galleryLabel": "Galerija"
+  },
+  "idProcessing": {
+    "title": "Apdorojama…",
+    "subtitle": "Skaitomas tavo dokumentas"
+  },
+  "idReview": {
+    "nameLabel": "Vardas ir pavardė",
+    "namePlaceholder": "pvz. Maria Ionescu",
+    "birthdateLabel": "Gimimo data",
+    "birthdatePlaceholder": "MMMM-MM-DD",
+    "birthdateHint": "Formatas: MMMM-MM-DD",
+    "countryLabel": "Šalis",
+    "countryPlaceholder": "pvz. Rumunija",
+    "nationalityLabel": "Pilietybė",
+    "nationalityPlaceholder": "pvz. rumunas",
+    "title": "Patikrink savo duomenis",
+    "subtitle": "Šiuos duomenis nuskaitėme iš tavo dokumento. Bakstelėk bet kurį lauką, kad jį pataisytum, tada išsaugok.",
+    "editAction": "Redaguoti",
+    "cancel": "Atšaukti",
+    "save": "Išsaugoti"
+  },
+  "home": {
+    "chipErasmusDeadlines": "Erasmus terminai",
+    "chipFindHousing": "Rasti būstą",
+    "chipTranslateLetter": "Išversti laišką",
+    "chipGrantEligibility": "Tinkamumas stipendijai",
+    "toolOpenForm": "Atidaroma forma",
+    "toolFillForm": "Pildoma forma",
+    "toolReadPage": "Skaitomas puslapis",
+    "toolGetProfile": "Skaitomas tavo profilis",
+    "toolSearchEuInfo": "Ieškoma ES informacijos",
+    "toolWebSearch": "Ieškoma internete",
+    "greetingMorning": "Labas rytas",
+    "greetingAfternoon": "Laba diena",
+    "greetingEvening": "Labas vakaras",
+    "greetingNamed": "{{greeting}}, {{name}}",
+    "connecting": "Jungiamasi…",
+    "tapToTalk": "Bakstelėk, kad pasikalbėtum su Pip",
+    "askPipPlaceholder": "Klausk Pip ko nori…"
+  },
+  "chat": {
+    "seedGreeting": "Ei! 🐸 Aš Pip. Klausk manęs bet ko apie ES galimybes — Erasmus, stipendijas, Solidarumo korpusą, būstą, tavo teises…",
+    "quickErasmusDeadlines": "Erasmus terminai",
+    "quickFindGrant": "Rasti stipendiją",
+    "quickEuYouthRights": "ES jaunimo teisės",
+    "reachError": "Šiuo metu nepavyko pasiekti mano smegenų ({{error}}).",
+    "presenceOnline": "prisijungęs · internetas + ES indeksas",
+    "typing": "Pip rašo…",
+    "inputPlaceholder": "Parašyk Pip…"
+  },
+  "docs": {
+    "screenTitle": "Dokumentai",
+    "promptPrefix": "Įkelk failą, ir Pip jį ",
+    "promptHighlight": "perskaitys, surūšiuos ir įsimins",
+    "promptSuffix": ".",
+    "uploadButton": "Įkelti",
+    "vaultEyebrow": "TAVO SAUGYKLA",
+    "verifiedBadge": "Patvirtinta",
+    "idCardTitle": "Nacionalinė asmens kortelė",
+    "idCardSub": "Patvirtinta · PDF",
+    "enrolmentTitle": "Įstojimo pažyma",
+    "enrolmentSub": "NOVA Lisbon · 1,2 MB",
+    "transcriptTitle": "Pažymių išrašas",
+    "transcriptSub": "Laukiama patvirtinimo",
+    "rentalTitle": "Nuomos sutartis",
+    "rentalSub": "Juodraštis · bendrinama su Pip"
+  },
+  "upload": {
+    "screenTitle": "Pridėti dokumentą",
+    "dropTitle": "Numesk failą čia",
+    "dropSub": "PDF, paveikslėlis ar nuskaitymas · iki 20 MB",
+    "browseButton": "Naršyti failus",
+    "scanCameraButton": "Skenuoti kamera",
+    "uploadingEyebrow": "ĮKELIAMA",
+    "fileMeta": "{{size}} · {{percent}}%",
+    "readingPrefix": "Pip jį skaito — automatiškai ištrauksiu tavo ",
+    "readingHighlight": "universitetą ir datas",
+    "readingSuffix": ".",
+    "readingButton": "Skaitoma…"
+  },
+  "erasmus": {
+    "title": "Erasmus+ pagalbininkas",
+    "watchingScreen": "Pip stebi tavo ekraną",
+    "guiding": "Vedu tave per formą",
+    "recBadge": "ĮRAŠ"
+  },
+  "profile": {
+    "title": "Profilis",
+    "euIdVerified": "EU ID patvirtinta",
+    "student": "Studentas",
+    "language": "Kalba",
+    "voice": "Hoppy balsas",
+    "pushNotifications": "Tiesioginiai pranešimai",
+    "letPipSeeScreen": "Leisti Pip matyti mano ekraną",
+    "shareAnonymousData": "Dalytis anoniminiais duomenimis",
+    "privacyData": "Privatumas ir duomenys",
+    "helpSupport": "Pagalba ir ES parama",
+    "logOut": "Atsijungti"
+  },
+  "language": {
+    "title": "Kalba",
+    "searchPlaceholder": "Ieškoti kalbos",
+    "eyebrow": "VISOS KALBOS"
+  },
+  "voice": {
+    "title": "Hoppy balsas",
+    "subtitle": "Pasirink balsą, kuriuo kalbės Hoppy. Bus pritaikytas kitą kartą bakstelėjus mikrofoną.",
+    "eyebrow": "VISI BALSAI"
+  },
+  "app": {
+    "tapMicPrompt": "Bakstelėk mikrofoną ir paprašyk Hoppy tave užregistruoti.",
+    "tapToTalkAgain": "Bakstelėk mikrofoną, kad pakalbėtum vėl.",
+    "micDenied": "Mikrofono leidimas atmestas.",
+    "readingId": "Skaitomas tavo dokumentas…",
+    "scanFailed": "Skenavimas nepavyko: {{error}}",
+    "pickFailed": "Pasirinkimas nepavyko: {{error}}",
+    "gotItNamed": "Supratau, {{name}}! Paprašyk Hoppy tave užregistruoti.",
+    "friend": "drauge",
+    "couldNotSave": "Nepavyko išsaugoti: {{error}}",
+    "coachingDefault": "Bakstelėk paryškintą lauką ir įvesk savo gimtąjį universitetą. Patikrinsiu, ar jis tinkamas.",
+    "webCoaching": "Pereik į formos skirtuką — pasakysiu tiksliai, ką įvesti kiekviename lauke.",
+    "locating": "Nustatoma vieta…",
+    "setLocation": "Nustatyti vietą"
+  },
+  "notifications": {
+    "title": "Pranešimai",
+    "body": "Gauk priminimus apie terminus, dotacijas ir Pip atsakymus.",
+    "receive": "Gauti pranešimus",
+    "onHint": "Gausi priminimus net kai programėlė uždaryta.",
+    "offHint": "Įjunk tai, kad gautum priminimus apie terminus ir atsakymus."
+  }
+}

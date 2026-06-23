@@ -15,13 +15,29 @@ from .config import Settings
 from .persona import instructions_for
 from .tool_defs import TOOL_DEFS
 
+# The voices OpenAI Realtime currently offers. We validate the app's requested voice against this
+# set so a stale/garbage value can never reach OpenAI — unknown values fall back to the default.
+VALID_VOICES = frozenset(
+    {"alloy", "ash", "ballad", "coral", "echo", "sage", "shimmer", "verse", "marin", "cedar"}
+)
 
-def build_session_payload(settings: Settings, language: str | None = None) -> dict[str, Any]:
+
+def resolve_voice(settings: Settings, voice: str | None) -> str:
+    """Pick the voice to use: the app's choice if it's a real Realtime voice, else the default."""
+    candidate = (voice or "").strip().lower()
+    return candidate if candidate in VALID_VOICES else settings.realtime_voice
+
+
+def build_session_payload(
+    settings: Settings, language: str | None = None, voice: str | None = None
+) -> dict[str, Any]:
     """Construct the request body for /v1/realtime/client_secrets.
 
     Pure function (no network) so it can be unit-tested. The Hoppy persona, voice, tools, and
     speech speed are baked in here, server-side, so the model has them from the first frame.
     `language` (an i18n code the app sends, e.g. "fr") pins Hoppy to that spoken language.
+    `voice` (an OpenAI Realtime voice id the app sends, e.g. "cedar") sets which voice Hoppy uses;
+    an unknown/missing value falls back to the server default.
     """
     return {
         "session": {
@@ -44,7 +60,7 @@ def build_session_payload(settings: Settings, language: str | None = None) -> di
                     },
                 },
                 "output": {
-                    "voice": settings.realtime_voice,
+                    "voice": resolve_voice(settings, voice),
                     "speed": settings.realtime_speed,
                 },
             },
@@ -52,10 +68,13 @@ def build_session_payload(settings: Settings, language: str | None = None) -> di
     }
 
 
-async def mint_client_secret(settings: Settings, language: str | None = None) -> dict[str, Any]:
+async def mint_client_secret(
+    settings: Settings, language: str | None = None, voice: str | None = None
+) -> dict[str, Any]:
     """Call OpenAI to mint a short-lived client secret. Returns the raw OpenAI JSON.
 
     `language` is the i18n code the app sends so Hoppy speaks the user's chosen language.
+    `voice` is the OpenAI Realtime voice id the app sends so Hoppy uses the user's chosen voice.
     Raises RuntimeError with a clear message on misconfiguration / upstream failure.
     """
     if not settings.has_key:
@@ -67,7 +86,7 @@ async def mint_client_secret(settings: Settings, language: str | None = None) ->
         "Authorization": f"Bearer {settings.openai_api_key}",
         "Content-Type": "application/json",
     }
-    payload = build_session_payload(settings, language)
+    payload = build_session_payload(settings, language, voice)
 
     async with httpx.AsyncClient(timeout=15.0) as client:
         resp = await client.post(settings.client_secrets_url, headers=headers, json=payload)

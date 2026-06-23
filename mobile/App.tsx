@@ -8,7 +8,7 @@
 // Requires a DEV CLIENT (react-native-webrtc + expo-linear-gradient), not Expo Go.
 
 import React, { useEffect, useRef, useState } from 'react';
-import { View, StatusBar, Platform, PermissionsAndroid, Modal, Animated, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, Pressable, StatusBar, Platform, PermissionsAndroid, Modal, Animated, StyleSheet, Dimensions } from 'react-native';
 import FormCanvas, { FormCanvasHandle } from './src/FormCanvas';
 import {
   useFonts,
@@ -16,10 +16,18 @@ import {
   PlusJakartaSans_700Bold, PlusJakartaSans_800ExtraBold,
 } from '@expo-google-fonts/plus-jakarta-sans';
 import { BricolageGrotesque_700Bold, BricolageGrotesque_800ExtraBold } from '@expo-google-fonts/bricolage-grotesque';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { connectRealtime, RealtimeHandle, FunctionCall } from './src/realtime';
+import { useTranslation } from 'react-i18next';
 import { ESC_ELIGIBILITY_URL, executeTool, ToolContext } from './src/tools';
 import { BACKEND_URL } from './src/config';
+import { loadSavedLanguage, setLanguage } from './src/i18n';
+import LanguageSheet from './src/ui/LanguageSheet';
+import NotificationSheet from './src/ui/NotificationSheet';
+import { loadNotificationPref, enableNotifications, disableNotifications } from './src/notifications';
+import Icon from './src/ui/Icon';
+import { colors, fonts } from './src/theme';
+import { getVoice, loadSavedVoice } from './src/voice';
 import { uploadIdImage, saveProfile, pickIdImage, PickedImage, ExtractedProfile } from './src/profileUpload';
 import { detectCity } from './src/location';
 import IdCameraScreen from './src/IdCameraScreen';
@@ -70,6 +78,13 @@ function AppInner() {
     PlusJakartaSans_700Bold, PlusJakartaSans_800ExtraBold,
     BricolageGrotesque_700Bold, BricolageGrotesque_800ExtraBold,
   });
+  const { t, i18n } = useTranslation();
+  const insets = useSafeAreaInsets();
+  // Always-on language switcher (the floating globe button is rendered over every screen).
+  const [langOpen, setLangOpen] = useState(false);
+  // Notifications: the bell on Home opens a sheet to opt in/out; enabling asks the OS permission.
+  const [notifOpen, setNotifOpen] = useState(false);
+  const [notifEnabled, setNotifEnabled] = useState(false);
 
   const formCanvasRef = useRef<FormCanvasHandle>(null);
   const voiceRef = useRef<RealtimeHandle | null>(null);
@@ -90,13 +105,13 @@ function AppInner() {
   const controlProgress = useRef(new Animated.Value(0)).current;
   // 0 = canvas off-screen below · 1 = canvas fully up.
   const canvasProgress = useRef(new Animated.Value(0)).current;
-  const [voiceStatus, setVoiceStatus] = useState('Tap the mic, then ask Hoppy to sign you up.');
+  const [voiceStatus, setVoiceStatus] = useState(() => i18n.t('app.tapMicPrompt'));
   const [connected, setConnected] = useState(false);
   const [connecting, setConnecting] = useState(false);
   const [lastTool, setLastTool] = useState('');
   const [toolEvents, setToolEvents] = useState<ToolEvent[]>([]);
   const toolCounter = useRef(0);
-  const [location, setLocation] = useState('Locating…');
+  const [location, setLocation] = useState(() => i18n.t('app.locating'));
   const [locationOpen, setLocationOpen] = useState(false);
   const [profile, setProfile] = useState<ExtractedProfile | null>(null);
   // ID scan flow: idle → camera → processing → review (edit) → save commits, cancel discards.
@@ -121,13 +136,28 @@ function AppInner() {
   // via the location picker. Shows "Locating…" while it resolves; on a total miss falls back to a
   // tappable "Set location" hint (the pill opens the picker) rather than guessing a wrong city.
   async function detectLocation() {
-    setLocation('Locating…');
+    setLocation(t('app.locating'));
     const found = await detectCity();
-    setLocation(found ? found.label : 'Set location');
+    setLocation(found ? found.label : t('app.setLocation'));
   }
 
-  // On first mount: pull the active profile (drives the greeting name) and detect location.
+  // Notifications opt-in/out. Turning ON asks the OS permission (Android 13+); if the user denies,
+  // the toggle stays off. The choice is persisted across restarts.
+  async function handleToggleNotifications(next: boolean) {
+    if (next) {
+      setNotifEnabled(await enableNotifications());
+    } else {
+      await disableNotifications();
+      setNotifEnabled(false);
+    }
+  }
+
+  // On first mount: restore the saved language, pull the active profile (drives the greeting name)
+  // and detect location.
   useEffect(() => {
+    loadSavedLanguage();
+    loadSavedVoice();
+    loadNotificationPref().then(setNotifEnabled);
     (async () => {
       try {
         const r = await fetch(`${BACKEND_URL}/docs/profile`);
@@ -306,7 +336,7 @@ function AppInner() {
       const asset = await pickIdImage();
       if (asset) await handleIdCaptured(asset);
     } catch (e: any) {
-      setVoiceStatus(`Pick failed: ${e.message ?? e}`);
+      setVoiceStatus(t('app.pickFailed', { error: e.message ?? e }));
     }
   }
 
@@ -314,7 +344,7 @@ function AppInner() {
   // user review/edit them. Nothing is saved server-side yet (that happens on Save).
   async function handleIdCaptured(img: PickedImage) {
     setScanStep('processing');
-    setVoiceStatus('Reading your ID…');
+    setVoiceStatus(t('app.readingId'));
     try {
       const res = await uploadIdImage(img);
       // Show the raw vision read (country as a name) for the user to confirm/correct.
@@ -323,7 +353,7 @@ function AppInner() {
       setScanStep('review');
     } catch (e: any) {
       setScanStep('idle');
-      setVoiceStatus(`Scan failed: ${e.message ?? e}`);
+      setVoiceStatus(t('app.scanFailed', { error: e.message ?? e }));
     }
   }
 
@@ -336,9 +366,9 @@ function AppInner() {
       setProfile(saved);
       setScanStep('idle');
       setDraft(null);
-      setVoiceStatus(`Got it, ${saved.name || 'friend'}! Ask Hoppy to sign you up.`);
+      setVoiceStatus(t('app.gotItNamed', { name: saved.name || t('app.friend') }));
     } catch (e: any) {
-      setReviewError(`Could not save: ${e.message ?? e}`);
+      setReviewError(t('app.couldNotSave', { error: e.message ?? e }));
     } finally {
       setReviewSaving(false);
     }
@@ -358,12 +388,12 @@ function AppInner() {
       voiceRef.current = null;
       setConnected(false);
       stopSpeaking();
-      setVoiceStatus('Tap the mic to talk again.');
+      setVoiceStatus(t('app.tapToTalkAgain'));
       return;
     }
     try {
       if (!(await ensureMicPermission())) {
-        setVoiceStatus('Mic permission denied.');
+        setVoiceStatus(t('app.micDenied'));
         return;
       }
       setConnecting(true);
@@ -374,6 +404,8 @@ function AppInner() {
         onSpeakingChange: (sp) => (sp ? pingSpeaking() : stopSpeaking()),
         onAudioPulse: pingSpeaking,
         onLevel: (l) => levelValue.setValue(l),
+        language: i18n.language, // Hoppy speaks the UI language the user chose
+        voice: getVoice(),       // …in the voice the user picked in Profile
       });
       setConnected(true);
     } catch (e: any) {
@@ -402,9 +434,7 @@ function AppInner() {
   // `lastTool` now holds a natural-language line (see coachingLine). On web Hoppy can't fill the
   // cross-origin gov form, so the resting hint points the user at the form tab instead.
   const coaching = lastTool
-    || (Platform.OS === 'web'
-      ? 'Switch to the form tab — I’ll tell you exactly what to type in each field.'
-      : 'Tap the highlighted field and type your home university. I’ll check it’s eligible.');
+    || (Platform.OS === 'web' ? t('app.webCoaching') : t('app.coachingDefault'));
   const firstName = profile?.name ? profile.name.split(/\s+/)[0] : undefined;
   const showTabBar = (screen === 'home' || screen === 'docs' || screen === 'profile') && !canvasOpen;
   const tabActive: TabKey = screen === 'upload' ? 'docs' : (screen as TabKey);
@@ -425,6 +455,37 @@ function AppInner() {
   // Show the frog on Home, and the whole time the canvas is mounted (it flies into the dock).
   const showFrog = (screen === 'home' || canvasMounted) && !!homeAnchor;
 
+  // Always-on language switcher: a floating globe pill (top-right) + the picker sheet, rendered
+  // over EVERY screen (login and the whole app) so the language can be changed at any time. All 24
+  // official EU languages are listed in the sheet.
+  const currentLangCode = (i18n.language || 'en').slice(0, 2).toUpperCase();
+  const languageOverlay = (
+    <>
+      <Pressable
+        onPress={() => setLangOpen(true)}
+        hitSlop={8}
+        accessibilityLabel="Change language"
+        style={{
+          position: 'absolute', top: insets.top + 8, right: 12, zIndex: 100, elevation: 100,
+          flexDirection: 'row', alignItems: 'center', gap: 5,
+          paddingHorizontal: 12, paddingVertical: 7, borderRadius: 999,
+          backgroundColor: colors.surfaceGlass, borderWidth: 1, borderColor: colors.borderSubtle,
+        }}
+      >
+        <Icon name="globe" size={15} color={colors.textPrimary} />
+        <Text style={{ color: colors.textPrimary, fontFamily: fonts.sansBold, fontSize: 12, letterSpacing: 0.5 }}>
+          {currentLangCode}
+        </Text>
+      </Pressable>
+      <LanguageSheet
+        visible={langOpen}
+        current={i18n.language}
+        onSelect={(c) => setLanguage(c)}
+        onClose={() => setLangOpen(false)}
+      />
+    </>
+  );
+
   // Branded splash while fonts load (no white flash). Proceed anyway if fonts error.
   if (!fontsLoaded && !fontError) {
     return (
@@ -438,7 +499,12 @@ function AppInner() {
 
   // Mocked EU ID sign-in gate (Welcome → eID login) before the buddy hub.
   if (!authed) {
-    return <LoginScreen onDone={() => { setAuthed(true); setScreen('home'); }} />;
+    return (
+      <>
+        <LoginScreen onDone={() => { setAuthed(true); setScreen('home'); }} />
+        {languageOverlay}
+      </>
+    );
   }
 
   return (
@@ -476,6 +542,14 @@ function AppInner() {
         onClose={() => setLocationOpen(false)}
       />
 
+      {/* Notifications opt-in/out (bell). */}
+      <NotificationSheet
+        visible={notifOpen}
+        enabled={notifEnabled}
+        onToggle={handleToggleNotifications}
+        onClose={() => setNotifOpen(false)}
+      />
+
       {/* Active screen */}
       <View style={{ flex: 1 }}>
         {/* Home: the Pip hub. When the agent opens a form, the canvas slides up OVER this and the
@@ -491,6 +565,8 @@ function AppInner() {
             onToggleVoice={toggleVoice}
             onOpenChat={() => setScreen('chat')}
             onLocation={() => setLocationOpen(true)}
+            onNotifications={() => setNotifOpen(true)}
+            notifEnabled={notifEnabled}
             onHeroAnchor={setHomeAnchor}
             onPokeMascot={() => fireGesture('Poke')}
           />
@@ -563,6 +639,9 @@ function AppInner() {
       )}
 
       {showTabBar && <TabBar active={tabActive} onChange={handleTab} />}
+
+      {/* Always-on language switcher — floats above every screen. */}
+      {languageOverlay}
     </GradientBackground>
   );
 }

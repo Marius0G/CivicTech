@@ -1,0 +1,180 @@
+{
+  "login": {
+    "meetPip": "Zoznám sa s Pip",
+    "welcomeSub": "Tvoj parťák pre život v EU — granty, Erasmus, bývanie a každý formulár medzi tým.",
+    "continueWithEuId": "Pokračovať cez EU ID",
+    "exploreAsGuest": "Preskúmať ako hosť",
+    "terms": "Pokračovaním súhlasíš s podmienkami EU Youth.",
+    "euIdLogin": "Prihlásenie cez EU ID",
+    "secureSso": "Bezpečné jednotné prihlásenie",
+    "secureSsoBody": "Presmerujeme ťa k tvojmu národnému poskytovateľovi eID.",
+    "euIdEmail": "E-mail EU ID",
+    "password": "Heslo",
+    "keepSignedIn": "Zostať prihlásený",
+    "forgot": "Zabudol si?",
+    "orContinueWith": "ALEBO POKRAČUJ CEZ",
+    "biometric": "Biometria",
+    "scanQr": "Naskenovať QR",
+    "signingIn": "Prihlasujeme ťa cez tvoje národné eID…",
+    "logIn": "Prihlásiť sa"
+  },
+  "tabbar": {
+    "homeLabel": "Domov",
+    "docsLabel": "Dokumenty",
+    "pipLabel": "Pip",
+    "meLabel": "Ja"
+  },
+  "location": {
+    "title": "Poloha",
+    "searchPlaceholder": "Vyhľadaj mesto",
+    "useCurrentLocation": "Použiť moju aktuálnu polohu",
+    "locationsEyebrow": "POLOHY"
+  },
+  "idCamera": {
+    "idTitle": "Odfoť svoj občiansky preukaz",
+    "idHint": "Zmestiť celý preukaz do rámčeka. Drž ho rovno, pri dobrom svetle a daj pozor, aby bol každý riadok ostrý a čitateľný — žiadne odlesky ani tiene.",
+    "a4Title": "Odfoť svoj dokument",
+    "a4Hint": "Zmestiť celú stranu A4 do rámčeka. Drž ju rovno, pri dobrom svetle a daj pozor, aby bol každý riadok ostrý a čitateľný — žiadne odlesky ani tiene.",
+    "errorNoPhoto": "Nezachytená žiadna fotka",
+    "errorCapture": "Fotku sa nepodarilo urobiť",
+    "errorGallery": "Galériu sa nepodarilo otvoriť",
+    "permTitle": "Potrebný prístup ku kamere",
+    "permBody": "Hoppy používa kameru, aby urobil jasnú fotku tvojho preukazu a vyplnil za teba tvoje EU formuláre.",
+    "permAllow": "Povoliť kameru",
+    "permGallery": "Radšej vybrať z galérie",
+    "permCancel": "Zrušiť",
+    "tabIdCard": "Občiansky preukaz",
+    "tabA4Document": "Dokument A4",
+    "galleryLabel": "Galéria"
+  },
+  "idProcessing": {
+    "title": "Spracovávam…",
+    "subtitle": "Čítam tvoj preukaz"
+  },
+  "idReview": {
+    "nameLabel": "Celé meno",
+    "namePlaceholder": "napr. Maria Ionescu",
+    "birthdateLabel": "Dátum narodenia",
+    "birthdatePlaceholder": "RRRR-MM-DD",
+    "birthdateHint": "Formát: RRRR-MM-DD",
+    "countryLabel": "Krajina",
+    "countryPlaceholder": "napr. Rumunsko",
+    "nationalityLabel": "Národnosť",
+    "nationalityPlaceholder": "napr. rumunská",
+    "title": "Skontroluj svoje údaje",
+    "subtitle": "Toto sme načítali z tvojho preukazu. Klepni na ktorékoľvek pole, oprav ho a potom ulož.",
+    "editAction": "Upraviť",
+    "cancel": "Zrušiť",
+    "save": "Uložiť"
+  },
+  "home": {
+    "chipErasmusDeadlines": "Termíny Erasmus",
+    "chipFindHousing": "Nájsť bývanie",
+    "chipTranslateLetter": "Preložiť list",
+    "chipGrantEligibility": "Nárok na grant",
+    "toolOpenForm": "Otváram formulár",
+    "toolFillForm": "Vypĺňam formulár",
+    "toolReadPage": "Čítam stránku",
+    "toolGetProfile": "Čítam tvoj profil",
+    "toolSearchEuInfo": "Hľadám info o EU",
+    "toolWebSearch": "Prehľadávam web",
+    "greetingMorning": "Dobré ráno",
+    "greetingAfternoon": "Dobrý deň",
+    "greetingEvening": "Dobrý večer",
+    "greetingNamed": "{{greeting}}, {{name}}",
+    "connecting": "Pripájam sa…",
+    "tapToTalk": "Klepni a porozprávaj sa s Pip",
+    "askPipPlaceholder": "Spýtaj sa Pip na čokoľvek…"
+  },
+  "chat": {
+    "seedGreeting": "Ahoj! 🐸 Som Pip. Spýtaj sa ma na čokoľvek o príležitostiach v EU — Erasmus, granty, Zbor solidarity, bývanie, tvoje práva…",
+    "quickErasmusDeadlines": "Termíny Erasmus",
+    "quickFindGrant": "Nájsť grant",
+    "quickEuYouthRights": "Práva mladých v EU",
+    "reachError": "Práve teraz som sa nedokázal spojiť so svojím mozgom ({{error}}).",
+    "presenceOnline": "online · web + index EU",
+    "typing": "Pip píše…",
+    "inputPlaceholder": "Napíš Pip…"
+  },
+  "docs": {
+    "screenTitle": "Dokumenty",
+    "promptPrefix": "Pošli súbor a Pip ho ",
+    "promptHighlight": "prečíta, roztriedi a zapamätá",
+    "promptSuffix": ".",
+    "uploadButton": "Nahrať",
+    "vaultEyebrow": "TVOJ TREZOR",
+    "verifiedBadge": "Overené",
+    "idCardTitle": "Národný občiansky preukaz",
+    "idCardSub": "Overené · PDF",
+    "enrolmentTitle": "Potvrdenie o zápise",
+    "enrolmentSub": "NOVA Lisbon · 1,2 MB",
+    "transcriptTitle": "Výpis známok",
+    "transcriptSub": "Čaká na overenie",
+    "rentalTitle": "Nájomná zmluva",
+    "rentalSub": "Koncept · zdieľané s Pip"
+  },
+  "upload": {
+    "screenTitle": "Pridať dokument",
+    "dropTitle": "Sem presuň súbor",
+    "dropSub": "PDF, obrázok alebo sken · do 20 MB",
+    "browseButton": "Prehľadávať súbory",
+    "scanCameraButton": "Naskenovať kamerou",
+    "uploadingEyebrow": "NAHRÁVAM",
+    "fileMeta": "{{size}} · {{percent}} %",
+    "readingPrefix": "Pip to číta — automaticky vytiahnem tvoju ",
+    "readingHighlight": "univerzitu a dátumy",
+    "readingSuffix": ".",
+    "readingButton": "Čítam…"
+  },
+  "erasmus": {
+    "title": "Pomocník Erasmus+",
+    "watchingScreen": "Pip sleduje tvoju obrazovku",
+    "guiding": "Prevediem ťa formulárom",
+    "recBadge": "REC"
+  },
+  "profile": {
+    "title": "Profil",
+    "euIdVerified": "EU ID overené",
+    "student": "Študent",
+    "language": "Jazyk",
+    "voice": "Hlas Hoppyho",
+    "pushNotifications": "Push notifikácie",
+    "letPipSeeScreen": "Nechať Pip vidieť moju obrazovku",
+    "shareAnonymousData": "Zdieľať anonymné údaje",
+    "privacyData": "Súkromie a údaje",
+    "helpSupport": "Pomoc a podpora EU",
+    "logOut": "Odhlásiť sa"
+  },
+  "language": {
+    "title": "Jazyk",
+    "searchPlaceholder": "Vyhľadaj jazyk",
+    "eyebrow": "VŠETKY JAZYKY"
+  },
+  "voice": {
+    "title": "Hlas Hoppyho",
+    "subtitle": "Vyber hlas, ktorým Hoppy hovorí. Použije sa pri ďalšom klepnutí na mikrofón.",
+    "eyebrow": "VŠETKY HLASY"
+  },
+  "app": {
+    "tapMicPrompt": "Klepni na mikrofón a potom popros Hoppyho, aby ťa zaregistroval.",
+    "tapToTalkAgain": "Klepni na mikrofón a hovor znova.",
+    "micDenied": "Povolenie pre mikrofón zamietnuté.",
+    "readingId": "Čítam tvoj preukaz…",
+    "scanFailed": "Skenovanie zlyhalo: {{error}}",
+    "pickFailed": "Výber zlyhal: {{error}}",
+    "gotItNamed": "Mám to, {{name}}! Popros Hoppyho, aby ťa zaregistroval.",
+    "friend": "kamarát",
+    "couldNotSave": "Nepodarilo sa uložiť: {{error}}",
+    "coachingDefault": "Klepni na zvýraznené pole a napíš svoju domovskú univerzitu. Skontrolujem, či máš nárok.",
+    "webCoaching": "Prepni sa na záložku formulára — presne ti poviem, čo napísať do každého poľa.",
+    "locating": "Zisťujem polohu…",
+    "setLocation": "Nastaviť polohu"
+  },
+  "notifications": {
+    "title": "Oznámenia",
+    "body": "Dostávaj pripomienky termínov, grantov a odpovedí od Pip.",
+    "receive": "Dostávať oznámenia",
+    "onHint": "Budeš dostávať pripomienky, aj keď je aplikácia zatvorená.",
+    "offHint": "Zapni to, aby si dostával pripomienky termínov a odpovedí."
+  }
+}

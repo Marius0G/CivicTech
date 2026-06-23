@@ -1,0 +1,180 @@
+{
+  "login": {
+    "meetPip": "Conhece o Pip",
+    "welcomeSub": "O teu companheiro para a vida na EU — bolsas, Erasmus, alojamento e todos os formulários pelo meio.",
+    "continueWithEuId": "Continuar com EU ID",
+    "exploreAsGuest": "Explorar como convidado",
+    "terms": "Ao continuar, aceitas os termos da EU Youth.",
+    "euIdLogin": "Início de sessão com EU ID",
+    "secureSso": "Início de sessão único seguro",
+    "secureSsoBody": "Vais ser redirecionado para o teu fornecedor nacional de eID.",
+    "euIdEmail": "E-mail do EU ID",
+    "password": "Palavra-passe",
+    "keepSignedIn": "Manter a sessão iniciada",
+    "forgot": "Esqueceste-te?",
+    "orContinueWith": "OU CONTINUAR COM",
+    "biometric": "Biometria",
+    "scanQr": "Ler QR",
+    "signingIn": "A iniciar sessão com o teu eID nacional…",
+    "logIn": "Iniciar sessão"
+  },
+  "tabbar": {
+    "homeLabel": "Início",
+    "docsLabel": "Documentos",
+    "pipLabel": "Pip",
+    "meLabel": "Eu"
+  },
+  "location": {
+    "title": "Localização",
+    "searchPlaceholder": "Procurar uma cidade",
+    "useCurrentLocation": "Usar a minha localização atual",
+    "locationsEyebrow": "LOCALIZAÇÕES"
+  },
+  "idCamera": {
+    "idTitle": "Tira uma foto do teu cartão de identificação",
+    "idHint": "Coloca o cartão inteiro dentro da moldura. Mantém-no plano, com boa luz, e certifica-te de que cada linha está nítida e legível — sem reflexos nem sombras.",
+    "a4Title": "Tira uma foto do teu documento",
+    "a4Hint": "Coloca a página A4 inteira dentro da moldura. Mantém-na plana, com boa luz, e certifica-te de que cada linha está nítida e legível — sem reflexos nem sombras.",
+    "errorNoPhoto": "Nenhuma foto captada",
+    "errorCapture": "Não foi possível tirar a foto",
+    "errorGallery": "Não foi possível abrir a galeria",
+    "permTitle": "É necessário acesso à câmara",
+    "permBody": "O Hoppy usa a câmara para tirar uma foto nítida do teu documento e preencher os teus formulários da EU por ti.",
+    "permAllow": "Permitir câmara",
+    "permGallery": "Escolher da galeria em vez disso",
+    "permCancel": "Cancelar",
+    "tabIdCard": "Cartão de identificação",
+    "tabA4Document": "Documento A4",
+    "galleryLabel": "Galeria"
+  },
+  "idProcessing": {
+    "title": "A processar…",
+    "subtitle": "A ler o teu documento"
+  },
+  "idReview": {
+    "nameLabel": "Nome completo",
+    "namePlaceholder": "ex.: Maria Ionescu",
+    "birthdateLabel": "Data de nascimento",
+    "birthdatePlaceholder": "AAAA-MM-DD",
+    "birthdateHint": "Formato: AAAA-MM-DD",
+    "countryLabel": "País",
+    "countryPlaceholder": "ex.: Roménia",
+    "nationalityLabel": "Nacionalidade",
+    "nationalityPlaceholder": "ex.: romena",
+    "title": "Confirma os teus dados",
+    "subtitle": "Lemos isto a partir do teu documento. Toca em qualquer campo para o corrigir e depois guarda.",
+    "editAction": "Editar",
+    "cancel": "Cancelar",
+    "save": "Guardar"
+  },
+  "home": {
+    "chipErasmusDeadlines": "Prazos do Erasmus",
+    "chipFindHousing": "Encontrar alojamento",
+    "chipTranslateLetter": "Traduzir uma carta",
+    "chipGrantEligibility": "Elegibilidade para bolsas",
+    "toolOpenForm": "A abrir o formulário",
+    "toolFillForm": "A preencher o formulário",
+    "toolReadPage": "A ler a página",
+    "toolGetProfile": "A ler o teu perfil",
+    "toolSearchEuInfo": "A procurar informação da EU",
+    "toolWebSearch": "A procurar na web",
+    "greetingMorning": "Bom dia",
+    "greetingAfternoon": "Boa tarde",
+    "greetingEvening": "Boa noite",
+    "greetingNamed": "{{greeting}}, {{name}}",
+    "connecting": "A ligar…",
+    "tapToTalk": "Toca para falar com o Pip",
+    "askPipPlaceholder": "Pergunta o que quiseres ao Pip…"
+  },
+  "chat": {
+    "seedGreeting": "Olá! 🐸 Sou o Pip. Pergunta-me o que quiseres sobre oportunidades da EU — Erasmus, bolsas, o Corpo de Solidariedade, alojamento, os teus direitos…",
+    "quickErasmusDeadlines": "Prazos do Erasmus",
+    "quickFindGrant": "Encontrar uma bolsa",
+    "quickEuYouthRights": "Direitos dos jovens na EU",
+    "reachError": "Não consegui chegar ao meu cérebro agora ({{error}}).",
+    "presenceOnline": "online · web + índice EU",
+    "typing": "O Pip está a escrever…",
+    "inputPlaceholder": "Mensagem para o Pip…"
+  },
+  "docs": {
+    "screenTitle": "Documentos",
+    "promptPrefix": "Larga um ficheiro e o Pip vai ",
+    "promptHighlight": "ler, organizar e memorizar",
+    "promptSuffix": ".",
+    "uploadButton": "Carregar",
+    "vaultEyebrow": "O TEU COFRE",
+    "verifiedBadge": "Verificado",
+    "idCardTitle": "Cartão de identificação nacional",
+    "idCardSub": "Verificado · PDF",
+    "enrolmentTitle": "Certificado de matrícula",
+    "enrolmentSub": "NOVA Lisbon · 1,2 MB",
+    "transcriptTitle": "Certidão de notas",
+    "transcriptSub": "A aguardar verificação",
+    "rentalTitle": "Contrato de arrendamento",
+    "rentalSub": "Rascunho · partilhado com o Pip"
+  },
+  "upload": {
+    "screenTitle": "Adicionar documento",
+    "dropTitle": "Larga um ficheiro aqui",
+    "dropSub": "PDF, imagem ou digitalização · até 20 MB",
+    "browseButton": "Procurar ficheiros",
+    "scanCameraButton": "Digitalizar com a câmara",
+    "uploadingEyebrow": "A CARREGAR",
+    "fileMeta": "{{size}} · {{percent}}%",
+    "readingPrefix": "O Pip está a lê-lo — vou extrair a tua ",
+    "readingHighlight": "universidade e datas",
+    "readingSuffix": " automaticamente.",
+    "readingButton": "A ler…"
+  },
+  "erasmus": {
+    "title": "Assistente Erasmus+",
+    "watchingScreen": "O Pip está a ver o teu ecrã",
+    "guiding": "A guiar-te pelo formulário",
+    "recBadge": "REC"
+  },
+  "profile": {
+    "title": "Perfil",
+    "euIdVerified": "EU ID verificado",
+    "student": "Estudante",
+    "language": "Idioma",
+    "voice": "Voz do Hoppy",
+    "pushNotifications": "Notificações push",
+    "letPipSeeScreen": "Deixar o Pip ver o meu ecrã",
+    "shareAnonymousData": "Partilhar dados anónimos",
+    "privacyData": "Privacidade e dados",
+    "helpSupport": "Ajuda e apoio da EU",
+    "logOut": "Terminar sessão"
+  },
+  "language": {
+    "title": "Idioma",
+    "searchPlaceholder": "Procurar um idioma",
+    "eyebrow": "TODOS OS IDIOMAS"
+  },
+  "voice": {
+    "title": "Voz do Hoppy",
+    "subtitle": "Escolhe a voz com que o Hoppy fala. Aplica-se da próxima vez que tocares no micro.",
+    "eyebrow": "TODAS AS VOZES"
+  },
+  "app": {
+    "tapMicPrompt": "Toca no micro e depois pede ao Hoppy para te inscrever.",
+    "tapToTalkAgain": "Toca no micro para falar de novo.",
+    "micDenied": "Permissão do micro recusada.",
+    "readingId": "A ler o teu documento…",
+    "scanFailed": "Falha na digitalização: {{error}}",
+    "pickFailed": "Falha na seleção: {{error}}",
+    "gotItNamed": "Percebido, {{name}}! Pede ao Hoppy para te inscrever.",
+    "friend": "amigo",
+    "couldNotSave": "Não foi possível guardar: {{error}}",
+    "coachingDefault": "Toca no campo destacado e escreve a tua universidade de origem. Vou verificar se é elegível.",
+    "webCoaching": "Muda para o separador do formulário — vou dizer-te exatamente o que escrever em cada campo.",
+    "locating": "A localizar…",
+    "setLocation": "Definir localização"
+  },
+  "notifications": {
+    "title": "Notificações",
+    "body": "Recebe lembretes sobre prazos, bolsas e respostas do Pip.",
+    "receive": "Receber notificações",
+    "onHint": "Vais receber lembretes mesmo quando a app estiver fechada.",
+    "offHint": "Ativa isto para receber lembretes sobre prazos e respostas."
+  }
+}

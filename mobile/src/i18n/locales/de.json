@@ -129,7 +129,8 @@
   "erasmus": {
     "title": "Erasmus+ Helfer",
     "watchingScreen": "Pip schaut auf deinen Bildschirm",
-    "recBadge": "REC"
+    "recBadge": "REC",
+    "guiding": "Ich führe dich durch das Formular"
   },
   "profile": {
     "title": "Profil",
@@ -141,7 +142,8 @@
     "shareAnonymousData": "Anonyme Daten teilen",
     "privacyData": "Datenschutz & Daten",
     "helpSupport": "Hilfe & EU-Support",
-    "logOut": "Abmelden"
+    "logOut": "Abmelden",
+    "voice": "Hoppys Stimme"
   },
   "language": {
     "title": "Sprache",
@@ -160,6 +162,19 @@
     "coachingDefault": "Tippe auf das markierte Feld und gib deine Heimatuniversität ein. Ich prüfe, ob sie förderfähig ist.",
     "locating": "Wird lokalisiert…",
     "setLocation": "Standort festlegen",
-    "friend": "Freund"
+    "friend": "Freund",
+    "webCoaching": "Wechsle zum Formular-Tab – ich sage dir genau, was du in jedes Feld eintragen sollst."
+  },
+  "voice": {
+    "title": "Hoppys Stimme",
+    "subtitle": "Wähle die Stimme, mit der Hoppy spricht. Gilt ab dem nächsten Tippen auf das Mikrofon.",
+    "eyebrow": "ALLE STIMMEN"
+  },
+  "notifications": {
+    "title": "Benachrichtigungen",
+    "body": "Erhalte Erinnerungen an Fristen, Förderungen und Antworten von Pip.",
+    "receive": "Benachrichtigungen erhalten",
+    "onHint": "Du erhältst Erinnerungen, auch wenn die App geschlossen ist.",
+    "offHint": "Aktiviere dies, um Erinnerungen an Fristen und Antworten zu erhalten."
   }
 }

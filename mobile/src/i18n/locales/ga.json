@@ -1,0 +1,180 @@
+{
+  "login": {
+    "meetPip": "Buail le Pip",
+    "welcomeSub": "Do chara don saol san AE — deontais, Erasmus, tithíocht, agus gach foirm eatarthu.",
+    "continueWithEuId": "Lean ar aghaidh le EU ID",
+    "exploreAsGuest": "Déan iniúchadh mar aoi",
+    "terms": "Trí leanúint ar aghaidh aontaíonn tú le téarmaí EU Youth.",
+    "euIdLogin": "Logáil isteach le EU ID",
+    "secureSso": "Aon-síniú isteach slán",
+    "secureSsoBody": "Atreorófar thú chuig do sholáthraí eID náisiúnta.",
+    "euIdEmail": "Ríomhphost EU ID",
+    "password": "Pasfhocal",
+    "keepSignedIn": "Coinnigh sínithe isteach mé",
+    "forgot": "Dearmadta?",
+    "orContinueWith": "NÓ LEAN AR AGHAIDH LE",
+    "biometric": "Bithmhéadrach",
+    "scanQr": "Scan QR",
+    "signingIn": "Ag síniú isteach le do eID náisiúnta…",
+    "logIn": "Logáil isteach"
+  },
+  "tabbar": {
+    "homeLabel": "Baile",
+    "docsLabel": "Cáipéisí",
+    "pipLabel": "Pip",
+    "meLabel": "Mise"
+  },
+  "location": {
+    "title": "Suíomh",
+    "searchPlaceholder": "Cuardaigh cathair",
+    "useCurrentLocation": "Úsáid mo shuíomh reatha",
+    "locationsEyebrow": "SUÍOMHANNA"
+  },
+  "idCamera": {
+    "idTitle": "Tóg grianghraf de do chárta aitheantais",
+    "idHint": "Cuir an cárta iomlán taobh istigh den fhráma. Coinnigh cothrom é, i ndea-sholas, agus déan cinnte go bhfuil gach líne géar agus inléite — gan dallrú ná scáthanna.",
+    "a4Title": "Tóg grianghraf de do cháipéis",
+    "a4Hint": "Cuir an leathanach A4 iomlán taobh istigh den fhráma. Coinnigh cothrom é, i ndea-sholas, agus déan cinnte go bhfuil gach líne géar agus inléite — gan dallrú ná scáthanna.",
+    "errorNoPhoto": "Níor gabhadh grianghraf ar bith",
+    "errorCapture": "Níorbh fhéidir an grianghraf a thógáil",
+    "errorGallery": "Níorbh fhéidir an gailearaí a oscailt",
+    "permTitle": "Tá rochtain ar an gceamara ag teastáil",
+    "permBody": "Úsáideann Hoppy an ceamara chun grianghraf soiléir de d'aitheantas a thógáil agus do chuid foirmeacha AE a líonadh duit.",
+    "permAllow": "Ceadaigh an ceamara",
+    "permGallery": "Roghnaigh ón ngailearaí ina ionad sin",
+    "permCancel": "Cealaigh",
+    "tabIdCard": "Cárta aitheantais",
+    "tabA4Document": "Cáipéis A4",
+    "galleryLabel": "Gailearaí"
+  },
+  "idProcessing": {
+    "title": "Ag próiseáil…",
+    "subtitle": "Ag léamh d'aitheantais"
+  },
+  "idReview": {
+    "nameLabel": "Ainm iomlán",
+    "namePlaceholder": "m.sh. Maria Ionescu",
+    "birthdateLabel": "Dáta breithe",
+    "birthdatePlaceholder": "BBBB-MM-LL",
+    "birthdateHint": "Formáid: BBBB-MM-LL",
+    "countryLabel": "Tír",
+    "countryPlaceholder": "m.sh. An Rómáin",
+    "nationalityLabel": "Náisiúntacht",
+    "nationalityPlaceholder": "m.sh. Rómánach",
+    "title": "Seiceáil do shonraí",
+    "subtitle": "Léamar iad seo ó d'aitheantais. Tapáil aon réimse chun é a cheartú, ansin sábháil.",
+    "editAction": "Cuir in eagar",
+    "cancel": "Cealaigh",
+    "save": "Sábháil"
+  },
+  "home": {
+    "chipErasmusDeadlines": "Spriocdhátaí Erasmus",
+    "chipFindHousing": "Aimsigh tithíocht",
+    "chipTranslateLetter": "Aistrigh litir",
+    "chipGrantEligibility": "Incháilitheacht deontais",
+    "toolOpenForm": "Ag oscailt na foirme",
+    "toolFillForm": "Ag líonadh na foirme",
+    "toolReadPage": "Ag léamh an leathanaigh",
+    "toolGetProfile": "Ag léamh do phróifíle",
+    "toolSearchEuInfo": "Ag cuardach eolas AE",
+    "toolWebSearch": "Ag cuardach an ghréasáin",
+    "greetingMorning": "Maidin mhaith",
+    "greetingAfternoon": "Tráthnóna maith",
+    "greetingEvening": "Tráthnóna maith",
+    "greetingNamed": "{{greeting}}, {{name}}",
+    "connecting": "Ag nascadh…",
+    "tapToTalk": "Tapáil chun labhairt le Pip",
+    "askPipPlaceholder": "Fiafraigh aon rud de Pip…"
+  },
+  "chat": {
+    "seedGreeting": "Heileo! 🐸 Is mise Pip. Fiafraigh aon rud díom faoi dheiseanna AE — Erasmus, deontais, an Cór Dlúthpháirtíochta, tithíocht, do chearta…",
+    "quickErasmusDeadlines": "Spriocdhátaí Erasmus",
+    "quickFindGrant": "Aimsigh deontas",
+    "quickEuYouthRights": "Cearta óige AE",
+    "reachError": "Níorbh fhéidir liom teagmháil a dhéanamh le m'inchinn anois díreach ({{error}}).",
+    "presenceOnline": "ar líne · gréasán + innéacs AE",
+    "typing": "Tá Pip ag clóscríobh…",
+    "inputPlaceholder": "Teachtaireacht chuig Pip…"
+  },
+  "docs": {
+    "screenTitle": "Cáipéisí",
+    "promptPrefix": "Scaoil comhad agus déanfaidh Pip é a ",
+    "promptHighlight": "léamh, shórtáil & mheabhrú",
+    "promptSuffix": ".",
+    "uploadButton": "Uaslódáil",
+    "vaultEyebrow": "DO CHISTE",
+    "verifiedBadge": "Fíoraithe",
+    "idCardTitle": "Cárta aitheantais náisiúnta",
+    "idCardSub": "Fíoraithe · PDF",
+    "enrolmentTitle": "Teastas clárúcháin",
+    "enrolmentSub": "NOVA Lisbon · 1.2 MB",
+    "transcriptTitle": "Tras-scríbhinn taifead",
+    "transcriptSub": "Ag fanacht le fíorú",
+    "rentalTitle": "Comhaontú cíosa",
+    "rentalSub": "Dréacht · roinnte le Pip"
+  },
+  "upload": {
+    "screenTitle": "Cuir cáipéis leis",
+    "dropTitle": "Scaoil comhad anseo",
+    "dropSub": "PDF, íomhá nó scan · suas le 20 MB",
+    "browseButton": "Brabhsáil comhaid",
+    "scanCameraButton": "Scan leis an gceamara",
+    "uploadingEyebrow": "AG UASLÓDÁIL",
+    "fileMeta": "{{size}} · {{percent}}%",
+    "readingPrefix": "Tá Pip á léamh — tarraingeoidh mé amach do ",
+    "readingHighlight": "ollscoil & dátaí",
+    "readingSuffix": " go huathoibríoch.",
+    "readingButton": "Ag léamh…"
+  },
+  "erasmus": {
+    "title": "Cúntóir Erasmus+",
+    "watchingScreen": "Tá Pip ag faire ar do scáileán",
+    "guiding": "Do threorú tríd an bhfoirm",
+    "recBadge": "TAIF"
+  },
+  "profile": {
+    "title": "Próifíl",
+    "euIdVerified": "EU ID fíoraithe",
+    "student": "Mac léinn",
+    "language": "Teanga",
+    "voice": "Guth Hoppy",
+    "pushNotifications": "Fógraí brú",
+    "letPipSeeScreen": "Lig do Pip mo scáileán a fheiceáil",
+    "shareAnonymousData": "Roinn sonraí gan ainm",
+    "privacyData": "Príobháideacht & sonraí",
+    "helpSupport": "Cabhair & tacaíocht AE",
+    "logOut": "Logáil amach"
+  },
+  "language": {
+    "title": "Teanga",
+    "searchPlaceholder": "Cuardaigh teanga",
+    "eyebrow": "GACH TEANGA"
+  },
+  "voice": {
+    "title": "Guth Hoppy",
+    "subtitle": "Roghnaigh an guth a labhraíonn Hoppy leis. Cuirfear i bhfeidhm é an chéad uair eile a thapálann tú an micreafón.",
+    "eyebrow": "GACH GUTH"
+  },
+  "app": {
+    "tapMicPrompt": "Tapáil an micreafón, ansin iarr ar Hoppy tú a chlárú.",
+    "tapToTalkAgain": "Tapáil an micreafón chun labhairt arís.",
+    "micDenied": "Diúltaíodh cead don mhicreafón.",
+    "readingId": "Ag léamh d'aitheantais…",
+    "scanFailed": "Theip ar an scan: {{error}}",
+    "pickFailed": "Theip ar an roghnú: {{error}}",
+    "gotItNamed": "Tuigthe, {{name}}! Iarr ar Hoppy tú a chlárú.",
+    "friend": "cara",
+    "couldNotSave": "Níorbh fhéidir sábháil: {{error}}",
+    "coachingDefault": "Tapáil an réimse aibhsithe agus clóscríobh d'ollscoil bhaile. Seiceálfaidh mé go bhfuil sé incháilithe.",
+    "webCoaching": "Athraigh go dtí an cluaisín foirme — inseoidh mé duit go díreach cad atá le clóscríobh i ngach réimse.",
+    "locating": "Ag aimsiú suímh…",
+    "setLocation": "Socraigh suíomh"
+  },
+  "notifications": {
+    "title": "Fógraí",
+    "body": "Faigh meabhrúcháin faoi spriocdhátaí, deontais agus freagraí ó Pip.",
+    "receive": "Faigh fógraí",
+    "onHint": "Gheobhaidh tú meabhrúcháin fiú nuair a bhíonn an aip dúnta.",
+    "offHint": "Cas air é seo chun meabhrúcháin faoi spriocdhátaí agus freagraí a fháil."
+  }
+}

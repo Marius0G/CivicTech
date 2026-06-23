@@ -1,0 +1,180 @@
+{
+  "login": {
+    "meetPip": "Maak kennis met Pip",
+    "welcomeSub": "Je maatje voor het leven in de EU — beurzen, Erasmus, huisvesting en elk formulier daartussenin.",
+    "continueWithEuId": "Doorgaan met EU ID",
+    "exploreAsGuest": "Verkennen als gast",
+    "terms": "Door verder te gaan ga je akkoord met de voorwaarden van EU Youth.",
+    "euIdLogin": "EU ID-login",
+    "secureSso": "Veilige eenmalige aanmelding",
+    "secureSsoBody": "Je wordt doorgestuurd naar je nationale eID-provider.",
+    "euIdEmail": "EU ID-e-mail",
+    "password": "Wachtwoord",
+    "keepSignedIn": "Aangemeld blijven",
+    "forgot": "Vergeten?",
+    "orContinueWith": "OF GA VERDER MET",
+    "biometric": "Biometrisch",
+    "scanQr": "Scan QR",
+    "signingIn": "Aanmelden met je nationale eID…",
+    "logIn": "Inloggen"
+  },
+  "tabbar": {
+    "homeLabel": "Start",
+    "docsLabel": "Documenten",
+    "pipLabel": "Pip",
+    "meLabel": "Ik"
+  },
+  "location": {
+    "title": "Locatie",
+    "searchPlaceholder": "Zoek een stad",
+    "useCurrentLocation": "Gebruik mijn huidige locatie",
+    "locationsEyebrow": "LOCATIES"
+  },
+  "idCamera": {
+    "idTitle": "Maak een foto van je identiteitskaart",
+    "idHint": "Plaats de hele kaart binnen het kader. Houd hem vlak, in goed licht, en zorg dat elke regel scherp en leesbaar is — geen schittering of schaduwen.",
+    "a4Title": "Maak een foto van je document",
+    "a4Hint": "Plaats de hele A4-pagina binnen het kader. Houd hem vlak, in goed licht, en zorg dat elke regel scherp en leesbaar is — geen schittering of schaduwen.",
+    "errorNoPhoto": "Geen foto vastgelegd",
+    "errorCapture": "Kon de foto niet maken",
+    "errorGallery": "Kon de galerij niet openen",
+    "permTitle": "Toegang tot camera nodig",
+    "permBody": "Hoppy gebruikt de camera om een duidelijke foto van je ID te maken en je EU-formulieren voor je in te vullen.",
+    "permAllow": "Camera toestaan",
+    "permGallery": "Kies in plaats daarvan uit de galerij",
+    "permCancel": "Annuleren",
+    "tabIdCard": "Identiteitskaart",
+    "tabA4Document": "A4-document",
+    "galleryLabel": "Galerij"
+  },
+  "idProcessing": {
+    "title": "Verwerken…",
+    "subtitle": "Je ID wordt gelezen"
+  },
+  "idReview": {
+    "nameLabel": "Volledige naam",
+    "namePlaceholder": "bijv. Maria Ionescu",
+    "birthdateLabel": "Geboortedatum",
+    "birthdatePlaceholder": "JJJJ-MM-DD",
+    "birthdateHint": "Formaat: JJJJ-MM-DD",
+    "countryLabel": "Land",
+    "countryPlaceholder": "bijv. Roemenië",
+    "nationalityLabel": "Nationaliteit",
+    "nationalityPlaceholder": "bijv. Roemeens",
+    "title": "Controleer je gegevens",
+    "subtitle": "We hebben deze van je ID gelezen. Tik op een veld om het aan te passen en sla daarna op.",
+    "editAction": "Bewerken",
+    "cancel": "Annuleren",
+    "save": "Opslaan"
+  },
+  "home": {
+    "chipErasmusDeadlines": "Erasmus-deadlines",
+    "chipFindHousing": "Huisvesting vinden",
+    "chipTranslateLetter": "Een brief vertalen",
+    "chipGrantEligibility": "Komen voor een beurs in aanmerking",
+    "toolOpenForm": "Het formulier openen",
+    "toolFillForm": "Het formulier invullen",
+    "toolReadPage": "De pagina lezen",
+    "toolGetProfile": "Je profiel lezen",
+    "toolSearchEuInfo": "EU-info zoeken",
+    "toolWebSearch": "Op het web zoeken",
+    "greetingMorning": "Goedemorgen",
+    "greetingAfternoon": "Goedemiddag",
+    "greetingEvening": "Goedenavond",
+    "greetingNamed": "{{greeting}}, {{name}}",
+    "connecting": "Verbinden…",
+    "tapToTalk": "Tik om met Pip te praten",
+    "askPipPlaceholder": "Vraag Pip wat je wilt…"
+  },
+  "chat": {
+    "seedGreeting": "Hé! 🐸 Ik ben Pip. Vraag me alles over EU-kansen — Erasmus, beurzen, het Solidariteitskorps, huisvesting, je rechten…",
+    "quickErasmusDeadlines": "Erasmus-deadlines",
+    "quickFindGrant": "Een beurs vinden",
+    "quickEuYouthRights": "Rechten van EU-jongeren",
+    "reachError": "Ik kon mijn brein zojuist niet bereiken ({{error}}).",
+    "presenceOnline": "online · web + EU-index",
+    "typing": "Pip is aan het typen…",
+    "inputPlaceholder": "Bericht aan Pip…"
+  },
+  "docs": {
+    "screenTitle": "Documenten",
+    "promptPrefix": "Zet een bestand neer en Pip gaat het ",
+    "promptHighlight": "lezen, sorteren en onthouden",
+    "promptSuffix": ".",
+    "uploadButton": "Uploaden",
+    "vaultEyebrow": "JOUW KLUIS",
+    "verifiedBadge": "Geverifieerd",
+    "idCardTitle": "Nationale identiteitskaart",
+    "idCardSub": "Geverifieerd · PDF",
+    "enrolmentTitle": "Inschrijvingsbewijs",
+    "enrolmentSub": "NOVA Lisbon · 1,2 MB",
+    "transcriptTitle": "Cijferlijst",
+    "transcriptSub": "Wacht op verificatie",
+    "rentalTitle": "Huurovereenkomst",
+    "rentalSub": "Concept · gedeeld met Pip"
+  },
+  "upload": {
+    "screenTitle": "Document toevoegen",
+    "dropTitle": "Zet hier een bestand neer",
+    "dropSub": "PDF, afbeelding of scan · tot 20 MB",
+    "browseButton": "Bestanden bladeren",
+    "scanCameraButton": "Scannen met camera",
+    "uploadingEyebrow": "UPLOADEN",
+    "fileMeta": "{{size}} · {{percent}}%",
+    "readingPrefix": "Pip leest het — ik haal automatisch je ",
+    "readingHighlight": "universiteit & datums",
+    "readingSuffix": " eruit.",
+    "readingButton": "Lezen…"
+  },
+  "erasmus": {
+    "title": "Erasmus+ helper",
+    "watchingScreen": "Pip kijkt mee op je scherm",
+    "guiding": "Begeleidt je door het formulier",
+    "recBadge": "REC"
+  },
+  "profile": {
+    "title": "Profiel",
+    "euIdVerified": "EU ID geverifieerd",
+    "student": "Student",
+    "language": "Taal",
+    "voice": "Hoppy's stem",
+    "pushNotifications": "Pushmeldingen",
+    "letPipSeeScreen": "Laat Pip mijn scherm zien",
+    "shareAnonymousData": "Anonieme gegevens delen",
+    "privacyData": "Privacy & gegevens",
+    "helpSupport": "Hulp & EU-ondersteuning",
+    "logOut": "Uitloggen"
+  },
+  "language": {
+    "title": "Taal",
+    "searchPlaceholder": "Zoek een taal",
+    "eyebrow": "ALLE TALEN"
+  },
+  "voice": {
+    "title": "Hoppy's stem",
+    "subtitle": "Kies de stem waarmee Hoppy spreekt. Wordt toegepast de volgende keer dat je op de microfoon tikt.",
+    "eyebrow": "ALLE STEMMEN"
+  },
+  "app": {
+    "tapMicPrompt": "Tik op de microfoon en vraag Hoppy dan om je aan te melden.",
+    "tapToTalkAgain": "Tik op de microfoon om weer te praten.",
+    "micDenied": "Toestemming voor microfoon geweigerd.",
+    "readingId": "Je ID wordt gelezen…",
+    "scanFailed": "Scannen mislukt: {{error}}",
+    "pickFailed": "Kiezen mislukt: {{error}}",
+    "gotItNamed": "Begrepen, {{name}}! Vraag Hoppy om je aan te melden.",
+    "friend": "vriend",
+    "couldNotSave": "Kon niet opslaan: {{error}}",
+    "coachingDefault": "Tik op het gemarkeerde veld en typ je thuisuniversiteit. Ik controleer of die in aanmerking komt.",
+    "webCoaching": "Ga naar het formuliertabblad — ik vertel je precies wat je in elk veld moet typen.",
+    "locating": "Locatie bepalen…",
+    "setLocation": "Locatie instellen"
+  },
+  "notifications": {
+    "title": "Meldingen",
+    "body": "Ontvang herinneringen over deadlines, subsidies en antwoorden van Pip.",
+    "receive": "Meldingen ontvangen",
+    "onHint": "Je ontvangt herinneringen, zelfs als de app gesloten is.",
+    "offHint": "Zet dit aan om herinneringen over deadlines en antwoorden te krijgen."
+  }
+}

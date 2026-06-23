@@ -58,10 +58,12 @@ async def realtime_token(body: dict[str, Any] = Body(default={})) -> dict:
     The app reads `.value` from the response and uses it as the WebRTC bearer token.
     The real OpenAI api key never leaves this server. An optional `{"language": "fr"}` body
     pins Hoppy to the language the user picked in the app's language menu (defaults to English).
+    An optional `{"voice": "cedar"}` body sets Hoppy's voice (defaults to the server default).
     """
     language = (body or {}).get("language")
+    voice = (body or {}).get("voice")
     try:
-        data = await mint_client_secret(settings, language)
+        data = await mint_client_secret(settings, language, voice)
     except RuntimeError as e:
         log.error("token mint failed: %s", e)
         # 502 if upstream/config problem; message is safe (no key leaked).

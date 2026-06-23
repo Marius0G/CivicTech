@@ -129,7 +129,8 @@
   "erasmus": {
     "title": "Assistente Erasmus+",
     "watchingScreen": "Pip sta guardando il tuo schermo",
-    "recBadge": "REC"
+    "recBadge": "REC",
+    "guiding": "Ti guido attraverso il modulo"
   },
   "profile": {
     "title": "Profilo",
@@ -141,7 +142,8 @@
     "shareAnonymousData": "Condividi dati anonimi",
     "privacyData": "Privacy e dati",
     "helpSupport": "Aiuto e supporto UE",
-    "logOut": "Esci"
+    "logOut": "Esci",
+    "voice": "La voce di Hoppy"
   },
   "language": {
     "title": "Lingua",
@@ -160,6 +162,19 @@
     "coachingDefault": "Tocca il campo evidenziato e scrivi la tua università di origine. Controllerò che sia idonea.",
     "locating": "Localizzazione…",
     "setLocation": "Imposta posizione",
-    "friend": "amico"
+    "friend": "amico",
+    "webCoaching": "Passa alla scheda del modulo: ti dirò esattamente cosa scrivere in ogni campo."
+  },
+  "voice": {
+    "title": "La voce di Hoppy",
+    "subtitle": "Scegli la voce con cui parla Hoppy. Si applica al prossimo tocco sul microfono.",
+    "eyebrow": "TUTTE LE VOCI"
+  },
+  "notifications": {
+    "title": "Notifiche",
+    "body": "Ricevi promemoria su scadenze, sovvenzioni e risposte da Pip.",
+    "receive": "Ricevi notifiche",
+    "onHint": "Riceverai promemoria anche quando l’app è chiusa.",
+    "offHint": "Attivalo per ricevere promemoria su scadenze e risposte."
   }
 }

@@ -129,7 +129,8 @@
   "erasmus": {
     "title": "Asistent Erasmus+",
     "watchingScreen": "Pip îți urmărește ecranul",
-    "recBadge": "REC"
+    "recBadge": "REC",
+    "guiding": "Te ghidez prin formular"
   },
   "profile": {
     "title": "Profil",
@@ -141,7 +142,8 @@
     "shareAnonymousData": "Partajează date anonime",
     "privacyData": "Confidențialitate și date",
     "helpSupport": "Ajutor și suport UE",
-    "logOut": "Deconectare"
+    "logOut": "Deconectare",
+    "voice": "Vocea lui Hoppy"
   },
   "language": {
     "title": "Limbă",
@@ -160,6 +162,19 @@
     "coachingDefault": "Atinge câmpul evidențiat și scrie universitatea ta de origine. Voi verifica dacă e eligibilă.",
     "locating": "Se localizează…",
     "setLocation": "Setează locația",
-    "friend": "prietene"
+    "friend": "prietene",
+    "webCoaching": "Comută la fila formularului — îți spun exact ce să scrii în fiecare câmp."
+  },
+  "voice": {
+    "title": "Vocea lui Hoppy",
+    "subtitle": "Alege vocea cu care vorbește Hoppy. Se aplică data viitoare când atingi microfonul.",
+    "eyebrow": "TOATE VOCILE"
+  },
+  "notifications": {
+    "title": "Notificări",
+    "body": "Primește mementouri despre termene, granturi și răspunsuri de la Pip.",
+    "receive": "Primește notificări",
+    "onHint": "Vei primi mementouri chiar și când aplicația este închisă.",
+    "offHint": "Activează această opțiune pentru a primi mementouri despre termene și răspunsuri."
   }
 }
