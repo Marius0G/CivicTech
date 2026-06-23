@@ -10,6 +10,8 @@ import {
   Platform, ActivityIndicator, StatusBar,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
+import { TFunction } from 'i18next';
 import { ExtractedProfile } from './profileUpload';
 
 const ACCENT = '#F5C24B';
@@ -22,11 +24,11 @@ interface Props {
   onCancel: () => void;
 }
 
-const FIELDS: { key: keyof ExtractedProfile; label: string; placeholder: string; hint?: string }[] = [
-  { key: 'name', label: 'Full name', placeholder: 'e.g. Maria Ionescu' },
-  { key: 'birthdate', label: 'Date of birth', placeholder: 'YYYY-MM-DD', hint: 'Format: YYYY-MM-DD' },
-  { key: 'country', label: 'Country', placeholder: 'e.g. Romania' },
-  { key: 'nationality', label: 'Nationality', placeholder: 'e.g. Romanian' },
+const buildFields = (t: TFunction): { key: keyof ExtractedProfile; label: string; placeholder: string; hint?: string }[] => [
+  { key: 'name', label: t('idReview.nameLabel'), placeholder: t('idReview.namePlaceholder') },
+  { key: 'birthdate', label: t('idReview.birthdateLabel'), placeholder: t('idReview.birthdatePlaceholder'), hint: t('idReview.birthdateHint') },
+  { key: 'country', label: t('idReview.countryLabel'), placeholder: t('idReview.countryPlaceholder') },
+  { key: 'nationality', label: t('idReview.nationalityLabel'), placeholder: t('idReview.nationalityPlaceholder') },
 ];
 
 export default function IdReviewScreen({ initial, saving, error, onSave, onCancel }: Props) {
@@ -38,6 +40,8 @@ export default function IdReviewScreen({ initial, saving, error, onSave, onCance
   });
   const [editing, setEditing] = useState<keyof ExtractedProfile | null>(null);
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
+  const FIELDS = buildFields(t);
 
   function set(key: keyof ExtractedProfile, value: string) {
     setDraft((d) => ({ ...d, [key]: value }));
@@ -54,9 +58,9 @@ export default function IdReviewScreen({ initial, saving, error, onSave, onCance
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.title}>Check your details</Text>
+        <Text style={styles.title}>{t('idReview.title')}</Text>
         <Text style={styles.subtitle}>
-          We read these from your ID. Tap any field to fix it, then save.
+          {t('idReview.subtitle')}
         </Text>
 
         <View style={styles.card}>
@@ -90,7 +94,7 @@ export default function IdReviewScreen({ initial, saving, error, onSave, onCance
                     <Text style={[styles.value, !value && styles.valueEmpty]} numberOfLines={1}>
                       {value || f.placeholder}
                     </Text>
-                    <Text style={styles.editHint}>Edit</Text>
+                    <Text style={styles.editHint}>{t('idReview.editAction')}</Text>
                   </View>
                 )}
                 {isEditing && !!f.hint && <Text style={styles.fieldHint}>{f.hint}</Text>}
@@ -109,7 +113,7 @@ export default function IdReviewScreen({ initial, saving, error, onSave, onCance
           activeOpacity={0.8}
           disabled={saving}
         >
-          <Text style={styles.cancelText}>Cancel</Text>
+          <Text style={styles.cancelText}>{t('idReview.cancel')}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.btn, styles.saveBtn, saving && styles.btnDisabled]}
@@ -117,7 +121,7 @@ export default function IdReviewScreen({ initial, saving, error, onSave, onCance
           activeOpacity={0.85}
           disabled={saving}
         >
-          {saving ? <ActivityIndicator color="#0A0F1E" /> : <Text style={styles.saveText}>Save</Text>}
+          {saving ? <ActivityIndicator color="#0A0F1E" /> : <Text style={styles.saveText}>{t('idReview.save')}</Text>}
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>

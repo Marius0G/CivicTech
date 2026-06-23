@@ -44,3 +44,40 @@ What you can do (tools arrive in later steps):
 Right now, just be a great conversational buddy: greet the user warmly, ask what they're
 curious about, and keep the conversation flowing.
 """
+
+
+# English names of the languages the app offers, keyed by the i18n code the client sends.
+# Hoppy speaks whichever one the user picked in the app's language menu.
+LANGUAGE_NAMES = {
+    "en": "English",
+    "fr": "French",
+    "de": "German",
+    "es": "Spanish",
+    "it": "Italian",
+    "pl": "Polish",
+    "ro": "Romanian",
+    "el": "Greek",
+}
+
+
+def instructions_for(language: str | None) -> str:
+    """Hoppy's persona, optionally pinned to the spoken language the user chose in the app.
+
+    The mobile language menu sends an i18n code (e.g. "fr"); we append a directive so Hoppy
+    greets and answers in that language even though the RAG sources are English. English needs
+    no directive (it's the persona's default).
+    """
+    name = LANGUAGE_NAMES.get((language or "").strip().lower())
+    if not name or name == "English":
+        return HOPPY_INSTRUCTIONS
+    directive = (
+        f"\n\nLanguage:\n"
+        f"- The user has chosen {name}. Always speak and respond in {name}, including your very"
+        f" first greeting.\n"
+        f"- Your tools and sources return English text — translate the useful parts into {name}"
+        f" and answer in {name}. Keep proper nouns as-is (Erasmus+, European Solidarity Corps,"
+        f" DiscoverEU).\n"
+        f"- If the user clearly switches to another language mid-conversation, follow them;"
+        f" otherwise stay in {name}."
+    )
+    return HOPPY_INSTRUCTIONS + directive

@@ -12,21 +12,22 @@ from typing import Any
 import httpx
 
 from .config import Settings
-from .persona import HOPPY_INSTRUCTIONS
+from .persona import instructions_for
 from .tool_defs import TOOL_DEFS
 
 
-def build_session_payload(settings: Settings) -> dict[str, Any]:
+def build_session_payload(settings: Settings, language: str | None = None) -> dict[str, Any]:
     """Construct the request body for /v1/realtime/client_secrets.
 
     Pure function (no network) so it can be unit-tested. The Hoppy persona, voice, tools, and
     speech speed are baked in here, server-side, so the model has them from the first frame.
+    `language` (an i18n code the app sends, e.g. "fr") pins Hoppy to that spoken language.
     """
     return {
         "session": {
             "type": "realtime",
             "model": settings.realtime_model,
-            "instructions": HOPPY_INSTRUCTIONS,
+            "instructions": instructions_for(language),
             "tools": TOOL_DEFS,
             "tool_choice": "auto",
             "audio": {
@@ -51,9 +52,10 @@ def build_session_payload(settings: Settings) -> dict[str, Any]:
     }
 
 
-async def mint_client_secret(settings: Settings) -> dict[str, Any]:
+async def mint_client_secret(settings: Settings, language: str | None = None) -> dict[str, Any]:
     """Call OpenAI to mint a short-lived client secret. Returns the raw OpenAI JSON.
 
+    `language` is the i18n code the app sends so Hoppy speaks the user's chosen language.
     Raises RuntimeError with a clear message on misconfiguration / upstream failure.
     """
     if not settings.has_key:
@@ -65,7 +67,7 @@ async def mint_client_secret(settings: Settings) -> dict[str, Any]:
         "Authorization": f"Bearer {settings.openai_api_key}",
         "Content-Type": "application/json",
     }
-    payload = build_session_payload(settings)
+    payload = build_session_payload(settings, language)
 
     async with httpx.AsyncClient(timeout=15.0) as client:
         resp = await client.post(settings.client_secrets_url, headers=headers, json=payload)

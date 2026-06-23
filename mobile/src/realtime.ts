@@ -41,6 +41,8 @@ interface ConnectOpts {
   onAudioPulse?: () => void;
   /** Real 0..1 voice loudness sampled from getStats() — drives true lip-sync. */
   onLevel?: (level: number) => void;
+  /** i18n code (e.g. "fr") so Hoppy greets/answers in the user's chosen language. */
+  language?: string;
 }
 
 function forceSpeaker() {
@@ -77,9 +79,13 @@ function routeToSpeaker(on: boolean) {
 export async function connectRealtime(opts: ConnectOpts = {}): Promise<RealtimeHandle> {
   const status = (s: string) => opts.onStatus?.(s);
 
-  // 1) Mint an ephemeral token from our backend.
+  // 1) Mint an ephemeral token from our backend (tell it which language Hoppy should speak).
   status('Getting session token…');
-  const tokenRes = await fetch(`${BACKEND_URL}/realtime/token`, { method: 'POST' });
+  const tokenRes = await fetch(`${BACKEND_URL}/realtime/token`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ language: opts.language ?? 'en' }),
+  });
   if (!tokenRes.ok) throw new Error(`token endpoint ${tokenRes.status}: ${await tokenRes.text()}`);
   const token = await tokenRes.json();
   const ephemeralKey: string = token.value;

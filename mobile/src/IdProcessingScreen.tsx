@@ -2,16 +2,18 @@
 
 import React from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, StatusBar } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import Mascot from './Mascot';
 
 export default function IdProcessingScreen() {
+  const { t } = useTranslation();
   return (
     <View style={styles.root}>
       <StatusBar barStyle="light-content" />
       <Mascot speaking celebrate={false} size={120} />
       <ActivityIndicator color="#F5C24B" style={{ marginTop: 28 }} />
-      <Text style={styles.title}>Processing…</Text>
-      <Text style={styles.sub}>Reading your ID</Text>
+      <Text style={styles.title}>{t('idProcessing.title')}</Text>
+      <Text style={styles.sub}>{t('idProcessing.subtitle')}</Text>
     </View>
   );
 }

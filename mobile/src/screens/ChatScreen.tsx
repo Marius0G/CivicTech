@@ -7,20 +7,30 @@ import {
   KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet,
   Text, TextInput, View,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Mascot from '../Mascot';
 import Icon from '../ui/Icon';
 import { sendChat, ChatMessage } from '../chat';
 import { colors, fonts, radius, space } from '../theme';
 
+type TFn = (key: string, opts?: Record<string, unknown>) => string;
+
 type Msg = { from: 'pip' | 'me'; text: string };
-const SEED: Msg[] = [
-  { from: 'pip', text: 'Hey! 🐸 I’m Pip. Ask me anything about EU opportunities — Erasmus, grants, the Solidarity Corps, housing, your rights…' },
+
+const buildSeed = (t: TFn): Msg[] => [
+  { from: 'pip', text: t('chat.seedGreeting') },
 ];
-const QUICK = ['Erasmus deadlines', 'Find a grant', 'EU youth rights'];
+
+const buildQuick = (t: TFn) => [
+  t('chat.quickErasmusDeadlines'),
+  t('chat.quickFindGrant'),
+  t('chat.quickEuYouthRights'),
+];
 
 export default function ChatScreen({ onBack, onMic }: { onBack: () => void; onMic: () => void }) {
-  const [msgs, setMsgs] = useState<Msg[]>(SEED);
+  const { t } = useTranslation();
+  const [msgs, setMsgs] = useState<Msg[]>(() => buildSeed(t));
   const [typing, setTyping] = useState(false);
   const [val, setVal] = useState('');
   const scroller = useRef<ScrollView>(null);
@@ -32,9 +42,9 @@ export default function ChatScreen({ onBack, onMic }: { onBack: () => void; onMi
   }, [msgs, typing]);
 
   async function send(text?: string) {
-    const t = (text ?? val).trim();
-    if (!t || typing) return;
-    const next: Msg[] = [...msgs, { from: 'me', text: t }];
+    const trimmed = (text ?? val).trim();
+    if (!trimmed || typing) return;
+    const next: Msg[] = [...msgs, { from: 'me', text: trimmed }];
     setMsgs(next);
     setVal('');
     setTyping(true);
@@ -47,7 +57,7 @@ export default function ChatScreen({ onBack, onMic }: { onBack: () => void; onMi
       const res = await sendChat(history);
       setMsgs((m) => [...m, { from: 'pip', text: res.reply || '…' }]);
     } catch (e: any) {
-      setMsgs((m) => [...m, { from: 'pip', text: `I couldn’t reach my brain just now (${e.message ?? e}).` }]);
+      setMsgs((m) => [...m, { from: 'pip', text: t('chat.reachError', { error: e.message ?? e }) }]);
     } finally {
       setTyping(false);
     }
@@ -61,7 +71,7 @@ export default function ChatScreen({ onBack, onMic }: { onBack: () => void; onMi
         <Mascot speaking={false} celebrate={false} size={40} />
         <View style={styles.flex}>
           <Text style={styles.name}>Pip</Text>
-          <Text style={styles.presence}><Text style={{ color: colors.primary }}>● </Text>online · web + EU index</Text>
+          <Text style={styles.presence}><Text style={{ color: colors.primary }}>● </Text>{t('chat.presenceOnline')}</Text>
         </View>
         <Pressable hitSlop={10} style={styles.iconBtn}><Icon name="phone" size={20} color={colors.textSecondary} /></Pressable>
       </View>
@@ -76,7 +86,7 @@ export default function ChatScreen({ onBack, onMic }: { onBack: () => void; onMi
           ))}
           {typing && (
             <View style={[styles.bubble, styles.pip, styles.typing]}>
-              <Text style={styles.msgText}>Pip is typing…</Text>
+              <Text style={styles.msgText}>{t('chat.typing')}</Text>
             </View>
           )}
         </ScrollView>
@@ -84,7 +94,7 @@ export default function ChatScreen({ onBack, onMic }: { onBack: () => void; onMi
         {/* Composer */}
         <View style={[styles.composer, { paddingBottom: space.s3 + insets.bottom }]}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.quick}>
-            {QUICK.map((q) => (
+            {buildQuick(t).map((q) => (
               <Pressable key={q} style={styles.chip} onPress={() => send(q)}>
                 <Text style={styles.chipText}>{q}</Text>
               </Pressable>
@@ -96,7 +106,7 @@ export default function ChatScreen({ onBack, onMic }: { onBack: () => void; onMi
               <TextInput
                 value={val}
                 onChangeText={setVal}
-                placeholder="Message Pip…"
+                placeholder={t('chat.inputPlaceholder')}
                 placeholderTextColor={colors.textTertiary}
                 style={styles.input}
                 onSubmitEditing={() => send()}

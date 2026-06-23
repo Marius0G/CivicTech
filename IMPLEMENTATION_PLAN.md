@@ -170,14 +170,18 @@ WebView and fills the two fields. **This is the demo's spine. Everything else is
 ## Phase 7 — Demo-day hardening (~2h) — DO NOT SKIP
 > Goal: survive conference wifi. (You said "wing it" — at minimum do 1–3 here.)
 
-- [ ] Run **FastAPI locally** on the laptop, phone on the same network.
-- [ ] **Cache the eligibility page** (saved HTML/assets) and add a flag to load the cached copy
-      if the live site is slow/down.
-- [ ] **Record a full backup run** of the demo.
-- [ ] Pre-warm RAG; rehearse the **exact** demo questions; lock the demo user's profile.
-- [ ] Charge devices, set screen mirroring, disable notifications.
+- [x] Run **FastAPI locally** on the laptop, phone on the same network. `backend/run_demo.ps1`
+      boots uvicorn on `0.0.0.0:8000`, sets `adb reverse`, prints the LAN IP.
+- [x] **Cache the eligibility page** + flag to load the cached copy if the live site is slow/down.
+      Bundled `mobile/assets/eligibility.html`; `USE_CACHED_FORM` flag in `mobile/src/config.ts`;
+      `App.tsx` WebView auto-falls back to the cached copy on load error / 8 s timeout.
+- [ ] **Record a full backup run** of the demo. *(operational — see `DEMO_RUNBOOK.md` §5.)*
+- [x] Pre-warm RAG; rehearse the **exact** demo questions; lock the demo user's profile.
+      `run_demo.ps1` locks Maria's profile and pre-warms RAG with the rehearsed questions.
+- [ ] Charge devices, set screen mirroring, disable notifications. *(operational — `DEMO_RUNBOOK.md` §7.)*
 
 **✅ Checkpoint:** unplug from the internet (or simulate failure) and the demo still tells its story.
+**See [`DEMO_RUNBOOK.md`](./DEMO_RUNBOOK.md) for the full stage runbook.**
 
 ---
 
