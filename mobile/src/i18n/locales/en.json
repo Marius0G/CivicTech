@@ -20,9 +20,27 @@
   },
   "tabbar": {
     "homeLabel": "Home",
+    "discoverLabel": "Discover",
     "docsLabel": "Docs",
     "pipLabel": "Pip",
+    "communityLabel": "Community",
     "meLabel": "Me"
+  },
+  "discover": {
+    "screenTitle": "Discover",
+    "topHeadline": "Explore EU opportunities, trips and grants.",
+    "sectionTrending": "Trending topics",
+    "sectionPrograms": "Featured programs",
+    "sectionSteps": "Next steps",
+    "learnMore": "Learn more",
+    "viewAll": "View all"
+  },
+  "community": {
+    "screenTitle": "Community",
+    "topHeadline": "Connect with fellow students and volunteers across Europe.",
+    "sectionGroups": "Groups to join",
+    "sectionEvents": "Upcoming events",
+    "sectionHighlights": "Highlights from the community"
   },
   "location": {
     "title": "Location",

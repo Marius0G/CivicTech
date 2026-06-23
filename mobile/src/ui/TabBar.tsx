@@ -7,12 +7,14 @@ import { colors, fonts, shadow, space } from '../theme';
 import Icon, { IconName } from './Icon';
 import Mascot from '../Mascot';
 
-export type TabKey = 'home' | 'docs' | 'chat' | 'profile';
+export type TabKey = 'home' | 'discover' | 'docs' | 'chat' | 'community' | 'profile';
 
 const ITEMS: { key: TabKey; labelKey: string; icon: IconName }[] = [
   { key: 'home', labelKey: 'tabbar.homeLabel', icon: 'house' },
+  { key: 'discover', labelKey: 'tabbar.discoverLabel', icon: 'globe' },
   { key: 'docs', labelKey: 'tabbar.docsLabel', icon: 'folder' },
   { key: 'chat', labelKey: 'tabbar.pipLabel', icon: 'chat' }, // raised center → Mascot
+  { key: 'community', labelKey: 'tabbar.communityLabel', icon: 'compass' },
   { key: 'profile', labelKey: 'tabbar.meLabel', icon: 'user' },
 ];
 
