@@ -56,6 +56,24 @@ class Settings:
         os.getenv("CORS_ORIGINS", "*").split(",") if os.getenv("CORS_ORIGINS") else ["*"]
     )
 
+    # --- Supabase auth (real per-user accounts) ----------------------------------------------
+    # Public project URL + anon key (the anon key is a CLIENT key — safe to ship in the app).
+    # When BOTH are set, the backend ENFORCES auth: every /realtime, /tools, /docs and /chat
+    # call must carry a valid `Authorization: Bearer <supabase access token>`. Without them the
+    # backend stays in single demo-user mode, so the offline tests + no-auth dev flow still work.
+    supabase_url: str = os.getenv("SUPABASE_URL", "").rstrip("/")
+    supabase_anon_key: str = os.getenv("SUPABASE_ANON_KEY", "")
+    # Service-role key (SECRET — server only, NEVER ships to the app): lets the backend read and
+    # write the per-user `profiles` table bypassing RLS. Optional: without it, per-user profiles
+    # are kept only in memory (lost on restart) but everything else still works.
+    supabase_service_role_key: str = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
+
+    # Auth enforcement. Default is LENIENT: a request WITHOUT a bearer token falls back to the
+    # demo user (so older app builds keep working against a shared backend), while a token that IS
+    # present is still validated and scopes the user. Set AUTH_STRICT=true to require sign-in on
+    # every protected call (clean separation, but old/anonymous clients get 401).
+    auth_strict: bool = os.getenv("AUTH_STRICT", "false").strip().lower() in ("1", "true", "yes")
+
     @property
     def has_key(self) -> bool:
         return bool(self.openai_api_key)
@@ -63,6 +81,16 @@ class Settings:
     @property
     def has_tavily(self) -> bool:
         return bool(self.tavily_api_key)
+
+    @property
+    def auth_enabled(self) -> bool:
+        """True once Supabase is configured — auth is then required on protected endpoints."""
+        return bool(self.supabase_url and self.supabase_anon_key)
+
+    @property
+    def has_supabase_db(self) -> bool:
+        """True when the backend can persist per-user profiles to Supabase Postgres."""
+        return bool(self.supabase_url and self.supabase_service_role_key)
 
 
 @lru_cache

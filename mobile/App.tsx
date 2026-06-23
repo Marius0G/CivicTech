@@ -20,7 +20,8 @@ import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-cont
 import { connectRealtime, RealtimeHandle, FunctionCall } from './src/realtime';
 import { useTranslation } from 'react-i18next';
 import { ESC_ELIGIBILITY_URL, executeTool, ToolContext } from './src/tools';
-import { BACKEND_URL } from './src/config';
+import { BACKEND_URL, SUPABASE_CONFIGURED } from './src/config';
+import { authHeaders, supabase, signOut } from './src/supabase';
 import { loadSavedLanguage, setLanguage } from './src/i18n';
 import LanguageSheet from './src/ui/LanguageSheet';
 import NotificationSheet from './src/ui/NotificationSheet';
@@ -152,21 +153,39 @@ function AppInner() {
     }
   }
 
-  // On first mount: restore the saved language, pull the active profile (drives the greeting name)
-  // and detect location.
+  // On first mount: restore the saved language, voice and notification preference.
   useEffect(() => {
     loadSavedLanguage();
     loadSavedVoice();
     loadNotificationPref().then(setNotifEnabled);
+  }, []);
+
+  // Real auth (when Supabase is configured): the gate follows the session. The listener flips
+  // `authed` the moment a session exists (sign-in/up/guest) or is cleared (sign-out). Without
+  // Supabase configured we keep the mock LoginScreen flow (onDone sets `authed`).
+  useEffect(() => {
+    if (!SUPABASE_CONFIGURED) return;
+    supabase.auth.getSession().then(({ data }) => setAuthed(!!data.session));
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      setAuthed(!!session);
+    });
+    return () => sub.subscription.unsubscribe();
+  }, []);
+
+  // Pull this user's saved profile (drives the greeting name) once signed in, and detect
+  // location. Re-runs when `authed` flips so a freshly signed-in user gets THEIR profile (and a
+  // signed-out one is cleared). The fetch carries the auth header so the backend scopes it.
+  useEffect(() => {
+    if (!authed) { setProfile(null); return; }
     (async () => {
       try {
-        const r = await fetch(`${BACKEND_URL}/docs/profile`);
+        const r = await fetch(`${BACKEND_URL}/docs/profile`, { headers: { ...(await authHeaders()) } });
         const j = await r.json();
         if (j?.profile) setProfile(j.profile);
       } catch { /* offline — greet without a name */ }
     })();
     detectLocation();
-  }, []);
+  }, [authed]);
 
   // Hoppy's "talking" state: any speech signal keeps it alive; a quiet gap turns it off.
   function pingSpeaking() {
@@ -262,7 +281,7 @@ function AppInner() {
     callServerTool: async (name, args) => {
       const res = await fetch(`${BACKEND_URL}/tools/${name}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...(await authHeaders()) },
         body: JSON.stringify(args || {}),
       });
       return res.json();
@@ -423,6 +442,9 @@ function AppInner() {
     setToolEvents([]);
     setProfile(null);
     setScreen('home');
+    // Real auth: end the Supabase session (the listener then flips `authed` to false). In mock
+    // mode there's no session, so clear the gate directly.
+    if (SUPABASE_CONFIGURED) { signOut().catch(() => {}); }
     setAuthed(false);
   }
 

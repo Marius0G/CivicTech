@@ -6,6 +6,7 @@
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system/legacy';
 import { BACKEND_URL } from './config';
+import { authHeaders } from './supabase';
 
 export interface ExtractedProfile {
   name: string;
@@ -57,6 +58,7 @@ export async function uploadIdImage(
     uploadType: FileSystem.FileSystemUploadType.MULTIPART,
     fieldName: 'file',
     mimeType,
+    headers: { ...(await authHeaders()) },
   });
   if (res.status < 200 || res.status >= 300) {
     throw new Error(`upload ${res.status}: ${res.body}`);
@@ -73,7 +75,7 @@ export async function uploadIdImage(
 export async function saveProfile(fields: ExtractedProfile): Promise<ExtractedProfile> {
   const res = await fetch(`${BACKEND_URL}/docs/profile`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', ...(await authHeaders()) },
     body: JSON.stringify(fields),
   });
   if (!res.ok) throw new Error(`save ${res.status}: ${await res.text()}`);

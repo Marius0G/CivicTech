@@ -13,8 +13,9 @@ import logging
 from typing import Any
 
 import httpx
-from fastapi import APIRouter, Body
+from fastapi import APIRouter, Body, Depends
 
+from .auth import User, get_current_user
 from .config import get_settings
 from .persona import HOPPY_INSTRUCTIONS
 from .profile import get_active_profile
@@ -73,7 +74,7 @@ CHAT_TOOLS = [
 ]
 
 
-async def _run_tool(settings, name: str, args: dict[str, Any]) -> dict[str, Any]:
+async def _run_tool(settings, name: str, args: dict[str, Any], user_id: str) -> dict[str, Any]:
     if name == "search_eu_info":
         try:
             results = await rag_search(settings, args.get("query", ""), k=5)
@@ -83,12 +84,15 @@ async def _run_tool(settings, name: str, args: dict[str, Any]) -> dict[str, Any]
     if name == "web_search":
         return await tavily_search(settings, args.get("query", ""))
     if name == "get_profile":
-        return {"profile": get_active_profile()}
+        return {"profile": get_active_profile(user_id)}
     return {"error": f"unknown tool {name}"}
 
 
 @router.post("")
-async def chat(body: dict[str, Any] = Body(default={})) -> dict:
+async def chat(
+    body: dict[str, Any] = Body(default={}),
+    user: User = Depends(get_current_user),
+) -> dict:
     """Run a short tool-using chat completion and return the assistant's reply + sources."""
     settings = get_settings()
     if not settings.has_key:
@@ -135,7 +139,7 @@ async def chat(body: dict[str, Any] = Body(default={})) -> dict:
                         a = json.loads(fn.get("arguments") or "{}")
                     except Exception:
                         a = {}
-                    result = await _run_tool(settings, fn.get("name", ""), a)
+                    result = await _run_tool(settings, fn.get("name", ""), a, user.id)
                     for it in (result.get("results") or []):
                         if it.get("url"):
                             sources.append({"title": it.get("title", ""), "url": it["url"]})
