@@ -65,7 +65,7 @@ function Welcome({ onContinue, onGuest }: { onContinue: () => void; onGuest: () 
       <View style={[styles.flex, { paddingTop: insets.top }]}>
         <View style={styles.welcomeBody}>
           <Mascot speaking={false} celebrate={false} size={132} />
-          <Text style={styles.welcomeTitle}>{t('login.meetPip')}</Text>
+          <Text style={styles.welcomeTitle}>{t('login.meetToby')}</Text>
           <Text style={styles.welcomeSub}>
             {t('login.welcomeSub')}
           </Text>
