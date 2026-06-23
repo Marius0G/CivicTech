@@ -1,4 +1,4 @@
-// Hoppy's voice — which OpenAI Realtime voice the mascot speaks with.
+// Hop's voice — which OpenAI Realtime voice the mascot speaks with.
 //
 // The voice menu (ProfileScreen → VoiceSheet) calls setVoice(id); the choice is persisted to a
 // tiny file so it survives restarts. App.tsx reads getVoice() when it opens a Realtime session and
@@ -39,7 +39,7 @@ const PREF_FILE = `${FileSystem.documentDirectory ?? ''}voice.txt`;
 // In-memory current choice (seeded by loadSavedVoice() on boot). Read synchronously at connect time.
 let currentVoice = DEFAULT_VOICE;
 
-/** The voice id Hoppy currently uses. */
+/** The voice id Hop currently uses. */
 export function getVoice(): string {
   return currentVoice;
 }

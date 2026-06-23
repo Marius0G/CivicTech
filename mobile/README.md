@@ -5,10 +5,10 @@ Phase 0 proof and stays frozen at that scope). Pairs with [`../backend`](../back
 
 ## Status
 
-- **Phase 2 ✅ (this):** the function-call bridge. Hoppy calls tools → the app routes them
+- **Phase 2 ✅ (this):** the function-call bridge. Hop calls tools → the app routes them
   (client → WebView, server → FastAPI) → results return into the conversation. Proven by
   `npm run verify` (14/14 checks; injected JS runs against the real form in jsdom).
-- **Phase 1 ✅:** voice via OpenAI Realtime — "Talk to Hoppy".
+- **Phase 1 ✅:** voice via OpenAI Realtime — "Talk to Hop".
 - **Phase 0 carried in:** `src/injection.ts` + `src/countryOptions.ts` (the proven autopilot).
 
 ## Requires a dev client (NOT Expo Go)
@@ -38,7 +38,7 @@ npx expo install react-native-webview react-native-webrtc expo-dev-client
 
 ## Phase 1 checkpoint
 
-Tap **🎙 Talk to Hoppy** → grant mic → you should hear Hoppy greet you and be able to talk
+Tap **🎙 Talk to Hop** → grant mic → you should hear Hop greet you and be able to talk
 back and forth. (For voice, a **physical phone** beats the emulator — better mic/audio.)
 
 ## Files
@@ -55,7 +55,7 @@ back and forth. (For voice, a **physical phone** beats the emulator — better m
 
 ## Phase 2 checkpoint
 
-Connect, then say: *"open the solidarity corps form and sign me up."* Hoppy should call
+Connect, then say: *"open the solidarity corps form and sign me up."* Hop should call
 `open_form` → `fill_form` (pulling your saved profile), and the country + DOB fill on screen.
 The `🛠` line under the status shows which tool fired.
 

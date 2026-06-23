@@ -50,7 +50,7 @@ with a non-RO country (ideally Greece for the EL quirk), and a non-ID photo (lan
 | 3.2 | Autopilot uses scanned data | After 3.1, say *"fill in the solidarity corps form"* | `🛠 fill_form → ok`; WebView shows the **scanned** country + DOB (not demo Maria/RO) |
 | 3.3 | Greece (EL) quirk | Scan a Greek ID → fill the form | Stored country `EL`; form dropdown lands on **Greece** |
 | 3.4 | Picker cancel | Tap Scan → cancel picker | "Scan cancelled"; no crash; previous profile unchanged |
-| 3.5 | Non-ID image | Scan a landscape photo | Empty/partial fields handled gracefully; no crash; Hoppy can ask to retake |
+| 3.5 | Non-ID image | Scan a landscape photo | Empty/partial fields handled gracefully; no crash; Hop can ask to retake |
 | 3.6 | Permission denied | Deny photo permission | Clear "Photo permission denied" message; no crash |
 
 **Failure modes to watch:** wrong country code (name not resolved), birthdate format ≠ yyyy-mm-dd,
@@ -115,9 +115,9 @@ signal mapping) and `npx tsc --noEmit` clean. Mascot is **JS-only** — reloads 
 
 | # | Test | Trigger | Expected |
 |---|---|---|---|
-| 5.1 | Idle | Connected, Hoppy silent | Gentle breathing bob + occasional blink |
-| 5.2 | Talking / lip-sync | Hoppy speaks | Mouth opens/closes in time with speech |
-| 5.3 | Stops cleanly | Hoppy finishes a sentence | Mouth closes within ~0.7 s (no stuck-open) |
+| 5.1 | Idle | Connected, Hop silent | Gentle breathing bob + occasional blink |
+| 5.2 | Talking / lip-sync | Hop speaks | Mouth opens/closes in time with speech |
+| 5.3 | Stops cleanly | Hop finishes a sentence | Mouth closes within ~0.7 s (no stuck-open) |
 | 5.4 | Celebrate | A `fill_form` succeeds | Jump + wiggle + ✨🎉 for ~2.6 s, then idle |
 | 5.5 | Disconnect | Tap ⏹ Stop | Returns to idle; no animation stuck/looping |
 
@@ -134,9 +134,9 @@ celebrate doesn't fire (fill_form result not `ok`).
 
 The money shot, in order:
 1. **Scan ID** → profile chip populates (P3).
-2. *"Hey Hoppy, what can I do abroad this summer?"* → Hoppy talks, **mascot lip-syncs** (P5), answer is **RAG-grounded + cited** (P4).
+2. *"Hey Hop, what can I do abroad this summer?"* → Hop talks, **mascot lip-syncs** (P5), answer is **RAG-grounded + cited** (P4).
 3. *"Sign me up for the Solidarity Corps."* → `open_form` → `fill_form` with the **scanned** profile (P3).
-4. Form fills → **celebrate** animation (P5) → Hoppy says "review and submit."
+4. Form fills → **celebrate** animation (P5) → Hop says "review and submit."
 
 **E2E pass =** every arrow happens by voice, on-device, without a manual nudge, in one take.
 

@@ -1,6 +1,6 @@
 // Screen 10 · Erasmus helper (formhelpscreen.png) — the "browser" that pops up ONLY when the
 // voice agent opens a form. Real WebView lives in the white panel (passed as children so App
-// keeps the autopilot ref); the REC chrome + Pip coaching dock are ours.
+// keeps the autopilot ref); the REC chrome + Hop coaching dock are ours.
 
 import React from 'react';
 import { Platform, Pressable, StatusBar, StyleSheet, Text, View } from 'react-native';
@@ -10,7 +10,7 @@ import Anchor, { Rect } from '../ui/Anchor';
 import { MASCOT_DOCK_SIZE } from '../mascotProps';
 import GradientBackground from '../ui/GradientBackground';
 import Icon from '../ui/Icon';
-import { colors, fonts, radius, shadow, space } from '../theme';
+import { colors, fonts, langSwitchReserve, radius, shadow, space } from '../theme';
 
 interface Props {
   host: string;
@@ -58,9 +58,9 @@ export default function ErasmusHelperScreen({
           <View style={styles.web}>{children}</View>
         </View>
 
-        {/* Pip coaching dock */}
+        {/* Hop coaching dock */}
         <View style={[styles.dock, { marginBottom: space.s4 + insets.bottom }]}>
-          {/* Dock slot — the persistent Mascot overlay (App) flies in here while Pip is driving. */}
+          {/* Dock slot — the persistent Mascot overlay (App) flies in here while Hop is driving. */}
           <Anchor size={MASCOT_DOCK_SIZE} onMeasure={onDockAnchor} remeasure={dockRemeasure} />
           <Text style={styles.coaching} numberOfLines={3}>{coaching}</Text>
           <Pressable style={[styles.check, shadow.primary]} onPress={onConfirm}>
@@ -77,7 +77,8 @@ const styles = StyleSheet.create({
   flex: { flex: 1 },
   header: {
     flexDirection: 'row', alignItems: 'center', gap: space.s3,
-    paddingHorizontal: space.s4, paddingBottom: space.s2,
+    // Keep the right edge clear for the global language switcher (floats above every screen).
+    paddingLeft: space.s4, paddingRight: langSwitchReserve, paddingBottom: space.s2,
   },
   glassBtn: {
     width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center',

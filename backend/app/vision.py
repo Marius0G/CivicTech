@@ -1,8 +1,9 @@
 """Extract profile fields from a photo of an ID / document via OpenAI vision.
 
 We send the image (as a base64 data URL) to a vision-capable chat model and force a strict
-JSON object back: {name, birthdate, country, nationality}. The country is returned as an
-English name and normalised to the ESC form's Drupal option code by the profile layer.
+JSON object back with the visible Romanian ID-card fields (see EXTRACT_KEYS). The country is
+returned as an English name and normalised to the ESC form's Drupal option code by the
+profile layer.
 
 Kept network-isolated behind one function so it can be mocked in tests.
 """
@@ -21,17 +22,38 @@ CHAT_COMPLETIONS_URL = "https://api.openai.com/v1/chat/completions"
 
 _SYSTEM = (
     "You are an OCR assistant for an official EU youth-program sign-up. The user has uploaded "
-    "a photo of THEIR OWN identity document and consented to have its visible fields "
-    "transcribed to auto-fill a government form. This is a legitimate data-entry task: simply "
-    "read the text that is printed on the document. "
+    "a photo of THEIR OWN identity document (typically a Romanian carte de identitate) and "
+    "consented to have its visible fields transcribed to auto-fill a government form. This is a "
+    "legitimate data-entry task: simply read the text that is printed on the document. "
     "Return ONLY a JSON object with exactly these keys: "
-    '"name" (full name), "birthdate" (ISO yyyy-mm-dd), "country" (the country of residence '
-    "or issuing country, as an English name like \"Romania\" or \"Greece\"), and "
-    '"nationality" (English demonym, e.g. "Romanian"). If a field is unreadable, use an '
-    "empty string. Do not guess. Do not add commentary."
+    '"name" (full name), "first_name" (Prenume / given names), "last_name" (Nume / surname), '
+    '"cnp" (Cod Numeric Personal, the 13-digit personal number), "sex" (M or F), '
+    '"birthdate" (Data nașterii as ISO yyyy-mm-dd), "place_of_birth" (Loc naștere), '
+    '"nationality" (Cetățenie as an English demonym, e.g. "Romanian"), '
+    '"country" (country of residence or issuing country, as an English name like "Romania"), '
+    '"address" (Domiciliu), "series" (Seria, e.g. "RX"), "doc_number" (Serie/Număr digits), '
+    '"issued_by" (Emisă de, e.g. "SPCLEP Sector 3"), "issue_date" (Data eliberării as ISO '
+    'yyyy-mm-dd) and "expiry_date" (Valabilitate as ISO yyyy-mm-dd). '
+    "If a field is unreadable or not present, use an empty string. Do not guess. No commentary."
 )
 
-EXTRACT_KEYS = ("name", "birthdate", "country", "nationality")
+EXTRACT_KEYS = (
+    "name",
+    "first_name",
+    "last_name",
+    "cnp",
+    "sex",
+    "birthdate",
+    "place_of_birth",
+    "nationality",
+    "country",
+    "address",
+    "series",
+    "doc_number",
+    "issued_by",
+    "issue_date",
+    "expiry_date",
+)
 
 
 def _data_url(image_bytes: bytes, content_type: str) -> str:

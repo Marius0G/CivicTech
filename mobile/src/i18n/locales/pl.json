@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Start",
     "docsLabel": "Dokumenty",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Ja"
   },
   "location": {
@@ -39,7 +39,7 @@
     "errorCapture": "Nie udało się zrobić zdjęcia",
     "errorGallery": "Nie udało się otworzyć galerii",
     "permTitle": "Potrzebny dostęp do aparatu",
-    "permBody": "Hoppy używa aparatu, żeby zrobić wyraźne zdjęcie Twojego dowodu i wypełnić za Ciebie unijne formularze.",
+    "permBody": "Hop używa aparatu, żeby zrobić wyraźne zdjęcie Twojego dowodu i wypełnić za Ciebie unijne formularze.",
     "permAllow": "Zezwól na aparat",
     "permGallery": "Wybierz z galerii zamiast tego",
     "permCancel": "Anuluj",
@@ -87,18 +87,18 @@
     "askPipPlaceholder": "Zapytaj Pipa o cokolwiek…"
   },
   "chat": {
-    "seedGreeting": "Hej! 🐸 Jestem Pip. Zapytaj mnie o cokolwiek związanego z możliwościami w UE — Erasmus, granty, Europejski Korpus Solidarności, mieszkanie, Twoje prawa…",
+    "seedGreeting": "Hej! 🐸 Jestem Hop. Zapytaj mnie o cokolwiek związanego z możliwościami w UE — Erasmus, granty, Europejski Korpus Solidarności, mieszkanie, Twoje prawa…",
     "quickErasmusDeadlines": "Terminy Erasmus",
     "quickFindGrant": "Znajdź grant",
     "quickEuYouthRights": "Prawa młodzieży w UE",
     "reachError": "Nie udało mi się teraz dosięgnąć mojego mózgu ({{error}}).",
     "presenceOnline": "online · sieć + indeks UE",
-    "typing": "Pip pisze…",
+    "typing": "Hop pisze…",
     "inputPlaceholder": "Napisz do Pipa…"
   },
   "docs": {
-    "screenTitle": "Dokumenty",
-    "promptPrefix": "Wrzuć plik, a Pip go ",
+    "screenTitle": "Moje dokumenty",
+    "promptPrefix": "Wrzuć plik, a Hop go ",
     "promptHighlight": "przeczyta, posortuje i zapamięta",
     "promptSuffix": ".",
     "uploadButton": "Prześlij",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Zeskanuj aparatem",
     "uploadingEyebrow": "PRZESYŁANIE",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip właśnie to czyta — automatycznie wyłapię Twoją ",
+    "readingPrefix": "Hop właśnie to czyta — automatycznie wyłapię Twoją ",
     "readingHighlight": "uczelnię i daty",
     "readingSuffix": ".",
     "readingButton": "Czytam…"
   },
   "erasmus": {
     "title": "Pomocnik Erasmus+",
-    "watchingScreen": "Pip patrzy na Twój ekran",
+    "watchingScreen": "Hop patrzy na Twój ekran",
     "recBadge": "REC",
     "guiding": "Poprowadzę Cię przez formularz"
   },
@@ -143,7 +143,7 @@
     "privacyData": "Prywatność i dane",
     "helpSupport": "Pomoc i wsparcie UE",
     "logOut": "Wyloguj się",
-    "voice": "Głos Hoppy’ego"
+    "voice": "Głos Hop’ego"
   },
   "language": {
     "title": "Język",
@@ -151,13 +151,13 @@
     "eyebrow": "WSZYSTKIE JĘZYKI"
   },
   "app": {
-    "tapMicPrompt": "Dotknij mikrofonu, a potem poproś Hoppy'ego, żeby Cię zapisał.",
+    "tapMicPrompt": "Dotknij mikrofonu, a potem poproś Hop'ego, żeby Cię zapisał.",
     "tapToTalkAgain": "Dotknij mikrofonu, aby znów porozmawiać.",
     "micDenied": "Odmówiono dostępu do mikrofonu.",
     "readingId": "Odczytuję Twój dowód…",
     "scanFailed": "Skanowanie nie powiodło się: {{error}}",
     "pickFailed": "Wybór nie powiódł się: {{error}}",
-    "gotItNamed": "Mam to, {{name}}! Poproś Hoppy'ego, żeby Cię zapisał.",
+    "gotItNamed": "Mam to, {{name}}! Poproś Hop'ego, żeby Cię zapisał.",
     "couldNotSave": "Nie udało się zapisać: {{error}}",
     "coachingDefault": "Dotknij podświetlonego pola i wpisz swoją macierzystą uczelnię. Sprawdzę, czy się kwalifikuje.",
     "locating": "Lokalizowanie…",
@@ -166,13 +166,13 @@
     "webCoaching": "Przełącz się na kartę formularza — powiem Ci dokładnie, co wpisać w każdym polu."
   },
   "voice": {
-    "title": "Głos Hoppy’ego",
-    "subtitle": "Wybierz głos, którym mówi Hoppy. Zadziała przy następnym dotknięciu mikrofonu.",
+    "title": "Głos Hop’ego",
+    "subtitle": "Wybierz głos, którym mówi Hop. Zadziała przy następnym dotknięciu mikrofonu.",
     "eyebrow": "WSZYSTKIE GŁOSY"
   },
   "notifications": {
     "title": "Powiadomienia",
-    "body": "Otrzymuj przypomnienia o terminach, grantach i odpowiedziach od Pip.",
+    "body": "Otrzymuj przypomnienia o terminach, grantach i odpowiedziach od Hop.",
     "receive": "Otrzymuj powiadomienia",
     "onHint": "Będziesz otrzymywać przypomnienia, nawet gdy aplikacja jest zamknięta.",
     "offHint": "Włącz to, aby otrzymywać przypomnienia o terminach i odpowiedziach."

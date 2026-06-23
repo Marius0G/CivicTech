@@ -15,8 +15,8 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "NSMicrophoneUsageDescription": "Hoppy needs your microphone so you can talk with it.",
-        "NSLocationWhenInUseUsageDescription": "Pip uses your location to show EU opportunities and forms near you."
+        "NSMicrophoneUsageDescription": "Hop needs your microphone so you can talk with it.",
+        "NSLocationWhenInUseUsageDescription": "Hop uses your location to show EU opportunities and forms near you."
       }
     },
     "android": {
@@ -47,19 +47,19 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "Hoppy reads a photo of your ID to fill EU forms for you."
+          "photosPermission": "Hop reads a photo of your ID to fill EU forms for you."
         }
       ],
       [
         "expo-camera",
         {
-          "cameraPermission": "Hoppy uses the camera to take a clear photo of your ID and fill EU forms for you."
+          "cameraPermission": "Hop uses the camera to take a clear photo of your ID and fill EU forms for you."
         }
       ],
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "Pip uses your location to show EU opportunities and forms near you."
+          "locationWhenInUsePermission": "Hop uses your location to show EU opportunities and forms near you."
         }
       ],
       "expo-asset"

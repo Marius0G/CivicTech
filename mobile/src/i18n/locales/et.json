@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Avaleht",
     "docsLabel": "Dokumendid",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Mina"
   },
   "location": {
@@ -39,7 +39,7 @@
     "errorCapture": "Fotot ei õnnestunud teha",
     "errorGallery": "Galeriid ei õnnestunud avada",
     "permTitle": "Vajalik on juurdepääs kaamerale",
-    "permBody": "Hoppy kasutab kaamerat, et teha su ID-st selge foto ja täita su EL-i vormid sinu eest.",
+    "permBody": "Hop kasutab kaamerat, et teha su ID-st selge foto ja täita su EL-i vormid sinu eest.",
     "permAllow": "Luba kaamera",
     "permGallery": "Vali hoopis galeriist",
     "permCancel": "Tühista",
@@ -87,18 +87,18 @@
     "askPipPlaceholder": "Küsi Pipilt mida iganes…"
   },
   "chat": {
-    "seedGreeting": "Hei! 🐸 Mina olen Pip. Küsi minult kõike EL-i võimaluste kohta — Erasmus, toetused, solidaarsuskorpus, eluase, sinu õigused…",
+    "seedGreeting": "Hei! 🐸 Mina olen Hop. Küsi minult kõike EL-i võimaluste kohta — Erasmus, toetused, solidaarsuskorpus, eluase, sinu õigused…",
     "quickErasmusDeadlines": "Erasmuse tähtajad",
     "quickFindGrant": "Leia toetus",
     "quickEuYouthRights": "EL-i noorte õigused",
     "reachError": "Ma ei suutnud praegu oma ajuni jõuda ({{error}}).",
     "presenceOnline": "võrgus · veeb + EL-i indeks",
-    "typing": "Pip kirjutab…",
+    "typing": "Hop kirjutab…",
     "inputPlaceholder": "Saada Pipile sõnum…"
   },
   "docs": {
-    "screenTitle": "Dokumendid",
-    "promptPrefix": "Lisa fail ja Pip ",
+    "screenTitle": "Minu dokumendid",
+    "promptPrefix": "Lisa fail ja Hop ",
     "promptHighlight": "loeb, sorteerib ja jätab meelde",
     "promptSuffix": " selle.",
     "uploadButton": "Laadi üles",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Skanni kaameraga",
     "uploadingEyebrow": "LAADIN ÜLES",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip loeb seda — tõmban automaatselt välja su ",
+    "readingPrefix": "Hop loeb seda — tõmban automaatselt välja su ",
     "readingHighlight": "ülikooli ja kuupäevad",
     "readingSuffix": ".",
     "readingButton": "Loen…"
   },
   "erasmus": {
     "title": "Erasmus+ abiline",
-    "watchingScreen": "Pip jälgib su ekraani",
+    "watchingScreen": "Hop jälgib su ekraani",
     "guiding": "Juhendan sind läbi vormi",
     "recBadge": "SALV"
   },
@@ -137,7 +137,7 @@
     "euIdVerified": "EU ID kinnitatud",
     "student": "Üliõpilane",
     "language": "Keel",
-    "voice": "Hoppy hääl",
+    "voice": "Hop hääl",
     "pushNotifications": "Tõuketeated",
     "letPipSeeScreen": "Luba Pipil näha mu ekraani",
     "shareAnonymousData": "Jaga anonüümseid andmeid",
@@ -151,18 +151,18 @@
     "eyebrow": "KÕIK KEELED"
   },
   "voice": {
-    "title": "Hoppy hääl",
-    "subtitle": "Vali hääl, millega Hoppy räägib. Rakendub järgmisel korral, kui puudutad mikrofoni.",
+    "title": "Hop hääl",
+    "subtitle": "Vali hääl, millega Hop räägib. Rakendub järgmisel korral, kui puudutad mikrofoni.",
     "eyebrow": "KÕIK HÄÄLED"
   },
   "app": {
-    "tapMicPrompt": "Puuduta mikrofoni ja palu siis Hoppyl sind registreerida.",
+    "tapMicPrompt": "Puuduta mikrofoni ja palu siis Hopl sind registreerida.",
     "tapToTalkAgain": "Puuduta mikrofoni, et uuesti rääkida.",
     "micDenied": "Mikrofoni luba keelatud.",
     "readingId": "Loen su ID-d…",
     "scanFailed": "Skannimine ebaõnnestus: {{error}}",
     "pickFailed": "Valimine ebaõnnestus: {{error}}",
-    "gotItNamed": "Sai selgeks, {{name}}! Palu Hoppyl sind registreerida.",
+    "gotItNamed": "Sai selgeks, {{name}}! Palu Hopl sind registreerida.",
     "friend": "sõber",
     "couldNotSave": "Ei õnnestunud salvestada: {{error}}",
     "coachingDefault": "Puuduta esiletõstetud välja ja sisesta oma koduülikool. Kontrollin, kas see on abikõlblik.",

@@ -46,10 +46,10 @@ export interface Language {
 }
 
 // The 8 demo languages. Endonyms + flags are what the menu shows; codes match the JSON files
-// and the i18n codes the backend maps to a spoken language for Hoppy.
+// and the i18n codes the backend maps to a spoken language for Hop.
 // All 24 official languages of the European Union. English first (default), then the rest
 // alphabetical by English name. Endonyms + flags are what the menu shows; codes match the JSON
-// files and the i18n codes the backend maps to a spoken language for Hoppy.
+// files and the i18n codes the backend maps to a spoken language for Hop.
 export const LANGUAGES: Language[] = [
   { code: 'en', label: 'English', native: 'English', flag: '🇪🇺' },
   { code: 'bg', label: 'Bulgarian', native: 'Български', flag: '🇧🇬' },

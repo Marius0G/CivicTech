@@ -1,10 +1,10 @@
-// MascotRive — Pip rendered by the Rive runtime (@rive-app/react-native v2, Nitro). This is the
+// MascotRive — Hop rendered by the Rive runtime (@rive-app/react-native v2, Nitro). This is the
 // "moves like a real creature" renderer: the .riv carries the rig + state machine, and we drive it
 // purely through data binding (the modern v2 path; legacy state-machine inputs are deprecated).
 //
 // IMPORTANT: this module statically imports the native Rive runtime, so it must only be loaded once
 // the native app has been rebuilt with the lib present. Mascot.tsx therefore `require()`s it lazily,
-// and only when riveConfig.PIP_RIVE_SOURCE is set. Do not import this file unconditionally.
+// and only when riveConfig.HOP_RIVE_SOURCE is set. Do not import this file unconditionally.
 //
 // Same MascotProps as MascotSvg. `levelValue` (0..1 Animated.Value) is pushed into the `level`
 // data-binding property every frame for true lip-sync, with no React re-renders.
@@ -18,7 +18,7 @@ import {
 } from '@rive-app/react-native';
 import { MascotProps } from './mascotProps';
 import {
-  PIP_ARTBOARD, PIP_STATE_MACHINE, PIP_PROP, LEVEL_SCALE,
+  HOP_ARTBOARD, HOP_STATE_MACHINE, HOP_PROP, LEVEL_SCALE,
 } from './riveConfig';
 
 interface Props extends MascotProps {
@@ -29,11 +29,11 @@ export default function MascotRive({ source, speaking, celebrate, size = 128, le
   const { riveFile, error } = useRiveFile(source);
 
   // Default ViewModel instance for the artboard — this is what data binding talks to.
-  const { instance } = useViewModelInstance(riveFile ?? null, { artboardName: PIP_ARTBOARD });
+  const { instance } = useViewModelInstance(riveFile ?? null, { artboardName: HOP_ARTBOARD });
 
-  const { setValue: setLevel } = useRiveNumber(PIP_PROP.level, instance);
-  const { setValue: setSpeaking } = useRiveBoolean(PIP_PROP.speaking, instance);
-  const { trigger: fireCelebrate } = useRiveTrigger(PIP_PROP.celebrate, instance);
+  const { setValue: setLevel } = useRiveNumber(HOP_PROP.level, instance);
+  const { setValue: setSpeaking } = useRiveBoolean(HOP_PROP.speaking, instance);
+  const { trigger: fireCelebrate } = useRiveTrigger(HOP_PROP.celebrate, instance);
 
   // Live lip-sync: subscribe to the amplitude value and push it straight to Rive (no re-render).
   useEffect(() => {
@@ -60,8 +60,8 @@ export default function MascotRive({ source, speaking, celebrate, size = 128, le
     <View style={[styles.stage, { width: size, height: size }]} pointerEvents="none">
       <RiveView
         file={riveFile}
-        artboardName={PIP_ARTBOARD}
-        stateMachineName={PIP_STATE_MACHINE}
+        artboardName={HOP_ARTBOARD}
+        stateMachineName={HOP_STATE_MACHINE}
         dataBind={DataBindMode.Auto}
         autoPlay
         fit={Fit.Contain}

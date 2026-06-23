@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Etusivu",
     "docsLabel": "Asiakirjat",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Minä"
   },
   "location": {
@@ -39,7 +39,7 @@
     "errorCapture": "Kuvaa ei voitu ottaa",
     "errorGallery": "Galleriaa ei voitu avata",
     "permTitle": "Kameran käyttöoikeus tarvitaan",
-    "permBody": "Hoppy käyttää kameraa ottaakseen selkeän kuvan henkilökortistasi ja täyttääkseen EU-lomakkeesi puolestasi.",
+    "permBody": "Hop käyttää kameraa ottaakseen selkeän kuvan henkilökortistasi ja täyttääkseen EU-lomakkeesi puolestasi.",
     "permAllow": "Salli kamera",
     "permGallery": "Valitse galleriasta sen sijaan",
     "permCancel": "Peruuta",
@@ -87,18 +87,18 @@
     "askPipPlaceholder": "Kysy Pipiltä mitä tahansa…"
   },
   "chat": {
-    "seedGreeting": "Hei! 🐸 Olen Pip. Kysy minulta mitä tahansa EU:n mahdollisuuksista — Erasmus, apurahat, solidaarisuusjoukot, asuminen, oikeutesi…",
+    "seedGreeting": "Hei! 🐸 Olen Hop. Kysy minulta mitä tahansa EU:n mahdollisuuksista — Erasmus, apurahat, solidaarisuusjoukot, asuminen, oikeutesi…",
     "quickErasmusDeadlines": "Erasmus-määräajat",
     "quickFindGrant": "Etsi apuraha",
     "quickEuYouthRights": "EU:n nuorten oikeudet",
     "reachError": "En saanut juuri nyt yhteyttä aivoihini ({{error}}).",
     "presenceOnline": "verkossa · web + EU-indeksi",
-    "typing": "Pip kirjoittaa…",
+    "typing": "Hop kirjoittaa…",
     "inputPlaceholder": "Viesti Pipille…"
   },
   "docs": {
-    "screenTitle": "Asiakirjat",
-    "promptPrefix": "Pudota tiedosto, niin Pip ",
+    "screenTitle": "Omat asiakirjat",
+    "promptPrefix": "Pudota tiedosto, niin Hop ",
     "promptHighlight": "lukee, lajittelee ja muistaa",
     "promptSuffix": " sen.",
     "uploadButton": "Lataa",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Skannaa kameralla",
     "uploadingEyebrow": "LADATAAN",
     "fileMeta": "{{size}} · {{percent}} %",
-    "readingPrefix": "Pip lukee sitä — poimin automaattisesti ",
+    "readingPrefix": "Hop lukee sitä — poimin automaattisesti ",
     "readingHighlight": "yliopistosi ja päivämääräsi",
     "readingSuffix": ".",
     "readingButton": "Luetaan…"
   },
   "erasmus": {
     "title": "Erasmus+-avustaja",
-    "watchingScreen": "Pip katsoo näyttöäsi",
+    "watchingScreen": "Hop katsoo näyttöäsi",
     "guiding": "Opastaa sinua lomakkeen läpi",
     "recBadge": "REC"
   },
@@ -137,7 +137,7 @@
     "euIdVerified": "EU ID vahvistettu",
     "student": "Opiskelija",
     "language": "Kieli",
-    "voice": "Hoppyn ääni",
+    "voice": "Hopn ääni",
     "pushNotifications": "Push-ilmoitukset",
     "letPipSeeScreen": "Anna Pipin nähdä näyttöni",
     "shareAnonymousData": "Jaa anonyymejä tietoja",
@@ -151,18 +151,18 @@
     "eyebrow": "KAIKKI KIELET"
   },
   "voice": {
-    "title": "Hoppyn ääni",
-    "subtitle": "Valitse ääni, jolla Hoppy puhuu. Tulee voimaan, kun napautat seuraavan kerran mikrofonia.",
+    "title": "Hopn ääni",
+    "subtitle": "Valitse ääni, jolla Hop puhuu. Tulee voimaan, kun napautat seuraavan kerran mikrofonia.",
     "eyebrow": "KAIKKI ÄÄNET"
   },
   "app": {
-    "tapMicPrompt": "Napauta mikrofonia ja pyydä sitten Hoppya rekisteröimään sinut.",
+    "tapMicPrompt": "Napauta mikrofonia ja pyydä sitten Hopa rekisteröimään sinut.",
     "tapToTalkAgain": "Napauta mikrofonia puhuaksesi uudelleen.",
     "micDenied": "Mikrofonin käyttöoikeus evätty.",
     "readingId": "Luetaan henkilökorttiasi…",
     "scanFailed": "Skannaus epäonnistui: {{error}}",
     "pickFailed": "Valinta epäonnistui: {{error}}",
-    "gotItNamed": "Selvä, {{name}}! Pyydä Hoppya rekisteröimään sinut.",
+    "gotItNamed": "Selvä, {{name}}! Pyydä Hopa rekisteröimään sinut.",
     "friend": "kaveri",
     "couldNotSave": "Tallennus epäonnistui: {{error}}",
     "coachingDefault": "Napauta korostettua kenttää ja kirjoita kotiyliopistosi. Tarkistan, onko se kelpoinen.",

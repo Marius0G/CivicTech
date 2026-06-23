@@ -34,6 +34,8 @@ interface Props {
 
 export default function LoginScreen({ onDone }: Props) {
   const [step, setStep] = useState<0 | 1>(0);
+  // Which mode the EU-ID form opens in when we leave the Welcome screen.
+  const [formMode, setFormMode] = useState<'signin' | 'signup'>('signin');
 
   // Guest = an anonymous Supabase session when configured (App's listener then navigates), else
   // the original mock guest hand-off.
@@ -49,14 +51,18 @@ export default function LoginScreen({ onDone }: Props) {
   }
 
   return step === 0 ? (
-    <Welcome onContinue={() => setStep(1)} onGuest={handleGuest} />
+    <Welcome
+      onContinue={() => { setFormMode('signin'); setStep(1); }}
+      onSignup={() => { setFormMode('signup'); setStep(1); }}
+      onGuest={handleGuest}
+    />
   ) : (
-    <EidForm onBack={() => setStep(0)} onLoggedIn={() => onDone('eid')} />
+    <EidForm initialMode={formMode} onBack={() => setStep(0)} onLoggedIn={() => onDone('eid')} />
   );
 }
 
 /* ---------------- Step 0 · Welcome ---------------- */
-function Welcome({ onContinue, onGuest }: { onContinue: () => void; onGuest: () => void }) {
+function Welcome({ onContinue, onSignup, onGuest }: { onContinue: () => void; onSignup: () => void; onGuest: () => void }) {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   return (
@@ -80,8 +86,17 @@ function Welcome({ onContinue, onGuest }: { onContinue: () => void; onGuest: () 
             onPress={onContinue}
             left={<Icon name="scan-face" size={20} color={colors.onPrimary} />}
           />
+          {/* Create-account entry — only meaningful with real Supabase auth. */}
+          {SUPABASE_CONFIGURED && (
+            <Button
+              label={t('login.createAccount')}
+              variant="brand"
+              size="lg"
+              block
+              onPress={onSignup}
+            />
+          )}
           <Button label={t('login.exploreAsGuest')} variant="ghost" size="lg" block onPress={onGuest} />
-          <Text style={styles.terms}>{t('login.terms')}</Text>
         </View>
       </View>
     </GradientBackground>
@@ -89,12 +104,13 @@ function Welcome({ onContinue, onGuest }: { onContinue: () => void; onGuest: () 
 }
 
 /* ---------------- Step 1 · EU ID login ---------------- */
-function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () => void }) {
+function EidForm({ initialMode, onBack, onLoggedIn }: { initialMode: 'signin' | 'signup'; onBack: () => void; onLoggedIn: () => void }) {
   const { t } = useTranslation();
   // Prefill the demo credentials only in mock mode; real auth starts blank.
   const [email, setEmail] = useState(SUPABASE_CONFIGURED ? '' : 'lea.muller@eu.id');
   const [password, setPassword] = useState(SUPABASE_CONFIGURED ? '' : 'passport2026');
-  const [mode, setMode] = useState<'signin' | 'signup'>('signin');
+  const [confirmPw, setConfirmPw] = useState('');
+  const [mode, setMode] = useState<'signin' | 'signup'>(initialMode);
   const [showPw, setShowPw] = useState(false);
   const [keepSignedIn, setKeepSignedIn] = useState(true);
   const [authing, setAuthing] = useState(false);
@@ -102,6 +118,14 @@ function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () =>
   const [notice, setNotice] = useState<string | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const insets = useSafeAreaInsets();
+  const isSignup = mode === 'signup';
+
+  function toggleMode() {
+    setMode((m) => (m === 'signin' ? 'signup' : 'signin'));
+    setError(null);
+    setNotice(null);
+    setConfirmPw('');
+  }
 
   // Real Supabase sign-in / sign-up. On success, App's onAuthStateChange listener flips the gate
   // and this screen unmounts (we keep the spinner up until then). In mock mode (no Supabase) we
@@ -117,29 +141,36 @@ function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () =>
       return;
     }
     if (!email.trim() || !password) {
-      setError('Enter your email and password.');
+      setError(t('login.enterEmailPassword'));
       return;
+    }
+    if (isSignup) {
+      if (password.length < 6) { setError(t('login.passwordTooShort')); return; }
+      if (password !== confirmPw) { setError(t('login.passwordsNoMatch')); return; }
     }
 
     setAuthing(true);
     try {
-      const { data, error: authErr } =
-        mode === 'signin'
-          ? await signInWithEmail(email, password)
-          : await signUpWithEmail(email, password);
-      if (authErr) {
-        setError(authErr.message);
-        setAuthing(false);
-        return;
+      if (!isSignup) {
+        const { error: authErr } = await signInWithEmail(email, password);
+        if (authErr) { setError(authErr.message); setAuthing(false); return; }
+        return; // session exists; the auth listener navigates. Keep the spinner running.
       }
-      // Sign-up with email confirmation returns no session — tell the user to confirm, then sign in.
-      if (mode === 'signup' && !data.session) {
-        setNotice('Account created — check your email to confirm, then log in.');
-        setMode('signin');
-        setAuthing(false);
-        return;
-      }
-      // Otherwise a session now exists; the auth listener navigates. Leave the spinner running.
+
+      // Sign-up. With email confirmation OFF, Supabase returns a session and the listener
+      // navigates immediately. With confirmation ON, there's no session — we try an immediate
+      // sign-in (succeeds if confirmation is off but signUp didn't return a session), and only
+      // fall back to the "confirm your email" notice if that still yields nothing.
+      const { data, error: authErr } = await signUpWithEmail(email, password);
+      if (authErr) { setError(authErr.message); setAuthing(false); return; }
+      if (data.session) return; // logged in; listener navigates.
+
+      const { data: signedIn } = await signInWithEmail(email, password);
+      if (signedIn.session) return; // logged in; listener navigates.
+
+      setNotice(t('login.accountCreatedConfirm'));
+      setMode('signin');
+      setAuthing(false);
     } catch (e: any) {
       setError(String(e?.message ?? e));
       setAuthing(false);
@@ -155,19 +186,19 @@ function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () =>
           <Pressable onPress={onBack} hitSlop={12} style={styles.backBtn}>
             <Icon name="arrow-left" size={22} />
           </Pressable>
-          <Text style={styles.topTitle}>{t('login.euIdLogin')}</Text>
+          <Text style={styles.topTitle}>{isSignup ? t('login.createAccountTitle') : t('login.euIdLogin')}</Text>
         </View>
 
         <View style={styles.formBody}>
-          {/* Secure-SSO info alert (centered) */}
+          {/* Info alert (centered) — signup vs. secure-SSO sign-in. */}
           <View style={styles.alert}>
             <View style={styles.alertBadge}><Icon name="shield-check" size={24} color={colors.euBlue} /></View>
-            <Text style={styles.alertTitle}>{t('login.secureSso')}</Text>
-            <Text style={styles.alertBody}>{t('login.secureSsoBody')}</Text>
+            <Text style={styles.alertTitle}>{isSignup ? t('login.signupAlertTitle') : t('login.secureSso')}</Text>
+            <Text style={styles.alertBody}>{isSignup ? t('login.signupAlertBody') : t('login.secureSsoBody')}</Text>
           </View>
 
           <Field
-            label={t('login.euIdEmail')}
+            label={t('login.email')}
             icon="mail"
             value={email}
             onChangeText={setEmail}
@@ -183,8 +214,18 @@ function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () =>
             rightIcon={showPw ? 'eye-off' : 'eye'}
             onRightPress={() => setShowPw((s) => !s)}
           />
+          {/* Confirm password — sign-up only (real auth). */}
+          {SUPABASE_CONFIGURED && isSignup && (
+            <Field
+              label={t('login.confirmPassword')}
+              icon="lock"
+              value={confirmPw}
+              onChangeText={setConfirmPw}
+              secureTextEntry={!showPw}
+            />
+          )}
 
-          {/* Keep me signed in · Forgot? */}
+          {/* Keep me signed in · sign-in/up toggle (or Forgot? in mock mode) */}
           <View style={styles.row}>
             <Pressable style={styles.switchRow} onPress={() => setKeepSignedIn((v) => !v)}>
               <View style={[styles.switch, keepSignedIn && styles.switchOn]}>
@@ -192,10 +233,9 @@ function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () =>
               </View>
               <Text style={styles.switchLabel}>{t('login.keepSignedIn')}</Text>
             </Pressable>
-            {/* Sign-in / Sign-up toggle (real auth only). */}
             {SUPABASE_CONFIGURED ? (
-              <Pressable onPress={() => { setMode((m) => (m === 'signin' ? 'signup' : 'signin')); setError(null); setNotice(null); }}>
-                <Text style={styles.link}>{mode === 'signin' ? 'Create account' : 'Have an account?'}</Text>
+              <Pressable onPress={toggleMode}>
+                <Text style={styles.link}>{isSignup ? t('login.haveAccountToggle') : t('login.noAccountToggle')}</Text>
               </Pressable>
             ) : (
               <Text style={styles.link}>{t('login.forgot')}</Text>
@@ -244,11 +284,11 @@ function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () =>
           {authing ? (
             <View style={styles.authingBox}>
               <ActivityIndicator color={colors.primary} />
-              <Text style={styles.authingText}>{t('login.signingIn')}</Text>
+              <Text style={styles.authingText}>{isSignup ? t('login.creatingAccount') : t('login.signingIn')}</Text>
             </View>
           ) : (
             <Button
-              label={SUPABASE_CONFIGURED && mode === 'signup' ? 'Create account' : t('login.logIn')}
+              label={isSignup ? t('login.createAccount') : t('login.logIn')}
               variant="primary"
               size="lg"
               block

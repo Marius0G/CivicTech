@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetPip": "Iepazīsties ar Pip",
+    "meetPip": "Iepazīsties ar Hop",
     "welcomeSub": "Tavs draugs dzīvei ES — stipendijas, Erasmus+, mājoklis un visas veidlapas pa vidu.",
     "continueWithEuId": "Turpināt ar EU ID",
     "exploreAsGuest": "Izpētīt kā viesim",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Sākums",
     "docsLabel": "Dokumenti",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Es"
   },
   "location": {
@@ -39,7 +39,7 @@
     "errorCapture": "Neizdevās uzņemt fotoattēlu",
     "errorGallery": "Neizdevās atvērt galeriju",
     "permTitle": "Nepieciešama piekļuve kamerai",
-    "permBody": "Hoppy izmanto kameru, lai uzņemtu skaidru tavas ID fotoattēlu un aizpildītu tavas ES veidlapas tavā vietā.",
+    "permBody": "Hop izmanto kameru, lai uzņemtu skaidru tavas ID fotoattēlu un aizpildītu tavas ES veidlapas tavā vietā.",
     "permAllow": "Atļaut kameru",
     "permGallery": "Tā vietā izvēlēties no galerijas",
     "permCancel": "Atcelt",
@@ -83,22 +83,22 @@
     "greetingEvening": "Labvakar",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Savienojos…",
-    "tapToTalk": "Pieskaries, lai runātu ar Pip",
-    "askPipPlaceholder": "Jautā Pip jebko…"
+    "tapToTalk": "Pieskaries, lai runātu ar Hop",
+    "askPipPlaceholder": "Jautā Hop jebko…"
   },
   "chat": {
-    "seedGreeting": "Čau! 🐸 Es esmu Pip. Jautā man jebko par ES iespējām — Erasmus+, stipendijām, Solidaritātes korpusu, mājokli, tavām tiesībām…",
+    "seedGreeting": "Čau! 🐸 Es esmu Hop. Jautā man jebko par ES iespējām — Erasmus+, stipendijām, Solidaritātes korpusu, mājokli, tavām tiesībām…",
     "quickErasmusDeadlines": "Erasmus+ termiņi",
     "quickFindGrant": "Atrast stipendiju",
     "quickEuYouthRights": "ES jauniešu tiesības",
     "reachError": "Es nupat nevarēju sazināties ar savām smadzenēm ({{error}}).",
     "presenceOnline": "tiešsaistē · tīmeklis + ES indekss",
-    "typing": "Pip raksta…",
-    "inputPlaceholder": "Ziņa Pip…"
+    "typing": "Hop raksta…",
+    "inputPlaceholder": "Ziņa Hop…"
   },
   "docs": {
-    "screenTitle": "Dokumenti",
-    "promptPrefix": "Pievieno failu, un Pip to ",
+    "screenTitle": "Mani dokumenti",
+    "promptPrefix": "Pievieno failu, un Hop to ",
     "promptHighlight": "izlasīs, sakārtos un atcerēsies",
     "promptSuffix": ".",
     "uploadButton": "Augšupielādēt",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Sekmju izraksts",
     "transcriptSub": "Gaida apstiprinājumu",
     "rentalTitle": "Īres līgums",
-    "rentalSub": "Melnraksts · kopīgots ar Pip"
+    "rentalSub": "Melnraksts · kopīgots ar Hop"
   },
   "upload": {
     "screenTitle": "Pievienot dokumentu",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Skenēt ar kameru",
     "uploadingEyebrow": "AUGŠUPIELĀDE",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip to lasa — es automātiski izvilkšu tavu ",
+    "readingPrefix": "Hop to lasa — es automātiski izvilkšu tavu ",
     "readingHighlight": "universitāti un datumus",
     "readingSuffix": ".",
     "readingButton": "Lasu…"
   },
   "erasmus": {
     "title": "Erasmus+ palīgs",
-    "watchingScreen": "Pip vēro tavu ekrānu",
+    "watchingScreen": "Hop vēro tavu ekrānu",
     "guiding": "Vadu tevi cauri veidlapai",
     "recBadge": "REC"
   },
@@ -137,9 +137,9 @@
     "euIdVerified": "EU ID apstiprināts",
     "student": "Students",
     "language": "Valoda",
-    "voice": "Hoppy balss",
+    "voice": "Hop balss",
     "pushNotifications": "Push paziņojumi",
-    "letPipSeeScreen": "Ļaut Pip redzēt manu ekrānu",
+    "letPipSeeScreen": "Ļaut Hop redzēt manu ekrānu",
     "shareAnonymousData": "Kopīgot anonīmus datus",
     "privacyData": "Privātums un dati",
     "helpSupport": "Palīdzība un ES atbalsts",
@@ -151,18 +151,18 @@
     "eyebrow": "VISAS VALODAS"
   },
   "voice": {
-    "title": "Hoppy balss",
-    "subtitle": "Izvēlies balsi, ar kuru Hoppy runā. Tiek lietota nākamreiz, kad pieskaries mikrofonam.",
+    "title": "Hop balss",
+    "subtitle": "Izvēlies balsi, ar kuru Hop runā. Tiek lietota nākamreiz, kad pieskaries mikrofonam.",
     "eyebrow": "VISAS BALSIS"
   },
   "app": {
-    "tapMicPrompt": "Pieskaries mikrofonam un palūdz Hoppy tevi pieteikt.",
+    "tapMicPrompt": "Pieskaries mikrofonam un palūdz Hop tevi pieteikt.",
     "tapToTalkAgain": "Pieskaries mikrofonam, lai runātu vēlreiz.",
     "micDenied": "Mikrofona atļauja noraidīta.",
     "readingId": "Lasu tavu ID…",
     "scanFailed": "Skenēšana neizdevās: {{error}}",
     "pickFailed": "Izvēle neizdevās: {{error}}",
-    "gotItNamed": "Sapratu, {{name}}! Palūdz Hoppy tevi pieteikt.",
+    "gotItNamed": "Sapratu, {{name}}! Palūdz Hop tevi pieteikt.",
     "friend": "draugs",
     "couldNotSave": "Neizdevās saglabāt: {{error}}",
     "coachingDefault": "Pieskaries izceltajam laukam un ieraksti savu mājas universitāti. Es pārbaudīšu, vai tā ir atbilstoša.",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Paziņojumi",
-    "body": "Saņem atgādinājumus par termiņiem, grantiem un Pip atbildēm.",
+    "body": "Saņem atgādinājumus par termiņiem, grantiem un Hop atbildēm.",
     "receive": "Saņemt paziņojumus",
     "onHint": "Saņemsi atgādinājumus pat tad, kad lietotne ir aizvērta.",
     "offHint": "Ieslēdz to, lai saņemtu atgādinājumus par termiņiem un atbildēm."

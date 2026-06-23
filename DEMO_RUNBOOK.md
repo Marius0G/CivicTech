@@ -36,7 +36,7 @@ The autopilot can fill either the **live** ESC form or a **bundled offline snaps
 > Voice (OpenAI Realtime) and RAG still need the network. Only the *form page* is cacheable.
 
 ## 3. Rehearsed demo script
-1. **Login** → tap "Login with EU ID" (mocked) → land on the Pip hub.
+1. **Login** → tap "Login with EU ID" (mocked) → land on the Hop hub.
 2. **(Optional) Scan ID** → "📄 Scan my ID" → review → Save. *Skip live if Wi-Fi is shaky —
    the profile is already locked to Maria by `run_demo.ps1`.*
 3. **Tap the mic** and ask, verbatim, the pre-warmed questions:
@@ -46,9 +46,9 @@ The autopilot can fill either the **live** ESC form or a **bundled offline snaps
    - "Do I need a visa to work in another EU country?"
    - "What is the EHIC and what does it cover?"
    - "How do I get my diploma recognised in another EU country?"
-4. **The wow:** "Open the Solidarity Corps form and sign me up." → Pip opens the form, the frog
+4. **The wow:** "Open the Solidarity Corps form and sign me up." → Hop opens the form, the frog
    docks, and the **autopilot fills country + date of birth** from Maria's profile → **celebrate**.
-5. Note the **citations**: Hoppy answers from official EU sources, not hallucinations.
+5. Note the **citations**: Hop answers from official EU sources, not hallucinations.
 
 ## 4. Locked demo profile (Maria)
 `run_demo.ps1` sets this so step 4 always has data even if you skip the live ID scan:

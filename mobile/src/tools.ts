@@ -5,6 +5,10 @@
 //   • client tools (open_form, fill_form, read_page) -> WebView (via ctx)
 //   • server tools (get_profile, search_eu_info, web_search) -> POST {backendUrl}/tools/{name}
 // and returns a string that the app feeds back as the function_call_output.
+//
+// EU data residency: fill_form reads the saved values from the INTERNAL /tools/fill_values
+// endpoint (not advertised to the model) and injects them straight into the WebView. Those
+// values are never returned to the model — get_profile only ever exposes field NAMES.
 
 import { EligibilityProfile, buildInjectedJavaScript, buildReadPageJavaScript } from './injection';
 import { COUNTRY_OPTIONS } from './countryOptions';
@@ -45,12 +49,12 @@ export const TOOL_DEFS = [
     type: 'function',
     name: 'fill_form',
     description:
-      "Fill the currently open eligibility form with the user's country and date of birth. If you don't have them, call get_profile first.",
+      "Fill the currently open form from the user's saved details. Call it with no arguments — the app reads the saved values on-device and inserts them; you do NOT see the values. Only pass an argument to override a field the user just told you out loud.",
     parameters: {
       type: 'object',
       properties: {
-        country: { type: 'string', description: 'Country option value, e.g. "RO" for Romania.' },
-        birthdate: { type: 'string', description: 'Date of birth as yyyy-mm-dd.' },
+        country: { type: 'string', description: 'Optional override, e.g. "RO" for Romania.' },
+        birthdate: { type: 'string', description: 'Optional override as yyyy-mm-dd.' },
       },
       required: [],
     },
@@ -65,7 +69,8 @@ export const TOOL_DEFS = [
   {
     type: 'function',
     name: 'get_profile',
-    description: "Get the user's saved details (name, country, date of birth, nationality).",
+    description:
+      "Check WHICH of the user's details are on file (returns field names only, never the values — they stay private in the EU). To fill a form, call fill_form; it uses the saved values directly without showing them to you.",
     parameters: { type: 'object', properties: {} },
   },
   {
@@ -86,6 +91,20 @@ export const TOOL_DEFS = [
       type: 'object',
       properties: { query: { type: 'string' } },
       required: ['query'],
+    },
+  },
+  {
+    type: 'function',
+    name: 'save_preference',
+    description:
+      "Remember a light, NON-sensitive preference the user mentions (e.g. key='climate', value='warm'). Never store sensitive personal data (ID, address) this way.",
+    parameters: {
+      type: 'object',
+      properties: {
+        key: { type: 'string', description: "Short preference name, e.g. 'climate'." },
+        value: { type: 'string', description: "Short value, e.g. 'warm'." },
+      },
+      required: ['key', 'value'],
     },
   },
 ] as const;
@@ -122,12 +141,13 @@ export async function executeTool(name: string, args: any, ctx: ToolContext): Pr
       return JSON.stringify(msg.result ?? { error: msg.error ?? 'no result' });
     }
     case 'fill_form': {
-      // Use what the model supplied; fall back to the saved profile for anything missing.
-      // Resolve the country to the exact Drupal <option> code (the model usually says a name).
+      // EU data residency: read the saved values from the INTERNAL fill_values endpoint (not a
+      // model tool — the LLM never sees this) and inject them directly. The model may pass an
+      // override for a field the user said out loud; otherwise everything comes from the vault.
       let country: string = args.country;
       let birthdate: string = args.birthdate;
       if (!country || !birthdate) {
-        const p = await ctx.callServerTool('get_profile', {});
+        const p = await ctx.callServerTool('fill_values', {});
         country = country || p.profile.country;
         birthdate = birthdate || p.profile.birthdate;
       }
@@ -138,7 +158,8 @@ export async function executeTool(name: string, args: any, ctx: ToolContext): Pr
     }
     case 'get_profile':
     case 'search_eu_info':
-    case 'web_search': {
+    case 'web_search':
+    case 'save_preference': {
       const result = await ctx.callServerTool(name, args);
       return JSON.stringify(result);
     }

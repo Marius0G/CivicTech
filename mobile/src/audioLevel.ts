@@ -6,11 +6,11 @@
 // `inbound-rtp` (kind: 'audio') report carries `audioLevel` (0..1, the most recent frame) and
 // `totalAudioEnergy` / `totalSamplesDuration` (use these for a smoothed RMS if audioLevel is flaky).
 //
-// We poll the inbound (remote = Hoppy's voice) report on an interval and emit a smoothed 0..1 level.
+// We poll the inbound (remote = Hop's voice) report on an interval and emit a smoothed 0..1 level.
 // That level drives the mascot jaw + secondary motion instead of the canned on/off loop.
 //
 // Verify on-device with `attachAudioLevelProbe(pc, l => console.log('lvl', l.toFixed(2)))` and watch
-// Metro logs while Hoppy talks — the number should track loudness. If `audioLevel` is always
+// Metro logs while Hop talks — the number should track loudness. If `audioLevel` is always
 // undefined, fall back to the energy delta (computeFromEnergy) which libwebrtc fills more reliably.
 
 type StatsReport = Map<string, any>;

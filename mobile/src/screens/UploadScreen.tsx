@@ -1,4 +1,4 @@
-// Screen 8 · File upload (documentuploadscreen.png) — add a document; Pip auto-extracts fields.
+// Screen 8 · File upload (documentuploadscreen.png) — add a document; Hop auto-extracts fields.
 // Browse → gallery picker, Scan with camera → the ID camera. The "uploading" card mirrors the
 // screenshot; a real capture switches App into the processing/review flow.
 

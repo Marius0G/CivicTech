@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetPip": "Susipažink su Pip",
+    "meetPip": "Susipažink su Hop",
     "welcomeSub": "Tavo bičiulis gyvenimui ES — stipendijos, Erasmus, būstas ir visos formos tarp jų.",
     "continueWithEuId": "Tęsti su EU ID",
     "exploreAsGuest": "Naršyti kaip svečias",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Pradžia",
     "docsLabel": "Dokumentai",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Aš"
   },
   "location": {
@@ -39,7 +39,7 @@
     "errorCapture": "Nepavyko nufotografuoti",
     "errorGallery": "Nepavyko atidaryti galerijos",
     "permTitle": "Reikia prieigos prie kameros",
-    "permBody": "Hoppy naudoja kamerą, kad nufotografuotų aiškią tavo asmens dokumento nuotrauką ir už tave užpildytų ES formas.",
+    "permBody": "Hop naudoja kamerą, kad nufotografuotų aiškią tavo asmens dokumento nuotrauką ir už tave užpildytų ES formas.",
     "permAllow": "Leisti kamerą",
     "permGallery": "Vietoj to pasirinkti iš galerijos",
     "permCancel": "Atšaukti",
@@ -83,22 +83,22 @@
     "greetingEvening": "Labas vakaras",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Jungiamasi…",
-    "tapToTalk": "Bakstelėk, kad pasikalbėtum su Pip",
-    "askPipPlaceholder": "Klausk Pip ko nori…"
+    "tapToTalk": "Bakstelėk, kad pasikalbėtum su Hop",
+    "askPipPlaceholder": "Klausk Hop ko nori…"
   },
   "chat": {
-    "seedGreeting": "Ei! 🐸 Aš Pip. Klausk manęs bet ko apie ES galimybes — Erasmus, stipendijas, Solidarumo korpusą, būstą, tavo teises…",
+    "seedGreeting": "Ei! 🐸 Aš Hop. Klausk manęs bet ko apie ES galimybes — Erasmus, stipendijas, Solidarumo korpusą, būstą, tavo teises…",
     "quickErasmusDeadlines": "Erasmus terminai",
     "quickFindGrant": "Rasti stipendiją",
     "quickEuYouthRights": "ES jaunimo teisės",
     "reachError": "Šiuo metu nepavyko pasiekti mano smegenų ({{error}}).",
     "presenceOnline": "prisijungęs · internetas + ES indeksas",
-    "typing": "Pip rašo…",
-    "inputPlaceholder": "Parašyk Pip…"
+    "typing": "Hop rašo…",
+    "inputPlaceholder": "Parašyk Hop…"
   },
   "docs": {
-    "screenTitle": "Dokumentai",
-    "promptPrefix": "Įkelk failą, ir Pip jį ",
+    "screenTitle": "Mano dokumentai",
+    "promptPrefix": "Įkelk failą, ir Hop jį ",
     "promptHighlight": "perskaitys, surūšiuos ir įsimins",
     "promptSuffix": ".",
     "uploadButton": "Įkelti",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Pažymių išrašas",
     "transcriptSub": "Laukiama patvirtinimo",
     "rentalTitle": "Nuomos sutartis",
-    "rentalSub": "Juodraštis · bendrinama su Pip"
+    "rentalSub": "Juodraštis · bendrinama su Hop"
   },
   "upload": {
     "screenTitle": "Pridėti dokumentą",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Skenuoti kamera",
     "uploadingEyebrow": "ĮKELIAMA",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip jį skaito — automatiškai ištrauksiu tavo ",
+    "readingPrefix": "Hop jį skaito — automatiškai ištrauksiu tavo ",
     "readingHighlight": "universitetą ir datas",
     "readingSuffix": ".",
     "readingButton": "Skaitoma…"
   },
   "erasmus": {
     "title": "Erasmus+ pagalbininkas",
-    "watchingScreen": "Pip stebi tavo ekraną",
+    "watchingScreen": "Hop stebi tavo ekraną",
     "guiding": "Vedu tave per formą",
     "recBadge": "ĮRAŠ"
   },
@@ -137,9 +137,9 @@
     "euIdVerified": "EU ID patvirtinta",
     "student": "Studentas",
     "language": "Kalba",
-    "voice": "Hoppy balsas",
+    "voice": "Hop balsas",
     "pushNotifications": "Tiesioginiai pranešimai",
-    "letPipSeeScreen": "Leisti Pip matyti mano ekraną",
+    "letPipSeeScreen": "Leisti Hop matyti mano ekraną",
     "shareAnonymousData": "Dalytis anoniminiais duomenimis",
     "privacyData": "Privatumas ir duomenys",
     "helpSupport": "Pagalba ir ES parama",
@@ -151,18 +151,18 @@
     "eyebrow": "VISOS KALBOS"
   },
   "voice": {
-    "title": "Hoppy balsas",
-    "subtitle": "Pasirink balsą, kuriuo kalbės Hoppy. Bus pritaikytas kitą kartą bakstelėjus mikrofoną.",
+    "title": "Hop balsas",
+    "subtitle": "Pasirink balsą, kuriuo kalbės Hop. Bus pritaikytas kitą kartą bakstelėjus mikrofoną.",
     "eyebrow": "VISI BALSAI"
   },
   "app": {
-    "tapMicPrompt": "Bakstelėk mikrofoną ir paprašyk Hoppy tave užregistruoti.",
+    "tapMicPrompt": "Bakstelėk mikrofoną ir paprašyk Hop tave užregistruoti.",
     "tapToTalkAgain": "Bakstelėk mikrofoną, kad pakalbėtum vėl.",
     "micDenied": "Mikrofono leidimas atmestas.",
     "readingId": "Skaitomas tavo dokumentas…",
     "scanFailed": "Skenavimas nepavyko: {{error}}",
     "pickFailed": "Pasirinkimas nepavyko: {{error}}",
-    "gotItNamed": "Supratau, {{name}}! Paprašyk Hoppy tave užregistruoti.",
+    "gotItNamed": "Supratau, {{name}}! Paprašyk Hop tave užregistruoti.",
     "friend": "drauge",
     "couldNotSave": "Nepavyko išsaugoti: {{error}}",
     "coachingDefault": "Bakstelėk paryškintą lauką ir įvesk savo gimtąjį universitetą. Patikrinsiu, ar jis tinkamas.",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Pranešimai",
-    "body": "Gauk priminimus apie terminus, dotacijas ir Pip atsakymus.",
+    "body": "Gauk priminimus apie terminus, dotacijas ir Hop atsakymus.",
     "receive": "Gauti pranešimus",
     "onHint": "Gausi priminimus net kai programėlė uždaryta.",
     "offHint": "Įjunk tai, kad gautum priminimus apie terminus ir atsakymus."

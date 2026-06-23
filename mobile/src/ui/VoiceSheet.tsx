@@ -1,6 +1,6 @@
-// VoiceSheet — frosted bottom-sheet picker for Hoppy's OpenAI Realtime voice (same pattern as
+// VoiceSheet — frosted bottom-sheet picker for Hop's OpenAI Realtime voice (same pattern as
 // LanguageSheet). Lists the available voices by name + character note; tapping one persists the
-// choice (via setVoice) and applies it on Hoppy's next connection.
+// choice (via setVoice) and applies it on Hop's next connection.
 
 import React from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';

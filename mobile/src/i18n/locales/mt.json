@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetPip": "Iltaqa' ma' Pip",
+    "meetPip": "Iltaqa' ma' Hop",
     "welcomeSub": "Is-sieħeb tiegħek għall-ħajja fl-UE — għotjiet, Erasmus, akkomodazzjoni, u kull formola li hemm bejniethom.",
     "continueWithEuId": "Kompli b'EU ID",
     "exploreAsGuest": "Esplora bħala mistieden",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Home",
     "docsLabel": "Dokumenti",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Jien"
   },
   "location": {
@@ -39,7 +39,7 @@
     "errorCapture": "Ma stajniex nieħdu r-ritratt",
     "errorGallery": "Ma stajniex niftħu l-gallerija",
     "permTitle": "Hemm bżonn aċċess għall-kamera",
-    "permBody": "Hoppy juża l-kamera biex jieħu ritratt ċar tal-ID tiegħek u jimla l-formoli tal-UE għalik.",
+    "permBody": "Hop juża l-kamera biex jieħu ritratt ċar tal-ID tiegħek u jimla l-formoli tal-UE għalik.",
     "permAllow": "Ippermetti l-kamera",
     "permGallery": "Agħżel mill-gallerija minflok",
     "permCancel": "Ikkanċella",
@@ -83,22 +83,22 @@
     "greetingEvening": "Bonswà",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Qed nikkonnettjaw…",
-    "tapToTalk": "Agħfas biex titkellem ma' Pip",
-    "askPipPlaceholder": "Staqsi lil Pip kull ma trid…"
+    "tapToTalk": "Agħfas biex titkellem ma' Hop",
+    "askPipPlaceholder": "Staqsi lil Hop kull ma trid…"
   },
   "chat": {
-    "seedGreeting": "Ej! 🐸 Jien Pip. Staqsini kull ma trid dwar l-opportunitajiet tal-UE — Erasmus, għotjiet, il-Korp ta' Solidarjetà, akkomodazzjoni, id-drittijiet tiegħek…",
+    "seedGreeting": "Ej! 🐸 Jien Hop. Staqsini kull ma trid dwar l-opportunitajiet tal-UE — Erasmus, għotjiet, il-Korp ta' Solidarjetà, akkomodazzjoni, id-drittijiet tiegħek…",
     "quickErasmusDeadlines": "Skadenzi ta' Erasmus",
     "quickFindGrant": "Sib għotja",
     "quickEuYouthRights": "Drittijiet taż-żgħażagħ tal-UE",
     "reachError": "Ma stajtx nilħaq lil moħħi bħalissa ({{error}}).",
     "presenceOnline": "online · web + indiċi tal-UE",
-    "typing": "Pip qed jikteb…",
-    "inputPlaceholder": "Messaġġ lil Pip…"
+    "typing": "Hop qed jikteb…",
+    "inputPlaceholder": "Messaġġ lil Hop…"
   },
   "docs": {
-    "screenTitle": "Dokumenti",
-    "promptPrefix": "Itfa' fajl u Pip se ",
+    "screenTitle": "Id-Dokumenti Tiegħi",
+    "promptPrefix": "Itfa' fajl u Hop se ",
     "promptHighlight": "jaqra, jirranġa u jiftakar",
     "promptSuffix": "u.",
     "uploadButton": "Tella'",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Traskrizzjoni tar-rekords",
     "transcriptSub": "Qed jistenna verifika",
     "rentalTitle": "Ftehim tal-kiri",
-    "rentalSub": "Abbozz · maqsum ma' Pip"
+    "rentalSub": "Abbozz · maqsum ma' Hop"
   },
   "upload": {
     "screenTitle": "Żid dokument",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Skennja bil-kamera",
     "uploadingEyebrow": "QED JITTELLA'",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip qed jaqrah — se noħorġu l-",
+    "readingPrefix": "Hop qed jaqrah — se noħorġu l-",
     "readingHighlight": "università u d-dati tiegħek",
     "readingSuffix": " awtomatikament.",
     "readingButton": "Qed naqraw…"
   },
   "erasmus": {
     "title": "Għajnuna ta' Erasmus+",
-    "watchingScreen": "Pip qed jara l-iskrin tiegħek",
+    "watchingScreen": "Hop qed jara l-iskrin tiegħek",
     "guiding": "Qed jiggwidak mal-formola",
     "recBadge": "REC"
   },
@@ -137,9 +137,9 @@
     "euIdVerified": "EU ID verifikat",
     "student": "Student",
     "language": "Lingwa",
-    "voice": "Il-vuċi ta' Hoppy",
+    "voice": "Il-vuċi ta' Hop",
     "pushNotifications": "Notifiki push",
-    "letPipSeeScreen": "Ħalli lil Pip jara l-iskrin tiegħi",
+    "letPipSeeScreen": "Ħalli lil Hop jara l-iskrin tiegħi",
     "shareAnonymousData": "Aqsam dejta anonima",
     "privacyData": "Privatezza u dejta",
     "helpSupport": "Għajnuna u appoġġ tal-UE",
@@ -151,18 +151,18 @@
     "eyebrow": "IL-LINGWI KOLLHA"
   },
   "voice": {
-    "title": "Il-vuċi ta' Hoppy",
-    "subtitle": "Agħżel il-vuċi li biha jitkellem Hoppy. Tapplika d-darba li jmiss li tagħfas il-mikrofonu.",
+    "title": "Il-vuċi ta' Hop",
+    "subtitle": "Agħżel il-vuċi li biha jitkellem Hop. Tapplika d-darba li jmiss li tagħfas il-mikrofonu.",
     "eyebrow": "IL-VUĊIJIET KOLLHA"
   },
   "app": {
-    "tapMicPrompt": "Agħfas il-mikrofonu, imbagħad itlob lil Hoppy biex jirreġistrak.",
+    "tapMicPrompt": "Agħfas il-mikrofonu, imbagħad itlob lil Hop biex jirreġistrak.",
     "tapToTalkAgain": "Agħfas il-mikrofonu biex titkellem mill-ġdid.",
     "micDenied": "Il-permess għall-mikrofonu ġie miċħud.",
     "readingId": "Qed naqraw l-ID tiegħek…",
     "scanFailed": "L-iskennjar falla: {{error}}",
     "pickFailed": "L-għażla falliet: {{error}}",
-    "gotItNamed": "Irċevejt, {{name}}! Itlob lil Hoppy biex jirreġistrak.",
+    "gotItNamed": "Irċevejt, {{name}}! Itlob lil Hop biex jirreġistrak.",
     "friend": "ħabib",
     "couldNotSave": "Ma stajniex nissejvjaw: {{error}}",
     "coachingDefault": "Agħfas il-qasam enfasizzat u ikteb l-università ta' pajjiżek. Jien niċċekkja li hija eliġibbli.",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Notifiki",
-    "body": "Irċievi tfakkiriet dwar skadenzi, għotjiet u tweġibiet mingħand Pip.",
+    "body": "Irċievi tfakkiriet dwar skadenzi, għotjiet u tweġibiet mingħand Hop.",
     "receive": "Irċievi notifiki",
     "onHint": "Tirċievi tfakkiriet anke meta l-app tkun magħluqa.",
     "offHint": "Ixgħel dan biex tirċievi tfakkiriet dwar skadenzi u tweġibiet."

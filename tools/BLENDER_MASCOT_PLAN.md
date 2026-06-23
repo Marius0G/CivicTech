@@ -1,4 +1,4 @@
-# Pip in 3D — Blender MCP build plan
+# Hop in 3D — Blender MCP build plan
 
 Goal: author **our** mascot (the crowned EU youth-buddy frog from `../character.png`) as a rigged,
 cartoonish 3D model, exported as **GLB with morph targets + clips**, then render it in the app with

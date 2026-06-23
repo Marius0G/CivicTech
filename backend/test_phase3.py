@@ -4,7 +4,8 @@ Mocks the OpenAI vision HTTP call so we exercise the REAL code paths:
   • parse_vision_content (fenced / plain / messy JSON)
   • resolve_country_code (name -> Drupal code, incl. Greece=EL quirk)
   • POST /docs/upload  -> stores active profile (country normalised)
-  • POST /tools/get_profile and GET /docs/profile reflect the uploaded profile
+  • POST /tools/get_profile returns only a FIELD MANIFEST (names, no values — EU residency)
+  • POST /tools/fill_values (internal, not a model tool) + GET /docs/profile carry the values
   • fallback to the demo user before any upload
 
 Run:  .venv/Scripts/python.exe test_phase3.py
@@ -87,10 +88,24 @@ check("resolve United Kingdom -> UK", resolve_country_code("United Kingdom") == 
 check("resolve unknown passes through", resolve_country_code("Atlantis") == "Atlantis")
 
 
-# ---- 3) before any upload: demo user ------------------------------------------------------
+# ---- 3) compliance: get_profile leaks NO values; fill_values is internal -------------------
+from app.tool_defs import TOOL_DEFS  # noqa: E402
+
+tool_names = {t["name"] for t in TOOL_DEFS}
+check("fill_values is NOT advertised to the model", "fill_values" not in tool_names)
+check("get_profile IS advertised", "get_profile" in tool_names)
+
 clear_active_profile()
-prof0 = client.post("/tools/get_profile").json()["profile"]
-check("get_profile falls back to demo (RO)", prof0["country"] == "RO" and prof0["name"] == "Maria Ionescu")
+# A brand-new user starts BLANK — there is no default/demo data; it fills from the ID photo.
+manifest0 = client.post("/tools/get_profile").json()
+check("get_profile returns a field manifest (no profile values)",
+      "fields_on_file" in manifest0 and "profile" not in manifest0)
+check("a fresh profile has nothing on file", manifest0["fields_on_file"] == [])
+check("country shows up as a missing field", "country" in manifest0["fields_missing"])
+
+# The actual values for on-device form filling come from the internal fill_values endpoint.
+prof0 = client.post("/tools/fill_values").json()["profile"]
+check("a fresh profile is blank (no demo data)", prof0["name"] == "" and prof0["country"] == "")
 
 
 # ---- 4) upload an ID whose country is a NAME -> extracted & previewed, but NOT yet stored --
@@ -112,8 +127,8 @@ check("vision payload sent an image_url",
           for part in m["content"]))
 
 # upload alone must NOT change the active profile — it's still the demo user until the user saves.
-prof_after_upload = client.post("/tools/get_profile").json()["profile"]
-check("upload does NOT commit (still demo RO)", prof_after_upload["country"] == "RO")
+prof_after_upload = client.post("/tools/fill_values").json()["profile"]
+check("upload does NOT commit (still blank)", prof_after_upload["country"] == "")
 
 
 # ---- 5) the user reviews/edits then SAVES -> that's when it becomes the active profile -----
@@ -124,8 +139,11 @@ save = client.post("/docs/profile", json={
 })
 check("save returns 200", save.status_code == 200)
 check("saved profile normalised Greece -> EL", save.json()["profile"]["country"] == "EL")
-prof1 = client.post("/tools/get_profile").json()["profile"]
-check("get_profile now returns saved user (EL)", prof1["country"] == "EL" and prof1["name"].startswith("Giannis"))
+prof1 = client.post("/tools/fill_values").json()["profile"]
+check("fill_values now returns saved user (EL)", prof1["country"] == "EL" and prof1["name"].startswith("Giannis"))
+manifest1 = client.post("/tools/get_profile").json()
+check("manifest now lists country on file", "country" in manifest1["fields_on_file"])
+check("manifest still values-free after save", "Giannis Papadopoulos" not in json.dumps(manifest1))
 docs_prof = client.get("/docs/profile").json()["profile"]
 check("/docs/profile mirrors active profile", docs_prof["country"] == "EL")
 

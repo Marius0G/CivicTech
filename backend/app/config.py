@@ -29,7 +29,7 @@ class Settings:
     realtime_speed: float = float(os.getenv("OPENAI_REALTIME_SPEED", "1.3"))
 
     # --- Turn detection (server VAD) ---------------------------------------------------------
-    # How sensitive the mic is to "the user started talking" (and thus when to interrupt Hoppy).
+    # How sensitive the mic is to "the user started talking" (and thus when to interrupt Hop).
     # The OpenAI default (0.5) is twitchy: a cough, a door, keyboard clicks all trigger a barge-in.
     # We raise the threshold and lengthen the required silence so ONLY real, sustained speech
     # interrupts. near_field noise reduction further filters background hum before the VAD sees it.

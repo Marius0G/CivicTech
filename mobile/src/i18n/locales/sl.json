@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Domov",
     "docsLabel": "Dokumenti",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Jaz"
   },
   "location": {
@@ -39,7 +39,7 @@
     "errorCapture": "Fotografije ni bilo mogoče posneti",
     "errorGallery": "Galerije ni bilo mogoče odpreti",
     "permTitle": "Potreben je dostop do kamere",
-    "permBody": "Hoppy uporablja kamero, da posname jasno fotografijo tvoje izkaznice in zate izpolni EU obrazce.",
+    "permBody": "Hop uporablja kamero, da posname jasno fotografijo tvoje izkaznice in zate izpolni EU obrazce.",
     "permAllow": "Dovoli kamero",
     "permGallery": "Raje izberi iz galerije",
     "permCancel": "Prekliči",
@@ -87,18 +87,18 @@
     "askPipPlaceholder": "Vprašaj Pipa karkoli…"
   },
   "chat": {
-    "seedGreeting": "Živjo! 🐸 Jaz sem Pip. Vprašaj me karkoli o priložnostih v EU — Erasmus, štipendije, Solidarnostne enote, stanovanja, tvoje pravice…",
+    "seedGreeting": "Živjo! 🐸 Jaz sem Hop. Vprašaj me karkoli o priložnostih v EU — Erasmus, štipendije, Solidarnostne enote, stanovanja, tvoje pravice…",
     "quickErasmusDeadlines": "Roki za Erasmus",
     "quickFindGrant": "Poišči štipendijo",
     "quickEuYouthRights": "Pravice mladih v EU",
     "reachError": "Ravnokar nisem mogel doseči svojih možganov ({{error}}).",
     "presenceOnline": "na spletu · splet + indeks EU",
-    "typing": "Pip tipka…",
+    "typing": "Hop tipka…",
     "inputPlaceholder": "Sporočilo Pipu…"
   },
   "docs": {
-    "screenTitle": "Dokumenti",
-    "promptPrefix": "Spusti datoteko in Pip jo bo ",
+    "screenTitle": "Moji dokumenti",
+    "promptPrefix": "Spusti datoteko in Hop jo bo ",
     "promptHighlight": "prebral, razvrstil in si zapomnil",
     "promptSuffix": ".",
     "uploadButton": "Naloži",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Skeniraj s kamero",
     "uploadingEyebrow": "NALAGANJE",
     "fileMeta": "{{size}} · {{percent}} %",
-    "readingPrefix": "Pip ga bere — samodejno bom izluščil tvojo ",
+    "readingPrefix": "Hop ga bere — samodejno bom izluščil tvojo ",
     "readingHighlight": "univerzo in datume",
     "readingSuffix": ".",
     "readingButton": "Branje…"
   },
   "erasmus": {
     "title": "Erasmus+ pomočnik",
-    "watchingScreen": "Pip opazuje tvoj zaslon",
+    "watchingScreen": "Hop opazuje tvoj zaslon",
     "guiding": "Vodi te skozi obrazec",
     "recBadge": "SNEM"
   },
@@ -137,7 +137,7 @@
     "euIdVerified": "EU ID preverjen",
     "student": "Študent",
     "language": "Jezik",
-    "voice": "Hoppyjev glas",
+    "voice": "Hopjev glas",
     "pushNotifications": "Potisna obvestila",
     "letPipSeeScreen": "Dovoli Pipu, da vidi moj zaslon",
     "shareAnonymousData": "Deli anonimne podatke",
@@ -151,18 +151,18 @@
     "eyebrow": "VSI JEZIKI"
   },
   "voice": {
-    "title": "Hoppyjev glas",
-    "subtitle": "Izberi glas, s katerim govori Hoppy. Velja, ko naslednjič tapneš mikrofon.",
+    "title": "Hopjev glas",
+    "subtitle": "Izberi glas, s katerim govori Hop. Velja, ko naslednjič tapneš mikrofon.",
     "eyebrow": "VSI GLASOVI"
   },
   "app": {
-    "tapMicPrompt": "Tapni mikrofon, nato prosi Hoppyja, da te prijavi.",
+    "tapMicPrompt": "Tapni mikrofon, nato prosi Hopja, da te prijavi.",
     "tapToTalkAgain": "Tapni mikrofon za ponoven pogovor.",
     "micDenied": "Dovoljenje za mikrofon zavrnjeno.",
     "readingId": "Branje tvoje izkaznice…",
     "scanFailed": "Skeniranje ni uspelo: {{error}}",
     "pickFailed": "Izbira ni uspela: {{error}}",
-    "gotItNamed": "Razumem, {{name}}! Prosi Hoppyja, da te prijavi.",
+    "gotItNamed": "Razumem, {{name}}! Prosi Hopja, da te prijavi.",
     "friend": "prijatelj",
     "couldNotSave": "Shranjevanje ni uspelo: {{error}}",
     "coachingDefault": "Tapni označeno polje in vpiši svojo domačo univerzo. Preveril bom, ali je upravičena.",

@@ -10,7 +10,7 @@ export interface FunctionCall {
 }
 
 export interface EventSignal {
-  /** Hoppy started/stopped producing audio (drives the mascot's talking state). */
+  /** Hop started/stopped producing audio (drives the mascot's talking state). */
   speaking?: boolean;
   /** A chunk of speech arrived — pulse the mouth (rough lip-sync without PCM access). */
   pulse?: boolean;
@@ -19,7 +19,7 @@ export interface EventSignal {
 }
 
 /**
- * Map one Realtime event to what the UI cares about. Over WebRTC, Hoppy's audio flows on the
+ * Map one Realtime event to what the UI cares about. Over WebRTC, Hop's audio flows on the
  * media track (no PCM here), so we approximate lip-sync from the events that bracket and stream
  * speech:
  *   • output_audio_buffer.started/stopped  -> speaking on/off (WebRTC-specific server events)

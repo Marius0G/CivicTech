@@ -2,7 +2,7 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { colors, fonts, radius, space } from '../theme';
+import { colors, fonts, langSwitchReserve, radius, space } from '../theme';
 import Icon from './Icon';
 
 export default function TopBar({
@@ -43,7 +43,8 @@ export const circleBtnStyle = {
 const styles = StyleSheet.create({
   bar: {
     flexDirection: 'row', alignItems: 'center', gap: space.s3,
-    paddingHorizontal: space.s4, paddingBottom: space.s3,
+    // Keep the right edge clear for the global language switcher (floats above every screen).
+    paddingLeft: space.s4, paddingRight: langSwitchReserve, paddingBottom: space.s3,
   },
   flex: { flex: 1 },
   circleBtn: circleBtnStyle,

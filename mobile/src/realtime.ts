@@ -36,15 +36,15 @@ interface ConnectOpts {
   onStatus?: (s: string) => void;
   onEvent?: (event: any) => void;
   onFunctionCall?: (call: FunctionCall) => void;
-  /** Hoppy started/stopped speaking — drives the mascot's talking animation. */
+  /** Hop started/stopped speaking — drives the mascot's talking animation. */
   onSpeakingChange?: (speaking: boolean) => void;
   /** A spoken chunk arrived — pulse the mascot's mouth (rough lip-sync). */
   onAudioPulse?: () => void;
   /** Real 0..1 voice loudness sampled from getStats() — drives true lip-sync. */
   onLevel?: (level: number) => void;
-  /** i18n code (e.g. "fr") so Hoppy greets/answers in the user's chosen language. */
+  /** i18n code (e.g. "fr") so Hop greets/answers in the user's chosen language. */
   language?: string;
-  /** OpenAI Realtime voice id (e.g. "cedar") so Hoppy uses the user's chosen voice. */
+  /** OpenAI Realtime voice id (e.g. "cedar") so Hop uses the user's chosen voice. */
   voice?: string;
 }
 
@@ -82,7 +82,7 @@ function routeToSpeaker(on: boolean) {
 export async function connectRealtime(opts: ConnectOpts = {}): Promise<RealtimeHandle> {
   const status = (s: string) => opts.onStatus?.(s);
 
-  // 1) Mint an ephemeral token from our backend (tell it which language + voice Hoppy should use).
+  // 1) Mint an ephemeral token from our backend (tell it which language + voice Hop should use).
   status('Getting session token…');
   const tokenRes = await fetch(`${BACKEND_URL}/realtime/token`, {
     method: 'POST',
@@ -102,9 +102,9 @@ export async function connectRealtime(opts: ConnectOpts = {}): Promise<RealtimeH
   // @ts-ignore - RN event API
   pc.addEventListener('track', (e: any) => {
     if (e.track?.kind === 'audio') {
-      routeToSpeaker(true); // play Hoppy through the loudspeaker
-      status('🐸 Hoppy is connected — say hi!');
-      // Real loudness envelope for lip-sync (drives the mascot jaw). Started once Hoppy's audio
+      routeToSpeaker(true); // play Hop through the loudspeaker
+      status('🐸 Hop is connected — say hi!');
+      // Real loudness envelope for lip-sync (drives the mascot jaw). Started once Hop's audio
       // track arrives; getStats() reports its inbound audioLevel. No-op if no listener is wired.
       if (opts.onLevel && !stopLevelProbe) {
         stopLevelProbe = attachAudioLevelProbe(pc, opts.onLevel);
@@ -152,7 +152,7 @@ export async function connectRealtime(opts: ConnectOpts = {}): Promise<RealtimeH
   dc.addEventListener('open', () => status('Channel open. Listening…'));
 
   // 3) Offer -> OpenAI -> answer.
-  status('Connecting to Hoppy…');
+  status('Connecting to Hop…');
   const offer = await pc.createOffer({});
   await pc.setLocalDescription(offer);
 

@@ -1,5 +1,5 @@
 // "Golden Hour" design system — RN port of the EU Youth Buddy Design System.
-// (Lumy-inspired dark theme: deep midnight navy + golden-hour accents, Pip the green frog.)
+// (Lumy-inspired dark theme: deep midnight navy + golden-hour accents, Hop the green frog.)
 // Source of truth: claude.ai/design project 665b0df4 — tokens/colors.css, typography.css,
 // spacing.css. Components read the SEMANTIC aliases so the whole app themes from here.
 
@@ -26,7 +26,7 @@ export const colors = {
   twilight500: '#6C72E0',
   twilight400: '#8E93EC',
 
-  // Brand green (Pip)
+  // Brand green (Hop)
   green700: '#007022',
   green600: '#00C639',
   green500: '#00E763',
@@ -83,6 +83,12 @@ export const gradients = {
 export const space = {
   s1: 4, s2: 8, s3: 12, s4: 16, s5: 20, s6: 24, s8: 32, s10: 40, s12: 48, s16: 64,
 };
+
+// Width reserved at the top-right of any header for the always-on language switcher
+// (the globe pill in App.tsx floats above every screen at `right: 12`). Use this as the
+// header's right padding so trailing controls sit to the LEFT of the globe instead of
+// under it — the same way the home screen keeps its top-right corner clear.
+export const langSwitchReserve = 84;
 
 export const radius = {
   xs: 6, sm: 8, md: 10, lg: 16, xl: 20, xxl: 28, pill: 999,

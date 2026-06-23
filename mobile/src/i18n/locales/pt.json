@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetPip": "Conhece o Pip",
+    "meetPip": "Conhece o Hop",
     "welcomeSub": "O teu companheiro para a vida na EU — bolsas, Erasmus, alojamento e todos os formulários pelo meio.",
     "continueWithEuId": "Continuar com EU ID",
     "exploreAsGuest": "Explorar como convidado",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Início",
     "docsLabel": "Documentos",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Eu"
   },
   "location": {
@@ -39,7 +39,7 @@
     "errorCapture": "Não foi possível tirar a foto",
     "errorGallery": "Não foi possível abrir a galeria",
     "permTitle": "É necessário acesso à câmara",
-    "permBody": "O Hoppy usa a câmara para tirar uma foto nítida do teu documento e preencher os teus formulários da EU por ti.",
+    "permBody": "O Hop usa a câmara para tirar uma foto nítida do teu documento e preencher os teus formulários da EU por ti.",
     "permAllow": "Permitir câmara",
     "permGallery": "Escolher da galeria em vez disso",
     "permCancel": "Cancelar",
@@ -83,22 +83,22 @@
     "greetingEvening": "Boa noite",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "A ligar…",
-    "tapToTalk": "Toca para falar com o Pip",
-    "askPipPlaceholder": "Pergunta o que quiseres ao Pip…"
+    "tapToTalk": "Toca para falar com o Hop",
+    "askPipPlaceholder": "Pergunta o que quiseres ao Hop…"
   },
   "chat": {
-    "seedGreeting": "Olá! 🐸 Sou o Pip. Pergunta-me o que quiseres sobre oportunidades da EU — Erasmus, bolsas, o Corpo de Solidariedade, alojamento, os teus direitos…",
+    "seedGreeting": "Olá! 🐸 Sou o Hop. Pergunta-me o que quiseres sobre oportunidades da EU — Erasmus, bolsas, o Corpo de Solidariedade, alojamento, os teus direitos…",
     "quickErasmusDeadlines": "Prazos do Erasmus",
     "quickFindGrant": "Encontrar uma bolsa",
     "quickEuYouthRights": "Direitos dos jovens na EU",
     "reachError": "Não consegui chegar ao meu cérebro agora ({{error}}).",
     "presenceOnline": "online · web + índice EU",
-    "typing": "O Pip está a escrever…",
-    "inputPlaceholder": "Mensagem para o Pip…"
+    "typing": "O Hop está a escrever…",
+    "inputPlaceholder": "Mensagem para o Hop…"
   },
   "docs": {
-    "screenTitle": "Documentos",
-    "promptPrefix": "Larga um ficheiro e o Pip vai ",
+    "screenTitle": "Os meus documentos",
+    "promptPrefix": "Larga um ficheiro e o Hop vai ",
     "promptHighlight": "ler, organizar e memorizar",
     "promptSuffix": ".",
     "uploadButton": "Carregar",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Certidão de notas",
     "transcriptSub": "A aguardar verificação",
     "rentalTitle": "Contrato de arrendamento",
-    "rentalSub": "Rascunho · partilhado com o Pip"
+    "rentalSub": "Rascunho · partilhado com o Hop"
   },
   "upload": {
     "screenTitle": "Adicionar documento",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Digitalizar com a câmara",
     "uploadingEyebrow": "A CARREGAR",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "O Pip está a lê-lo — vou extrair a tua ",
+    "readingPrefix": "O Hop está a lê-lo — vou extrair a tua ",
     "readingHighlight": "universidade e datas",
     "readingSuffix": " automaticamente.",
     "readingButton": "A ler…"
   },
   "erasmus": {
     "title": "Assistente Erasmus+",
-    "watchingScreen": "O Pip está a ver o teu ecrã",
+    "watchingScreen": "O Hop está a ver o teu ecrã",
     "guiding": "A guiar-te pelo formulário",
     "recBadge": "REC"
   },
@@ -137,9 +137,9 @@
     "euIdVerified": "EU ID verificado",
     "student": "Estudante",
     "language": "Idioma",
-    "voice": "Voz do Hoppy",
+    "voice": "Voz do Hop",
     "pushNotifications": "Notificações push",
-    "letPipSeeScreen": "Deixar o Pip ver o meu ecrã",
+    "letPipSeeScreen": "Deixar o Hop ver o meu ecrã",
     "shareAnonymousData": "Partilhar dados anónimos",
     "privacyData": "Privacidade e dados",
     "helpSupport": "Ajuda e apoio da EU",
@@ -151,18 +151,18 @@
     "eyebrow": "TODOS OS IDIOMAS"
   },
   "voice": {
-    "title": "Voz do Hoppy",
-    "subtitle": "Escolhe a voz com que o Hoppy fala. Aplica-se da próxima vez que tocares no micro.",
+    "title": "Voz do Hop",
+    "subtitle": "Escolhe a voz com que o Hop fala. Aplica-se da próxima vez que tocares no micro.",
     "eyebrow": "TODAS AS VOZES"
   },
   "app": {
-    "tapMicPrompt": "Toca no micro e depois pede ao Hoppy para te inscrever.",
+    "tapMicPrompt": "Toca no micro e depois pede ao Hop para te inscrever.",
     "tapToTalkAgain": "Toca no micro para falar de novo.",
     "micDenied": "Permissão do micro recusada.",
     "readingId": "A ler o teu documento…",
     "scanFailed": "Falha na digitalização: {{error}}",
     "pickFailed": "Falha na seleção: {{error}}",
-    "gotItNamed": "Percebido, {{name}}! Pede ao Hoppy para te inscrever.",
+    "gotItNamed": "Percebido, {{name}}! Pede ao Hop para te inscrever.",
     "friend": "amigo",
     "couldNotSave": "Não foi possível guardar: {{error}}",
     "coachingDefault": "Toca no campo destacado e escreve a tua universidade de origem. Vou verificar se é elegível.",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Notificações",
-    "body": "Recebe lembretes sobre prazos, bolsas e respostas do Pip.",
+    "body": "Recebe lembretes sobre prazos, bolsas e respostas do Hop.",
     "receive": "Receber notificações",
     "onHint": "Vais receber lembretes mesmo quando a app estiver fechada.",
     "offHint": "Ativa isto para receber lembretes sobre prazos e respostas."
