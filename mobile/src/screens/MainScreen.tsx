@@ -8,13 +8,21 @@ import {
   ActivityIndicator, Animated, Easing, Pressable, ScrollView,
   StyleSheet, Text, View,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Anchor, { Rect } from '../ui/Anchor';
 import { MASCOT_HERO_SIZE } from '../mascotProps';
 import Icon, { IconName } from '../ui/Icon';
 import { colors, fonts, radius, shadow, space } from '../theme';
 
-const CHIPS = ['Erasmus deadlines', 'Find housing', 'Translate a letter', 'Grant eligibility'];
+type TFn = (key: string, opts?: Record<string, unknown>) => string;
+
+const buildChips = (t: TFn) => [
+  t('home.chipErasmusDeadlines'),
+  t('home.chipFindHousing'),
+  t('home.chipTranslateLetter'),
+  t('home.chipGrantEligibility'),
+];
 
 export type ToolStatus = 'running' | 'done' | 'error';
 export interface ToolEvent {
@@ -24,20 +32,20 @@ export interface ToolEvent {
   status: ToolStatus;
 }
 
-const TOOL_META: Record<string, { icon: IconName; label: string }> = {
-  open_form: { icon: 'globe', label: 'Opening the form' },
-  fill_form: { icon: 'file-text', label: 'Filling the form' },
-  read_page: { icon: 'search', label: 'Reading the page' },
-  get_profile: { icon: 'user', label: 'Reading your profile' },
-  search_eu_info: { icon: 'search', label: 'Searching EU info' },
-  web_search: { icon: 'globe', label: 'Searching the web' },
-};
+const buildToolMeta = (t: TFn): Record<string, { icon: IconName; label: string }> => ({
+  open_form: { icon: 'globe', label: t('home.toolOpenForm') },
+  fill_form: { icon: 'file-text', label: t('home.toolFillForm') },
+  read_page: { icon: 'search', label: t('home.toolReadPage') },
+  get_profile: { icon: 'user', label: t('home.toolGetProfile') },
+  search_eu_info: { icon: 'search', label: t('home.toolSearchEuInfo') },
+  web_search: { icon: 'globe', label: t('home.toolWebSearch') },
+});
 
-function greetingWord(): string {
+function greetingWord(t: TFn): string {
   const h = new Date().getHours();
-  if (h < 12) return 'Good morning';
-  if (h < 18) return 'Good afternoon';
-  return 'Good evening';
+  if (h < 12) return t('home.greetingMorning');
+  if (h < 18) return t('home.greetingAfternoon');
+  return t('home.greetingEvening');
 }
 
 interface Props {
@@ -60,6 +68,7 @@ export default function MainScreen({
   name, location, voiceStatus, connected, connecting,
   toolEvents, onToggleVoice, onOpenChat, onLocation, onHeroAnchor, onPokeMascot,
 }: Props) {
+  const { t } = useTranslation();
   // Listening pulse ring (connected) + connecting rotation.
   const pulse = useRef(new Animated.Value(0)).current;
   const spin = useRef(new Animated.Value(0)).current;
@@ -96,7 +105,9 @@ export default function MainScreen({
   const ringOpacity = pulse.interpolate({ inputRange: [0, 1], outputRange: [0.45, 0] });
   const rotate = spin.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] });
 
-  const greeting = name ? `${greetingWord()}, ${name}` : greetingWord();
+  const greeting = name ? t('home.greetingNamed', { greeting: greetingWord(t), name }) : greetingWord(t);
+  const chips = buildChips(t);
+  const toolMeta = buildToolMeta(t);
 
   return (
     <View style={styles.safe}>
@@ -136,7 +147,7 @@ export default function MainScreen({
           )}
         </View>
         <Text style={styles.micHint} numberOfLines={2}>
-          {connecting ? 'Connecting…' : connected ? voiceStatus : 'Tap to talk with Pip'}
+          {connecting ? t('home.connecting') : connected ? voiceStatus : t('home.tapToTalk')}
         </Text>
 
         {/* Live tool-call cards (only while connected), in the space below the mic */}
@@ -148,7 +159,7 @@ export default function MainScreen({
             showsVerticalScrollIndicator={false}
           >
             {toolEvents.map((ev) => {
-              const meta = TOOL_META[ev.name] || { icon: 'check' as IconName, label: ev.name };
+              const meta = toolMeta[ev.name] || { icon: 'check' as IconName, label: ev.name };
               return (
                 <View key={ev.id} style={styles.card}>
                   <View style={styles.cardIcon}><Icon name={meta.icon} size={16} color={colors.primary} /></View>
@@ -170,7 +181,7 @@ export default function MainScreen({
       <View style={styles.dock}>
         {!connected && (
           <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
-            {CHIPS.map((c) => (
+            {chips.map((c) => (
               <Pressable key={c} style={styles.chip} onPress={onOpenChat}>
                 <Text style={styles.chipText}>{c}</Text>
               </Pressable>
@@ -178,7 +189,7 @@ export default function MainScreen({
           </ScrollView>
         )}
         <Pressable style={styles.askBar} onPress={onOpenChat}>
-          <Text style={styles.askText}>Ask Pip anything…</Text>
+          <Text style={styles.askText}>{t('home.askPipPlaceholder')}</Text>
           <Pressable style={styles.askMic} onPress={onToggleVoice}>
             <Icon name="mic" size={20} color={colors.textSecondary} />
           </Pressable>

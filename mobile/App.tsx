@@ -18,8 +18,10 @@ import {
 import { BricolageGrotesque_700Bold, BricolageGrotesque_800ExtraBold } from '@expo-google-fonts/bricolage-grotesque';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { connectRealtime, RealtimeHandle, FunctionCall } from './src/realtime';
+import { useTranslation } from 'react-i18next';
 import { ESC_ELIGIBILITY_URL, executeTool, ToolContext } from './src/tools';
 import { BACKEND_URL, USE_CACHED_FORM, LIVE_FORM_TIMEOUT_MS } from './src/config';
+import { loadSavedLanguage } from './src/i18n';
 import { uploadIdImage, saveProfile, pickIdImage, PickedImage, ExtractedProfile } from './src/profileUpload';
 import { detectCity } from './src/location';
 import IdCameraScreen from './src/IdCameraScreen';
@@ -75,6 +77,7 @@ function AppInner() {
     PlusJakartaSans_700Bold, PlusJakartaSans_800ExtraBold,
     BricolageGrotesque_700Bold, BricolageGrotesque_800ExtraBold,
   });
+  const { t, i18n } = useTranslation();
 
   const webRef = useRef<WebView>(null);
   const voiceRef = useRef<RealtimeHandle | null>(null);
@@ -99,13 +102,13 @@ function AppInner() {
   const controlProgress = useRef(new Animated.Value(0)).current;
   // 0 = canvas off-screen below · 1 = canvas fully up.
   const canvasProgress = useRef(new Animated.Value(0)).current;
-  const [voiceStatus, setVoiceStatus] = useState('Tap the mic, then ask Hoppy to sign you up.');
+  const [voiceStatus, setVoiceStatus] = useState(() => i18n.t('app.tapMicPrompt'));
   const [connected, setConnected] = useState(false);
   const [connecting, setConnecting] = useState(false);
   const [lastTool, setLastTool] = useState('');
   const [toolEvents, setToolEvents] = useState<ToolEvent[]>([]);
   const toolCounter = useRef(0);
-  const [location, setLocation] = useState('Locating…');
+  const [location, setLocation] = useState(() => i18n.t('app.locating'));
   const [locationOpen, setLocationOpen] = useState(false);
   const [profile, setProfile] = useState<ExtractedProfile | null>(null);
   // ID scan flow: idle → camera → processing → review (edit) → save commits, cancel discards.
@@ -130,13 +133,15 @@ function AppInner() {
   // via the location picker. Shows "Locating…" while it resolves; on a total miss falls back to a
   // tappable "Set location" hint (the pill opens the picker) rather than guessing a wrong city.
   async function detectLocation() {
-    setLocation('Locating…');
+    setLocation(t('app.locating'));
     const found = await detectCity();
-    setLocation(found ? found.label : 'Set location');
+    setLocation(found ? found.label : t('app.setLocation'));
   }
 
-  // On first mount: pull the active profile (drives the greeting name) and detect location.
+  // On first mount: restore the saved UI language, pull the active profile (drives the greeting
+  // name) and detect location.
   useEffect(() => {
+    loadSavedLanguage();
     (async () => {
       try {
         const r = await fetch(`${BACKEND_URL}/docs/profile`);
@@ -308,7 +313,7 @@ function AppInner() {
       const asset = await pickIdImage();
       if (asset) await handleIdCaptured(asset);
     } catch (e: any) {
-      setVoiceStatus(`Pick failed: ${e.message ?? e}`);
+      setVoiceStatus(t('app.pickFailed', { error: e.message ?? e }));
     }
   }
 
@@ -316,7 +321,7 @@ function AppInner() {
   // user review/edit them. Nothing is saved server-side yet (that happens on Save).
   async function handleIdCaptured(img: PickedImage) {
     setScanStep('processing');
-    setVoiceStatus('Reading your ID…');
+    setVoiceStatus(t('app.readingId'));
     try {
       const res = await uploadIdImage(img);
       // Show the raw vision read (country as a name) for the user to confirm/correct.
@@ -325,7 +330,7 @@ function AppInner() {
       setScanStep('review');
     } catch (e: any) {
       setScanStep('idle');
-      setVoiceStatus(`Scan failed: ${e.message ?? e}`);
+      setVoiceStatus(t('app.scanFailed', { error: e.message ?? e }));
     }
   }
 
@@ -338,9 +343,9 @@ function AppInner() {
       setProfile(saved);
       setScanStep('idle');
       setDraft(null);
-      setVoiceStatus(`Got it, ${saved.name || 'friend'}! Ask Hoppy to sign you up.`);
+      setVoiceStatus(t('app.gotItNamed', { name: saved.name || t('app.friend') }));
     } catch (e: any) {
-      setReviewError(`Could not save: ${e.message ?? e}`);
+      setReviewError(t('app.couldNotSave', { error: e.message ?? e }));
     } finally {
       setReviewSaving(false);
     }
@@ -360,12 +365,12 @@ function AppInner() {
       voiceRef.current = null;
       setConnected(false);
       stopSpeaking();
-      setVoiceStatus('Tap the mic to talk again.');
+      setVoiceStatus(t('app.tapToTalkAgain'));
       return;
     }
     try {
       if (!(await ensureMicPermission())) {
-        setVoiceStatus('Mic permission denied.');
+        setVoiceStatus(t('app.micDenied'));
         return;
       }
       setConnecting(true);
@@ -376,6 +381,7 @@ function AppInner() {
         onSpeakingChange: (sp) => (sp ? pingSpeaking() : stopSpeaking()),
         onAudioPulse: pingSpeaking,
         onLevel: (l) => levelValue.setValue(l),
+        language: i18n.language, // Hoppy greets/answers in the user's chosen language
       });
       setConnected(true);
     } catch (e: any) {
@@ -403,7 +409,7 @@ function AppInner() {
   const formHost = (() => { try { return new URL(formUrl).host; } catch { return 'europa.eu'; } })();
   const coaching = lastTool
     ? `Hoppy · ${lastTool}`
-    : 'Tap the highlighted field and type your home university. I’ll check it’s eligible.';
+    : t('app.coachingDefault');
   const firstName = profile?.name ? profile.name.split(/\s+/)[0] : undefined;
   const showTabBar = (screen === 'home' || screen === 'docs' || screen === 'profile') && !canvasOpen;
   const tabActive: TabKey = screen === 'upload' ? 'docs' : (screen as TabKey);

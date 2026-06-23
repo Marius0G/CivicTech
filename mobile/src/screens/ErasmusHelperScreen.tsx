@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { Pressable, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Anchor, { Rect } from '../ui/Anchor';
 import { MASCOT_DOCK_SIZE } from '../mascotProps';
@@ -25,6 +26,7 @@ export default function ErasmusHelperScreen({
   host, coaching, onClose, onConfirm, children, onDockAnchor,
 }: Props) {
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
   return (
     <GradientBackground variant="night">
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
@@ -35,10 +37,10 @@ export default function ErasmusHelperScreen({
             <Icon name="arrow-left" size={20} />
           </Pressable>
           <View style={styles.flex}>
-            <Text style={styles.title}>Erasmus+ helper</Text>
-            <Text style={styles.watching}>● Pip is watching your screen</Text>
+            <Text style={styles.title}>{t('erasmus.title')}</Text>
+            <Text style={styles.watching}>● {t('erasmus.watchingScreen')}</Text>
           </View>
-          <View style={styles.recBadge}><Text style={styles.recText}>● REC</Text></View>
+          <View style={styles.recBadge}><Text style={styles.recText}>● {t('erasmus.recBadge')}</Text></View>
         </View>
 
         {/* Shared-screen browser panel (real WebView inside) */}

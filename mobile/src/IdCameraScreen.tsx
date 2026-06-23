@@ -17,6 +17,8 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CameraView, useCameraPermissions } from 'expo-camera';
+import { useTranslation } from 'react-i18next';
+import { TFunction } from 'i18next';
 import { pickIdImage, PickedImage } from './profileUpload';
 
 const { width: SCREEN_W, height: SCREEN_H } = Dimensions.get('window');
@@ -30,29 +32,27 @@ type DocType = 'id' | 'a4';
 // bias it upward (smaller top scrim, larger bottom) so the tall frame doesn't push the controls
 // off-screen or leave a big gap above the title. topFlex/bottomFlex weight the two scrims.
 const A4_H = Math.round(SCREEN_H * 0.42);
-const DOC_SPECS: Record<DocType, {
+const buildDocSpecs = (t: TFunction): Record<DocType, {
   width: number; height: number; title: string; hint: string; fileLabel: string;
   topFlex: number; bottomFlex: number;
-}> = {
+}> => ({
   id: {
     width: Math.round(SCREEN_W * 0.86),
     height: Math.round((SCREEN_W * 0.86) / 1.585), // ID-1 card aspect ratio (landscape)
-    title: 'Take a photo of your ID card',
-    hint: 'Fit the whole card inside the frame. Keep it flat, in good light, and make sure '
-      + 'every line is sharp and readable — no glare or shadows.',
+    title: t('idCamera.idTitle'),
+    hint: t('idCamera.idHint'),
     fileLabel: 'id',
     topFlex: 1, bottomFlex: 1, // landscape frame is short — keep it centred
   },
   a4: {
     width: Math.round(A4_H / 1.414), // A4 portrait: height ≈ width × 1.414
     height: A4_H,
-    title: 'Take a photo of your document',
-    hint: 'Fit the whole A4 page inside the frame. Keep it flat, in good light, and make sure '
-      + 'every line is sharp and readable — no glare or shadows.',
+    title: t('idCamera.a4Title'),
+    hint: t('idCamera.a4Hint'),
     fileLabel: 'document',
     topFlex: 0.5, bottomFlex: 1.25, // tall frame — pull everything up, give controls more room
   },
-};
+});
 
 interface Props {
   onCaptured: (img: PickedImage) => void;
@@ -76,8 +76,9 @@ export default function IdCameraScreen({ onCaptured, onClose }: Props) {
   const [error, setError] = useState<string | null>(null);
   const [docType, setDocType] = useState<DocType>('id');
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
 
-  const spec = DOC_SPECS[docType];
+  const spec = buildDocSpecs(t)[docType];
 
   async function capture() {
     if (busy || !cameraRef.current) return;
@@ -85,14 +86,14 @@ export default function IdCameraScreen({ onCaptured, onClose }: Props) {
     setError(null);
     try {
       const pic = await cameraRef.current.takePictureAsync({ quality: 0.7 });
-      if (!pic?.uri) throw new Error('No photo captured');
+      if (!pic?.uri) throw new Error(t('idCamera.errorNoPhoto'));
       onCaptured({
         uri: pic.uri,
         mimeType: pic.format === 'png' ? 'image/png' : 'image/jpeg',
         fileName: `${spec.fileLabel}.${pic.format ?? 'jpg'}`,
       });
     } catch (e: any) {
-      setError(e?.message ?? 'Could not take the photo');
+      setError(e?.message ?? t('idCamera.errorCapture'));
       setBusy(false);
     }
   }
@@ -109,7 +110,7 @@ export default function IdCameraScreen({ onCaptured, onClose }: Props) {
       }
       onCaptured(asset);
     } catch (e: any) {
-      setError(e?.message ?? 'Could not open the gallery');
+      setError(e?.message ?? t('idCamera.errorGallery'));
       setBusy(false);
     }
   }
@@ -125,18 +126,18 @@ export default function IdCameraScreen({ onCaptured, onClose }: Props) {
   if (!permission.granted) {
     return (
       <View style={styles.center}>
-        <Text style={styles.permTitle}>Camera access needed</Text>
+        <Text style={styles.permTitle}>{t('idCamera.permTitle')}</Text>
         <Text style={styles.permBody}>
-          Hoppy uses the camera to take a clear photo of your ID and fill your EU forms for you.
+          {t('idCamera.permBody')}
         </Text>
         <TouchableOpacity style={styles.permBtn} onPress={requestPermission} activeOpacity={0.85}>
-          <Text style={styles.permBtnText}>Allow camera</Text>
+          <Text style={styles.permBtnText}>{t('idCamera.permAllow')}</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.permSecondary} onPress={fromGallery} activeOpacity={0.7}>
-          <Text style={styles.permSecondaryText}>Choose from gallery instead</Text>
+          <Text style={styles.permSecondaryText}>{t('idCamera.permGallery')}</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.permSecondary} onPress={onClose} activeOpacity={0.7}>
-          <Text style={styles.permSecondaryText}>Cancel</Text>
+          <Text style={styles.permSecondaryText}>{t('idCamera.permCancel')}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -178,7 +179,7 @@ export default function IdCameraScreen({ onCaptured, onClose }: Props) {
             disabled={busy}
           >
             <Text style={[styles.docTabText, docType === 'id' && styles.docTabTextActive]}>
-              ID card
+              {t('idCamera.tabIdCard')}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -188,7 +189,7 @@ export default function IdCameraScreen({ onCaptured, onClose }: Props) {
             disabled={busy}
           >
             <Text style={[styles.docTabText, docType === 'a4' && styles.docTabTextActive]}>
-              A4 document
+              {t('idCamera.tabA4Document')}
             </Text>
           </TouchableOpacity>
         </View>
@@ -204,7 +205,7 @@ export default function IdCameraScreen({ onCaptured, onClose }: Props) {
             disabled={busy}
           >
             <GalleryGlyph />
-            <Text style={styles.galleryLabel}>Gallery</Text>
+            <Text style={styles.galleryLabel}>{t('idCamera.galleryLabel')}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity

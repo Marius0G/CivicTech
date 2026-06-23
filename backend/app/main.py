@@ -9,8 +9,9 @@ Run (dev):
 """
 
 import logging
+from typing import Any
 
-from fastapi import FastAPI, HTTPException
+from fastapi import Body, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 from .chat import router as chat_router
@@ -51,14 +52,16 @@ def health() -> dict:
 
 
 @app.post("/realtime/token")
-async def realtime_token() -> dict:
+async def realtime_token(body: dict[str, Any] = Body(default={})) -> dict:
     """Mint a short-lived Realtime client secret (ek_...) for the mobile app.
 
     The app reads `.value` from the response and uses it as the WebRTC bearer token.
-    The real OpenAI api key never leaves this server.
+    The real OpenAI api key never leaves this server. An optional `{"language": "fr"}` body
+    pins Hoppy to the language the user picked in the app's language menu (defaults to English).
     """
+    language = (body or {}).get("language")
     try:
-        data = await mint_client_secret(settings)
+        data = await mint_client_secret(settings, language)
     except RuntimeError as e:
         log.error("token mint failed: %s", e)
         # 502 if upstream/config problem; message is safe (no key leaked).
