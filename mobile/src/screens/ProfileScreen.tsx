@@ -2,11 +2,14 @@
 
 import React, { useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import TopBar, { circleBtnStyle } from '../ui/TopBar';
 import Avatar from '../ui/Avatar';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
 import Icon, { IconName } from '../ui/Icon';
+import LanguageSheet from '../ui/LanguageSheet';
+import { LANGUAGES, setLanguage } from '../i18n';
 import { colors, fonts, radius, space } from '../theme';
 import { getNotificationsEnabled, setNotificationsEnabled } from '../notifications';
 
@@ -19,9 +22,13 @@ function Toggle({ value, onToggle, color }: { value: boolean; onToggle: () => vo
 }
 
 export default function ProfileScreen({ onBack, onLogout }: { onBack: () => void; onLogout: () => void }) {
+  const { t, i18n } = useTranslation();
   const [push, setPush] = useState(true);
   const [screen, setScreen] = useState(true);
   const [share, setShare] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+
+  const currentLang = LANGUAGES.find((l) => l.code === i18n.language) ?? LANGUAGES[0];
 
   // Load notification preference from storage on mount
   useEffect(() => {
@@ -41,7 +48,7 @@ export default function ProfileScreen({ onBack, onLogout }: { onBack: () => void
   return (
     <View style={styles.safe}>
       <TopBar
-        title="Profile"
+        title={t('profile.title')}
         onBack={onBack}
         trailing={<View style={styles.circleBtn}><Icon name="pencil" size={18} /></View>}
       />
@@ -53,29 +60,35 @@ export default function ProfileScreen({ onBack, onLogout }: { onBack: () => void
           <View style={styles.badges}>
             <View style={[styles.badge, { backgroundColor: 'rgba(91,140,255,0.16)' }]}>
               <Text style={[styles.badgeDot, { color: colors.euBlue }]}>● </Text>
-              <Text style={[styles.badgeText, { color: colors.euBlue }]}>EU ID verified</Text>
+              <Text style={[styles.badgeText, { color: colors.euBlue }]}>{t('profile.euIdVerified')}</Text>
             </View>
             <View style={[styles.badge, { backgroundColor: colors.primarySoft }]}>
-              <Text style={[styles.badgeText, { color: colors.golden300 }]}>Student</Text>
+              <Text style={[styles.badgeText, { color: colors.golden300 }]}>{t('profile.student')}</Text>
             </View>
           </View>
         </View>
 
         {/* Settings */}
         <Card style={styles.card}>
-          <Row icon="globe" title="Language" right={<Text style={styles.valueText}>English ›</Text>} divider />
-          <Row icon="bell" title="Push notifications" right={<Toggle value={push} onToggle={handleNotificationToggle} color={colors.primary} />} divider />
-          <Row icon="robot" title="Let Pip see my screen" right={<Toggle value={screen} onToggle={() => setScreen((v) => !v)} color={colors.euBlue} />} divider />
-          <Row icon="database" title="Share anonymous data" right={<Toggle value={share} onToggle={() => setShare((v) => !v)} color={colors.twilight500} />} />
+          <Row
+            icon="globe"
+            title={t('profile.language')}
+            onPress={() => setLangOpen(true)}
+            right={<Text style={styles.valueText}>{`${currentLang.flag}  ${currentLang.native} ›`}</Text>}
+            divider
+          />
+          <Row icon="bell" title={t('profile.pushNotifications')} right={<Toggle value={push} onToggle={handleNotificationToggle} color={colors.primary} />} divider />
+          <Row icon="robot" title={t('profile.letPipSeeScreen')} right={<Toggle value={screen} onToggle={() => setScreen((v) => !v)} color={colors.euBlue} />} divider />
+          <Row icon="database" title={t('profile.shareAnonymousData')} right={<Toggle value={share} onToggle={() => setShare((v) => !v)} color={colors.twilight500} />} />
         </Card>
 
         <Card style={styles.card}>
-          <Row icon="shield" title="Privacy & data" right={<Icon name="chevron-right" size={18} color={colors.textTertiary} />} divider />
-          <Row icon="help" title="Help & EU support" right={<Icon name="chevron-right" size={18} color={colors.textTertiary} />} />
+          <Row icon="shield" title={t('profile.privacyData')} right={<Icon name="chevron-right" size={18} color={colors.textTertiary} />} divider />
+          <Row icon="help" title={t('profile.helpSupport')} right={<Icon name="chevron-right" size={18} color={colors.textTertiary} />} />
         </Card>
 
         <Button
-          label="Log out"
+          label={t('profile.logOut')}
           variant="ghost"
           block
           onPress={onLogout}
@@ -83,20 +96,35 @@ export default function ProfileScreen({ onBack, onLogout }: { onBack: () => void
           style={styles.logout}
         />
       </ScrollView>
+
+      <LanguageSheet
+        visible={langOpen}
+        current={i18n.language}
+        onSelect={(code) => setLanguage(code)}
+        onClose={() => setLangOpen(false)}
+      />
     </View>
   );
 }
 
 function Row({
-  icon, title, right, divider,
-}: { icon: IconName; title: string; right: React.ReactNode; divider?: boolean }) {
-  return (
-    <View style={[styles.row, divider && styles.rowDivider]}>
+  icon, title, right, divider, onPress,
+}: { icon: IconName; title: string; right: React.ReactNode; divider?: boolean; onPress?: () => void }) {
+  const content = (
+    <>
       <View style={styles.rowIcon}><Icon name={icon} size={20} color={colors.textSecondary} weight="regular" /></View>
       <Text style={styles.rowTitle} numberOfLines={1}>{title}</Text>
       {right}
-    </View>
+    </>
   );
+  if (onPress) {
+    return (
+      <Pressable style={[styles.row, divider && styles.rowDivider]} onPress={onPress}>
+        {content}
+      </Pressable>
+    );
+  }
+  return <View style={[styles.row, divider && styles.rowDivider]}>{content}</View>;
 }
 
 const styles = StyleSheet.create({
