@@ -1,4 +1,4 @@
-// Screen 3 · Main · Pip hub — the immersive voice home.
+// Screen 3 · Main · Hop hub — the immersive voice home.
 // Big glowing Pip + a time-based greeting, a BIG mic button (idle → connecting spinner →
 // listening), and the quick-chips + "Ask Pip anything…" bar. When the channel is live the
 // greeting hides, Pip grows (speaking), the chips give way to live tool-call cards.

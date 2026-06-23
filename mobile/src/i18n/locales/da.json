@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetToby": "Mød Toby",
+    "meetHop": "Mød Hop",
     "welcomeSub": "Din makker til livet i EU — tilskud, Erasmus, bolig og hver eneste formular ind imellem.",
     "continueWithEuId": "Fortsæt med EU ID",
     "exploreAsGuest": "Udforsk som gæst",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Hjem",
     "docsLabel": "Dokumenter",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Mig"
   },
   "location": {
@@ -83,22 +83,22 @@
     "greetingEvening": "Godaften",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Opretter forbindelse…",
-    "tapToTalk": "Tryk for at tale med Pip",
-    "askPipPlaceholder": "Spørg Pip om hvad som helst…"
+    "tapToTalk": "Tryk for at tale med Hop",
+    "askPipPlaceholder": "Spørg Hop om hvad som helst…"
   },
   "chat": {
-    "seedGreeting": "Hej! 🐸 Jeg er Pip. Spørg mig om hvad som helst om EU-muligheder — Erasmus, tilskud, Solidaritetskorpset, bolig, dine rettigheder…",
+    "seedGreeting": "Hej! 🐸 Jeg er Hop. Spørg mig om hvad som helst om EU-muligheder — Erasmus, tilskud, Solidaritetskorpset, bolig, dine rettigheder…",
     "quickErasmusDeadlines": "Erasmus-frister",
     "quickFindGrant": "Find et tilskud",
     "quickEuYouthRights": "EU-ungdomsrettigheder",
     "reachError": "Jeg kunne ikke nå min hjerne lige nu ({{error}}).",
     "presenceOnline": "online · web + EU-indeks",
-    "typing": "Pip skriver…",
-    "inputPlaceholder": "Skriv til Pip…"
+    "typing": "Hop skriver…",
+    "inputPlaceholder": "Skriv til Hop…"
   },
   "docs": {
     "screenTitle": "Dokumenter",
-    "promptPrefix": "Læg en fil ind, så vil Pip ",
+    "promptPrefix": "Læg en fil ind, så vil Hop ",
     "promptHighlight": "læse, sortere og huske",
     "promptSuffix": " den.",
     "uploadButton": "Upload",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Karakterudskrift",
     "transcriptSub": "Afventer verificering",
     "rentalTitle": "Lejekontrakt",
-    "rentalSub": "Udkast · delt med Pip"
+    "rentalSub": "Udkast · delt med Hop"
   },
   "upload": {
     "screenTitle": "Tilføj dokument",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Scan med kamera",
     "uploadingEyebrow": "UPLOADER",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip læser den — jeg finder dit ",
+    "readingPrefix": "Hop læser den — jeg finder dit ",
     "readingHighlight": "universitet og datoer",
     "readingSuffix": " automatisk.",
     "readingButton": "Læser…"
   },
   "erasmus": {
     "title": "Erasmus+-hjælper",
-    "watchingScreen": "Pip kigger på din skærm",
+    "watchingScreen": "Hop kigger på din skærm",
     "guiding": "Guider dig gennem formularen",
     "recBadge": "OPT"
   },
@@ -139,7 +139,7 @@
     "language": "Sprog",
     "voice": "Hoppys stemme",
     "pushNotifications": "Push-notifikationer",
-    "letPipSeeScreen": "Lad Pip se min skærm",
+    "letPipSeeScreen": "Lad Hop se min skærm",
     "shareAnonymousData": "Del anonyme data",
     "privacyData": "Privatliv og data",
     "helpSupport": "Hjælp og EU-support",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Notifikationer",
-    "body": "Få påmindelser om frister, tilskud og svar fra Pip.",
+    "body": "Få påmindelser om frister, tilskud og svar fra Hop.",
     "receive": "Modtag notifikationer",
     "onHint": "Du får påmindelser, selv når appen er lukket.",
     "offHint": "Slå dette til for at få påmindelser om frister og svar."

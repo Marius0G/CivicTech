@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetToby": "Tutvu Tobyga",
+    "meetHop": "Tutvu Hopiga",
     "welcomeSub": "Sinu kaaslane eluks EL-is — toetused, Erasmus, eluase ja kõik vormid nende vahel.",
     "continueWithEuId": "Jätka EU ID-ga",
     "exploreAsGuest": "Uuri külalisena",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Avaleht",
     "docsLabel": "Dokumendid",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Mina"
   },
   "location": {
@@ -83,22 +83,22 @@
     "greetingEvening": "Tere õhtust",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Ühendan…",
-    "tapToTalk": "Puuduta, et Pipiga rääkida",
-    "askPipPlaceholder": "Küsi Pipilt mida iganes…"
+    "tapToTalk": "Puuduta, et Hopiga rääkida",
+    "askPipPlaceholder": "Küsi Hopilt mida iganes…"
   },
   "chat": {
-    "seedGreeting": "Hei! 🐸 Mina olen Pip. Küsi minult kõike EL-i võimaluste kohta — Erasmus, toetused, solidaarsuskorpus, eluase, sinu õigused…",
+    "seedGreeting": "Hei! 🐸 Mina olen Hop. Küsi minult kõike EL-i võimaluste kohta — Erasmus, toetused, solidaarsuskorpus, eluase, sinu õigused…",
     "quickErasmusDeadlines": "Erasmuse tähtajad",
     "quickFindGrant": "Leia toetus",
     "quickEuYouthRights": "EL-i noorte õigused",
     "reachError": "Ma ei suutnud praegu oma ajuni jõuda ({{error}}).",
     "presenceOnline": "võrgus · veeb + EL-i indeks",
-    "typing": "Pip kirjutab…",
-    "inputPlaceholder": "Saada Pipile sõnum…"
+    "typing": "Hop kirjutab…",
+    "inputPlaceholder": "Saada Hopile sõnum…"
   },
   "docs": {
     "screenTitle": "Dokumendid",
-    "promptPrefix": "Lisa fail ja Pip ",
+    "promptPrefix": "Lisa fail ja Hop ",
     "promptHighlight": "loeb, sorteerib ja jätab meelde",
     "promptSuffix": " selle.",
     "uploadButton": "Laadi üles",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Õpitulemuste väljavõte",
     "transcriptSub": "Ootab kinnitamist",
     "rentalTitle": "Üürileping",
-    "rentalSub": "Mustand · jagatud Pipiga"
+    "rentalSub": "Mustand · jagatud Hopiga"
   },
   "upload": {
     "screenTitle": "Lisa dokument",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Skanni kaameraga",
     "uploadingEyebrow": "LAADIN ÜLES",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip loeb seda — tõmban automaatselt välja su ",
+    "readingPrefix": "Hop loeb seda — tõmban automaatselt välja su ",
     "readingHighlight": "ülikooli ja kuupäevad",
     "readingSuffix": ".",
     "readingButton": "Loen…"
   },
   "erasmus": {
     "title": "Erasmus+ abiline",
-    "watchingScreen": "Pip jälgib su ekraani",
+    "watchingScreen": "Hop jälgib su ekraani",
     "guiding": "Juhendan sind läbi vormi",
     "recBadge": "SALV"
   },
@@ -139,7 +139,7 @@
     "language": "Keel",
     "voice": "Hoppy hääl",
     "pushNotifications": "Tõuketeated",
-    "letPipSeeScreen": "Luba Pipil näha mu ekraani",
+    "letPipSeeScreen": "Luba Hopil näha mu ekraani",
     "shareAnonymousData": "Jaga anonüümseid andmeid",
     "privacyData": "Privaatsus ja andmed",
     "helpSupport": "Abi ja EL-i tugi",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Teavitused",
-    "body": "Saa meeldetuletusi tähtaegade, toetuste ja Pipi vastuste kohta.",
+    "body": "Saa meeldetuletusi tähtaegade, toetuste ja Hopi vastuste kohta.",
     "receive": "Võta teavitused vastu",
     "onHint": "Saad meeldetuletusi ka siis, kui rakendus on suletud.",
     "offHint": "Lülita see sisse, et saada meeldetuletusi tähtaegade ja vastuste kohta."

@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetToby": "Meet Toby",
+    "meetHop": "Meet Hop",
     "welcomeSub": "Your buddy for life in the EU — grants, Erasmus, housing, and every form in between.",
     "continueWithEuId": "Continue with EU ID",
     "exploreAsGuest": "Explore as guest",
@@ -101,22 +101,22 @@
     "greetingEvening": "Good evening",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Connecting…",
-    "tapToTalk": "Tap to talk with Pip",
-    "askPipPlaceholder": "Ask Pip anything…"
+    "tapToTalk": "Tap to talk with Hop",
+    "askPipPlaceholder": "Ask Hop anything…"
   },
   "chat": {
-    "seedGreeting": "Hey! 🐸 I’m Pip. Ask me anything about EU opportunities — Erasmus, grants, the Solidarity Corps, housing, your rights…",
+    "seedGreeting": "Hey! 🐸 I’m Hop. Ask me anything about EU opportunities — Erasmus, grants, the Solidarity Corps, housing, your rights…",
     "quickErasmusDeadlines": "Erasmus deadlines",
     "quickFindGrant": "Find a grant",
     "quickEuYouthRights": "EU youth rights",
     "reachError": "I couldn’t reach my brain just now ({{error}}).",
     "presenceOnline": "online · web + EU index",
-    "typing": "Pip is typing…",
-    "inputPlaceholder": "Message Pip…"
+    "typing": "Hop is typing…",
+    "inputPlaceholder": "Message Hop…"
   },
   "docs": {
     "screenTitle": "Documents",
-    "promptPrefix": "Drop a file and Pip will ",
+    "promptPrefix": "Drop a file and Hop will ",
     "promptHighlight": "read, sort & remember",
     "promptSuffix": " it.",
     "uploadButton": "Upload",
@@ -129,7 +129,7 @@
     "transcriptTitle": "Transcript of records",
     "transcriptSub": "Awaiting verification",
     "rentalTitle": "Rental agreement",
-    "rentalSub": "Draft · shared with Pip"
+    "rentalSub": "Draft · shared with Hop"
   },
   "upload": {
     "screenTitle": "Add document",
@@ -139,14 +139,14 @@
     "scanCameraButton": "Scan with camera",
     "uploadingEyebrow": "UPLOADING",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip is reading it — I’ll pull out your ",
+    "readingPrefix": "Hop is reading it — I’ll pull out your ",
     "readingHighlight": "university & dates",
     "readingSuffix": " automatically.",
     "readingButton": "Reading…"
   },
   "erasmus": {
     "title": "Erasmus+ helper",
-    "watchingScreen": "Pip is watching your screen",
+    "watchingScreen": "Hop is watching your screen",
     "guiding": "Guiding you through the form",
     "recBadge": "REC"
   },
@@ -157,7 +157,7 @@
     "language": "Language",
     "voice": "Hoppy's voice",
     "pushNotifications": "Push notifications",
-    "letPipSeeScreen": "Let Pip see my screen",
+    "letPipSeeScreen": "Let Hop see my screen",
     "shareAnonymousData": "Share anonymous data",
     "privacyData": "Privacy & data",
     "helpSupport": "Help & EU support",
@@ -175,7 +175,7 @@
   },
   "notifications": {
     "title": "Notifications",
-    "body": "Get reminders about deadlines, grants and replies from Pip.",
+    "body": "Get reminders about deadlines, grants and replies from Hop.",
     "receive": "Receive notifications",
     "onHint": "You’ll get reminders even when the app is closed.",
     "offHint": "Turn this on to get reminders about deadlines and replies."

@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetToby": "Tutustu Tobyyn",
+    "meetHop": "Tutustu Hopiin",
     "welcomeSub": "Kaverisi elämään EU:ssa — apurahat, Erasmus, asuminen ja kaikki lomakkeet siltä väliltä.",
     "continueWithEuId": "Jatka EU ID:llä",
     "exploreAsGuest": "Tutustu vieraana",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Etusivu",
     "docsLabel": "Asiakirjat",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Minä"
   },
   "location": {
@@ -83,22 +83,22 @@
     "greetingEvening": "Hyvää iltaa",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Yhdistetään…",
-    "tapToTalk": "Napauta puhuaksesi Pipin kanssa",
-    "askPipPlaceholder": "Kysy Pipiltä mitä tahansa…"
+    "tapToTalk": "Napauta puhuaksesi Hopin kanssa",
+    "askPipPlaceholder": "Kysy Hopilta mitä tahansa…"
   },
   "chat": {
-    "seedGreeting": "Hei! 🐸 Olen Pip. Kysy minulta mitä tahansa EU:n mahdollisuuksista — Erasmus, apurahat, solidaarisuusjoukot, asuminen, oikeutesi…",
+    "seedGreeting": "Hei! 🐸 Olen Hop. Kysy minulta mitä tahansa EU:n mahdollisuuksista — Erasmus, apurahat, solidaarisuusjoukot, asuminen, oikeutesi…",
     "quickErasmusDeadlines": "Erasmus-määräajat",
     "quickFindGrant": "Etsi apuraha",
     "quickEuYouthRights": "EU:n nuorten oikeudet",
     "reachError": "En saanut juuri nyt yhteyttä aivoihini ({{error}}).",
     "presenceOnline": "verkossa · web + EU-indeksi",
-    "typing": "Pip kirjoittaa…",
-    "inputPlaceholder": "Viesti Pipille…"
+    "typing": "Hop kirjoittaa…",
+    "inputPlaceholder": "Viesti Hopille…"
   },
   "docs": {
     "screenTitle": "Asiakirjat",
-    "promptPrefix": "Pudota tiedosto, niin Pip ",
+    "promptPrefix": "Pudota tiedosto, niin Hop ",
     "promptHighlight": "lukee, lajittelee ja muistaa",
     "promptSuffix": " sen.",
     "uploadButton": "Lataa",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Opintosuoritusote",
     "transcriptSub": "Odottaa vahvistusta",
     "rentalTitle": "Vuokrasopimus",
-    "rentalSub": "Luonnos · jaettu Pipin kanssa"
+    "rentalSub": "Luonnos · jaettu Hopin kanssa"
   },
   "upload": {
     "screenTitle": "Lisää asiakirja",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Skannaa kameralla",
     "uploadingEyebrow": "LADATAAN",
     "fileMeta": "{{size}} · {{percent}} %",
-    "readingPrefix": "Pip lukee sitä — poimin automaattisesti ",
+    "readingPrefix": "Hop lukee sitä — poimin automaattisesti ",
     "readingHighlight": "yliopistosi ja päivämääräsi",
     "readingSuffix": ".",
     "readingButton": "Luetaan…"
   },
   "erasmus": {
     "title": "Erasmus+-avustaja",
-    "watchingScreen": "Pip katsoo näyttöäsi",
+    "watchingScreen": "Hop katsoo näyttöäsi",
     "guiding": "Opastaa sinua lomakkeen läpi",
     "recBadge": "REC"
   },
@@ -139,7 +139,7 @@
     "language": "Kieli",
     "voice": "Hoppyn ääni",
     "pushNotifications": "Push-ilmoitukset",
-    "letPipSeeScreen": "Anna Pipin nähdä näyttöni",
+    "letPipSeeScreen": "Anna Hopin nähdä näyttöni",
     "shareAnonymousData": "Jaa anonyymejä tietoja",
     "privacyData": "Yksityisyys ja tiedot",
     "helpSupport": "Ohje ja EU-tuki",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Ilmoitukset",
-    "body": "Saat muistutuksia määräajoista, avustuksista ja Pipin vastauksista.",
+    "body": "Saat muistutuksia määräajoista, avustuksista ja Hopin vastauksista.",
     "receive": "Vastaanota ilmoituksia",
     "onHint": "Saat muistutuksia, vaikka sovellus olisi suljettu.",
     "offHint": "Ota tämä käyttöön saadaksesi muistutuksia määräajoista ja vastauksista."

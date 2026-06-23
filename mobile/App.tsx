@@ -576,7 +576,7 @@ function AppInner() {
 
       {/* Active screen */}
       <View style={{ flex: 1 }}>
-        {/* Home: the Pip hub. When the agent opens a form, the canvas slides up OVER this and the
+        {/* Home: the Hop hub. When the agent opens a form, the canvas slides up OVER this and the
             persistent Mascot (below) glides into the canvas dock — no hard swap. */}
         {screen === 'home' && (
           <MainScreen

@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetToby": "Γνώρισε τον Toby",
+    "meetHop": "Γνώρισε τον Hop",
     "welcomeSub": "Ο φίλος σου για τη ζωή στην ΕΕ — επιχορηγήσεις, Erasmus, στέγαση και κάθε φόρμα ενδιάμεσα.",
     "continueWithEuId": "Συνέχεια με EU ID",
     "exploreAsGuest": "Εξερεύνησε ως επισκέπτης",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Αρχική",
     "docsLabel": "Έγγραφα",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Εγώ"
   },
   "location": {
@@ -83,22 +83,22 @@
     "greetingEvening": "Καλησπέρα",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Σύνδεση…",
-    "tapToTalk": "Πάτησε για να μιλήσεις με τον Pip",
-    "askPipPlaceholder": "Ρώτησε τον Pip οτιδήποτε…"
+    "tapToTalk": "Πάτησε για να μιλήσεις με τον Hop",
+    "askPipPlaceholder": "Ρώτησε τον Hop οτιδήποτε…"
   },
   "chat": {
-    "seedGreeting": "Γεια! 🐸 Είμαι ο Pip. Ρώτησέ με οτιδήποτε για τις ευκαιρίες στην ΕΕ — Erasmus, επιχορηγήσεις, το Ευρωπαϊκό Σώμα Αλληλεγγύης, στέγαση, τα δικαιώματά σου…",
+    "seedGreeting": "Γεια! 🐸 Είμαι ο Hop. Ρώτησέ με οτιδήποτε για τις ευκαιρίες στην ΕΕ — Erasmus, επιχορηγήσεις, το Ευρωπαϊκό Σώμα Αλληλεγγύης, στέγαση, τα δικαιώματά σου…",
     "quickErasmusDeadlines": "Προθεσμίες Erasmus",
     "quickFindGrant": "Βρες μια επιχορήγηση",
     "quickEuYouthRights": "Δικαιώματα νέων ΕΕ",
     "reachError": "Δεν μπόρεσα να φτάσω στο μυαλό μου αυτή τη στιγμή ({{error}}).",
     "presenceOnline": "συνδεδεμένος · web + ευρετήριο ΕΕ",
-    "typing": "Ο Pip πληκτρολογεί…",
-    "inputPlaceholder": "Μήνυμα στον Pip…"
+    "typing": "Ο Hop πληκτρολογεί…",
+    "inputPlaceholder": "Μήνυμα στον Hop…"
   },
   "docs": {
     "screenTitle": "Έγγραφα",
-    "promptPrefix": "Ρίξε ένα αρχείο και ο Pip θα το ",
+    "promptPrefix": "Ρίξε ένα αρχείο και ο Hop θα το ",
     "promptHighlight": "διαβάσει, ταξινομήσει & θυμηθεί",
     "promptSuffix": ".",
     "uploadButton": "Μεταφόρτωση",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Αναλυτική βαθμολογία",
     "transcriptSub": "Αναμονή επαλήθευσης",
     "rentalTitle": "Συμφωνητικό μίσθωσης",
-    "rentalSub": "Πρόχειρο · κοινοποιήθηκε στον Pip"
+    "rentalSub": "Πρόχειρο · κοινοποιήθηκε στον Hop"
   },
   "upload": {
     "screenTitle": "Προσθήκη εγγράφου",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Σάρωση με κάμερα",
     "uploadingEyebrow": "ΜΕΤΑΦΟΡΤΩΣΗ",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Ο Pip το διαβάζει — θα βγάλω αυτόματα το ",
+    "readingPrefix": "Ο Hop το διαβάζει — θα βγάλω αυτόματα το ",
     "readingHighlight": "πανεπιστήμιο & τις ημερομηνίες σου",
     "readingSuffix": ".",
     "readingButton": "Διαβάζω…"
   },
   "erasmus": {
     "title": "Βοηθός Erasmus+",
-    "watchingScreen": "Ο Pip παρακολουθεί την οθόνη σου",
+    "watchingScreen": "Ο Hop παρακολουθεί την οθόνη σου",
     "recBadge": "REC",
     "guiding": "Σε καθοδηγώ μέσα στη φόρμα"
   },
@@ -138,7 +138,7 @@
     "student": "Φοιτητής",
     "language": "Γλώσσα",
     "pushNotifications": "Ειδοποιήσεις push",
-    "letPipSeeScreen": "Άσε τον Pip να βλέπει την οθόνη μου",
+    "letPipSeeScreen": "Άσε τον Hop να βλέπει την οθόνη μου",
     "shareAnonymousData": "Κοινοποίηση ανώνυμων δεδομένων",
     "privacyData": "Απόρρητο & δεδομένα",
     "helpSupport": "Βοήθεια & υποστήριξη ΕΕ",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Ειδοποιήσεις",
-    "body": "Λάβε υπενθυμίσεις για προθεσμίες, επιχορηγήσεις και απαντήσεις από τον Pip.",
+    "body": "Λάβε υπενθυμίσεις για προθεσμίες, επιχορηγήσεις και απαντήσεις από τον Hop.",
     "receive": "Λήψη ειδοποιήσεων",
     "onHint": "Θα λαμβάνεις υπενθυμίσεις ακόμη κι όταν η εφαρμογή είναι κλειστή.",
     "offHint": "Ενεργοποίησέ το για να λαμβάνεις υπενθυμίσεις για προθεσμίες και απαντήσεις."

@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetToby": "Lern Toby kennen",
+    "meetHop": "Lern Hop kennen",
     "welcomeSub": "Dein Buddy fürs Leben in der EU — Förderungen, Erasmus, Wohnen und jedes Formular dazwischen.",
     "continueWithEuId": "Mit EU ID fortfahren",
     "exploreAsGuest": "Als Gast erkunden",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Start",
     "docsLabel": "Docs",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Ich"
   },
   "location": {
@@ -83,22 +83,22 @@
     "greetingEvening": "Guten Abend",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Verbindung wird hergestellt…",
-    "tapToTalk": "Tippe, um mit Pip zu sprechen",
-    "askPipPlaceholder": "Frag Pip alles…"
+    "tapToTalk": "Tippe, um mit Hop zu sprechen",
+    "askPipPlaceholder": "Frag Hop alles…"
   },
   "chat": {
-    "seedGreeting": "Hey! 🐸 Ich bin Pip. Frag mich alles über EU-Möglichkeiten — Erasmus, Förderungen, das Solidaritätskorps, Wohnen, deine Rechte…",
+    "seedGreeting": "Hey! 🐸 Ich bin Hop. Frag mich alles über EU-Möglichkeiten — Erasmus, Förderungen, das Solidaritätskorps, Wohnen, deine Rechte…",
     "quickErasmusDeadlines": "Erasmus-Fristen",
     "quickFindGrant": "Förderung finden",
     "quickEuYouthRights": "EU-Jugendrechte",
     "reachError": "Ich konnte mein Gehirn gerade nicht erreichen ({{error}}).",
     "presenceOnline": "online · Web + EU-Index",
-    "typing": "Pip tippt…",
-    "inputPlaceholder": "Nachricht an Pip…"
+    "typing": "Hop tippt…",
+    "inputPlaceholder": "Nachricht an Hop…"
   },
   "docs": {
     "screenTitle": "Dokumente",
-    "promptPrefix": "Leg eine Datei ab und Pip wird sie ",
+    "promptPrefix": "Leg eine Datei ab und Hop wird sie ",
     "promptHighlight": "lesen, sortieren & merken",
     "promptSuffix": ".",
     "uploadButton": "Hochladen",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Notenübersicht",
     "transcriptSub": "Verifizierung ausstehend",
     "rentalTitle": "Mietvertrag",
-    "rentalSub": "Entwurf · mit Pip geteilt"
+    "rentalSub": "Entwurf · mit Hop geteilt"
   },
   "upload": {
     "screenTitle": "Dokument hinzufügen",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Mit Kamera scannen",
     "uploadingEyebrow": "WIRD HOCHGELADEN",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip liest es — ich hole deine ",
+    "readingPrefix": "Hop liest es — ich hole deine ",
     "readingHighlight": "Uni & Daten",
     "readingSuffix": " automatisch heraus.",
     "readingButton": "Wird gelesen…"
   },
   "erasmus": {
     "title": "Erasmus+ Helfer",
-    "watchingScreen": "Pip schaut auf deinen Bildschirm",
+    "watchingScreen": "Hop schaut auf deinen Bildschirm",
     "recBadge": "REC",
     "guiding": "Ich führe dich durch das Formular"
   },
@@ -138,7 +138,7 @@
     "student": "Studierende:r",
     "language": "Sprache",
     "pushNotifications": "Push-Benachrichtigungen",
-    "letPipSeeScreen": "Pip meinen Bildschirm zeigen",
+    "letPipSeeScreen": "Hop meinen Bildschirm zeigen",
     "shareAnonymousData": "Anonyme Daten teilen",
     "privacyData": "Datenschutz & Daten",
     "helpSupport": "Hilfe & EU-Support",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Benachrichtigungen",
-    "body": "Erhalte Erinnerungen an Fristen, Förderungen und Antworten von Pip.",
+    "body": "Erhalte Erinnerungen an Fristen, Förderungen und Antworten von Hop.",
     "receive": "Benachrichtigungen erhalten",
     "onHint": "Du erhältst Erinnerungen, auch wenn die App geschlossen ist.",
     "offHint": "Aktiviere dies, um Erinnerungen an Fristen und Antworten zu erhalten."

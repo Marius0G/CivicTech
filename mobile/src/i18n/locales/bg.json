@@ -1,6 +1,6 @@
 {
   "login": {
-    "meetToby": "Запознай се с Toby",
+    "meetHop": "Запознай се с Hop",
     "welcomeSub": "Твоят приятел за живота в ЕС — стипендии, Erasmus, жилище и всеки формуляр между тях.",
     "continueWithEuId": "Продължи с EU ID",
     "exploreAsGuest": "Разгледай като гост",
@@ -21,7 +21,7 @@
   "tabbar": {
     "homeLabel": "Начало",
     "docsLabel": "Документи",
-    "pipLabel": "Pip",
+    "pipLabel": "Hop",
     "meLabel": "Аз"
   },
   "location": {
@@ -83,22 +83,22 @@
     "greetingEvening": "Добър вечер",
     "greetingNamed": "{{greeting}}, {{name}}",
     "connecting": "Свързване…",
-    "tapToTalk": "Докосни, за да говориш с Pip",
-    "askPipPlaceholder": "Попитай Pip каквото и да е…"
+    "tapToTalk": "Докосни, за да говориш с Hop",
+    "askPipPlaceholder": "Попитай Hop каквото и да е…"
   },
   "chat": {
-    "seedGreeting": "Здравей! 🐸 Аз съм Pip. Питай ме каквото и да е за възможностите в ЕС — Erasmus, стипендии, Корпуса за солидарност, жилище, правата ти…",
+    "seedGreeting": "Здравей! 🐸 Аз съм Hop. Питай ме каквото и да е за възможностите в ЕС — Erasmus, стипендии, Корпуса за солидарност, жилище, правата ти…",
     "quickErasmusDeadlines": "Срокове за Erasmus",
     "quickFindGrant": "Намери стипендия",
     "quickEuYouthRights": "Права на младежите в ЕС",
     "reachError": "Точно сега не успях да се свържа с мозъка си ({{error}}).",
     "presenceOnline": "онлайн · мрежа + индекс на ЕС",
-    "typing": "Pip пише…",
-    "inputPlaceholder": "Съобщение до Pip…"
+    "typing": "Hop пише…",
+    "inputPlaceholder": "Съобщение до Hop…"
   },
   "docs": {
     "screenTitle": "Документи",
-    "promptPrefix": "Пусни файл и Pip ще го ",
+    "promptPrefix": "Пусни файл и Hop ще го ",
     "promptHighlight": "прочете, подреди и запомни",
     "promptSuffix": ".",
     "uploadButton": "Качи",
@@ -111,7 +111,7 @@
     "transcriptTitle": "Академична справка",
     "transcriptSub": "Очаква потвърждение",
     "rentalTitle": "Договор за наем",
-    "rentalSub": "Чернова · споделена с Pip"
+    "rentalSub": "Чернова · споделена с Hop"
   },
   "upload": {
     "screenTitle": "Добави документ",
@@ -121,14 +121,14 @@
     "scanCameraButton": "Сканирай с камера",
     "uploadingEyebrow": "КАЧВАНЕ",
     "fileMeta": "{{size}} · {{percent}}%",
-    "readingPrefix": "Pip го чете — автоматично ще извадя ",
+    "readingPrefix": "Hop го чете — автоматично ще извадя ",
     "readingHighlight": "университета и датите ти",
     "readingSuffix": ".",
     "readingButton": "Разчитане…"
   },
   "erasmus": {
     "title": "Помощник за Erasmus+",
-    "watchingScreen": "Pip наблюдава екрана ти",
+    "watchingScreen": "Hop наблюдава екрана ти",
     "guiding": "Води те през формуляра",
     "recBadge": "ЗАП"
   },
@@ -139,7 +139,7 @@
     "language": "Език",
     "voice": "Гласът на Hoppy",
     "pushNotifications": "Push известия",
-    "letPipSeeScreen": "Позволи на Pip да вижда екрана ми",
+    "letPipSeeScreen": "Позволи на Hop да вижда екрана ми",
     "shareAnonymousData": "Сподели анонимни данни",
     "privacyData": "Поверителност и данни",
     "helpSupport": "Помощ и поддръжка от ЕС",
@@ -172,7 +172,7 @@
   },
   "notifications": {
     "title": "Известия",
-    "body": "Получавай напомняния за крайни срокове, грантове и отговори от Pip.",
+    "body": "Получавай напомняния за крайни срокове, грантове и отговори от Hop.",
     "receive": "Получавай известия",
     "onHint": "Ще получаваш напомняния дори когато приложението е затворено.",
     "offHint": "Включи това, за да получаваш напомняния за крайни срокове и отговори."

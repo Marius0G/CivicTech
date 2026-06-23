@@ -36,7 +36,7 @@ The autopilot can fill either the **live** ESC form or a **bundled offline snaps
 > Voice (OpenAI Realtime) and RAG still need the network. Only the *form page* is cacheable.
 
 ## 3. Rehearsed demo script
-1. **Login** → tap "Login with EU ID" (mocked) → land on the Pip hub.
+1. **Login** → tap "Login with EU ID" (mocked) → land on the Hop hub.
 2. **(Optional) Scan ID** → "📄 Scan my ID" → review → Save. *Skip live if Wi-Fi is shaky —
    the profile is already locked to Maria by `run_demo.ps1`.*
 3. **Tap the mic** and ask, verbatim, the pre-warmed questions:
