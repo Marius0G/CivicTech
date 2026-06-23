@@ -28,6 +28,15 @@ class Settings:
     # Speech speed for the output voice (1.0 = normal). Higher = faster talking.
     realtime_speed: float = float(os.getenv("OPENAI_REALTIME_SPEED", "1.3"))
 
+    # --- Turn detection (server VAD) ---------------------------------------------------------
+    # How sensitive the mic is to "the user started talking" (and thus when to interrupt Hoppy).
+    # The OpenAI default (0.5) is twitchy: a cough, a door, keyboard clicks all trigger a barge-in.
+    # We raise the threshold and lengthen the required silence so ONLY real, sustained speech
+    # interrupts. near_field noise reduction further filters background hum before the VAD sees it.
+    realtime_vad_threshold: float = float(os.getenv("OPENAI_REALTIME_VAD_THRESHOLD", "0.92"))
+    realtime_vad_prefix_ms: int = int(os.getenv("OPENAI_REALTIME_VAD_PREFIX_MS", "300"))
+    realtime_vad_silence_ms: int = int(os.getenv("OPENAI_REALTIME_VAD_SILENCE_MS", "750"))
+
     # Embedding model for the EU-knowledge RAG index (Phase 4).
     embedding_model: str = os.getenv("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")
 

@@ -11,6 +11,7 @@
   "dependencies": {
     "@expo-google-fonts/bricolage-grotesque": "^0.4.1",
     "@expo-google-fonts/plus-jakarta-sans": "^0.4.2",
+    "@expo/metro-runtime": "~56.0.15",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
     "@rive-app/react-native": "^0.4.11",
@@ -27,11 +28,13 @@
     "expo-status-bar": "~56.0.4",
     "phosphor-react-native": "^3.0.6",
     "react": "19.2.3",
+    "react-dom": "19.2.3",
     "react-native": "0.85.3",
     "react-native-incall-manager": "^4.2.1",
     "react-native-nitro-modules": "^0.35.9",
     "react-native-safe-area-context": "~5.7.0",
     "react-native-svg": "15.15.4",
+    "react-native-web": "^0.21.2",
     "react-native-webrtc": "^124.0.7",
     "react-native-webview": "13.16.1",
     "three": "^0.184.0"

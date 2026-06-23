@@ -1,0 +1,20 @@
+# Keep the image small and clean. NOTE: .chroma is intentionally NOT ignored —
+# we bake the seeded vector DB into the image (see Dockerfile).
+.venv/
+venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.log
+.env
+.env.example
+.chroma_livetest/
+.cache/
+
+# Dev-only scripts not needed at runtime.
+test_*.py
+test_payload.py
+crawl_eu.py
+scrape_eu.py
+mock_openai.py
+README.md

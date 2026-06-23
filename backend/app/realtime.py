@@ -30,6 +30,18 @@ def build_session_payload(settings: Settings) -> dict[str, Any]:
             "tools": TOOL_DEFS,
             "tool_choice": "auto",
             "audio": {
+                "input": {
+                    # Filter background noise BEFORE the VAD decides "is this speech?".
+                    "noise_reduction": {"type": "near_field"},
+                    # Only a real, sustained voice should interrupt Hoppy — a high threshold plus a
+                    # longer trailing-silence window keeps coughs/clicks/room noise from barging in.
+                    "turn_detection": {
+                        "type": "server_vad",
+                        "threshold": settings.realtime_vad_threshold,
+                        "prefix_padding_ms": settings.realtime_vad_prefix_ms,
+                        "silence_duration_ms": settings.realtime_vad_silence_ms,
+                    },
+                },
                 "output": {
                     "voice": settings.realtime_voice,
                     "speed": settings.realtime_speed,

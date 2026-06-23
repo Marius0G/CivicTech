@@ -12,7 +12,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { View } from 'react-native';
-import { Canvas, useFrame } from '@react-three/fiber/native';
+import { Canvas, useFrame } from './r3f';
 import * as THREE from 'three';
 import { MascotProps } from './mascotProps';
 import { loadGlb, LoadedGlb } from './glbLoader';

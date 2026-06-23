@@ -29,12 +29,19 @@ interface Props {
   size: number;
   onMeasure: (r: Rect) => void;
   style?: ViewStyle;
+  /**
+   * Bump this number to force a fresh re-measure burst. Needed on web: opening a form pops a new
+   * browser tab, which backgrounds the app tab and PAUSES the slide animation — every onLayout-
+   * driven measure then captures the still-off-screen (pre-slide) position. When the tab refocuses
+   * and the canvas settles, App bumps this so the dock anchor re-reads its real, on-screen rect.
+   */
+  remeasure?: number;
 }
 
 // Re-measure offsets (ms) — spaced across a typical slide so the final one lands after it settles.
 const RESETTLE_MS = [60, 250, 500, 750];
 
-export default function Anchor({ size, onMeasure, style }: Props) {
+export default function Anchor({ size, onMeasure, style, remeasure }: Props) {
   const ref = useRef<View>(null);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
@@ -51,6 +58,15 @@ export default function Anchor({ size, onMeasure, style }: Props) {
     timers.current.forEach(clearTimeout);
     timers.current = RESETTLE_MS.map((ms) => setTimeout(measure, ms));
   }, [measure]);
+
+  // External re-measure trigger (e.g. the canvas finished sliding in after the web tab refocused).
+  // Re-run the same burst; idempotent for static anchors, corrective for ones that settled late.
+  useEffect(() => {
+    if (remeasure === undefined) return;
+    measure();
+    timers.current.forEach(clearTimeout);
+    timers.current = RESETTLE_MS.map((ms) => setTimeout(measure, ms));
+  }, [remeasure, measure]);
 
   useEffect(() => () => { timers.current.forEach(clearTimeout); }, []);
 

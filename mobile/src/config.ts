@@ -4,10 +4,14 @@
 // Use your laptop's LAN IP (run `ipconfig` on Windows → IPv4 Address), e.g. 192.168.1.42.
 // Both phone and laptop must be on the same Wi-Fi.
 
-// USB-connected phone: we run `adb reverse tcp:8000 tcp:8000`, so the phone reaches the
-// laptop backend at localhost:8000. (Untethered alternative: use the laptop Wi-Fi IP, e.g.
-// http://10.132.10.158:8000, with both on the same Wi-Fi and port 8000 allowed by firewall.)
-export const BACKEND_URL = 'http://localhost:8000';
+// PRODUCTION: backend hosted on Azure Container Apps (Sweden Central), reachable from
+// anywhere over HTTPS. No Wi-Fi/adb needed.
+export const BACKEND_URL = 'https://civictech-backend.jollyground-eead5389.swedencentral.azurecontainerapps.io';
+
+// LOCAL DEV alternative: run the backend on the laptop and use one of these instead.
+//   USB-connected phone: `adb reverse tcp:8000 tcp:8000`, then 'http://localhost:8000'.
+//   Same Wi-Fi: laptop LAN IP, e.g. 'http://10.132.10.158:8000' (open port 8000 in firewall).
+// export const BACKEND_URL = 'http://localhost:8000';
 
 // OpenAI Realtime WebRTC SDP endpoint (model is set server-side at token mint).
 export const OPENAI_CALLS_URL = 'https://api.openai.com/v1/realtime/calls';

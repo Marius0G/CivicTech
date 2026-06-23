@@ -3,7 +3,7 @@
 // keeps the autopilot ref); the REC chrome + Pip coaching dock are ours.
 
 import React from 'react';
-import { Pressable, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { Platform, Pressable, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Anchor, { Rect } from '../ui/Anchor';
 import { MASCOT_DOCK_SIZE } from '../mascotProps';
@@ -19,10 +19,12 @@ interface Props {
   children: React.ReactNode; // the live WebView (owned by App)
   /** Report the coaching-dock slot's window rect so App can fly the persistent Mascot into it. */
   onDockAnchor: (r: Rect) => void;
+  /** Bump to force the dock Anchor to re-measure (web: the slide settles after the tab refocuses). */
+  dockRemeasure?: number;
 }
 
 export default function ErasmusHelperScreen({
-  host, coaching, onClose, onConfirm, children, onDockAnchor,
+  host, coaching, onClose, onConfirm, children, onDockAnchor, dockRemeasure,
 }: Props) {
   const insets = useSafeAreaInsets();
   return (
@@ -35,8 +37,10 @@ export default function ErasmusHelperScreen({
             <Icon name="arrow-left" size={20} />
           </Pressable>
           <View style={styles.flex}>
-            <Text style={styles.title}>Erasmus+ helper</Text>
-            <Text style={styles.watching}>● Pip is watching your screen</Text>
+            <Text style={styles.title}>Web Assistant</Text>
+            <Text style={styles.watching}>
+              {Platform.OS === 'web' ? '● Guiding you through the form' : '● Pip is watching your screen'}
+            </Text>
           </View>
           <View style={styles.recBadge}><Text style={styles.recText}>● REC</Text></View>
         </View>
@@ -55,7 +59,7 @@ export default function ErasmusHelperScreen({
         {/* Pip coaching dock */}
         <View style={[styles.dock, { marginBottom: space.s4 + insets.bottom }]}>
           {/* Dock slot — the persistent Mascot overlay (App) flies in here while Pip is driving. */}
-          <Anchor size={MASCOT_DOCK_SIZE} onMeasure={onDockAnchor} />
+          <Anchor size={MASCOT_DOCK_SIZE} onMeasure={onDockAnchor} remeasure={dockRemeasure} />
           <Text style={styles.coaching} numberOfLines={3}>{coaching}</Text>
           <Pressable style={[styles.check, shadow.primary]} onPress={onConfirm}>
             <Icon name="check" size={22} color={colors.onPrimary} />

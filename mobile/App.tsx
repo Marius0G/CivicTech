@@ -9,7 +9,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { View, StatusBar, Platform, PermissionsAndroid, Modal, Animated, StyleSheet, Dimensions } from 'react-native';
-import { WebView, WebViewMessageEvent } from 'react-native-webview';
+import FormCanvas, { FormCanvasHandle } from './src/FormCanvas';
 import {
   useFonts,
   PlusJakartaSans_400Regular, PlusJakartaSans_500Medium, PlusJakartaSans_600SemiBold,
@@ -71,10 +71,8 @@ function AppInner() {
     BricolageGrotesque_700Bold, BricolageGrotesque_800ExtraBold,
   });
 
-  const webRef = useRef<WebView>(null);
+  const formCanvasRef = useRef<FormCanvasHandle>(null);
   const voiceRef = useRef<RealtimeHandle | null>(null);
-  // Pending WebView injections, keyed by requestId, resolved by onMessage.
-  const pendingRef = useRef<Map<string, (msg: any) => void>>(new Map());
   const reqCounter = useRef(0);
 
   const [formUrl, setFormUrl] = useState(ESC_ELIGIBILITY_URL);
@@ -85,6 +83,9 @@ function AppInner() {
   // Measured window rects of the two Mascot slots — App flies ONE persistent Mascot between them.
   const [homeAnchor, setHomeAnchor] = useState<Rect | null>(null);
   const [dockAnchor, setDockAnchor] = useState<Rect | null>(null);
+  // Bumped to force the dock Anchor to re-measure once the canvas has actually settled on screen
+  // (critical on web — opening the form backgrounds the tab and freezes the slide mid-flight).
+  const [dockRemeasure, setDockRemeasure] = useState(0);
   // 0 = frog centered on Home (hero) · 1 = frog docked in the canvas (in control).
   const controlProgress = useRef(new Animated.Value(0)).current;
   // 0 = canvas off-screen below · 1 = canvas fully up.
@@ -176,9 +177,26 @@ function AppInner() {
       toValue: canvasOpen ? 1 : 0,
       useNativeDriver: true, damping: 20, stiffness: 120, mass: 0.9,
     });
-    anim.start(({ finished }) => { if (finished && !canvasOpen) setCanvasMounted(false); });
+    anim.start(({ finished }) => {
+      if (!finished) return;
+      if (canvasOpen) setDockRemeasure((n) => n + 1); // canvas has settled — re-read the dock rect
+      else setCanvasMounted(false);
+    });
     return () => anim.stop();
   }, [canvasOpen, canvasProgress]);
+
+  // Web only: opening the form pops a new tab, which pauses this tab's animations/timers so the
+  // dock anchor gets measured while still off-screen. When the user comes back, re-measure it.
+  useEffect(() => {
+    if (Platform.OS !== 'web' || typeof document === 'undefined') return;
+    const onFocus = () => { if (canvasOpen) setDockRemeasure((n) => n + 1); };
+    window.addEventListener('focus', onFocus);
+    document.addEventListener('visibilitychange', onFocus);
+    return () => {
+      window.removeEventListener('focus', onFocus);
+      document.removeEventListener('visibilitychange', onFocus);
+    };
+  }, [canvasOpen]);
 
   // Fly the frog to the dock only once the canvas is open AND the dock slot is measured (so the
   // target is real); otherwise glide it back to the Home hero.
@@ -191,40 +209,25 @@ function AppInner() {
     return () => anim.stop();
   }, [canvasOpen, dockAnchor, controlProgress]);
 
-  // --- WebView injection with async result correlation ---
-  function injectAndWait(js: string, requestId: string): Promise<any> {
-    return new Promise((resolve) => {
-      const timer = setTimeout(() => {
-        pendingRef.current.delete(requestId);
-        resolve({ result: { ok: false, errors: ['webview timeout'] } });
-      }, 8000);
-      pendingRef.current.set(requestId, (msg) => {
-        clearTimeout(timer);
-        resolve(msg);
-      });
-      webRef.current?.injectJavaScript(js);
-    });
-  }
-
-  function onMessage(e: WebViewMessageEvent) {
-    let msg: any;
-    try {
-      msg = JSON.parse(e.nativeEvent.data);
-    } catch {
-      return;
-    }
-    if (msg.requestId && pendingRef.current.has(msg.requestId)) {
-      pendingRef.current.get(msg.requestId)!(msg);
-      pendingRef.current.delete(msg.requestId);
-    }
-  }
-
   // --- Tool routing context ---
+  // WebView injection now lives inside FormCanvas (native); on web it returns a "not available"
+  // result and the form opens in a new tab instead (see openForm below).
+  const injectAndWait = (js: string, requestId: string): Promise<any> =>
+    formCanvasRef.current
+      ? formCanvasRef.current.injectAndWait(js, requestId)
+      : Promise.resolve({ result: { ok: false, errors: ['form canvas not ready'] } });
+
   const toolCtx: ToolContext = {
     backendUrl: BACKEND_URL,
     newRequestId: () => `r${++reqCounter.current}`,
-    // A form is requested by the agent → slide the canvas up and dock the frog.
-    openForm: async (url: string) => { openCanvas(url); },
+    // A form is requested by the agent → slide the canvas up and dock the frog. On web a browser
+    // can't script a cross-origin gov form, so we also open the real form in a new tab.
+    openForm: async (url: string) => {
+      openCanvas(url);
+      if (Platform.OS === 'web' && typeof window !== 'undefined') {
+        try { window.open(url, '_blank', 'noopener'); } catch { /* popup blocked — canvas explains */ }
+      }
+    },
     injectAndWait,
     callServerTool: async (name, args) => {
       const res = await fetch(`${BACKEND_URL}/tools/${name}`, {
@@ -244,10 +247,24 @@ function AppInner() {
     return undefined;
   }
 
+  // A friendly, natural-language line for the coaching dock — NEVER raw tool JSON. Describes what
+  // Hoppy is doing right now in words the user can act on.
+  function coachingLine(name: string, args: any): string {
+    switch (name) {
+      case 'open_form': return 'Opening the official form — I’ll tell you exactly what to type in each field.';
+      case 'fill_form': return 'Reading out your details — type them into the form as I go.';
+      case 'read_page': return 'Taking a look at the page…';
+      case 'get_profile': return 'Checking your saved profile…';
+      case 'search_eu_info': return args?.query ? `Looking that up: “${args.query}”…` : 'Searching the EU info I have…';
+      case 'web_search': return args?.query ? `Searching the web: “${args.query}”…` : 'Searching the web…';
+      default: return 'Working on it…';
+    }
+  }
+
   async function handleFunctionCall(call: FunctionCall) {
     let args: any = {};
     try { args = JSON.parse(call.arguments || '{}'); } catch { /* keep {} */ }
-    setLastTool(`${call.name}…`);
+    setLastTool(coachingLine(call.name, args));
     // Surface the tool call as a live card.
     const evId = `t${++toolCounter.current}`;
     setToolEvents((prev) => [
@@ -256,7 +273,8 @@ function AppInner() {
     ].slice(-20));
     try {
       const output = await executeTool(call.name, args, toolCtx);
-      setLastTool(`${call.name} → ${output.slice(0, 80)}`);
+      // Keep the dock human: a short "done" cue, never the raw tool JSON.
+      setLastTool('Done — listen to Hoppy for the next step.');
       setToolEvents((prev) => prev.map((e) => (e.id === evId ? { ...e, status: 'done' as const } : e)));
       // Celebrate the moment the form is successfully filled; otherwise a quick acknowledging nod.
       if (call.name === 'fill_form') {
@@ -267,7 +285,7 @@ function AppInner() {
       voiceRef.current?.sendToolResult(call.call_id, output);
     } catch (err: any) {
       const msg = String(err?.message ?? err);
-      setLastTool(`⚠ ${call.name}: ${msg.slice(0, 80)}`);
+      setLastTool('Hmm, that didn’t work — let’s try that again.');
       setToolEvents((prev) => prev.map((e) => (e.id === evId ? { ...e, status: 'error' as const } : e)));
       fireGesture('Sad'); // honest "oops" when a tool fails
       voiceRef.current?.sendToolResult(call.call_id, JSON.stringify({ error: msg }));
@@ -381,9 +399,12 @@ function AppInner() {
   }
 
   const formHost = (() => { try { return new URL(formUrl).host; } catch { return 'europa.eu'; } })();
+  // `lastTool` now holds a natural-language line (see coachingLine). On web Hoppy can't fill the
+  // cross-origin gov form, so the resting hint points the user at the form tab instead.
   const coaching = lastTool
-    ? `Hoppy · ${lastTool}`
-    : 'Tap the highlighted field and type your home university. I’ll check it’s eligible.';
+    || (Platform.OS === 'web'
+      ? 'Switch to the form tab — I’ll tell you exactly what to type in each field.'
+      : 'Tap the highlighted field and type your home university. I’ll check it’s eligible.');
   const firstName = profile?.name ? profile.name.split(/\s+/)[0] : undefined;
   const showTabBar = (screen === 'home' || screen === 'docs' || screen === 'profile') && !canvasOpen;
   const tabActive: TabKey = screen === 'upload' ? 'docs' : (screen as TabKey);
@@ -392,10 +413,13 @@ function AppInner() {
   // between the Home hero rect (control 0) and the canvas dock rect (control 1). Scale is around
   // the box centre, so we offset translate by HERO/2 to keep the centre on the measured point.
   const HERO = MASCOT_HERO_SIZE;
+  // The SVG frog's visual mass sits below its bounding-box centre (crown + raised hand up top), so
+  // centring the box on the dock slot reads as "floating high". Nudge the docked frog down a touch.
+  const DOCK_NUDGE_Y = 12;
   const hx = homeAnchor?.cx ?? 0, hy = homeAnchor?.cy ?? 0;
   const dx = dockAnchor?.cx ?? hx, dy = dockAnchor?.cy ?? hy;
   const frogTx = controlProgress.interpolate({ inputRange: [0, 1], outputRange: [hx - HERO / 2, dx - HERO / 2] });
-  const frogTy = controlProgress.interpolate({ inputRange: [0, 1], outputRange: [hy - HERO / 2, dy - HERO / 2] });
+  const frogTy = controlProgress.interpolate({ inputRange: [0, 1], outputRange: [hy - HERO / 2, dy - HERO / 2 + DOCK_NUDGE_Y] });
   const frogScale = controlProgress.interpolate({ inputRange: [0, 1], outputRange: [1, MASCOT_DOCK_SIZE / HERO] });
   const canvasTy = canvasProgress.interpolate({ inputRange: [0, 1], outputRange: [WINDOW_H, 0] });
   // Show the frog on Home, and the whole time the canvas is mounted (it flies into the dock).
@@ -502,15 +526,9 @@ function AppInner() {
             onClose={closeCanvas}
             onConfirm={closeCanvas}
             onDockAnchor={setDockAnchor}
+            dockRemeasure={dockRemeasure}
           >
-            <WebView
-              ref={webRef}
-              source={{ uri: formUrl }}
-              onMessage={onMessage}
-              javaScriptEnabled
-              domStorageEnabled
-              style={{ flex: 1, backgroundColor: '#fff' }}
-            />
+            <FormCanvas ref={formCanvasRef} formUrl={formUrl} />
           </ErasmusHelperScreen>
         </Animated.View>
       )}

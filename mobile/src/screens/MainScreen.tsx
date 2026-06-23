@@ -136,7 +136,7 @@ export default function MainScreen({
           )}
         </View>
         <Text style={styles.micHint} numberOfLines={2}>
-          {connecting ? 'Connecting…' : connected ? voiceStatus : 'Tap to talk with Pip'}
+          {connecting ? 'Connecting…' : connected ? voiceStatus : (voiceStatus || 'Tap to talk with Pip')}
         </Text>
 
         {/* Live tool-call cards (only while connected), in the space below the mic */}
