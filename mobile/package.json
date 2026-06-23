@@ -1,0 +1,47 @@
+{
+  "name": "eu-youth-buddy-mobile",
+  "version": "0.1.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "verify": "node verify-tools.mjs && node verify-mascot.mjs && node verify-audiolevel.mjs"
+  },
+  "dependencies": {
+    "@expo-google-fonts/bricolage-grotesque": "^0.4.1",
+    "@expo-google-fonts/plus-jakarta-sans": "^0.4.2",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@rive-app/react-native": "^0.4.11",
+    "@types/react": "~19.2.14",
+    "expo": "^56.0.0",
+    "expo-asset": "~56.0.17",
+    "expo-camera": "~56.0.8",
+    "expo-dev-client": "~56.0.20",
+    "expo-file-system": "~56.0.8",
+    "expo-gl": "~56.0.5",
+    "expo-image-picker": "~56.0.18",
+    "expo-linear-gradient": "~56.0.4",
+    "expo-location": "~56.0.18",
+    "expo-status-bar": "~56.0.4",
+    "phosphor-react-native": "^3.0.6",
+    "react": "19.2.3",
+    "react-native": "0.85.3",
+    "react-native-incall-manager": "^4.2.1",
+    "react-native-nitro-modules": "^0.35.9",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-svg": "15.15.4",
+    "react-native-webrtc": "^124.0.7",
+    "react-native-webview": "13.16.1",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@config-plugins/react-native-webrtc": "^15.0.1",
+    "@types/three": "^0.184.1",
+    "jsdom": "^25.0.1",
+    "typescript": "^5.3.3"
+  },
+  "private": true
+}

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "blender": {
+      "command": "C:\\bmcp\\venv\\Scripts\\blender-mcp.exe",
+      "args": [],
+      "env": {}
+    }
+  }
+}

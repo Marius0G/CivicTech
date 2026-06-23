@@ -1,0 +1,23 @@
+// "Processing…" screen shown while the captured ID photo is uploaded + read (Phase 3 UX).
+
+import React from 'react';
+import { View, Text, StyleSheet, ActivityIndicator, StatusBar } from 'react-native';
+import Mascot from './Mascot';
+
+export default function IdProcessingScreen() {
+  return (
+    <View style={styles.root}>
+      <StatusBar barStyle="light-content" />
+      <Mascot speaking celebrate={false} size={120} />
+      <ActivityIndicator color="#F5C24B" style={{ marginTop: 28 }} />
+      <Text style={styles.title}>Processing…</Text>
+      <Text style={styles.sub}>Reading your ID</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  root: { flex: 1, backgroundColor: '#05070F', alignItems: 'center', justifyContent: 'center' },
+  title: { color: '#F4F6FB', fontSize: 20, fontWeight: '800', marginTop: 16 },
+  sub: { color: '#AEB6CC', fontSize: 14, marginTop: 6 },
+});

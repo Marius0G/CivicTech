@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Secrets / environment (keep .env.example)
+.env
+.env.local
+
+# Vector store / caches
+.chroma/
+.chroma_livetest/
+.cache/
+
+# Logs
+*.log
+
+# Expo / React Native
+.expo/
+*.jsbundle
+mobile/android/build/
+mobile/android/.gradle/
+mobile/android/local.properties
+
+# Scratch / working artifacts
+/shot*.png
+/character.png
+tools/_*.png
+tools/*.blend
+tools/*.blend1
+tools/*.mark
+
+# OS
+.DS_Store
+Thumbs.db

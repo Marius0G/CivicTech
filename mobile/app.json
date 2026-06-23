@@ -1,0 +1,55 @@
+{
+  "expo": {
+    "name": "EU Youth Buddy",
+    "slug": "eu-youth-buddy",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#0b1437"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Hoppy needs your microphone so you can talk with it.",
+        "NSLocationWhenInUseUsageDescription": "Pip uses your location to show EU opportunities and forms near you."
+      }
+    },
+    "android": {
+      "package": "eu.youthbuddy.app",
+      "permissions": [
+        "RECORD_AUDIO",
+        "MODIFY_AUDIO_SETTINGS",
+        "INTERNET",
+        "CAMERA",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ]
+    },
+    "plugins": [
+      "expo-dev-client",
+      "@config-plugins/react-native-webrtc",
+      "expo-status-bar",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Hoppy reads a photo of your ID to fill EU forms for you."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Hoppy uses the camera to take a clear photo of your ID and fill EU forms for you."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Pip uses your location to show EU opportunities and forms near you."
+        }
+      ],
+      "expo-asset"
+    ]
+  }
+}
