@@ -2,7 +2,8 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
-    "lib": ["dom", "es2020"]
+    "lib": ["dom", "es2020"],
+    "resolveJsonModule": true
   },
   "include": ["**/*.ts", "**/*.tsx"]
 }

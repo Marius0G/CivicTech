@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import TopBar from '../ui/TopBar';
 import Button from '../ui/Button';
@@ -16,17 +17,18 @@ export default function UploadScreen({
   onBack, onBrowse, onScanCamera,
 }: { onBack: () => void; onBrowse: () => void; onScanCamera: () => void }) {
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
   return (
     <View style={styles.safe}>
-      <TopBar title="Add document" onBack={onBack} />
+      <TopBar title={t('upload.screenTitle')} onBack={onBack} />
       <ScrollView contentContainerStyle={styles.body}>
         {/* Dropzone */}
         <View style={styles.dropzone}>
           <View style={styles.cloudCircle}><Icon name="cloud-upload" size={30} color={colors.golden500} weight="fill" /></View>
-          <Text style={styles.dropTitle}>Drop a file here</Text>
-          <Text style={styles.dropSub}>PDF, image or scan · up to 20 MB</Text>
+          <Text style={styles.dropTitle}>{t('upload.dropTitle')}</Text>
+          <Text style={styles.dropSub}>{t('upload.dropSub')}</Text>
           <Button
-            label="Browse files"
+            label={t('upload.browseButton')}
             variant="lime"
             onPress={onBrowse}
             left={<Icon name="paperclip" size={18} color="#26280A" />}
@@ -35,20 +37,20 @@ export default function UploadScreen({
         </View>
 
         <Button
-          label="Scan with camera"
+          label={t('upload.scanCameraButton')}
           variant="ghost"
           block
           onPress={onScanCamera}
           left={<Icon name="camera" size={18} />}
         />
 
-        <Text style={styles.eyebrow}>UPLOADING</Text>
+        <Text style={styles.eyebrow}>{t('upload.uploadingEyebrow')}</Text>
         <Card style={styles.progressCard}>
           <View style={styles.progressRow}>
             <View style={styles.fileTile}><Icon name="file-text" size={20} color={colors.sunset400} /></View>
             <View style={styles.flex}>
               <Text style={styles.fileName} numberOfLines={1}>enrolment-certificate.pdf</Text>
-              <Text style={styles.fileMeta}>1.2 MB · 72%</Text>
+              <Text style={styles.fileMeta}>{t('upload.fileMeta', { size: '1.2 MB', percent: 72 })}</Text>
             </View>
             <Icon name="close" size={18} color={colors.textTertiary} />
           </View>
@@ -58,13 +60,13 @@ export default function UploadScreen({
         <View style={styles.readingRow}>
           <Mascot speaking={false} celebrate={false} size={44} />
           <Text style={styles.readingText}>
-            Pip is reading it — I’ll pull out your <Text style={styles.readingBold}>university & dates</Text> automatically.
+            {t('upload.readingPrefix')}<Text style={styles.readingBold}>{t('upload.readingHighlight')}</Text>{t('upload.readingSuffix')}
           </Text>
         </View>
       </ScrollView>
 
       <View style={[styles.footer, { paddingBottom: space.s4 + insets.bottom }]}>
-        <Button label="Reading…" size="lg" block disabled />
+        <Button label={t('upload.readingButton')} size="lg" block disabled />
       </View>
     </View>
   );

@@ -6,6 +6,7 @@
 // Source of truth: design 665b0df4 — design_handoff/04_SCREENS.md (LoginScreen step 0/1).
 
 import React, { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   ActivityIndicator, Pressable, StatusBar, StyleSheet, Text,
   TextInput, View,
@@ -34,6 +35,7 @@ export default function LoginScreen({ onDone }: Props) {
 
 /* ---------------- Step 0 · Welcome ---------------- */
 function Welcome({ onContinue, onGuest }: { onContinue: () => void; onGuest: () => void }) {
+  const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   return (
     <GradientBackground variant="sunrise">
@@ -41,14 +43,14 @@ function Welcome({ onContinue, onGuest }: { onContinue: () => void; onGuest: () 
       <View style={[styles.flex, { paddingTop: insets.top }]}>
         <View style={styles.welcomeBody}>
           <Mascot speaking={false} celebrate={false} size={132} />
-          <Text style={styles.welcomeTitle}>Meet Pip</Text>
+          <Text style={styles.welcomeTitle}>{t('login.meetPip')}</Text>
           <Text style={styles.welcomeSub}>
-            Your buddy for life in the EU — grants, Erasmus, housing, and every form in between.
+            {t('login.welcomeSub')}
           </Text>
         </View>
         <View style={[styles.welcomeDock, { paddingBottom: space.s6 + insets.bottom }]}>
           <Button
-            label="Continue with EU ID"
+            label={t('login.continueWithEuId')}
             variant="primary"
             size="lg"
             block
@@ -56,8 +58,8 @@ function Welcome({ onContinue, onGuest }: { onContinue: () => void; onGuest: () 
             onPress={onContinue}
             left={<Icon name="scan-face" size={20} color={colors.onPrimary} />}
           />
-          <Button label="Explore as guest" variant="ghost" size="lg" block onPress={onGuest} />
-          <Text style={styles.terms}>By continuing you agree to the EU Youth terms.</Text>
+          <Button label={t('login.exploreAsGuest')} variant="ghost" size="lg" block onPress={onGuest} />
+          <Text style={styles.terms}>{t('login.terms')}</Text>
         </View>
       </View>
     </GradientBackground>
@@ -66,6 +68,7 @@ function Welcome({ onContinue, onGuest }: { onContinue: () => void; onGuest: () 
 
 /* ---------------- Step 1 · EU ID login (mocked SSO) ---------------- */
 function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () => void }) {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('lea.muller@eu.id');
   const [password, setPassword] = useState('passport2026');
   const [showPw, setShowPw] = useState(false);
@@ -90,19 +93,19 @@ function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () =>
           <Pressable onPress={onBack} hitSlop={12} style={styles.backBtn}>
             <Icon name="arrow-left" size={22} />
           </Pressable>
-          <Text style={styles.topTitle}>EU ID login</Text>
+          <Text style={styles.topTitle}>{t('login.euIdLogin')}</Text>
         </View>
 
         <View style={styles.formBody}>
           {/* Secure-SSO info alert (centered) */}
           <View style={styles.alert}>
             <View style={styles.alertBadge}><Icon name="shield-check" size={24} color={colors.euBlue} /></View>
-            <Text style={styles.alertTitle}>Secure single sign-on</Text>
-            <Text style={styles.alertBody}>You'll be redirected to your national eID provider.</Text>
+            <Text style={styles.alertTitle}>{t('login.secureSso')}</Text>
+            <Text style={styles.alertBody}>{t('login.secureSsoBody')}</Text>
           </View>
 
           <Field
-            label="EU ID email"
+            label={t('login.euIdEmail')}
             icon="mail"
             value={email}
             onChangeText={setEmail}
@@ -110,7 +113,7 @@ function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () =>
             autoCapitalize="none"
           />
           <Field
-            label="Password"
+            label={t('login.password')}
             icon="lock"
             value={password}
             onChangeText={setPassword}
@@ -125,22 +128,22 @@ function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () =>
               <View style={[styles.switch, keepSignedIn && styles.switchOn]}>
                 <View style={[styles.knob, keepSignedIn && styles.knobOn]} />
               </View>
-              <Text style={styles.switchLabel}>Keep me signed in</Text>
+              <Text style={styles.switchLabel}>{t('login.keepSignedIn')}</Text>
             </Pressable>
-            <Text style={styles.link}>Forgot?</Text>
+            <Text style={styles.link}>{t('login.forgot')}</Text>
           </View>
 
           {/* Divider */}
           <View style={styles.dividerRow}>
             <View style={styles.dividerLine} />
-            <Text style={styles.dividerLabel}>OR CONTINUE WITH</Text>
+            <Text style={styles.dividerLabel}>{t('login.orContinueWith')}</Text>
             <View style={styles.dividerLine} />
           </View>
 
           <View style={styles.altRow}>
             <View style={styles.altItem}>
               <Button
-                label="Biometric"
+                label={t('login.biometric')}
                 variant="ghost"
                 block
                 onPress={logIn}
@@ -149,7 +152,7 @@ function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () =>
             </View>
             <View style={styles.altItem}>
               <Button
-                label="Scan QR"
+                label={t('login.scanQr')}
                 variant="ghost"
                 block
                 onPress={logIn}
@@ -164,10 +167,10 @@ function EidForm({ onBack, onLoggedIn }: { onBack: () => void; onLoggedIn: () =>
           {authing ? (
             <View style={styles.authingBox}>
               <ActivityIndicator color={colors.primary} />
-              <Text style={styles.authingText}>Signing in with your national eID…</Text>
+              <Text style={styles.authingText}>{t('login.signingIn')}</Text>
             </View>
           ) : (
-            <Button label="Log in" variant="primary" size="lg" block glow onPress={logIn} />
+            <Button label={t('login.logIn')} variant="primary" size="lg" block glow onPress={logIn} />
           )}
         </View>
       </View>

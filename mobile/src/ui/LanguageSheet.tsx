@@ -1,5 +1,6 @@
-// LocationSheet — frosted bottom-sheet city picker (DS overlay/Sheet + LocationSheet screen).
-// Lets the user pick where they are; the chosen label drives the home pill.
+// LanguageSheet — frosted bottom-sheet language picker (same pattern as LocationSheet).
+// Lists the app's supported languages by endonym + flag; tapping one switches the whole app
+// (and Hoppy's voice on the next connection) via the i18n setLanguage helper.
 
 import React, { useMemo, useState } from 'react';
 import {
@@ -8,30 +9,30 @@ import {
 import { useTranslation } from 'react-i18next';
 import Icon from './Icon';
 import { colors, fonts, radius, space } from '../theme';
-
-const CITIES = [
-  'Bucharest, Romania', 'Cluj-Napoca, Romania', 'Paris, France', 'Berlin, Germany',
-  'Madrid, Spain', 'Barcelona, Spain', 'Rome, Italy', 'Milan, Italy', 'Amsterdam, Netherlands',
-  'Brussels, Belgium', 'Vienna, Austria', 'Lisbon, Portugal', 'Warsaw, Poland', 'Kraków, Poland',
-  'Athens, Greece', 'Dublin, Ireland', 'Stockholm, Sweden', 'Copenhagen, Denmark',
-  'Prague, Czechia', 'Budapest, Hungary', 'Sofia, Bulgaria', 'Helsinki, Finland',
-];
+import { LANGUAGES } from '../i18n';
 
 interface Props {
   visible: boolean;
+  /** Currently active language code (e.g. "en"). */
   current: string;
-  onSelect: (city: string) => void;
-  onUseCurrent?: () => void;
+  /** Called with the chosen language code. */
+  onSelect: (code: string) => void;
   onClose: () => void;
 }
 
-export default function LocationSheet({ visible, current, onSelect, onUseCurrent, onClose }: Props) {
+export default function LanguageSheet({ visible, current, onSelect, onClose }: Props) {
   const { t } = useTranslation();
   const [q, setQ] = useState('');
-  const list = useMemo(
-    () => (q ? CITIES.filter((c) => c.toLowerCase().includes(q.toLowerCase())) : CITIES),
-    [q]
-  );
+  const list = useMemo(() => {
+    const needle = q.trim().toLowerCase();
+    if (!needle) return LANGUAGES;
+    return LANGUAGES.filter(
+      (l) =>
+        l.native.toLowerCase().includes(needle) ||
+        l.label.toLowerCase().includes(needle) ||
+        l.code.toLowerCase().includes(needle)
+    );
+  }, [q]);
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose} statusBarTranslucent>
@@ -39,7 +40,7 @@ export default function LocationSheet({ visible, current, onSelect, onUseCurrent
       <View style={styles.sheet}>
         <View style={styles.handle} />
         <View style={styles.head}>
-          <Text style={styles.title}>{t('location.title')}</Text>
+          <Text style={styles.title}>{t('language.title')}</Text>
           <Pressable onPress={onClose} hitSlop={10} style={styles.closeBtn}>
             <Icon name="close" size={18} color={colors.textSecondary} />
           </Pressable>
@@ -50,27 +51,25 @@ export default function LocationSheet({ visible, current, onSelect, onUseCurrent
           <TextInput
             value={q}
             onChangeText={setQ}
-            placeholder={t('location.searchPlaceholder')}
+            placeholder={t('language.searchPlaceholder')}
             placeholderTextColor={colors.textTertiary}
             style={styles.searchInput}
-            autoCapitalize="words"
+            autoCapitalize="none"
+            autoCorrect={false}
           />
         </View>
 
-        {!!onUseCurrent && (
-          <Pressable style={styles.currentRow} onPress={() => { onUseCurrent(); onClose(); }}>
-            <Icon name="map-pin" size={18} color={colors.primary} weight="fill" />
-            <Text style={styles.currentText}>{t('location.useCurrentLocation')}</Text>
-          </Pressable>
-        )}
-
-        <Text style={styles.eyebrow}>{t('location.locationsEyebrow')}</Text>
+        <Text style={styles.eyebrow}>{t('language.eyebrow')}</Text>
         <ScrollView style={styles.list} keyboardShouldPersistTaps="handled">
-          {list.map((c) => {
-            const active = c === current;
+          {list.map((l) => {
+            const active = l.code === current;
             return (
-              <Pressable key={c} style={styles.row} onPress={() => { onSelect(c); onClose(); }}>
-                <Text style={[styles.rowText, active && styles.rowActive]} numberOfLines={1}>{c}</Text>
+              <Pressable key={l.code} style={styles.row} onPress={() => { onSelect(l.code); onClose(); }}>
+                <Text style={styles.flag}>{l.flag}</Text>
+                <View style={styles.labels}>
+                  <Text style={[styles.native, active && styles.activeText]} numberOfLines={1}>{l.native}</Text>
+                  <Text style={styles.englishName} numberOfLines={1}>{l.label}</Text>
+                </View>
                 {active && <Icon name="check" size={16} color={colors.primary} />}
               </Pressable>
             );
@@ -100,17 +99,18 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surfaceRaised, borderRadius: radius.md, borderWidth: 1, borderColor: colors.borderSubtle,
   },
   searchInput: { flex: 1, color: colors.textPrimary, fontFamily: fonts.sansMedium, fontSize: 15, padding: 0 },
-  currentRow: { flexDirection: 'row', alignItems: 'center', gap: space.s3, paddingVertical: space.s4 },
-  currentText: { color: colors.textPrimary, fontFamily: fonts.sansSemibold, fontSize: 16 },
   eyebrow: {
     color: colors.textTertiary, fontFamily: fonts.sansBold, fontSize: 12, letterSpacing: 0.6,
-    paddingTop: space.s2, paddingBottom: space.s1, borderTopWidth: 1, borderTopColor: colors.borderSubtle,
+    paddingTop: space.s4, paddingBottom: space.s1, borderTopWidth: 1, borderTopColor: colors.borderSubtle, marginTop: space.s3,
   },
   list: { flexGrow: 0 },
   row: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+    flexDirection: 'row', alignItems: 'center', gap: space.s3,
     paddingVertical: space.s3, borderBottomWidth: 1, borderBottomColor: colors.borderSubtle,
   },
-  rowText: { color: colors.textPrimary, fontFamily: fonts.sansMedium, fontSize: 16 },
-  rowActive: { color: colors.primary, fontFamily: fonts.sansBold },
+  flag: { fontSize: 24 },
+  labels: { flex: 1 },
+  native: { color: colors.textPrimary, fontFamily: fonts.sansSemibold, fontSize: 16 },
+  activeText: { color: colors.primary, fontFamily: fonts.sansBold },
+  englishName: { color: colors.textTertiary, fontFamily: fonts.sansMedium, fontSize: 13, marginTop: 1 },
 });

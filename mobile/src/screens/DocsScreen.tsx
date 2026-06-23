@@ -2,23 +2,28 @@
 
 import React from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import TopBar, { circleBtnStyle } from '../ui/TopBar';
 import Card from '../ui/Card';
 import Icon, { IconName } from '../ui/Icon';
 import { colors, fonts, radius, space } from '../theme';
 
-const DOCS: { icon: IconName; title: string; sub: string; verified?: boolean }[] = [
-  { icon: 'seal-check', title: 'National ID card', sub: 'Verified · PDF', verified: true },
-  { icon: 'graduation-cap', title: 'Enrolment certificate', sub: 'NOVA Lisbon · 1.2 MB' },
-  { icon: 'file-text', title: 'Transcript of records', sub: 'Awaiting verification' },
-  { icon: 'house', title: 'Rental agreement', sub: 'Draft · shared with Pip' },
+type TFunc = (key: string) => string;
+
+const buildDocs = (t: TFunc): { icon: IconName; title: string; sub: string; verified?: boolean }[] => [
+  { icon: 'seal-check', title: t('docs.idCardTitle'), sub: t('docs.idCardSub'), verified: true },
+  { icon: 'graduation-cap', title: t('docs.enrolmentTitle'), sub: t('docs.enrolmentSub') },
+  { icon: 'file-text', title: t('docs.transcriptTitle'), sub: t('docs.transcriptSub') },
+  { icon: 'house', title: t('docs.rentalTitle'), sub: t('docs.rentalSub') },
 ];
 
 export default function DocsScreen({ onBack, onUpload }: { onBack: () => void; onUpload: () => void }) {
+  const { t } = useTranslation();
+  const DOCS = buildDocs(t);
   return (
     <View style={styles.safe}>
       <TopBar
-        title="Documents"
+        title={t('docs.screenTitle')}
         onBack={onBack}
         trailing={<View style={styles.circleBtn}><Icon name="search" size={19} /></View>}
       />
@@ -27,14 +32,14 @@ export default function DocsScreen({ onBack, onUpload }: { onBack: () => void; o
         <View style={styles.promptCard}>
           <Icon name="cloud-upload" size={28} color={colors.primary} weight="fill" />
           <Text style={styles.promptText}>
-            Drop a file and Pip will <Text style={styles.promptBold}>read, sort & remember</Text> it.
+            {t('docs.promptPrefix')}<Text style={styles.promptBold}>{t('docs.promptHighlight')}</Text>{t('docs.promptSuffix')}
           </Text>
           <Pressable style={styles.uploadBtn} onPress={onUpload}>
-            <Text style={styles.uploadText}>Upload</Text>
+            <Text style={styles.uploadText}>{t('docs.uploadButton')}</Text>
           </Pressable>
         </View>
 
-        <Text style={styles.eyebrow}>YOUR VAULT</Text>
+        <Text style={styles.eyebrow}>{t('docs.vaultEyebrow')}</Text>
 
         <Card style={styles.vault}>
           {DOCS.map((d, i) => (
@@ -48,7 +53,7 @@ export default function DocsScreen({ onBack, onUpload }: { onBack: () => void; o
                 ? (
                   <View style={styles.badge}>
                     <Text style={styles.badgeDot}>●</Text>
-                    <Text style={styles.badgeText}>Verified</Text>
+                    <Text style={styles.badgeText}>{t('docs.verifiedBadge')}</Text>
                   </View>
                 )
                 : <Icon name="kebab" size={18} color={colors.textTertiary} />}

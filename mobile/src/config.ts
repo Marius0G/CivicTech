@@ -11,3 +11,12 @@ export const BACKEND_URL = 'http://localhost:8000';
 
 // OpenAI Realtime WebRTC SDP endpoint (model is set server-side at token mint).
 export const OPENAI_CALLS_URL = 'https://api.openai.com/v1/realtime/calls';
+
+// DEMO-DAY SAFETY: force the autopilot to fill the *bundled* copy of the ESC eligibility form
+// (mobile/assets/eligibility.html) instead of loading youth.europa.eu live. Flip to `true` if
+// conference Wi-Fi / the live site is unreliable — the form fills identically (injection targets
+// the same element IDs). Even when `false`, the WebView auto-falls back to the cached copy if the
+// live load errors or times out (see App.tsx). The bundled snapshot ships with the app.
+export const USE_CACHED_FORM = false;
+// How long to wait for the live form before auto-falling back to the cached copy (ms).
+export const LIVE_FORM_TIMEOUT_MS = 8000;
